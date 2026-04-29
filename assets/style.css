@@ -193,6 +193,55 @@ header.top {
 .detail-strip .ds-meta { color: var(--text-2); font-size: 12.5px; display: flex; gap: 12px; }
 .detail-strip .ds-spacer { margin-left: auto; }
 
+/* Export menu — anchored to the right of the detail-strip */
+.detail-strip-actions { position: relative; margin-left: auto; }
+.export-btn {
+  background: var(--surface); color: var(--text); border: 1px solid var(--border);
+  border-radius: 6px; padding: 6px 12px; font-size: 13px; font-weight: 500;
+  font-family: inherit; cursor: pointer; transition: border-color 0.1s, color 0.1s;
+}
+.export-btn:hover { border-color: var(--indigo); color: var(--indigo); }
+.export-btn.open { border-color: var(--indigo); color: var(--indigo); background: var(--indigo-soft); }
+
+.export-menu {
+  position: absolute; top: calc(100% + 6px); right: 0; z-index: 30;
+  width: 280px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  padding: 10px 0; display: flex; flex-direction: column;
+}
+.export-menu .em-section-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-3); font-weight: 600; padding: 4px 14px 6px;
+}
+.export-menu .em-fmt-row { display: flex; gap: 14px; padding: 0 14px 8px; }
+.export-menu .em-fmt-opt {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  font-size: 13px; color: var(--text); font-weight: 500;
+}
+.export-menu .em-fmt-opt input[type=radio] { cursor: pointer; }
+.export-menu .em-divider {
+  height: 1px; background: var(--border); margin: 4px 0;
+}
+.export-menu .export-menu-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 14px; background: transparent; border: 0;
+  font-family: inherit; font-size: 13px; color: var(--text);
+  text-align: left; cursor: pointer; width: 100%;
+  transition: background 0.08s;
+}
+.export-menu .export-menu-item:hover:not(:disabled) { background: var(--bg); }
+.export-menu .export-menu-item:disabled { opacity: 0.45; cursor: not-allowed; }
+.export-menu .em-label { flex: 1; }
+.export-menu .em-count {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: var(--text-3); font-weight: 600; min-width: 22px; text-align: right;
+}
+.export-menu .em-foot {
+  font-size: 11px; color: var(--text-3); padding: 6px 14px 0;
+  border-top: 1px solid var(--border); margin-top: 4px;
+}
+
 /* ===== Group cards (Reports / Projects) ===== */
 .group-list {
   padding: 16px 24px; display: flex; flex-direction: column; gap: 12px;
