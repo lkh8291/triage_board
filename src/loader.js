@@ -5,7 +5,7 @@
 // Triage + reports: parallel per-file fetch (small enough for now).
 // 30s polling (HANDOFF Phase 5) plugs in here once we want auto-refresh.
 
-import { getTree, getJson } from './api.js';
+import { getTree, getJson, getJsonRaw } from './api.js';
 
 const FINDING_RE  = /^findings\/(?!index\.json$)[^/]+\.json$/;
 const INDEX_PATH  = 'findings/index.json';
@@ -28,10 +28,11 @@ export async function loadAll() {
 
   let findings;
   if (hasIndex) {
-    // Single fetch — no rate-limit risk regardless of finding count.
-    // _shallow flag tells the detail view to lazy-fetch the full JSON.
-    // _path is derived from id (file naming convention is `findings/${id}.json`).
-    const { json } = await getJson(INDEX_PATH);
+    // Index is multi-MB once findings >3K — must use raw media type (the JSON
+    // endpoint returns content="" past 1MB). _shallow flag tells the detail
+    // view to lazy-fetch the full JSON; _path is derived from id (file naming
+    // convention is `findings/${id}.json`).
+    const { json } = await getJsonRaw(INDEX_PATH);
     findings = (json.findings || []).map(f => ({
       ...f,
       _shallow: true,

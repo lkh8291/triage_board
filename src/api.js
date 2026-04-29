@@ -42,30 +42,34 @@ export async function getTree() {
 }
 
 // GET /repos/{repo}/contents/{path} → { content (base64), sha }
-// The base64-content path is hard-capped at 1MB by GitHub. For larger files
-// (e.g. findings/index.json once the repo grows past a few thousand findings)
-// the API returns content="" — we transparently retry via the raw media type,
-// which streams the file directly (cap is 100MB).
+// Hard-capped at 1MB by GitHub; only used for small per-file fetches (findings,
+// triage, reports). Larger files go through getJsonRaw().
 export async function getJson(path) {
   const url = `${base()}/repos/${repo()}/contents/${encodeURIComponent(path).replace(/%2F/g, '/')}?ref=${branch()}`;
   const r = await fetch(url, { headers: headers() });
   await check(r);
   const data = await r.json();
-  if (data.content) {
-    const bin = atob(data.content.replace(/\n/g, ''));
-    const bytes = new Uint8Array(bin.length);
-    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-    const text = new TextDecoder('utf-8').decode(bytes);
-    return { json: JSON.parse(text), sha: data.sha };
-  }
-  // 1MB+ file: refetch via raw media type. We keep the sha from the first
-  // response so callers that need it (e.g. PUT writes) still work.
-  const r2 = await fetch(url, {
-    headers: { ...headers(), Accept: 'application/vnd.github.raw' },
-  });
-  await check(r2);
-  const text = await r2.text();
+  const bin = atob((data.content || '').replace(/\n/g, ''));
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  const text = new TextDecoder('utf-8').decode(bytes);
   return { json: JSON.parse(text), sha: data.sha };
+}
+
+// GET /repos/{repo}/contents/{path} with Accept: application/vnd.github.raw
+// Returns the file content directly (no base64 wrapping, cap = 100MB). Use this
+// for large files (e.g. findings/index.json once the repo grows past ~3K findings).
+// `cache: 'no-cache'` forces the browser to revalidate so a stale 304 with empty
+// body from the JSON-mode endpoint can't poison this fetch.
+export async function getJsonRaw(path) {
+  const url = `${base()}/repos/${repo()}/contents/${encodeURIComponent(path).replace(/%2F/g, '/')}?ref=${branch()}`;
+  const r = await fetch(url, {
+    headers: { ...headers(), Accept: 'application/vnd.github.raw' },
+    cache: 'no-cache',
+  });
+  await check(r);
+  const text = await r.text();
+  return { json: JSON.parse(text) };
 }
 
 // PUT /repos/{repo}/contents/{path} → create-or-update a single file (a single commit).
