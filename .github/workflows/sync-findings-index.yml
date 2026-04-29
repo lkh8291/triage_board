@@ -1,0 +1,58 @@
+name: Sync findings index
+
+# Whenever a finding file is added/edited/deleted on main or stress-test
+# (via web UI, direct git push, API, anything), regenerate findings/index.json
+# and commit it back. The SPA boots from this index, so leaving it stale would
+# silently hide newly-uploaded findings.
+#
+# Loop prevention: paths filter excludes index.json itself, AND the auto-commit
+# uses [skip ci] so it doesn't re-trigger this workflow.
+
+on:
+  push:
+    branches: [main, stress-test]
+    paths:
+      - 'findings/**.json'
+      - '!findings/index.json'
+      - 'scripts/build-findings-index.mjs'  # rebuild if the builder logic changes
+  workflow_dispatch:                          # manual rebuild button in Actions UI
+
+permissions:
+  contents: write
+
+concurrency:
+  # Serialize per-branch so two rapid pushes don't race on the auto-commit.
+  group: sync-findings-index-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  rebuild-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Use the default GITHUB_TOKEN; permissions:contents:write above
+          # gives it push access to the same branch.
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Rebuild findings/index.json
+        run: node scripts/build-findings-index.mjs
+
+      - name: Commit if index changed
+        run: |
+          if git diff --quiet findings/index.json; then
+            echo "Index already up to date — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add findings/index.json
+          git commit -m "chore: auto-rebuild findings/index.json [skip ci]"
+          # Push back to the same branch that triggered the workflow.
+          git push origin HEAD:${{ github.ref_name }}
