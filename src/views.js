@@ -43,6 +43,15 @@ function statusTag(status) {
     status === 'tp' ? 'TP' : status === 'fp' ? 'FP' : 'split');
 }
 
+// Pick the freshest opinion this user wrote; null if they haven't triaged yet.
+function latestOpinionByUser(opinions, login) {
+  if (!login) return null;
+  const mine = (opinions || []).filter(o => o.reviewer === login);
+  if (!mine.length) return null;
+  mine.sort((a, b) => String(a.ts).localeCompare(String(b.ts)));
+  return mine[mine.length - 1];
+}
+
 // ============== sidebar ==============
 
 export function renderSidebar(state, currentView) {
@@ -82,10 +91,16 @@ export function renderTabCounts(state) {
 
 export function renderFindingsList(state, root, onPick) {
   root.innerHTML = '';
-  if (!state.findings.length) {
+  appendFindingsTable(state.findings, state, root, onPick);
+}
+
+// Reusable rows builder. Used both by the top-level Findings view and by the
+// drill-down pages (report / project).
+function appendFindingsTable(findings, state, root, onPick) {
+  if (!findings.length) {
     root.appendChild(el('div', { class: 'empty-state' },
       el('h3', {}, '아직 finding이 없습니다.'),
-      el('p', {}, 'scripts/upload-report.mjs로 raw-report를 업로드해 보드에 등록하세요.')
+      el('p', {}, '연관된 finding이 아직 등록되지 않았습니다.')
     ));
     return;
   }
@@ -96,7 +111,7 @@ export function renderFindingsList(state, root, onPick) {
   );
   root.appendChild(head);
 
-  const sorted = [...state.findings].sort((a, b) =>
+  const sorted = [...findings].sort((a, b) =>
     (severityRank(b.severity) - severityRank(a.severity)) ||
     String(a.id).localeCompare(String(b.id))
   );
@@ -112,7 +127,7 @@ export function renderFindingsList(state, root, onPick) {
       el('span', {}, el('span', { class: `dot ${f.severity}` })),
       el('span', { class: `sev-text ${f.severity}` }, capitalize(f.severity || '')),
       el('span', {}, el('span', { class: `domain-tag ${f.domain || ''}` }, (f.domain || '').toUpperCase())),
-      el('span', {}, el('span', { class: 'cat-chip' }, f.category || '')),
+      el('span', {}, el('span', { class: 'cat-chip', title: f.category || '' }, f.category || '')),
       el('span', { class: 'target' }, targetLabel(f)),
       el('span', { class: 'conf' },
         el('span', { class: 'conf-bar' }, el('i', { style: `width:${Math.round((f.ai_confidence || 0) * 100)}%` })),
@@ -192,15 +207,26 @@ export function renderFindingDetail(state, root, fid, handlers) {
     ));
   }
 
-  // Triage actions
+  // Triage actions — buttons start neutral; the user's own latest verdict
+  // shows as the filled (active) button so they always see what they decided.
+  const myLatest = latestOpinionByUser(opinions, handlers.currentUser);
+  const myVerdict = myLatest?.verdict;
+
   const rationale = el('textarea', {
     class: 'triage-rationale',
     placeholder: '판정 근거 (선택) — 다른 점검자도 볼 수 있는 메모. TP/FP를 누르면 함께 기록됩니다.',
   });
+  if (myLatest?.rationale) rationale.value = myLatest.rationale;
 
-  const tpBtn = el('button', { class: 'btn tp', onclick: () => handlers.onTriage(f.id, 'tp', rationale.value) }, 'Mark True Positive');
-  const fpBtn = el('button', { class: 'btn fp', onclick: () => handlers.onTriage(f.id, 'fp', rationale.value) }, 'Mark False Positive');
-  const skip = el('button', { class: 'btn skip', onclick: () => history.back() }, 'Need more info →');
+  const tpBtn = el('button', {
+    class: 'btn tp' + (myVerdict === 'tp' ? ' active' : ''),
+    onclick: () => handlers.onTriage(f.id, 'tp', rationale.value),
+  }, myVerdict === 'tp' ? '✓ True Positive' : 'Mark True Positive');
+
+  const fpBtn = el('button', {
+    class: 'btn fp' + (myVerdict === 'fp' ? ' active' : ''),
+    onclick: () => handlers.onTriage(f.id, 'fp', rationale.value),
+  }, myVerdict === 'fp' ? '✓ False Positive' : 'Mark False Positive');
 
   const countEl = hasOpinions
     ? el('span', { class: 'triage-count' },
@@ -210,7 +236,7 @@ export function renderFindingDetail(state, root, fid, handlers) {
     : el('span', { class: 'triage-count empty' }, '아직 트리아지 0건');
 
   const triageCard = el('div', { class: 'triage-actions' },
-    el('div', { class: 'triage-row' }, tpBtn, fpBtn, skip, countEl),
+    el('div', { class: 'triage-row' }, tpBtn, fpBtn, countEl),
     rationale
   );
   main.appendChild(triageCard);
@@ -338,7 +364,11 @@ export function renderReports(state, root) {
     const findings = state.findings.filter(f => f.report_id === r.report_id);
     const counts = severityCounts(findings);
     const triagedCount = findings.filter(f => consensusFor(state.triage[f.id] || []).status !== 'pending').length;
-    list.appendChild(el('article', { class: 'group-card', data: { project: r.project || '' } },
+    list.appendChild(el('article', {
+      class: 'group-card',
+      data: { project: r.project || '' },
+      onclick: () => { location.hash = `#/report/${encodeURIComponent(r.report_id)}`; },
+    },
       el('div', { class: 'gc-head' },
         el('div', { class: 'gc-title' },
           (r.target_root || r.target_apk_path || r.target_subnet || '(report)'),
@@ -357,6 +387,31 @@ export function renderReports(state, root) {
     ));
   }
   root.appendChild(list);
+}
+
+// Drill-down: header strip with report meta, then the full triage table for findings in this report.
+export function renderReportDetail(state, root, reportId, onPick) {
+  const r = state.reports.find(x => x.report_id === reportId);
+  root.innerHTML = '';
+  if (!r) {
+    root.appendChild(el('div', { class: 'empty-state' }, el('h3', {}, `Report ${reportId} not found.`)));
+    return;
+  }
+  const findings = state.findings.filter(f => f.report_id === reportId);
+  const triagedCount = findings.filter(f => consensusFor(state.triage[f.id] || []).status !== 'pending').length;
+
+  root.appendChild(el('div', { class: 'detail-strip' },
+    el('span', { class: 'ds-title' }, r.target_root || r.target_apk_path || r.target_subnet || r.report_id),
+    el('span', { class: 'ds-id' }, r.report_id),
+    r.project && el('span', { class: 'proj-chip' }, r.project),
+    el('span', { class: 'ds-meta ds-spacer' },
+      el('span', {}, `${findings.length} findings`),
+      el('span', {}, `${triagedCount} triaged`),
+      r.scanner && el('span', {}, r.scanner),
+      r.completed_at && el('span', {}, timeAgo(r.completed_at))
+    )
+  ));
+  appendFindingsTable(findings, state, root, onPick);
 }
 
 function sevRow(counts, total, triaged) {
@@ -404,7 +459,11 @@ export function renderProjects(state, root) {
   for (const p of projects) {
     const counts = severityCounts(p.findings);
     const triagedCount = p.findings.filter(f => consensusFor(state.triage[f.id] || []).status !== 'pending').length;
-    list.appendChild(el('article', { class: 'group-card', data: { project: p.id } },
+    list.appendChild(el('article', {
+      class: 'group-card',
+      data: { project: p.id },
+      onclick: () => { location.hash = `#/project/${encodeURIComponent(p.id)}`; },
+    },
       el('div', { class: 'gc-head' },
         el('div', { class: 'gc-title' },
           p.id,
@@ -417,6 +476,27 @@ export function renderProjects(state, root) {
     ));
   }
   root.appendChild(list);
+}
+
+export function renderProjectDetail(state, root, projectId, onPick) {
+  const findings = state.findings.filter(f => f.project === projectId);
+  root.innerHTML = '';
+  if (!findings.length) {
+    root.appendChild(el('div', { class: 'empty-state' }, el('h3', {}, `Project ${projectId} has no findings yet.`)));
+    return;
+  }
+  const reports = new Set(findings.map(f => f.report_id).filter(Boolean));
+  const triagedCount = findings.filter(f => consensusFor(state.triage[f.id] || []).status !== 'pending').length;
+
+  root.appendChild(el('div', { class: 'detail-strip' },
+    el('span', { class: 'ds-title' }, `Project: ${projectId}`),
+    el('span', { class: 'ds-meta ds-spacer' },
+      el('span', {}, `${reports.size} ${reports.size === 1 ? 'report' : 'reports'}`),
+      el('span', {}, `${findings.length} findings`),
+      el('span', {}, `${triagedCount} triaged`)
+    )
+  ));
+  appendFindingsTable(findings, state, root, onPick);
 }
 
 // ============== Search filter ==============

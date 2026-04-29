@@ -63,6 +63,7 @@ function router() {
   const root = document.getElementById('viewRoot');
   setActiveTab(hash);
   views.applySearchFilter(document.getElementById('searchInput').value);
+  const onPickFinding = (fid) => { location.hash = `#/finding/${encodeURIComponent(fid)}`; };
 
   if (hash.startsWith('#/finding/')) {
     const id = decodeURIComponent(hash.slice('#/finding/'.length));
@@ -72,7 +73,24 @@ function router() {
     views.renderFindingDetail(state, root, id, {
       onTriage: writeTriage,
       openTriageDrawer: (fid) => views.openTriageDrawer(state, fid),
+      currentUser: state.login,
     });
+    return;
+  }
+  if (hash.startsWith('#/report/')) {
+    const id = decodeURIComponent(hash.slice('#/report/'.length));
+    document.getElementById('pageTitle').textContent = id;
+    document.getElementById('crumbs').innerHTML =
+      `Workspace · <strong>AI Triage</strong> · <a href="#/reports">Reports</a> · ${escapeHtml(id)}`;
+    views.renderReportDetail(state, root, id, onPickFinding);
+    return;
+  }
+  if (hash.startsWith('#/project/')) {
+    const id = decodeURIComponent(hash.slice('#/project/'.length));
+    document.getElementById('pageTitle').textContent = id;
+    document.getElementById('crumbs').innerHTML =
+      `Workspace · <strong>AI Triage</strong> · <a href="#/projects">Projects</a> · ${escapeHtml(id)}`;
+    views.renderProjectDetail(state, root, id, onPickFinding);
     return;
   }
   if (hash === '#/reports') {
@@ -90,13 +108,13 @@ function router() {
   // default: findings list
   document.getElementById('pageTitle').textContent = 'All findings';
   document.getElementById('crumbs').innerHTML = 'Workspace · <strong>AI Triage</strong>';
-  views.renderFindingsList(state, root, (fid) => { location.hash = `#/finding/${encodeURIComponent(fid)}`; });
+  views.renderFindingsList(state, root, onPickFinding);
 }
 
 function setActiveTab(hash) {
   let v = 'findings';
-  if (hash.startsWith('#/reports')) v = 'reports';
-  else if (hash.startsWith('#/projects')) v = 'projects';
+  if (hash.startsWith('#/reports') || hash.startsWith('#/report/')) v = 'reports';
+  else if (hash.startsWith('#/projects') || hash.startsWith('#/project/')) v = 'projects';
   for (const t of document.querySelectorAll('.view-tab')) t.classList.toggle('active', t.dataset.view === v);
 }
 

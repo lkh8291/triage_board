@@ -164,13 +164,31 @@ header.top {
 .empty-state { padding: 60px 24px; text-align: center; color: var(--text-3); }
 .empty-state h3 { font-size: 16px; color: var(--text-2); margin: 0 0 8px; font-weight: 500; }
 
+/* compact header strip for report / project drill-down pages */
+.detail-strip {
+  padding: 14px 24px; border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.detail-strip .ds-title { font-weight: 700; font-size: 15px; color: var(--text); }
+.detail-strip .ds-id { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--text-2); }
+.detail-strip .ds-meta { color: var(--text-2); font-size: 12.5px; display: flex; gap: 12px; }
+.detail-strip .ds-spacer { margin-left: auto; }
+
 /* ===== Group cards (Reports / Projects) ===== */
-.group-list { padding: 16px 24px; display: flex; flex-direction: column; gap: 12px; }
+.group-list {
+  padding: 16px 24px; display: flex; flex-direction: column; gap: 12px;
+  max-width: 880px; /* keep cards readable instead of stretching to viewport */
+}
 .group-card {
   border: 1px solid var(--border); border-radius: 10px; background: var(--surface);
-  padding: 14px 16px; transition: border-color 0.1s;
+  padding: 14px 16px; transition: border-color 0.1s, box-shadow 0.1s;
+  cursor: pointer; /* drillable into filtered findings */
 }
-.group-card:hover { border-color: var(--border-strong); }
+.group-card:hover {
+  border-color: var(--indigo);
+  box-shadow: 0 1px 3px rgba(94, 106, 210, 0.08);
+}
 .gc-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .gc-title { font-weight: 600; color: var(--text); font-size: 14px;
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -257,13 +275,18 @@ aside.detail-sidebar .field .value.mono { font-family: 'JetBrains Mono', monospa
   margin-bottom: 16px;
 }
 .triage-row { display: flex; gap: 8px; align-items: center; }
-.btn { padding: 7px 14px; border-radius: 6px; font-family: inherit; font-size: 13px;
-  font-weight: 500; cursor: pointer; border: 1px solid transparent; }
-.btn.tp { background: #166534; color: #fff; border-color: #166534; }
-.btn.tp:hover { background: #15532b; }
-.btn.fp { background: var(--surface); color: var(--text); border-color: var(--border); }
+.btn {
+  padding: 8px 16px; border-radius: 6px; font-family: inherit; font-size: 13.5px;
+  font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--surface);
+  color: var(--text); transition: background 0.1s, border-color 0.1s, color 0.1s;
+}
+.btn:hover { border-color: var(--border-strong); }
+.btn.tp:hover { border-color: #166534; color: #166534; }
 .btn.fp:hover { border-color: #b91c1c; color: #b91c1c; }
-.btn.skip { background: transparent; color: var(--text-2); border-color: transparent; }
+.btn.tp.active { background: #166534; color: #fff; border-color: #166534; }
+.btn.fp.active { background: #b91c1c; color: #fff; border-color: #b91c1c; }
+.btn.tp.active:hover { background: #15532b; color: #fff; }
+.btn.fp.active:hover { background: #991b1b; color: #fff; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .triage-rationale {
   width: 100%; min-height: 56px; resize: vertical;
