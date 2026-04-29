@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0149",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on NVR-X-226",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-226",
+    "ip": "192.168.17.142",
+    "port": 8888,
+    "service": "ssh",
+    "firmware_version": "fw-3.7"
+  },
+  "ai_confidence": 0.57,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-926",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0261",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "medium",
+  "title": "modbus-exposed on SmartCam-409",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-409",
+    "ip": "192.168.15.58",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-2.7"
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-918",
+  "cve": null
+}

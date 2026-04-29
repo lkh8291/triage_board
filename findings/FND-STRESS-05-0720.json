@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0720",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on PLC-IO-509",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-509",
+    "ip": "192.168.19.238",
+    "port": 80,
+    "service": "telnet",
+    "firmware_version": "fw-3.4"
+  },
+  "ai_confidence": 0.74,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-94",
+  "cve": null
+}

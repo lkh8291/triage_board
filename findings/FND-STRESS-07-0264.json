@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0264",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "weak-cryptography",
+  "severity": "low",
+  "title": "weak-cryptography on com.example.health.ui.LoginActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "3.4.22",
+    "component_type": "activity",
+    "component_class": "com.example.health.ui.LoginActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.45,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=weak-cryptography.",
+  "cwe": "CWE-269",
+  "cve": null
+}

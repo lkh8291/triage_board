@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0229",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "rate-limiting-missing",
+  "severity": "high",
+  "title": "rate-limiting-missing on https://p7.example.com/dashboard?id=4388",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/dashboard?id=4388",
+    "method": "POST",
+    "endpoint": "/dashboard",
+    "parameter": "id",
+    "auth_required": true
+  },
+  "ai_confidence": 0.5,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=rate-limiting-missing.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

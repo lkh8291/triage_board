@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0083",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on GW-Router-860",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-860",
+    "ip": "192.168.32.118",
+    "port": 554,
+    "service": "telnet",
+    "firmware_version": "fw-2.15"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=default-credentials.",
+  "cwe": "CWE-20",
+  "cve": null
+}

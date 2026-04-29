@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-04-0726",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "android",
+  "category": "weak-cryptography",
+  "severity": "info",
+  "title": "weak-cryptography on com.example.social.sync.MainActivity",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "4.17.7",
+    "component_type": "service",
+    "component_class": "com.example.social.sync.MainActivity",
+    "exported": true,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.98,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=android, category=weak-cryptography.",
+  "cwe": "CWE-601",
+  "cve": null
+}

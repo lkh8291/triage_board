@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0135",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on GW-Router-296",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-296",
+    "ip": "192.168.45.211",
+    "port": 23,
+    "service": "rtsp",
+    "firmware_version": "fw-2.9"
+  },
+  "ai_confidence": 0.5,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-732",
+  "cve": null
+}

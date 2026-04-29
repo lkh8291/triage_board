@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0717",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "open-redirect",
+  "severity": "critical",
+  "title": "open-redirect on https://p6.example.com/dashboard?id=9871",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/dashboard?id=9871",
+    "method": "DELETE",
+    "endpoint": "/dashboard",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=open-redirect.",
+  "cwe": "CWE-441",
+  "cve": null
+}

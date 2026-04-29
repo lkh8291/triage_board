@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0301",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on Thermo-385",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-385",
+    "ip": "192.168.22.19",
+    "port": 161,
+    "service": "snmp",
+    "firmware_version": "fw-5.20"
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-78",
+  "cve": null
+}

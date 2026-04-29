@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0523",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "low",
+  "title": "default-credentials on NVR-X-612",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-612",
+    "ip": "192.168.15.8",
+    "port": 161,
+    "service": "ssh",
+    "firmware_version": "fw-5.17"
+  },
+  "ai_confidence": 0.72,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=default-credentials.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0366",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "tapjacking",
+  "severity": "critical",
+  "title": "tapjacking on com.example.health.ui.CoverActivity",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "4.20.17",
+    "component_type": "receiver",
+    "component_class": "com.example.health.ui.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.57,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=tapjacking.",
+  "cwe": "CWE-862",
+  "cve": null
+}

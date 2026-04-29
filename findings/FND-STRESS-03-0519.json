@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0519",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "info",
+  "title": "telnet-enabled on Thermo-527",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-527",
+    "ip": "192.168.5.121",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-862",
+  "cve": null
+}

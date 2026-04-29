@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0280",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on SmartCam-275",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-275",
+    "ip": "192.168.45.94",
+    "port": 8888,
+    "service": "rtsp",
+    "firmware_version": "fw-4.13"
+  },
+  "ai_confidence": 0.63,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-798",
+  "cve": "CVE-2025-18940"
+}

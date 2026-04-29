@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0725",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "rate-limiting-missing",
+  "severity": "high",
+  "title": "rate-limiting-missing on https://p5.example.com/api/internal/sync?id=6042",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/internal/sync?id=6042",
+    "method": "PUT",
+    "endpoint": "/api/internal/sync",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=rate-limiting-missing.",
+  "cwe": "CWE-862",
+  "cve": null
+}

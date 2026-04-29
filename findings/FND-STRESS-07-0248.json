@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0248",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "header-x-frame-options-missing",
+  "severity": "low",
+  "title": "header-x-frame-options-missing on https://p7.example.com/search?id=1741",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/search?id=1741",
+    "method": "PUT",
+    "endpoint": "/search",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.85,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=header-x-frame-options-missing.",
+  "cwe": "CWE-732",
+  "cve": null
+}

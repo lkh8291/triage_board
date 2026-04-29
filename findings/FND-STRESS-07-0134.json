@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0134",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "low",
+  "title": "snmp-public on GW-Router-833",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-833",
+    "ip": "192.168.25.87",
+    "port": 1883,
+    "service": "rtsp",
+    "firmware_version": "fw-2.12"
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=snmp-public.",
+  "cwe": "CWE-287",
+  "cve": null
+}

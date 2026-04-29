@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0208",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "info",
+  "title": "default-credentials on NVR-X-726",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-726",
+    "ip": "192.168.28.160",
+    "port": 554,
+    "service": "telnet",
+    "firmware_version": "fw-2.4"
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=default-credentials.",
+  "cwe": "CWE-20",
+  "cve": null
+}

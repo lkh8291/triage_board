@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0330",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "graphql-introspection-exposed",
+  "severity": "medium",
+  "title": "graphql-introspection-exposed on https://p1.example.com/api/internal/sync?id=6696",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/api/internal/sync?id=6696",
+    "method": "DELETE",
+    "endpoint": "/api/internal/sync",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=graphql-introspection-exposed.",
+  "cwe": "CWE-863",
+  "cve": null
+}

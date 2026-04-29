@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0716",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "low",
+  "title": "ftp-anonymous on PLC-IO-720",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-720",
+    "ip": "192.168.8.22",
+    "port": 443,
+    "service": "http",
+    "firmware_version": "fw-4.5"
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-20",
+  "cve": null
+}

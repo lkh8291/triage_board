@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0353",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "low",
+  "title": "upnp-exposed on Thermo-145",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-145",
+    "ip": "192.168.26.237",
+    "port": 443,
+    "service": "mqtt",
+    "firmware_version": "fw-3.1"
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-732",
+  "cve": null
+}

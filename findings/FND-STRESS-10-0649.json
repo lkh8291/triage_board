@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0649",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on NVR-X-363",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-363",
+    "ip": "192.168.7.15",
+    "port": 161,
+    "service": "snmp",
+    "firmware_version": "fw-5.8"
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-352",
+  "cve": null
+}

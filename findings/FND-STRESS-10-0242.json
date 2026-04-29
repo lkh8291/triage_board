@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0242",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on SmartCam-579",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-579",
+    "ip": "192.168.39.84",
+    "port": 23,
+    "service": "snmp",
+    "firmware_version": "fw-2.19"
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-269",
+  "cve": null
+}

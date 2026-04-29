@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0398",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "critical",
+  "title": "jtag-uart-exposed on SmartCam-893",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-893",
+    "ip": "192.168.37.222",
+    "port": 502,
+    "service": "rtsp",
+    "firmware_version": "fw-3.16"
+  },
+  "ai_confidence": 1,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-502",
+  "cve": null
+}

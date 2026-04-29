@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0213",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "exposed-component-payment-bypass",
+  "severity": "high",
+  "title": "exposed-component-payment-bypass on com.example.health.core.LoginActivity",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "3.13.5",
+    "component_type": "service",
+    "component_class": "com.example.health.core.LoginActivity",
+    "exported": false,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.77,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=exposed-component-payment-bypass.",
+  "cwe": "CWE-441",
+  "cve": null
+}

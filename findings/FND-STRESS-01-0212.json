@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0212",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "high",
+  "title": "rtsp-no-auth on GW-Router-285",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-285",
+    "ip": "192.168.47.82",
+    "port": 8080,
+    "service": "modbus",
+    "firmware_version": "fw-2.8"
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-502",
+  "cve": null
+}

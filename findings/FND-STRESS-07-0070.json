@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0070",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on Thermo-776",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-776",
+    "ip": "192.168.2.159",
+    "port": 161,
+    "service": "snmp",
+    "firmware_version": "fw-4.6"
+  },
+  "ai_confidence": 0.49,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-798",
+  "cve": null
+}

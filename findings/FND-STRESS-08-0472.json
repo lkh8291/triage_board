@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0472",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "low",
+  "title": "modbus-exposed on NVR-X-115",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-115",
+    "ip": "192.168.14.158",
+    "port": 502,
+    "service": "http",
+    "firmware_version": "fw-4.18"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-732",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0289",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "intent-uri-smuggle",
+  "severity": "info",
+  "title": "intent-uri-smuggle on com.example.bank.ui.CoverActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "8.4.13",
+    "component_type": "provider",
+    "component_class": "com.example.bank.ui.CoverActivity",
+    "exported": true,
+    "permission_required": "com.example.bank.permission.ACCESS"
+  },
+  "ai_confidence": 0.4,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=intent-uri-smuggle.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0057",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "info",
+  "title": "firmware-unsigned on GW-Router-915",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-915",
+    "ip": "192.168.31.254",
+    "port": 502,
+    "service": "modbus",
+    "firmware_version": "fw-2.17"
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-798",
+  "cve": null
+}

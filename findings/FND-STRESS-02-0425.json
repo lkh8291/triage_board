@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0425",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "content-provider-leak",
+  "severity": "medium",
+  "title": "content-provider-leak on com.example.shop.core.MainActivity",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "6.8.19",
+    "component_type": "activity",
+    "component_class": "com.example.shop.core.MainActivity",
+    "exported": false,
+    "permission_required": "com.example.shop.permission.ACCESS"
+  },
+  "ai_confidence": 0.74,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=content-provider-leak.",
+  "cwe": "CWE-862",
+  "cve": null
+}

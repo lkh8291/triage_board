@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0240",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "weak-cryptography",
+  "severity": "medium",
+  "title": "weak-cryptography on com.example.health.ui.DetailActivity",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "1.19.44",
+    "component_type": "receiver",
+    "component_class": "com.example.health.ui.DetailActivity",
+    "exported": true,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.84,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=weak-cryptography.",
+  "cwe": "CWE-287",
+  "cve": null
+}

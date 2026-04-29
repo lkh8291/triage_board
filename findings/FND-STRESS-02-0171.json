@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0171",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "pendingintent-mutable",
+  "severity": "high",
+  "title": "pendingintent-mutable on com.example.bank.core.DetailActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "1.19.12",
+    "component_type": "receiver",
+    "component_class": "com.example.bank.core.DetailActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.45,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=pendingintent-mutable.",
+  "cwe": "CWE-20",
+  "cve": null
+}

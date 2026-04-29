@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0109",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "parcelable-deserialization",
+  "severity": "low",
+  "title": "parcelable-deserialization on com.example.media.sync.LoginActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "5.18.12",
+    "component_type": "activity",
+    "component_class": "com.example.media.sync.LoginActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=parcelable-deserialization.",
+  "cwe": "CWE-287",
+  "cve": null
+}

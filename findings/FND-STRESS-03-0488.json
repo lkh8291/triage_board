@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0488",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "race-condition-toctou",
+  "severity": "high",
+  "title": "race-condition-toctou on https://p3.example.com/api/users/profile?id=2617",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/api/users/profile?id=2617",
+    "method": "POST",
+    "endpoint": "/api/users/profile",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.99,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=race-condition-toctou.",
+  "cwe": "CWE-352",
+  "cve": null
+}

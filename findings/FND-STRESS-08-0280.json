@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0280",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "low",
+  "title": "ftp-anonymous on SmartCam-182",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-182",
+    "ip": "192.168.9.138",
+    "port": 443,
+    "service": "http",
+    "firmware_version": "fw-3.19"
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-918",
+  "cve": null
+}

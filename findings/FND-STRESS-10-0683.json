@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0683",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "intent-uri-smuggle",
+  "severity": "high",
+  "title": "intent-uri-smuggle on com.example.bank.sync.CoverActivity",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "2.9.12",
+    "component_type": "service",
+    "component_class": "com.example.bank.sync.CoverActivity",
+    "exported": false,
+    "permission_required": "com.example.bank.permission.ACCESS"
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=intent-uri-smuggle.",
+  "cwe": "CWE-863",
+  "cve": null
+}

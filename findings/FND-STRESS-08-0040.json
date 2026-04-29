@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0040",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on NVR-X-323",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-323",
+    "ip": "192.168.31.33",
+    "port": 22,
+    "service": "mqtt",
+    "firmware_version": "fw-1.5"
+  },
+  "ai_confidence": 0.53,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-862",
+  "cve": null
+}

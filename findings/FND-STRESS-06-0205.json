@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0205",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on NVR-X-229",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-229",
+    "ip": "192.168.30.235",
+    "port": 8080,
+    "service": "telnet",
+    "firmware_version": "fw-1.19"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-200",
+  "cve": null
+}

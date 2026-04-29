@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0451",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "intent-redirection",
+  "severity": "low",
+  "title": "intent-redirection on com.example.health.ui.CoverActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "1.14.39",
+    "component_type": "provider",
+    "component_class": "com.example.health.ui.CoverActivity",
+    "exported": false,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.65,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=intent-redirection.",
+  "cwe": "CWE-639",
+  "cve": null
+}

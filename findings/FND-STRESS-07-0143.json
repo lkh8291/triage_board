@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0143",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "auth-bypass",
+  "severity": "medium",
+  "title": "auth-bypass on https://p7.example.com/search?id=8592",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/search?id=8592",
+    "method": "GET",
+    "endpoint": "/search",
+    "parameter": "redirect",
+    "auth_required": false
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=auth-bypass.",
+  "cwe": "CWE-200",
+  "cve": null
+}

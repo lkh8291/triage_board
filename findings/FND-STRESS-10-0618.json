@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0618",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "race-condition-toctou",
+  "severity": "info",
+  "title": "race-condition-toctou on https://p10.example.com/api/users/profile?id=9308",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/api/users/profile?id=9308",
+    "method": "POST",
+    "endpoint": "/api/users/profile",
+    "parameter": "callback",
+    "auth_required": false
+  },
+  "ai_confidence": 0.56,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=race-condition-toctou.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

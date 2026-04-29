@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0049",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "high",
+  "title": "webview-js-injection on com.example.social.ui.LoginActivity",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "4.10.17",
+    "component_type": "service",
+    "component_class": "com.example.social.ui.LoginActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.41,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-918",
+  "cve": null
+}

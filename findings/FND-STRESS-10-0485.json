@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0485",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on Thermo-421",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-421",
+    "ip": "192.168.36.134",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-2.9"
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

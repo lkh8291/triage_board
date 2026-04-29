@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0539",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "low",
+  "title": "upnp-exposed on NVR-X-661",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-661",
+    "ip": "192.168.15.78",
+    "port": 22,
+    "service": "http",
+    "firmware_version": "fw-3.16"
+  },
+  "ai_confidence": 0.57,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-918",
+  "cve": null
+}

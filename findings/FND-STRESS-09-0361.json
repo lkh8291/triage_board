@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-09-0361",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "android",
+  "category": "weak-cryptography",
+  "severity": "medium",
+  "title": "weak-cryptography on com.example.social.ui.CoverActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "4.7.12",
+    "component_type": "receiver",
+    "component_class": "com.example.social.ui.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=android, category=weak-cryptography.",
+  "cwe": "CWE-441",
+  "cve": null
+}

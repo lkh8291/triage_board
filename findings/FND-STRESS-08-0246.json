@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0246",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "content-provider-leak",
+  "severity": "low",
+  "title": "content-provider-leak on com.example.shop.core.MainActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "8.9.48",
+    "component_type": "service",
+    "component_class": "com.example.shop.core.MainActivity",
+    "exported": true,
+    "permission_required": "com.example.shop.permission.ACCESS"
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=content-provider-leak.",
+  "cwe": "CWE-78",
+  "cve": null
+}

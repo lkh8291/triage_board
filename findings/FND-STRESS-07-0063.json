@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0063",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on PLC-IO-238",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-238",
+    "ip": "192.168.41.251",
+    "port": 23,
+    "service": "rtsp",
+    "firmware_version": "fw-5.18"
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=snmp-public.",
+  "cwe": "CWE-639",
+  "cve": null
+}

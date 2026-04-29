@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0291",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "high",
+  "title": "firmware-unsigned on PLC-IO-843",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-843",
+    "ip": "192.168.19.103",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-2.3"
+  },
+  "ai_confidence": 0.65,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-352",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0340",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on Thermo-945",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-945",
+    "ip": "192.168.36.13",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-4.5"
+  },
+  "ai_confidence": 0.68,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

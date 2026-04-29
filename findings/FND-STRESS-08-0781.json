@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0781",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "high",
+  "title": "rtsp-no-auth on Thermo-751",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-751",
+    "ip": "192.168.26.131",
+    "port": 22,
+    "service": "ssh",
+    "firmware_version": "fw-2.12"
+  },
+  "ai_confidence": 0.85,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-502",
+  "cve": null
+}

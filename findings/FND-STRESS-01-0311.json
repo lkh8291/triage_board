@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0311",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "ssrf",
+  "severity": "info",
+  "title": "ssrf on https://p1.example.com/account?id=1375",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/account?id=1375",
+    "method": "POST",
+    "endpoint": "/account",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.93,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=ssrf.",
+  "cwe": "CWE-798",
+  "cve": null
+}

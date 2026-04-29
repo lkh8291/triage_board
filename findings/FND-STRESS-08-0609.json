@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0609",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on Thermo-755",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-755",
+    "ip": "192.168.8.97",
+    "port": 1883,
+    "service": "ssh",
+    "firmware_version": "fw-5.0"
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

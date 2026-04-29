@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0237",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "sqli-error",
+  "severity": "low",
+  "title": "sqli-error on https://p8.example.com/login?id=5929",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/login?id=5929",
+    "method": "GET",
+    "endpoint": "/login",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=sqli-error.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

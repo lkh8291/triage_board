@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0419",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "prototype-pollution",
+  "severity": "info",
+  "title": "prototype-pollution on https://p7.example.com/account?id=9543",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/account?id=9543",
+    "method": "DELETE",
+    "endpoint": "/account",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=prototype-pollution.",
+  "cwe": "CWE-732",
+  "cve": null
+}

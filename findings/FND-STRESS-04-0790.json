@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0790",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "auth-bypass",
+  "severity": "high",
+  "title": "auth-bypass on https://p4.example.com/api/internal/sync?id=1539",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/internal/sync?id=1539",
+    "method": "PUT",
+    "endpoint": "/api/internal/sync",
+    "parameter": "callback",
+    "auth_required": false
+  },
+  "ai_confidence": 0.83,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=auth-bypass.",
+  "cwe": "CWE-269",
+  "cve": null
+}

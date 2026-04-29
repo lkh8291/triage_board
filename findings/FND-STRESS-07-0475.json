@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0475",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on Thermo-200",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-200",
+    "ip": "192.168.3.154",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-3.1"
+  },
+  "ai_confidence": 0.72,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-441",
+  "cve": null
+}

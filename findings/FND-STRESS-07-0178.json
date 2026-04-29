@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0178",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on NVR-X-465",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-465",
+    "ip": "192.168.15.75",
+    "port": 443,
+    "service": "http",
+    "firmware_version": "fw-2.0"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=snmp-public.",
+  "cwe": "CWE-639",
+  "cve": null
+}

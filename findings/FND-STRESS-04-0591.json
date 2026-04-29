@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-04-0591",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "android",
+  "category": "insecure-storage",
+  "severity": "high",
+  "title": "insecure-storage on com.example.shop.core.MainActivity",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "1.18.20",
+    "component_type": "provider",
+    "component_class": "com.example.shop.core.MainActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=android, category=insecure-storage.",
+  "cwe": "CWE-863",
+  "cve": null
+}

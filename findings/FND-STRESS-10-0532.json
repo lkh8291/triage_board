@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0532",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on SmartCam-974",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-974",
+    "ip": "192.168.27.4",
+    "port": 23,
+    "service": "telnet",
+    "firmware_version": "fw-2.2"
+  },
+  "ai_confidence": 0.72,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-441",
+  "cve": null
+}

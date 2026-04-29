@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0218",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "banner-server-disclosure",
+  "severity": "info",
+  "title": "banner-server-disclosure on https://p4.example.com/api/users/profile?id=8792",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/users/profile?id=8792",
+    "method": "POST",
+    "endpoint": "/api/users/profile",
+    "parameter": "redirect",
+    "auth_required": false
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=banner-server-disclosure.",
+  "cwe": "CWE-862",
+  "cve": null
+}

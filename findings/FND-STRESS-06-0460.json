@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0460",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on GW-Router-174",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-174",
+    "ip": "192.168.7.19",
+    "port": 80,
+    "service": "mqtt",
+    "firmware_version": "fw-2.7"
+  },
+  "ai_confidence": 0.57,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-94",
+  "cve": null
+}

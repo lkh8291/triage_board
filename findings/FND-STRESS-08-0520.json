@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0520",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "info",
+  "title": "default-credentials on SmartCam-584",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-584",
+    "ip": "192.168.19.154",
+    "port": 8888,
+    "service": "modbus",
+    "firmware_version": "fw-2.13"
+  },
+  "ai_confidence": 0.98,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=default-credentials.",
+  "cwe": "CWE-287",
+  "cve": "CVE-2022-98675"
+}

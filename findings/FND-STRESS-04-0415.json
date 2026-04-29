@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0415",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "path-traversal",
+  "severity": "low",
+  "title": "path-traversal on https://p4.example.com/login?id=4650",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/login?id=4650",
+    "method": "PUT",
+    "endpoint": "/login",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.57,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=path-traversal.",
+  "cwe": "CWE-78",
+  "cve": null
+}

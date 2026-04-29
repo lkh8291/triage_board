@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0128",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "intent-redirection",
+  "severity": "info",
+  "title": "intent-redirection on com.example.bank.sync.MainActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "9.0.16",
+    "component_type": "activity",
+    "component_class": "com.example.bank.sync.MainActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=intent-redirection.",
+  "cwe": "CWE-798",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0385",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "exported-broadcast-receiver",
+  "severity": "low",
+  "title": "exported-broadcast-receiver on com.example.health.core.CoverActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "9.4.41",
+    "component_type": "provider",
+    "component_class": "com.example.health.core.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=exported-broadcast-receiver.",
+  "cwe": "CWE-94",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0536",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "prototype-pollution",
+  "severity": "medium",
+  "title": "prototype-pollution on https://p4.example.com/api/orders?id=1860",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/orders?id=1860",
+    "method": "PUT",
+    "endpoint": "/api/orders",
+    "parameter": "page",
+    "auth_required": false
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=prototype-pollution.",
+  "cwe": "CWE-287",
+  "cve": null
+}

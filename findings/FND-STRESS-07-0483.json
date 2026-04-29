@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0483",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "exposed-component-payment-bypass",
+  "severity": "low",
+  "title": "exposed-component-payment-bypass on com.example.social.ui.AddActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "9.11.30",
+    "component_type": "receiver",
+    "component_class": "com.example.social.ui.AddActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=exposed-component-payment-bypass.",
+  "cwe": "CWE-732",
+  "cve": null
+}

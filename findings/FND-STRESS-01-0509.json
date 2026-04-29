@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0509",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "race-condition-toctou",
+  "severity": "low",
+  "title": "race-condition-toctou on https://p1.example.com/search?id=9225",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/search?id=9225",
+    "method": "PUT",
+    "endpoint": "/search",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=race-condition-toctou.",
+  "cwe": "CWE-601",
+  "cve": null
+}

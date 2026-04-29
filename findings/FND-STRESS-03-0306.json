@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0306",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "sqli-error",
+  "severity": "info",
+  "title": "sqli-error on https://p3.example.com/dashboard?id=1471",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/dashboard?id=1471",
+    "method": "DELETE",
+    "endpoint": "/dashboard",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.93,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=sqli-error.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0301",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "cmd-injection",
+  "severity": "low",
+  "title": "cmd-injection on https://p10.example.com/account?id=2828",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/account?id=2828",
+    "method": "GET",
+    "endpoint": "/account",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=cmd-injection.",
+  "cwe": "CWE-502",
+  "cve": null
+}

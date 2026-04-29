@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0182",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "idor",
+  "severity": "info",
+  "title": "idor on https://p7.example.com/dashboard?id=172",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/dashboard?id=172",
+    "method": "DELETE",
+    "endpoint": "/dashboard",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.93,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=idor.",
+  "cwe": "CWE-22",
+  "cve": null
+}

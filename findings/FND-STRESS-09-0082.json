@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0082",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on NVR-X-374",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-374",
+    "ip": "192.168.12.22",
+    "port": 1883,
+    "service": "http",
+    "firmware_version": "fw-2.9"
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=default-credentials.",
+  "cwe": "CWE-732",
+  "cve": null
+}

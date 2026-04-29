@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0201",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "graphql-introspection-exposed",
+  "severity": "low",
+  "title": "graphql-introspection-exposed on https://p6.example.com/api/admin/config?id=7976",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/api/admin/config?id=7976",
+    "method": "PUT",
+    "endpoint": "/api/admin/config",
+    "parameter": "callback",
+    "auth_required": false
+  },
+  "ai_confidence": 0.74,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=graphql-introspection-exposed.",
+  "cwe": "CWE-601",
+  "cve": "CVE-2020-87648"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0403",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "high",
+  "title": "snmp-public on Thermo-918",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-918",
+    "ip": "192.168.19.137",
+    "port": 8888,
+    "service": "ssh",
+    "firmware_version": "fw-5.2"
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=snmp-public.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

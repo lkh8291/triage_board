@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0268",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "race-condition-toctou",
+  "severity": "info",
+  "title": "race-condition-toctou on https://p2.example.com/api/admin/config?id=8257",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/api/admin/config?id=8257",
+    "method": "GET",
+    "endpoint": "/api/admin/config",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=race-condition-toctou.",
+  "cwe": "CWE-862",
+  "cve": null
+}

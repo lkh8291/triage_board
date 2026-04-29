@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0206",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "content-provider-leak",
+  "severity": "medium",
+  "title": "content-provider-leak on com.example.media.ui.MainActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "4.10.40",
+    "component_type": "service",
+    "component_class": "com.example.media.ui.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=content-provider-leak.",
+  "cwe": "CWE-94",
+  "cve": null
+}

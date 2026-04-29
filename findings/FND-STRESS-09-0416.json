@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0416",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "path-traversal",
+  "severity": "medium",
+  "title": "path-traversal on https://p9.example.com/api/auth/token?id=5587",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/api/auth/token?id=5587",
+    "method": "DELETE",
+    "endpoint": "/api/auth/token",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.85,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=path-traversal.",
+  "cwe": "CWE-79",
+  "cve": null
+}

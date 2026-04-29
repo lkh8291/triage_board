@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0054",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "high",
+  "title": "default-credentials on PLC-IO-692",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-692",
+    "ip": "192.168.41.112",
+    "port": 23,
+    "service": "snmp",
+    "firmware_version": "fw-3.18"
+  },
+  "ai_confidence": 0.72,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=default-credentials.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

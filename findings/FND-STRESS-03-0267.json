@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0267",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on Thermo-211",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-211",
+    "ip": "192.168.16.96",
+    "port": 23,
+    "service": "snmp",
+    "firmware_version": "fw-4.11"
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=default-credentials.",
+  "cwe": "CWE-79",
+  "cve": "CVE-2026-76462"
+}

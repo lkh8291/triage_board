@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0200",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on GW-Router-851",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-851",
+    "ip": "192.168.4.35",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-2.1"
+  },
+  "ai_confidence": 0.5,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-287",
+  "cve": null
+}

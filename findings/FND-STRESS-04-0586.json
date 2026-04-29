@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0586",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "low",
+  "title": "default-credentials on PLC-IO-949",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-949",
+    "ip": "192.168.47.154",
+    "port": 8080,
+    "service": "snmp",
+    "firmware_version": "fw-2.5"
+  },
+  "ai_confidence": 0.44,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=default-credentials.",
+  "cwe": "CWE-89",
+  "cve": null
+}

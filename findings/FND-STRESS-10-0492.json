@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0492",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "exported-broadcast-receiver",
+  "severity": "high",
+  "title": "exported-broadcast-receiver on com.example.social.core.LoginActivity",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "7.9.27",
+    "component_type": "provider",
+    "component_class": "com.example.social.core.LoginActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.63,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=exported-broadcast-receiver.",
+  "cwe": "CWE-287",
+  "cve": null
+}

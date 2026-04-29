@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0411",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "insecure-storage",
+  "severity": "low",
+  "title": "insecure-storage on com.example.media.sync.AddActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "8.17.11",
+    "component_type": "receiver",
+    "component_class": "com.example.media.sync.AddActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=insecure-storage.",
+  "cwe": "CWE-918",
+  "cve": null
+}

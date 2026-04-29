@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0253",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "medium",
+  "title": "jtag-uart-exposed on PLC-IO-756",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-756",
+    "ip": "192.168.11.191",
+    "port": 8888,
+    "service": "mqtt",
+    "firmware_version": "fw-3.8"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-22",
+  "cve": null
+}

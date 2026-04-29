@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0034",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "pendingintent-mutable",
+  "severity": "medium",
+  "title": "pendingintent-mutable on com.example.social.ui.CoverActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "6.9.37",
+    "component_type": "service",
+    "component_class": "com.example.social.ui.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.93,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=pendingintent-mutable.",
+  "cwe": "CWE-352",
+  "cve": null
+}

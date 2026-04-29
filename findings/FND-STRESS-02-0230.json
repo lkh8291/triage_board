@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0230",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on PLC-IO-786",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-786",
+    "ip": "192.168.4.248",
+    "port": 8080,
+    "service": "telnet",
+    "firmware_version": "fw-4.5"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-200",
+  "cve": "CVE-2020-17298"
+}

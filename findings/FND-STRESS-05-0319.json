@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0319",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "sqli-blind",
+  "severity": "info",
+  "title": "sqli-blind on https://p5.example.com/api/internal/sync?id=6996",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/internal/sync?id=6996",
+    "method": "DELETE",
+    "endpoint": "/api/internal/sync",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=sqli-blind.",
+  "cwe": "CWE-352",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0059",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "info",
+  "title": "ssh-weak-cipher on GW-Router-262",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-262",
+    "ip": "192.168.5.166",
+    "port": 502,
+    "service": "snmp",
+    "firmware_version": "fw-1.20"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-732",
+  "cve": null
+}

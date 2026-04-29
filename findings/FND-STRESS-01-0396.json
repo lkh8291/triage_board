@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0396",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "low",
+  "title": "snmp-public on SmartCam-162",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-162",
+    "ip": "192.168.14.136",
+    "port": 23,
+    "service": "mqtt",
+    "firmware_version": "fw-1.7"
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=snmp-public.",
+  "cwe": "CWE-22",
+  "cve": "CVE-2020-55386"
+}

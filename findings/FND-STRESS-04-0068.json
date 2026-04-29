@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0068",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on PLC-IO-448",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-448",
+    "ip": "192.168.28.99",
+    "port": 80,
+    "service": "modbus",
+    "firmware_version": "fw-2.4"
+  },
+  "ai_confidence": 0.53,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-22",
+  "cve": null
+}

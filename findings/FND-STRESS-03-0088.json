@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0088",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "prototype-pollution",
+  "severity": "medium",
+  "title": "prototype-pollution on https://p3.example.com/dashboard?id=486",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/dashboard?id=486",
+    "method": "DELETE",
+    "endpoint": "/dashboard",
+    "parameter": "name",
+    "auth_required": false
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=prototype-pollution.",
+  "cwe": "CWE-863",
+  "cve": null
+}

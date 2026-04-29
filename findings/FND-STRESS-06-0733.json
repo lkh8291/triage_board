@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0733",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on SmartCam-679",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-679",
+    "ip": "192.168.26.169",
+    "port": 1883,
+    "service": "modbus",
+    "firmware_version": "fw-5.10"
+  },
+  "ai_confidence": 0.53,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-441",
+  "cve": null
+}

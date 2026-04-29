@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0226",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "info",
+  "title": "firmware-unsigned on GW-Router-450",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-450",
+    "ip": "192.168.18.8",
+    "port": 502,
+    "service": "modbus",
+    "firmware_version": "fw-2.0"
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-639",
+  "cve": null
+}

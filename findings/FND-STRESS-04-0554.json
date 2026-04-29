@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0554",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on SmartCam-113",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-113",
+    "ip": "192.168.21.113",
+    "port": 502,
+    "service": "telnet",
+    "firmware_version": "fw-3.10"
+  },
+  "ai_confidence": 0.98,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-94",
+  "cve": null
+}

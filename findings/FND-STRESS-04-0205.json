@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0205",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "low",
+  "title": "telnet-enabled on GW-Router-713",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-713",
+    "ip": "192.168.28.191",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-3.8"
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-352",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0160",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "high",
+  "title": "jtag-uart-exposed on GW-Router-300",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-300",
+    "ip": "192.168.31.160",
+    "port": 443,
+    "service": "telnet",
+    "firmware_version": "fw-4.19"
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-79",
+  "cve": null
+}

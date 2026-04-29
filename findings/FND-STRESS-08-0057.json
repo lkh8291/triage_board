@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0057",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "low",
+  "title": "telnet-enabled on PLC-IO-731",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-731",
+    "ip": "192.168.31.210",
+    "port": 8080,
+    "service": "rtsp",
+    "firmware_version": "fw-5.18"
+  },
+  "ai_confidence": 0.65,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-22",
+  "cve": null
+}

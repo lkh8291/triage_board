@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0023",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on SmartCam-647",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-647",
+    "ip": "192.168.45.144",
+    "port": 80,
+    "service": "snmp",
+    "firmware_version": "fw-1.9"
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=snmp-public.",
+  "cwe": "CWE-862",
+  "cve": null
+}

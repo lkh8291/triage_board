@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0064",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "high",
+  "title": "firmware-unsigned on Thermo-887",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-887",
+    "ip": "192.168.10.202",
+    "port": 554,
+    "service": "telnet",
+    "firmware_version": "fw-1.9"
+  },
+  "ai_confidence": 0.53,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-601",
+  "cve": null
+}

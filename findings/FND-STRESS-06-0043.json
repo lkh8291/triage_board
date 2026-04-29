@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0043",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "race-condition-toctou",
+  "severity": "medium",
+  "title": "race-condition-toctou on https://p6.example.com/api/auth/token?id=8499",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/api/auth/token?id=8499",
+    "method": "GET",
+    "endpoint": "/api/auth/token",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.68,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=race-condition-toctou.",
+  "cwe": "CWE-862",
+  "cve": null
+}

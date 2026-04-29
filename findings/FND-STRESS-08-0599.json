@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0599",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "tapjacking",
+  "severity": "low",
+  "title": "tapjacking on com.example.bank.core.AddActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "2.19.26",
+    "component_type": "activity",
+    "component_class": "com.example.bank.core.AddActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=tapjacking.",
+  "cwe": "CWE-79",
+  "cve": null
+}

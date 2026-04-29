@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0377",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "low",
+  "title": "default-credentials on SmartCam-418",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-418",
+    "ip": "192.168.26.85",
+    "port": 80,
+    "service": "rtsp",
+    "firmware_version": "fw-3.16"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=default-credentials.",
+  "cwe": "CWE-79",
+  "cve": null
+}

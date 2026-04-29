@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0428",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "cmd-injection",
+  "severity": "critical",
+  "title": "cmd-injection on https://p7.example.com/account?id=4079",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/account?id=4079",
+    "method": "GET",
+    "endpoint": "/account",
+    "parameter": "id",
+    "auth_required": true
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=cmd-injection.",
+  "cwe": "CWE-798",
+  "cve": null
+}

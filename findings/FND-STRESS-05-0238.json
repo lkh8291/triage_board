@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0238",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "path-traversal",
+  "severity": "medium",
+  "title": "path-traversal on https://p5.example.com/search?id=7468",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/search?id=7468",
+    "method": "GET",
+    "endpoint": "/search",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=path-traversal.",
+  "cwe": "CWE-22",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0053",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on Thermo-689",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-689",
+    "ip": "192.168.42.102",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-3.3"
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=snmp-public.",
+  "cwe": "CWE-862",
+  "cve": null
+}

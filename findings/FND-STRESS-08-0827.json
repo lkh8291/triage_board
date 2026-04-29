@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0827",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "intent-uri-smuggle",
+  "severity": "medium",
+  "title": "intent-uri-smuggle on com.example.bank.ui.MainActivity",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "3.20.39",
+    "component_type": "activity",
+    "component_class": "com.example.bank.ui.MainActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.93,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=intent-uri-smuggle.",
+  "cwe": "CWE-441",
+  "cve": null
+}

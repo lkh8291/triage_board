@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0706",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on NVR-X-142",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-142",
+    "ip": "192.168.9.60",
+    "port": 80,
+    "service": "http",
+    "firmware_version": "fw-2.16"
+  },
+  "ai_confidence": 0.77,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

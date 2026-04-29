@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0400",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "medium",
+  "title": "webview-js-injection on com.example.media.ui.DetailActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "2.9.49",
+    "component_type": "provider",
+    "component_class": "com.example.media.ui.DetailActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.52,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-863",
+  "cve": null
+}

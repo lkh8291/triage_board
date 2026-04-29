@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0409",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on PLC-IO-270",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-270",
+    "ip": "192.168.36.97",
+    "port": 8888,
+    "service": "telnet",
+    "firmware_version": "fw-2.14"
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-79",
+  "cve": null
+}

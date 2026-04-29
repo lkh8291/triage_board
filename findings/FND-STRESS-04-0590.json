@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0590",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on SmartCam-424",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-424",
+    "ip": "192.168.0.113",
+    "port": 8888,
+    "service": "http",
+    "firmware_version": "fw-4.4"
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-918",
+  "cve": null
+}

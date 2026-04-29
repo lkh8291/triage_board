@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0479",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "high",
+  "title": "mqtt-anonymous on SmartCam-365",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-365",
+    "ip": "192.168.34.234",
+    "port": 80,
+    "service": "http",
+    "firmware_version": "fw-1.17"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-862",
+  "cve": null
+}

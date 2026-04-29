@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0267",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on PLC-IO-547",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-547",
+    "ip": "192.168.9.186",
+    "port": 22,
+    "service": "mqtt",
+    "firmware_version": "fw-2.5"
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-78",
+  "cve": null
+}

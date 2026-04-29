@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0170",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "low",
+  "title": "rtsp-no-auth on GW-Router-626",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-626",
+    "ip": "192.168.48.114",
+    "port": 554,
+    "service": "snmp",
+    "firmware_version": "fw-1.4"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-89",
+  "cve": null
+}

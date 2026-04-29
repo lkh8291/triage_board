@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0462",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "low",
+  "title": "default-credentials on GW-Router-318",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-318",
+    "ip": "192.168.12.20",
+    "port": 80,
+    "service": "mqtt",
+    "firmware_version": "fw-2.12"
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=default-credentials.",
+  "cwe": "CWE-732",
+  "cve": null
+}

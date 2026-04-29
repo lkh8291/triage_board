@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0411",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "pendingintent-mutable",
+  "severity": "medium",
+  "title": "pendingintent-mutable on com.example.health.ui.LoginActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "7.19.30",
+    "component_type": "activity",
+    "component_class": "com.example.health.ui.LoginActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.56,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=pendingintent-mutable.",
+  "cwe": "CWE-22",
+  "cve": null
+}

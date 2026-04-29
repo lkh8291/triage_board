@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0745",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "high",
+  "title": "telnet-enabled on GW-Router-932",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-932",
+    "ip": "192.168.27.217",
+    "port": 1883,
+    "service": "ssh",
+    "firmware_version": "fw-2.10"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-441",
+  "cve": null
+}

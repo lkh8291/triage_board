@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0360",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "rate-limiting-missing",
+  "severity": "critical",
+  "title": "rate-limiting-missing on https://p2.example.com/dashboard?id=1622",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/dashboard?id=1622",
+    "method": "PUT",
+    "endpoint": "/dashboard",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.53,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=rate-limiting-missing.",
+  "cwe": "CWE-918",
+  "cve": "CVE-2022-29136"
+}

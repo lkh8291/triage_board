@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0105",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "medium",
+  "title": "webview-js-injection on com.example.media.core.DetailActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "2.11.47",
+    "component_type": "receiver",
+    "component_class": "com.example.media.core.DetailActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-639",
+  "cve": null
+}

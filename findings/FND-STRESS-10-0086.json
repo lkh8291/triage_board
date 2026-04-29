@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0086",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "cleartext-traffic",
+  "severity": "medium",
+  "title": "cleartext-traffic on com.example.media.core.MainActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "7.14.4",
+    "component_type": "receiver",
+    "component_class": "com.example.media.core.MainActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.41,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=cleartext-traffic.",
+  "cwe": "CWE-79",
+  "cve": null
+}

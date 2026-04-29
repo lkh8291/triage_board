@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0536",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "info",
+  "title": "ssh-weak-cipher on GW-Router-579",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-579",
+    "ip": "192.168.25.204",
+    "port": 22,
+    "service": "http",
+    "firmware_version": "fw-5.18"
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-22",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0307",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "xxe",
+  "severity": "info",
+  "title": "xxe on https://p9.example.com/api/users/profile?id=9639",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/api/users/profile?id=9639",
+    "method": "DELETE",
+    "endpoint": "/api/users/profile",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.56,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=xxe.",
+  "cwe": "CWE-94",
+  "cve": null
+}

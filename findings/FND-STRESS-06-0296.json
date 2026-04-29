@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0296",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on NVR-X-586",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-586",
+    "ip": "192.168.20.140",
+    "port": 502,
+    "service": "modbus",
+    "firmware_version": "fw-1.16"
+  },
+  "ai_confidence": 0.56,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

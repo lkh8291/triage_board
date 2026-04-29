@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0466",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "info",
+  "title": "ftp-anonymous on PLC-IO-997",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-997",
+    "ip": "192.168.21.242",
+    "port": 8888,
+    "service": "snmp",
+    "firmware_version": "fw-2.11"
+  },
+  "ai_confidence": 0.63,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-20",
+  "cve": "CVE-2022-28498"
+}

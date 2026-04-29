@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0199",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "medium",
+  "title": "upnp-exposed on NVR-X-272",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-272",
+    "ip": "192.168.7.222",
+    "port": 1883,
+    "service": "snmp",
+    "firmware_version": "fw-2.15"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-863",
+  "cve": null
+}

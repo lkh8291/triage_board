@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0367",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "info",
+  "title": "telnet-enabled on Thermo-769",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-769",
+    "ip": "192.168.45.128",
+    "port": 22,
+    "service": "http",
+    "firmware_version": "fw-2.7"
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-863",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0020",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on NVR-X-758",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-758",
+    "ip": "192.168.14.239",
+    "port": 502,
+    "service": "http",
+    "firmware_version": "fw-4.18"
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-20",
+  "cve": null
+}

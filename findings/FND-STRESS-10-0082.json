@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0082",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "info",
+  "title": "snmp-public on PLC-IO-269",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-269",
+    "ip": "192.168.19.53",
+    "port": 554,
+    "service": "modbus",
+    "firmware_version": "fw-4.5"
+  },
+  "ai_confidence": 0.99,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=snmp-public.",
+  "cwe": "CWE-441",
+  "cve": null
+}

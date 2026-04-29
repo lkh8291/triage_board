@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0687",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on GW-Router-107",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-107",
+    "ip": "192.168.50.62",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-79",
+  "cve": null
+}

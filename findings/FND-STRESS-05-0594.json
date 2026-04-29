@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-05-0594",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "android",
+  "category": "insecure-storage",
+  "severity": "medium",
+  "title": "insecure-storage on com.example.health.ui.CoverActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "8.10.39",
+    "component_type": "activity",
+    "component_class": "com.example.health.ui.CoverActivity",
+    "exported": false,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.41,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=android, category=insecure-storage.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

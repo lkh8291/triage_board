@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0345",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "race-condition-toctou",
+  "severity": "high",
+  "title": "race-condition-toctou on https://p5.example.com/account?id=360",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/account?id=360",
+    "method": "POST",
+    "endpoint": "/account",
+    "parameter": "id",
+    "auth_required": false
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=race-condition-toctou.",
+  "cwe": "CWE-732",
+  "cve": null
+}

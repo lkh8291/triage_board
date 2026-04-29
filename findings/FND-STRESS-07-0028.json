@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0028",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on Thermo-703",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-703",
+    "ip": "192.168.26.156",
+    "port": 161,
+    "service": "snmp",
+    "firmware_version": "fw-4.8"
+  },
+  "ai_confidence": 0.63,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-918",
+  "cve": null
+}

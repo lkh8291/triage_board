@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-05-0517",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "android",
+  "category": "insecure-storage",
+  "severity": "high",
+  "title": "insecure-storage on com.example.bank.sync.LoginActivity",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "5.6.15",
+    "component_type": "activity",
+    "component_class": "com.example.bank.sync.LoginActivity",
+    "exported": true,
+    "permission_required": "com.example.bank.permission.ACCESS"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=android, category=insecure-storage.",
+  "cwe": "CWE-269",
+  "cve": "CVE-2024-63555"
+}

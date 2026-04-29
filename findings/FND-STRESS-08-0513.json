@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0513",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "high",
+  "title": "rtsp-no-auth on PLC-IO-190",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-190",
+    "ip": "192.168.34.219",
+    "port": 23,
+    "service": "rtsp",
+    "firmware_version": "fw-2.18"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-732",
+  "cve": null
+}

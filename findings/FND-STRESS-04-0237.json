@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0237",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on GW-Router-667",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-667",
+    "ip": "192.168.22.102",
+    "port": 23,
+    "service": "telnet",
+    "firmware_version": "fw-2.8"
+  },
+  "ai_confidence": 0.53,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-89",
+  "cve": null
+}

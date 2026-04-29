@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-05-0068",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "medium",
+  "title": "webview-js-injection on com.example.health.ui.LoginActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "9.11.25",
+    "component_type": "provider",
+    "component_class": "com.example.health.ui.LoginActivity",
+    "exported": true,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-89",
+  "cve": null
+}

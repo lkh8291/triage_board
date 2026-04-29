@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0285",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on Thermo-229",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-229",
+    "ip": "192.168.3.65",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-2.16"
+  },
+  "ai_confidence": 0.58,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-601",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0454",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "info",
+  "title": "rtsp-no-auth on NVR-X-429",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-429",
+    "ip": "192.168.21.180",
+    "port": 443,
+    "service": "mqtt",
+    "firmware_version": "fw-4.17"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

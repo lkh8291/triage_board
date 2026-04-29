@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0438",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "critical",
+  "title": "modbus-exposed on NVR-X-735",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-735",
+    "ip": "192.168.49.53",
+    "port": 80,
+    "service": "rtsp",
+    "firmware_version": "fw-1.1"
+  },
+  "ai_confidence": 0.58,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-441",
+  "cve": null
+}

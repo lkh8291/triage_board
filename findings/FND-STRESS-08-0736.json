@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0736",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "medium",
+  "title": "webview-js-injection on com.example.shop.ui.DetailActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "6.14.15",
+    "component_type": "provider",
+    "component_class": "com.example.shop.ui.DetailActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-1021",
+  "cve": "CVE-2024-53197"
+}

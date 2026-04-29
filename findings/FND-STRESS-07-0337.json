@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0337",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "cleartext-traffic",
+  "severity": "info",
+  "title": "cleartext-traffic on com.example.shop.sync.AddActivity",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "7.19.3",
+    "component_type": "receiver",
+    "component_class": "com.example.shop.sync.AddActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=cleartext-traffic.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

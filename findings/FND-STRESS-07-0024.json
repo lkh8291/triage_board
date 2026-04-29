@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0024",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "low",
+  "title": "default-credentials on PLC-IO-255",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-255",
+    "ip": "192.168.18.194",
+    "port": 1883,
+    "service": "http",
+    "firmware_version": "fw-3.14"
+  },
+  "ai_confidence": 0.85,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=default-credentials.",
+  "cwe": "CWE-89",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0184",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "janus-signature-bypass",
+  "severity": "medium",
+  "title": "janus-signature-bypass on com.example.social.core.LoginActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "6.19.26",
+    "component_type": "provider",
+    "component_class": "com.example.social.core.LoginActivity",
+    "exported": true,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.99,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=janus-signature-bypass.",
+  "cwe": "CWE-798",
+  "cve": null
+}

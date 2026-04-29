@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0610",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on NVR-X-748",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-748",
+    "ip": "192.168.36.238",
+    "port": 443,
+    "service": "snmp",
+    "firmware_version": "fw-4.7"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0748",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "high",
+  "title": "ssh-weak-cipher on Thermo-287",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-287",
+    "ip": "192.168.30.19",
+    "port": 443,
+    "service": "mqtt",
+    "firmware_version": "fw-1.12"
+  },
+  "ai_confidence": 1,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-89",
+  "cve": null
+}

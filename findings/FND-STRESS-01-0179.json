@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0179",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on NVR-X-704",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-704",
+    "ip": "192.168.25.66",
+    "port": 8080,
+    "service": "rtsp",
+    "firmware_version": "fw-3.15"
+  },
+  "ai_confidence": 0.74,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-732",
+  "cve": null
+}

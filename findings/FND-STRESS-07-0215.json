@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0215",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "low",
+  "title": "ftp-anonymous on Thermo-845",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-845",
+    "ip": "192.168.8.172",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-3.12"
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-89",
+  "cve": null
+}

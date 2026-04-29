@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0523",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on PLC-IO-990",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-990",
+    "ip": "192.168.1.188",
+    "port": 23,
+    "service": "mqtt",
+    "firmware_version": "fw-4.6"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

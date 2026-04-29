@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0009",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "parcelable-deserialization",
+  "severity": "medium",
+  "title": "parcelable-deserialization on com.example.shop.ui.LoginActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "2.0.8",
+    "component_type": "service",
+    "component_class": "com.example.shop.ui.LoginActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=parcelable-deserialization.",
+  "cwe": "CWE-798",
+  "cve": null
+}

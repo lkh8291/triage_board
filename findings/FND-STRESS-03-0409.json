@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0409",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "banner-server-disclosure",
+  "severity": "low",
+  "title": "banner-server-disclosure on https://p3.example.com/account?id=6599",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/account?id=6599",
+    "method": "GET",
+    "endpoint": "/account",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=banner-server-disclosure.",
+  "cwe": "CWE-862",
+  "cve": null
+}

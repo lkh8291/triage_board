@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0185",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "info",
+  "title": "mqtt-anonymous on Thermo-747",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-747",
+    "ip": "192.168.5.16",
+    "port": 443,
+    "service": "telnet",
+    "firmware_version": "fw-1.12"
+  },
+  "ai_confidence": 0.83,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-732",
+  "cve": null
+}

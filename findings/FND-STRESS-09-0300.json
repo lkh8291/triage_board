@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0300",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "info",
+  "title": "firmware-unsigned on SmartCam-415",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-415",
+    "ip": "192.168.38.149",
+    "port": 22,
+    "service": "telnet",
+    "firmware_version": "fw-2.5"
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-78",
+  "cve": null
+}

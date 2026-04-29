@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0983",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "info",
+  "title": "mqtt-anonymous on NVR-X-983",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-983",
+    "ip": "192.168.29.207",
+    "port": 23,
+    "service": "mqtt",
+    "firmware_version": "fw-4.2"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-78",
+  "cve": "CVE-2020-15285"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-09-0022",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "android",
+  "category": "intent-redirection",
+  "severity": "medium",
+  "title": "intent-redirection on com.example.social.ui.MainActivity",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "5.1.21",
+    "component_type": "provider",
+    "component_class": "com.example.social.ui.MainActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.91,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=android, category=intent-redirection.",
+  "cwe": "CWE-287",
+  "cve": null
+}

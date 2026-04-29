@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0157",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "info",
+  "title": "telnet-enabled on GW-Router-450",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-450",
+    "ip": "192.168.3.141",
+    "port": 1883,
+    "service": "http",
+    "firmware_version": "fw-5.6"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-20",
+  "cve": null
+}

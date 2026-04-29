@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0408",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "low",
+  "title": "upnp-exposed on PLC-IO-648",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-648",
+    "ip": "192.168.26.169",
+    "port": 502,
+    "service": "snmp",
+    "firmware_version": "fw-4.14"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

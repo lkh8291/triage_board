@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0181",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "critical",
+  "title": "http-admin-exposed on GW-Router-333",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-333",
+    "ip": "192.168.33.249",
+    "port": 8888,
+    "service": "ssh",
+    "firmware_version": "fw-1.11"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-862",
+  "cve": null
+}

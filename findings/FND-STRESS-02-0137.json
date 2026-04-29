@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0137",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on NVR-X-981",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-981",
+    "ip": "192.168.32.7",
+    "port": 1883,
+    "service": "mqtt",
+    "firmware_version": "fw-2.6"
+  },
+  "ai_confidence": 0.45,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-918",
+  "cve": "CVE-2025-74753"
+}

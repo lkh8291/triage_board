@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-05-0119",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "android",
+  "category": "content-provider-leak",
+  "severity": "medium",
+  "title": "content-provider-leak on com.example.shop.sync.MainActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "1.16.13",
+    "component_type": "provider",
+    "component_class": "com.example.shop.sync.MainActivity",
+    "exported": true,
+    "permission_required": "com.example.shop.permission.ACCESS"
+  },
+  "ai_confidence": 0.91,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=android, category=content-provider-leak.",
+  "cwe": "CWE-79",
+  "cve": null
+}

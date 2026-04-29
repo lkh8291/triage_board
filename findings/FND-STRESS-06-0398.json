@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0398",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on Thermo-535",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-535",
+    "ip": "192.168.48.76",
+    "port": 502,
+    "service": "http",
+    "firmware_version": "fw-5.16"
+  },
+  "ai_confidence": 0.65,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-601",
+  "cve": null
+}

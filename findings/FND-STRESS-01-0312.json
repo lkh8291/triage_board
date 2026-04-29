@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0312",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "medium",
+  "title": "jtag-uart-exposed on NVR-X-790",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-790",
+    "ip": "192.168.50.187",
+    "port": 1883,
+    "service": "mqtt",
+    "firmware_version": "fw-2.13"
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-918",
+  "cve": null
+}

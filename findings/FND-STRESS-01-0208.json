@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0208",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "low",
+  "title": "snmp-public on Thermo-663",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-663",
+    "ip": "192.168.11.241",
+    "port": 502,
+    "service": "telnet",
+    "firmware_version": "fw-4.8"
+  },
+  "ai_confidence": 0.44,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=snmp-public.",
+  "cwe": "CWE-862",
+  "cve": null
+}

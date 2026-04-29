@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0368",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "info",
+  "title": "telnet-enabled on NVR-X-184",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-184",
+    "ip": "192.168.49.59",
+    "port": 502,
+    "service": "modbus",
+    "firmware_version": "fw-1.14"
+  },
+  "ai_confidence": 0.91,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-926",
+  "cve": null
+}

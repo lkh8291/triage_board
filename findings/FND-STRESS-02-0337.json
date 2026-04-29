@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0337",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on NVR-X-781",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-781",
+    "ip": "192.168.12.27",
+    "port": 502,
+    "service": "rtsp",
+    "firmware_version": "fw-5.12"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-918",
+  "cve": "CVE-2026-59263"
+}

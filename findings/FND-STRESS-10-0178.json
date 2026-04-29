@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0178",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "insecure-storage",
+  "severity": "low",
+  "title": "insecure-storage on com.example.shop.ui.LoginActivity",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "4.1.17",
+    "component_type": "activity",
+    "component_class": "com.example.shop.ui.LoginActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.74,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=insecure-storage.",
+  "cwe": "CWE-94",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0350",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on PLC-IO-944",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-944",
+    "ip": "192.168.42.111",
+    "port": 8080,
+    "service": "snmp",
+    "firmware_version": "fw-3.2"
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-89",
+  "cve": null
+}

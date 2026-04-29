@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0780",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "sqli-blind",
+  "severity": "low",
+  "title": "sqli-blind on https://p4.example.com/search?id=1214",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/search?id=1214",
+    "method": "PUT",
+    "endpoint": "/search",
+    "parameter": "page",
+    "auth_required": false
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=sqli-blind.",
+  "cwe": "CWE-601",
+  "cve": null
+}

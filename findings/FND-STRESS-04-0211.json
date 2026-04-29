@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0211",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "low",
+  "title": "upnp-exposed on GW-Router-137",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-137",
+    "ip": "192.168.19.178",
+    "port": 22,
+    "service": "ssh",
+    "firmware_version": "fw-2.8"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-732",
+  "cve": "CVE-2026-37409"
+}

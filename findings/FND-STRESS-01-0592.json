@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0592",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on GW-Router-392",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-392",
+    "ip": "192.168.29.145",
+    "port": 443,
+    "service": "snmp",
+    "firmware_version": "fw-5.3"
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-94",
+  "cve": null
+}

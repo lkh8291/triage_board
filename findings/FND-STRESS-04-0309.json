@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0309",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "race-condition-toctou",
+  "severity": "low",
+  "title": "race-condition-toctou on https://p4.example.com/api/admin/config?id=7751",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/admin/config?id=7751",
+    "method": "DELETE",
+    "endpoint": "/api/admin/config",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.58,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=race-condition-toctou.",
+  "cwe": "CWE-862",
+  "cve": null
+}

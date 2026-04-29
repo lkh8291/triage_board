@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0285",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on NVR-X-948",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-948",
+    "ip": "192.168.22.144",
+    "port": 1883,
+    "service": "http",
+    "firmware_version": "fw-4.13"
+  },
+  "ai_confidence": 0.91,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-862",
+  "cve": null
+}

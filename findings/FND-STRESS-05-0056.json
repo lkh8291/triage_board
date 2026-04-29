@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0056",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "high",
+  "title": "telnet-enabled on NVR-X-749",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-749",
+    "ip": "192.168.44.139",
+    "port": 80,
+    "service": "http",
+    "firmware_version": "fw-5.20"
+  },
+  "ai_confidence": 0.77,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-94",
+  "cve": null
+}

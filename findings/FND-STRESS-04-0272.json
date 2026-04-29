@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-04-0272",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "android",
+  "category": "parcelable-deserialization",
+  "severity": "high",
+  "title": "parcelable-deserialization on com.example.social.ui.DetailActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "6.14.17",
+    "component_type": "receiver",
+    "component_class": "com.example.social.ui.DetailActivity",
+    "exported": true,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=android, category=parcelable-deserialization.",
+  "cwe": "CWE-287",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0237",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on NVR-X-376",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-376",
+    "ip": "192.168.16.145",
+    "port": 502,
+    "service": "http",
+    "firmware_version": "fw-4.8"
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-502",
+  "cve": null
+}

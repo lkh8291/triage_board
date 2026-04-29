@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0327",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on PLC-IO-305",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-305",
+    "ip": "192.168.12.63",
+    "port": 443,
+    "service": "telnet",
+    "firmware_version": "fw-2.5"
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-287",
+  "cve": null
+}

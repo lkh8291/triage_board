@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0335",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "deeplink-permission-bypass",
+  "severity": "medium",
+  "title": "deeplink-permission-bypass on com.example.social.core.AddActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "5.16.24",
+    "component_type": "service",
+    "component_class": "com.example.social.core.AddActivity",
+    "exported": false,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.93,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=deeplink-permission-bypass.",
+  "cwe": "CWE-798",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-06-0279",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "android",
+  "category": "janus-signature-bypass",
+  "severity": "info",
+  "title": "janus-signature-bypass on com.example.media.sync.MainActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "7.14.19",
+    "component_type": "service",
+    "component_class": "com.example.media.sync.MainActivity",
+    "exported": false,
+    "permission_required": "com.example.media.permission.ACCESS"
+  },
+  "ai_confidence": 0.4,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=android, category=janus-signature-bypass.",
+  "cwe": "CWE-22",
+  "cve": null
+}

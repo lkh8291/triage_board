@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0306",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "exported-broadcast-receiver",
+  "severity": "medium",
+  "title": "exported-broadcast-receiver on com.example.media.core.CoverActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "2.6.19",
+    "component_type": "receiver",
+    "component_class": "com.example.media.core.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.49,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=exported-broadcast-receiver.",
+  "cwe": "CWE-94",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0270",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "low",
+  "title": "firmware-unsigned on NVR-X-393",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-393",
+    "ip": "192.168.26.32",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-3.7"
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-601",
+  "cve": null
+}

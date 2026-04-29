@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0549",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "critical",
+  "title": "upnp-exposed on SmartCam-795",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-795",
+    "ip": "192.168.22.47",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-1.15"
+  },
+  "ai_confidence": 0.56,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

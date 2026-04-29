@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0105",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "low",
+  "title": "rtsp-no-auth on SmartCam-269",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-269",
+    "ip": "192.168.4.191",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-5.1"
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-502",
+  "cve": "CVE-2021-82433"
+}

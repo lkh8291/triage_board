@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0714",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "csrf",
+  "severity": "high",
+  "title": "csrf on https://p10.example.com/search?id=6992",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/search?id=6992",
+    "method": "DELETE",
+    "endpoint": "/search",
+    "parameter": "page",
+    "auth_required": false
+  },
+  "ai_confidence": 0.69,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=csrf.",
+  "cwe": "CWE-926",
+  "cve": null
+}

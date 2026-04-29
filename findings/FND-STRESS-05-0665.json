@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0665",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "critical",
+  "title": "telnet-enabled on Thermo-864",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-864",
+    "ip": "192.168.10.143",
+    "port": 161,
+    "service": "http",
+    "firmware_version": "fw-2.5"
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-269",
+  "cve": null
+}

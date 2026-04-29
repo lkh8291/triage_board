@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0498",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on SmartCam-252",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-252",
+    "ip": "192.168.39.23",
+    "port": 23,
+    "service": "rtsp",
+    "firmware_version": "fw-5.4"
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-200",
+  "cve": null
+}

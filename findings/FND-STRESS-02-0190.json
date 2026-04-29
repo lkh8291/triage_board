@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0190",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on GW-Router-822",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-822",
+    "ip": "192.168.2.25",
+    "port": 23,
+    "service": "modbus",
+    "firmware_version": "fw-2.1"
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-94",
+  "cve": null
+}

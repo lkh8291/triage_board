@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0734",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on NVR-X-254",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-254",
+    "ip": "192.168.48.87",
+    "port": 23,
+    "service": "modbus",
+    "firmware_version": "fw-2.7"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-732",
+  "cve": null
+}

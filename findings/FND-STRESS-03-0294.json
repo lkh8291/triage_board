@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0294",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "medium",
+  "title": "jtag-uart-exposed on SmartCam-506",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-506",
+    "ip": "192.168.26.68",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-4.18"
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-732",
+  "cve": null
+}

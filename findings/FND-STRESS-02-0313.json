@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0313",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "tapjacking",
+  "severity": "critical",
+  "title": "tapjacking on com.example.bank.sync.CoverActivity",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "8.0.5",
+    "component_type": "service",
+    "component_class": "com.example.bank.sync.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.93,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=tapjacking.",
+  "cwe": "CWE-441",
+  "cve": "CVE-2026-14002"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0649",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "header-x-frame-options-missing",
+  "severity": "medium",
+  "title": "header-x-frame-options-missing on https://p6.example.com/api/v2/checkout?id=2175",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/api/v2/checkout?id=2175",
+    "method": "PUT",
+    "endpoint": "/api/v2/checkout",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=header-x-frame-options-missing.",
+  "cwe": "CWE-94",
+  "cve": null
+}

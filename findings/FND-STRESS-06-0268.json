@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0268",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "xxe",
+  "severity": "critical",
+  "title": "xxe on https://p6.example.com/api/internal/sync?id=6289",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/api/internal/sync?id=6289",
+    "method": "PUT",
+    "endpoint": "/api/internal/sync",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 1,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=xxe.",
+  "cwe": "CWE-863",
+  "cve": null
+}

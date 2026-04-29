@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0026",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on NVR-X-840",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-840",
+    "ip": "192.168.16.53",
+    "port": 161,
+    "service": "ssh",
+    "firmware_version": "fw-2.9"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=snmp-public.",
+  "cwe": "CWE-200",
+  "cve": null
+}

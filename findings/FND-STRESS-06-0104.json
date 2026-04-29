@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0104",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "cmd-injection",
+  "severity": "info",
+  "title": "cmd-injection on https://p6.example.com/dashboard?id=1936",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/dashboard?id=1936",
+    "method": "DELETE",
+    "endpoint": "/dashboard",
+    "parameter": "redirect",
+    "auth_required": false
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=cmd-injection.",
+  "cwe": "CWE-78",
+  "cve": null
+}

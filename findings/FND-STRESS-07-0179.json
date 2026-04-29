@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0179",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "low",
+  "title": "jtag-uart-exposed on GW-Router-422",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-422",
+    "ip": "192.168.49.254",
+    "port": 554,
+    "service": "telnet",
+    "firmware_version": "fw-1.13"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-79",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0434",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on SmartCam-814",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-814",
+    "ip": "192.168.18.250",
+    "port": 8888,
+    "service": "ssh",
+    "firmware_version": "fw-3.0"
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-200",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0195",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on NVR-X-273",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-273",
+    "ip": "192.168.37.7",
+    "port": 80,
+    "service": "mqtt",
+    "firmware_version": "fw-1.19"
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-269",
+  "cve": null
+}

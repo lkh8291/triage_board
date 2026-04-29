@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0725",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "medium",
+  "title": "jtag-uart-exposed on NVR-X-664",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-664",
+    "ip": "192.168.39.16",
+    "port": 8888,
+    "service": "rtsp",
+    "firmware_version": "fw-1.19"
+  },
+  "ai_confidence": 1,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-601",
+  "cve": null
+}

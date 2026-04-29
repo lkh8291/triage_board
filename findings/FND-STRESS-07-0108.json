@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0108",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "xss-stored",
+  "severity": "low",
+  "title": "xss-stored on https://p7.example.com/api/orders?id=7026",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/api/orders?id=7026",
+    "method": "POST",
+    "endpoint": "/api/orders",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.92,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=xss-stored.",
+  "cwe": "CWE-78",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0340",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "low",
+  "title": "jtag-uart-exposed on NVR-X-307",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-307",
+    "ip": "192.168.26.224",
+    "port": 8080,
+    "service": "http",
+    "firmware_version": "fw-1.1"
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-863",
+  "cve": null
+}

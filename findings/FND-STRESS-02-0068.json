@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0068",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "info",
+  "title": "ssh-weak-cipher on GW-Router-332",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-332",
+    "ip": "192.168.22.185",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-3.9"
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-94",
+  "cve": null
+}

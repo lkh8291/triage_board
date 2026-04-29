@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0461",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "critical",
+  "title": "mqtt-anonymous on GW-Router-910",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-910",
+    "ip": "192.168.11.47",
+    "port": 1883,
+    "service": "rtsp",
+    "firmware_version": "fw-3.11"
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-89",
+  "cve": null
+}

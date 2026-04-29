@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0460",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "info",
+  "title": "firmware-unsigned on PLC-IO-341",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-341",
+    "ip": "192.168.6.185",
+    "port": 8080,
+    "service": "ssh",
+    "firmware_version": "fw-1.16"
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-89",
+  "cve": null
+}

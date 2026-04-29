@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0246",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on SmartCam-390",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-390",
+    "ip": "192.168.36.8",
+    "port": 8080,
+    "service": "snmp",
+    "firmware_version": "fw-3.9"
+  },
+  "ai_confidence": 0.83,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-862",
+  "cve": null
+}

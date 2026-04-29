@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0435",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "medium",
+  "title": "upnp-exposed on NVR-X-387",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-387",
+    "ip": "192.168.16.117",
+    "port": 22,
+    "service": "telnet",
+    "firmware_version": "fw-4.0"
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-601",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0533",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on PLC-IO-311",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-311",
+    "ip": "192.168.31.182",
+    "port": 22,
+    "service": "snmp",
+    "firmware_version": "fw-2.11"
+  },
+  "ai_confidence": 0.58,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-20",
+  "cve": null
+}

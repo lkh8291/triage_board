@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0348",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on GW-Router-300",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-300",
+    "ip": "192.168.18.41",
+    "port": 443,
+    "service": "snmp",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 1,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-22",
+  "cve": "CVE-2023-51292"
+}

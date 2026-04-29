@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0019",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "low",
+  "title": "firmware-unsigned on NVR-X-450",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-450",
+    "ip": "192.168.16.137",
+    "port": 554,
+    "service": "mqtt",
+    "firmware_version": "fw-4.6"
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-89",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0204",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on GW-Router-704",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-704",
+    "ip": "192.168.49.252",
+    "port": 161,
+    "service": "telnet",
+    "firmware_version": "fw-3.11"
+  },
+  "ai_confidence": 0.77,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

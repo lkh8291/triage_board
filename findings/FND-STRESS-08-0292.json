@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0292",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "low",
+  "title": "telnet-enabled on Thermo-146",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-146",
+    "ip": "192.168.48.111",
+    "port": 8080,
+    "service": "modbus",
+    "firmware_version": "fw-3.15"
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-732",
+  "cve": null
+}

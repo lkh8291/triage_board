@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0404",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "high",
+  "title": "upnp-exposed on SmartCam-133",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-133",
+    "ip": "192.168.21.88",
+    "port": 161,
+    "service": "rtsp",
+    "firmware_version": "fw-2.1"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0779",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on Thermo-141",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-141",
+    "ip": "192.168.41.215",
+    "port": 22,
+    "service": "modbus",
+    "firmware_version": "fw-4.7"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-352",
+  "cve": null
+}

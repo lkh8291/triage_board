@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0758",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "medium",
+  "title": "modbus-exposed on GW-Router-269",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-269",
+    "ip": "192.168.28.202",
+    "port": 161,
+    "service": "mqtt",
+    "firmware_version": "fw-1.10"
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-287",
+  "cve": null
+}

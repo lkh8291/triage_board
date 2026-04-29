@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0598",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "high",
+  "title": "firmware-unsigned on GW-Router-607",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-607",
+    "ip": "192.168.9.156",
+    "port": 502,
+    "service": "snmp",
+    "firmware_version": "fw-2.12"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-287",
+  "cve": "CVE-2021-65576"
+}

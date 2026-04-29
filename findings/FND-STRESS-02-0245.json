@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0245",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on NVR-X-232",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-232",
+    "ip": "192.168.47.107",
+    "port": 554,
+    "service": "mqtt",
+    "firmware_version": "fw-1.2"
+  },
+  "ai_confidence": 0.53,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-269",
+  "cve": null
+}

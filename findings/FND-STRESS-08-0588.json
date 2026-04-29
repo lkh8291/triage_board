@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0588",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "prototype-pollution",
+  "severity": "medium",
+  "title": "prototype-pollution on https://p8.example.com/api/files/upload?id=6160",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/api/files/upload?id=6160",
+    "method": "PUT",
+    "endpoint": "/api/files/upload",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.69,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=prototype-pollution.",
+  "cwe": "CWE-732",
+  "cve": null
+}

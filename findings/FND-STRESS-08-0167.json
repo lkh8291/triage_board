@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0167",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "high",
+  "title": "telnet-enabled on GW-Router-184",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-184",
+    "ip": "192.168.50.8",
+    "port": 554,
+    "service": "snmp",
+    "firmware_version": "fw-3.9"
+  },
+  "ai_confidence": 0.45,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-352",
+  "cve": null
+}

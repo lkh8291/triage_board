@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0353",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "low",
+  "title": "jtag-uart-exposed on GW-Router-876",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-876",
+    "ip": "192.168.10.174",
+    "port": 8888,
+    "service": "ssh",
+    "firmware_version": "fw-4.13"
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-639",
+  "cve": null
+}

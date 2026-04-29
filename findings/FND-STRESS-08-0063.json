@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0063",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "info",
+  "title": "firmware-unsigned on GW-Router-529",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-529",
+    "ip": "192.168.10.51",
+    "port": 554,
+    "service": "rtsp",
+    "firmware_version": "fw-4.17"
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

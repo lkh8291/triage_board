@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0056",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "ssrf",
+  "severity": "high",
+  "title": "ssrf on https://p2.example.com/api/internal/sync?id=3289",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/api/internal/sync?id=3289",
+    "method": "GET",
+    "endpoint": "/api/internal/sync",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=ssrf.",
+  "cwe": "CWE-918",
+  "cve": null
+}

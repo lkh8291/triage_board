@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0793",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "info",
+  "title": "default-credentials on PLC-IO-826",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-826",
+    "ip": "192.168.48.90",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-5.0"
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=default-credentials.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

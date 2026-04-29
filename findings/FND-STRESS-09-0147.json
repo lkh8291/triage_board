@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0147",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "medium",
+  "title": "modbus-exposed on Thermo-221",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-221",
+    "ip": "192.168.42.243",
+    "port": 161,
+    "service": "ssh",
+    "firmware_version": "fw-3.1"
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0461",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "xxe",
+  "severity": "low",
+  "title": "xxe on https://p8.example.com/api/v2/checkout?id=3721",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/api/v2/checkout?id=3721",
+    "method": "POST",
+    "endpoint": "/api/v2/checkout",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=xxe.",
+  "cwe": "CWE-732",
+  "cve": null
+}

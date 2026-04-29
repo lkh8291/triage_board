@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0639",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on SmartCam-307",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-307",
+    "ip": "192.168.2.78",
+    "port": 1883,
+    "service": "ssh",
+    "firmware_version": "fw-4.2"
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-732",
+  "cve": null
+}

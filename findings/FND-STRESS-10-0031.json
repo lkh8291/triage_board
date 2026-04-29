@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0031",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "deeplink-permission-bypass",
+  "severity": "low",
+  "title": "deeplink-permission-bypass on com.example.shop.ui.DetailActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "8.15.32",
+    "component_type": "provider",
+    "component_class": "com.example.shop.ui.DetailActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=deeplink-permission-bypass.",
+  "cwe": "CWE-601",
+  "cve": null
+}

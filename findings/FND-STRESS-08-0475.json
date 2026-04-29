@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0475",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "parcelable-deserialization",
+  "severity": "medium",
+  "title": "parcelable-deserialization on com.example.media.ui.MainActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "9.12.27",
+    "component_type": "provider",
+    "component_class": "com.example.media.ui.MainActivity",
+    "exported": true,
+    "permission_required": "com.example.media.permission.ACCESS"
+  },
+  "ai_confidence": 0.52,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=parcelable-deserialization.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0846",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "header-x-frame-options-missing",
+  "severity": "high",
+  "title": "header-x-frame-options-missing on https://p3.example.com/api/files/upload?id=2428",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/api/files/upload?id=2428",
+    "method": "DELETE",
+    "endpoint": "/api/files/upload",
+    "parameter": "callback",
+    "auth_required": false
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=header-x-frame-options-missing.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

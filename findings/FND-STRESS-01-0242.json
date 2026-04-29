@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0242",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "weak-cryptography",
+  "severity": "medium",
+  "title": "weak-cryptography on com.example.social.sync.DetailActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "9.3.15",
+    "component_type": "service",
+    "component_class": "com.example.social.sync.DetailActivity",
+    "exported": true,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=weak-cryptography.",
+  "cwe": "CWE-639",
+  "cve": null
+}

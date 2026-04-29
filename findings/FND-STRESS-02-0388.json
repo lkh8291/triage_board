@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0388",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "cmd-injection",
+  "severity": "critical",
+  "title": "cmd-injection on https://p2.example.com/login?id=4927",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/login?id=4927",
+    "method": "POST",
+    "endpoint": "/login",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.65,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=cmd-injection.",
+  "cwe": "CWE-287",
+  "cve": null
+}

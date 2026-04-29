@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0668",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "intent-redirection",
+  "severity": "medium",
+  "title": "intent-redirection on com.example.media.sync.CoverActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "5.4.34",
+    "component_type": "activity",
+    "component_class": "com.example.media.sync.CoverActivity",
+    "exported": false,
+    "permission_required": "com.example.media.permission.ACCESS"
+  },
+  "ai_confidence": 0.69,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=intent-redirection.",
+  "cwe": "CWE-79",
+  "cve": null
+}

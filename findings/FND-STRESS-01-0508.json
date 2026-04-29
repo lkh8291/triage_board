@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0508",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "high",
+  "title": "mqtt-anonymous on Thermo-598",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-598",
+    "ip": "192.168.35.3",
+    "port": 80,
+    "service": "mqtt",
+    "firmware_version": "fw-3.0"
+  },
+  "ai_confidence": 0.44,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-862",
+  "cve": null
+}

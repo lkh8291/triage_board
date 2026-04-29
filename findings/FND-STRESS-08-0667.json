@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0667",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on GW-Router-512",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-512",
+    "ip": "192.168.11.185",
+    "port": 554,
+    "service": "snmp",
+    "firmware_version": "fw-4.6"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-732",
+  "cve": null
+}

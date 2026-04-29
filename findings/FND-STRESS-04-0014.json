@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0014",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "info",
+  "title": "snmp-public on GW-Router-726",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-726",
+    "ip": "192.168.14.169",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-2.13"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=snmp-public.",
+  "cwe": "CWE-502",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-03-0712",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "android",
+  "category": "exported-broadcast-receiver",
+  "severity": "high",
+  "title": "exported-broadcast-receiver on com.example.social.ui.DetailActivity",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "4.2.42",
+    "component_type": "activity",
+    "component_class": "com.example.social.ui.DetailActivity",
+    "exported": true,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=android, category=exported-broadcast-receiver.",
+  "cwe": "CWE-601",
+  "cve": null
+}

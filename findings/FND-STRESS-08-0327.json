@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0327",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on Thermo-330",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-330",
+    "ip": "192.168.35.43",
+    "port": 22,
+    "service": "telnet",
+    "firmware_version": "fw-3.9"
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-20",
+  "cve": null
+}

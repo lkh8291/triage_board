@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0324",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on PLC-IO-256",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-256",
+    "ip": "192.168.23.183",
+    "port": 443,
+    "service": "snmp",
+    "firmware_version": "fw-5.13"
+  },
+  "ai_confidence": 0.74,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-863",
+  "cve": null
+}

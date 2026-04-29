@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0232",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "xss-stored",
+  "severity": "high",
+  "title": "xss-stored on https://p8.example.com/account?id=894",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/account?id=894",
+    "method": "POST",
+    "endpoint": "/account",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.92,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=xss-stored.",
+  "cwe": "CWE-863",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0128",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on Thermo-698",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-698",
+    "ip": "192.168.30.5",
+    "port": 502,
+    "service": "modbus",
+    "firmware_version": "fw-3.5"
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-639",
+  "cve": "CVE-2026-38584"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0278",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on GW-Router-716",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-716",
+    "ip": "192.168.41.179",
+    "port": 8080,
+    "service": "ssh",
+    "firmware_version": "fw-4.9"
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=default-credentials.",
+  "cwe": "CWE-200",
+  "cve": null
+}

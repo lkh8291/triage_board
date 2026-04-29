@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0464",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "high",
+  "title": "ssh-weak-cipher on Thermo-368",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-368",
+    "ip": "192.168.28.242",
+    "port": 502,
+    "service": "snmp",
+    "firmware_version": "fw-2.11"
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-502",
+  "cve": null
+}

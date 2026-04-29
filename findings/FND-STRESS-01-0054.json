@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0054",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "info",
+  "title": "snmp-public on Thermo-791",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-791",
+    "ip": "192.168.7.93",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-4.11"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=snmp-public.",
+  "cwe": "CWE-502",
+  "cve": null
+}

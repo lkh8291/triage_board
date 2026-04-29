@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0282",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "high",
+  "title": "snmp-public on SmartCam-882",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-882",
+    "ip": "192.168.25.167",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-5.15"
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=snmp-public.",
+  "cwe": "CWE-926",
+  "cve": null
+}

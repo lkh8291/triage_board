@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0114",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on SmartCam-983",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-983",
+    "ip": "192.168.42.143",
+    "port": 443,
+    "service": "modbus",
+    "firmware_version": "fw-4.14"
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

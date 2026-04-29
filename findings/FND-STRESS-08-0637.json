@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0637",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "race-condition-toctou",
+  "severity": "high",
+  "title": "race-condition-toctou on https://p8.example.com/login?id=2424",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/login?id=2424",
+    "method": "GET",
+    "endpoint": "/login",
+    "parameter": "redirect",
+    "auth_required": false
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=race-condition-toctou.",
+  "cwe": "CWE-798",
+  "cve": null
+}

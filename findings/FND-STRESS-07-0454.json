@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0454",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "xxe",
+  "severity": "high",
+  "title": "xxe on https://p7.example.com/login?id=4421",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/login?id=4421",
+    "method": "PUT",
+    "endpoint": "/login",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=xxe.",
+  "cwe": "CWE-601",
+  "cve": null
+}

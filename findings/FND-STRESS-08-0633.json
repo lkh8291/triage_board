@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0633",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on Thermo-417",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-417",
+    "ip": "192.168.35.56",
+    "port": 161,
+    "service": "telnet",
+    "firmware_version": "fw-1.20"
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-352",
+  "cve": null
+}

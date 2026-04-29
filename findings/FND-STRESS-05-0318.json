@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-05-0318",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "android",
+  "category": "intent-uri-smuggle",
+  "severity": "high",
+  "title": "intent-uri-smuggle on com.example.media.ui.LoginActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "9.4.20",
+    "component_type": "activity",
+    "component_class": "com.example.media.ui.LoginActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=android, category=intent-uri-smuggle.",
+  "cwe": "CWE-269",
+  "cve": null
+}

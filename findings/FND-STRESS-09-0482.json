@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0482",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "info",
+  "title": "mqtt-anonymous on PLC-IO-745",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-745",
+    "ip": "192.168.19.158",
+    "port": 554,
+    "service": "snmp",
+    "firmware_version": "fw-2.2"
+  },
+  "ai_confidence": 0.98,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-863",
+  "cve": null
+}

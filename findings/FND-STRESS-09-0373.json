@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0373",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "low",
+  "title": "upnp-exposed on NVR-X-452",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-452",
+    "ip": "192.168.15.230",
+    "port": 443,
+    "service": "mqtt",
+    "firmware_version": "fw-1.13"
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-79",
+  "cve": null
+}

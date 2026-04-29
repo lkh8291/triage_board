@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0526",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on PLC-IO-617",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-617",
+    "ip": "192.168.19.103",
+    "port": 161,
+    "service": "snmp",
+    "firmware_version": "fw-4.2"
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-732",
+  "cve": null
+}

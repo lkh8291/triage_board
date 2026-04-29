@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0613",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on Thermo-409",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-409",
+    "ip": "192.168.41.80",
+    "port": 443,
+    "service": "mqtt",
+    "firmware_version": "fw-1.7"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-732",
+  "cve": null
+}

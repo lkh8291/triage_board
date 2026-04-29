@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0085",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "graphql-introspection-exposed",
+  "severity": "low",
+  "title": "graphql-introspection-exposed on https://p10.example.com/api/files/upload?id=1658",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/api/files/upload?id=1658",
+    "method": "POST",
+    "endpoint": "/api/files/upload",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.72,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=graphql-introspection-exposed.",
+  "cwe": "CWE-20",
+  "cve": null
+}

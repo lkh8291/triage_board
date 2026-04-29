@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0654",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on NVR-X-525",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-525",
+    "ip": "192.168.27.59",
+    "port": 8080,
+    "service": "ssh",
+    "firmware_version": "fw-4.11"
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-200",
+  "cve": null
+}

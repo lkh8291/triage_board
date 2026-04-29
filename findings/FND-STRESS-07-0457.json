@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0457",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "intent-uri-smuggle",
+  "severity": "medium",
+  "title": "intent-uri-smuggle on com.example.shop.sync.CoverActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "6.4.28",
+    "component_type": "service",
+    "component_class": "com.example.shop.sync.CoverActivity",
+    "exported": true,
+    "permission_required": "com.example.shop.permission.ACCESS"
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=intent-uri-smuggle.",
+  "cwe": "CWE-639",
+  "cve": null
+}

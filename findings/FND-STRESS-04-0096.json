@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0096",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "high",
+  "title": "ssh-weak-cipher on Thermo-449",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-449",
+    "ip": "192.168.10.241",
+    "port": 22,
+    "service": "ssh",
+    "firmware_version": "fw-5.11"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-926",
+  "cve": null
+}

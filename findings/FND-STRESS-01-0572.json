@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0572",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "open-redirect",
+  "severity": "medium",
+  "title": "open-redirect on https://p1.example.com/api/internal/sync?id=3500",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/api/internal/sync?id=3500",
+    "method": "PUT",
+    "endpoint": "/api/internal/sync",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=open-redirect.",
+  "cwe": "CWE-22",
+  "cve": null
+}

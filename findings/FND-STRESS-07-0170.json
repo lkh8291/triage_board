@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0170",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "sqli-blind",
+  "severity": "info",
+  "title": "sqli-blind on https://p7.example.com/search?id=3182",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/search?id=3182",
+    "method": "POST",
+    "endpoint": "/search",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=sqli-blind.",
+  "cwe": "CWE-20",
+  "cve": null
+}

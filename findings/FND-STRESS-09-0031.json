@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0031",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "open-redirect",
+  "severity": "high",
+  "title": "open-redirect on https://p9.example.com/login?id=2472",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/login?id=2472",
+    "method": "PUT",
+    "endpoint": "/login",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=open-redirect.",
+  "cwe": "CWE-78",
+  "cve": null
+}

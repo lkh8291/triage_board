@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0132",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on PLC-IO-225",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-225",
+    "ip": "192.168.25.194",
+    "port": 1883,
+    "service": "rtsp",
+    "firmware_version": "fw-1.3"
+  },
+  "ai_confidence": 0.83,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-441",
+  "cve": null
+}

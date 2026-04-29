@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0685",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "sqli-blind",
+  "severity": "low",
+  "title": "sqli-blind on https://p3.example.com/search?id=1238",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/search?id=1238",
+    "method": "POST",
+    "endpoint": "/search",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=sqli-blind.",
+  "cwe": "CWE-862",
+  "cve": null
+}

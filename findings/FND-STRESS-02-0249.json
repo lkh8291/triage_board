@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0249",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "path-traversal",
+  "severity": "low",
+  "title": "path-traversal on https://p2.example.com/api/files/upload?id=2142",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/api/files/upload?id=2142",
+    "method": "POST",
+    "endpoint": "/api/files/upload",
+    "parameter": "callback",
+    "auth_required": false
+  },
+  "ai_confidence": 0.57,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=path-traversal.",
+  "cwe": "CWE-287",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0667",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "critical",
+  "title": "mqtt-anonymous on Thermo-179",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-179",
+    "ip": "192.168.32.121",
+    "port": 22,
+    "service": "http",
+    "firmware_version": "fw-3.6"
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-22",
+  "cve": null
+}

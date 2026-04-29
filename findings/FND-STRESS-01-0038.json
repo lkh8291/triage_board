@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0038",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "critical",
+  "title": "mqtt-anonymous on SmartCam-186",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-186",
+    "ip": "192.168.46.2",
+    "port": 22,
+    "service": "snmp",
+    "firmware_version": "fw-1.15"
+  },
+  "ai_confidence": 0.4,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-94",
+  "cve": null
+}

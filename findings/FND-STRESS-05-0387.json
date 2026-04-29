@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-05-0387",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "android",
+  "category": "deeplink-permission-bypass",
+  "severity": "critical",
+  "title": "deeplink-permission-bypass on com.example.health.core.MainActivity",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "4.12.21",
+    "component_type": "activity",
+    "component_class": "com.example.health.core.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.83,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=android, category=deeplink-permission-bypass.",
+  "cwe": "CWE-78",
+  "cve": null
+}

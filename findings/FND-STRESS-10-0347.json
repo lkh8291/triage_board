@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0347",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "low",
+  "title": "modbus-exposed on NVR-X-283",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-283",
+    "ip": "192.168.3.60",
+    "port": 161,
+    "service": "mqtt",
+    "firmware_version": "fw-2.17"
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-601",
+  "cve": null
+}

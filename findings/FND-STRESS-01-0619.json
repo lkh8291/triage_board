@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0619",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "jwt-weak",
+  "severity": "low",
+  "title": "jwt-weak on https://p1.example.com/api/files/upload?id=8442",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/api/files/upload?id=8442",
+    "method": "GET",
+    "endpoint": "/api/files/upload",
+    "parameter": "q",
+    "auth_required": false
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=jwt-weak.",
+  "cwe": "CWE-732",
+  "cve": null
+}

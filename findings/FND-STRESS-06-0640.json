@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-06-0640",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "android",
+  "category": "cleartext-traffic",
+  "severity": "high",
+  "title": "cleartext-traffic on com.example.media.ui.DetailActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "1.8.30",
+    "component_type": "service",
+    "component_class": "com.example.media.ui.DetailActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=android, category=cleartext-traffic.",
+  "cwe": "CWE-352",
+  "cve": null
+}

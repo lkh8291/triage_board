@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0017",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "low",
+  "title": "jtag-uart-exposed on GW-Router-992",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-992",
+    "ip": "192.168.9.194",
+    "port": 1883,
+    "service": "rtsp",
+    "firmware_version": "fw-1.10"
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-94",
+  "cve": null
+}

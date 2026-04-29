@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0522",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "exported-broadcast-receiver",
+  "severity": "medium",
+  "title": "exported-broadcast-receiver on com.example.media.core.MainActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "4.5.47",
+    "component_type": "receiver",
+    "component_class": "com.example.media.core.MainActivity",
+    "exported": false,
+    "permission_required": "com.example.media.permission.ACCESS"
+  },
+  "ai_confidence": 1,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=exported-broadcast-receiver.",
+  "cwe": "CWE-862",
+  "cve": null
+}

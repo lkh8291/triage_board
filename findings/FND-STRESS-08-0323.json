@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0323",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "pendingintent-mutable",
+  "severity": "medium",
+  "title": "pendingintent-mutable on com.example.bank.ui.AddActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "3.5.7",
+    "component_type": "activity",
+    "component_class": "com.example.bank.ui.AddActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=pendingintent-mutable.",
+  "cwe": "CWE-200",
+  "cve": null
+}

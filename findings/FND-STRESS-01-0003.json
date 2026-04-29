@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0003",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on SmartCam-146",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-146",
+    "ip": "192.168.28.152",
+    "port": 80,
+    "service": "modbus",
+    "firmware_version": "fw-2.6"
+  },
+  "ai_confidence": 0.92,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-441",
+  "cve": null
+}

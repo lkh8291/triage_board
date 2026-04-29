@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0701",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "auth-bypass",
+  "severity": "high",
+  "title": "auth-bypass on https://p6.example.com/api/orders?id=3479",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/api/orders?id=3479",
+    "method": "PUT",
+    "endpoint": "/api/orders",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=auth-bypass.",
+  "cwe": "CWE-732",
+  "cve": null
+}

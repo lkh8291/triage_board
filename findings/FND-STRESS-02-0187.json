@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0187",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on Thermo-343",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-343",
+    "ip": "192.168.25.21",
+    "port": 8888,
+    "service": "http",
+    "firmware_version": "fw-1.14"
+  },
+  "ai_confidence": 0.77,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-862",
+  "cve": null
+}

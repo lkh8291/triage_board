@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0401",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "cors-misconfig",
+  "severity": "medium",
+  "title": "cors-misconfig on https://p3.example.com/api/v2/checkout?id=4191",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/api/v2/checkout?id=4191",
+    "method": "PUT",
+    "endpoint": "/api/v2/checkout",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=cors-misconfig.",
+  "cwe": "CWE-862",
+  "cve": null
+}

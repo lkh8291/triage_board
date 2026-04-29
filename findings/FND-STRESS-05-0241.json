@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0241",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "open-redirect",
+  "severity": "info",
+  "title": "open-redirect on https://p5.example.com/api/files/upload?id=8104",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/files/upload?id=8104",
+    "method": "PUT",
+    "endpoint": "/api/files/upload",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.58,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=open-redirect.",
+  "cwe": "CWE-863",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0127",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "prototype-pollution",
+  "severity": "info",
+  "title": "prototype-pollution on https://p5.example.com/api/auth/token?id=8106",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/auth/token?id=8106",
+    "method": "GET",
+    "endpoint": "/api/auth/token",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=prototype-pollution.",
+  "cwe": "CWE-441",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0593",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "low",
+  "title": "telnet-enabled on GW-Router-631",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-631",
+    "ip": "192.168.31.97",
+    "port": 8080,
+    "service": "telnet",
+    "firmware_version": "fw-5.15"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-79",
+  "cve": null
+}

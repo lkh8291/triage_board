@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0356",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "pendingintent-mutable",
+  "severity": "low",
+  "title": "pendingintent-mutable on com.example.bank.sync.MainActivity",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "9.5.34",
+    "component_type": "service",
+    "component_class": "com.example.bank.sync.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=pendingintent-mutable.",
+  "cwe": "CWE-863",
+  "cve": "CVE-2024-94079"
+}

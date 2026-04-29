@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-06-0749",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "android",
+  "category": "pendingintent-mutable",
+  "severity": "high",
+  "title": "pendingintent-mutable on com.example.bank.ui.DetailActivity",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "4.15.4",
+    "component_type": "receiver",
+    "component_class": "com.example.bank.ui.DetailActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=android, category=pendingintent-mutable.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0344",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "low",
+  "title": "jtag-uart-exposed on Thermo-703",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-703",
+    "ip": "192.168.20.244",
+    "port": 1883,
+    "service": "http",
+    "firmware_version": "fw-4.16"
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-20",
+  "cve": "CVE-2023-37435"
+}

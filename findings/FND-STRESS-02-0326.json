@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0326",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "deeplink-permission-bypass",
+  "severity": "critical",
+  "title": "deeplink-permission-bypass on com.example.media.sync.DetailActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "8.14.17",
+    "component_type": "activity",
+    "component_class": "com.example.media.sync.DetailActivity",
+    "exported": true,
+    "permission_required": "com.example.media.permission.ACCESS"
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=deeplink-permission-bypass.",
+  "cwe": "CWE-639",
+  "cve": null
+}

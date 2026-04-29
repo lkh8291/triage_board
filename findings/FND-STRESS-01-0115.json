@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0115",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "prototype-pollution",
+  "severity": "info",
+  "title": "prototype-pollution on https://p1.example.com/dashboard?id=1952",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/dashboard?id=1952",
+    "method": "POST",
+    "endpoint": "/dashboard",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=prototype-pollution.",
+  "cwe": "CWE-200",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0181",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "content-provider-leak",
+  "severity": "critical",
+  "title": "content-provider-leak on com.example.social.ui.AddActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "2.3.34",
+    "component_type": "service",
+    "component_class": "com.example.social.ui.AddActivity",
+    "exported": true,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=content-provider-leak.",
+  "cwe": "CWE-22",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0378",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on Thermo-480",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-480",
+    "ip": "192.168.25.248",
+    "port": 554,
+    "service": "rtsp",
+    "firmware_version": "fw-5.16"
+  },
+  "ai_confidence": 0.69,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-502",
+  "cve": null
+}

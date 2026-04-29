@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0223",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "tapjacking",
+  "severity": "low",
+  "title": "tapjacking on com.example.health.sync.MainActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "8.8.45",
+    "component_type": "provider",
+    "component_class": "com.example.health.sync.MainActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.4,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=tapjacking.",
+  "cwe": "CWE-22",
+  "cve": null
+}

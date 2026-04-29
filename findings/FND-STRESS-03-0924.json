@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-03-0924",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "low",
+  "title": "webview-js-injection on com.example.health.ui.CoverActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "8.17.34",
+    "component_type": "service",
+    "component_class": "com.example.health.ui.CoverActivity",
+    "exported": false,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-1021",
+  "cve": "CVE-2026-76423"
+}

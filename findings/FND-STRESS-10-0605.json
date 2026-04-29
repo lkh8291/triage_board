@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0605",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "medium",
+  "title": "modbus-exposed on GW-Router-273",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-273",
+    "ip": "192.168.34.210",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-3.0"
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-22",
+  "cve": null
+}

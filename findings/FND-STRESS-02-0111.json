@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0111",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "info",
+  "title": "firmware-unsigned on NVR-X-477",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-477",
+    "ip": "192.168.47.220",
+    "port": 554,
+    "service": "rtsp",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 0.84,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-441",
+  "cve": null
+}

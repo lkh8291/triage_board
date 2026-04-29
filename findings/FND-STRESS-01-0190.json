@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0190",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "idor",
+  "severity": "high",
+  "title": "idor on https://p1.example.com/dashboard?id=2462",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/dashboard?id=2462",
+    "method": "DELETE",
+    "endpoint": "/dashboard",
+    "parameter": "page",
+    "auth_required": false
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=idor.",
+  "cwe": "CWE-862",
+  "cve": null
+}

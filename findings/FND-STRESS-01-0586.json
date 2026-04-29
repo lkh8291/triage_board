@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0586",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on PLC-IO-919",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-919",
+    "ip": "192.168.24.50",
+    "port": 1883,
+    "service": "http",
+    "firmware_version": "fw-5.15"
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-441",
+  "cve": null
+}

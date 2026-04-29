@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0702",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on SmartCam-585",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-585",
+    "ip": "192.168.6.137",
+    "port": 502,
+    "service": "ssh",
+    "firmware_version": "fw-2.5"
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-862",
+  "cve": null
+}

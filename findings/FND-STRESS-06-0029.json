@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0029",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "low",
+  "title": "http-admin-exposed on SmartCam-140",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-140",
+    "ip": "192.168.4.98",
+    "port": 23,
+    "service": "mqtt",
+    "firmware_version": "fw-3.2"
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-863",
+  "cve": null
+}

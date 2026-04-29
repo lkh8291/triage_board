@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0071",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on NVR-X-106",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-106",
+    "ip": "192.168.22.215",
+    "port": 554,
+    "service": "mqtt",
+    "firmware_version": "fw-2.15"
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=default-credentials.",
+  "cwe": "CWE-601",
+  "cve": null
+}

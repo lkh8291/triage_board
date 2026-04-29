@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0405",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on NVR-X-688",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-688",
+    "ip": "192.168.17.39",
+    "port": 8080,
+    "service": "ssh",
+    "firmware_version": "fw-4.8"
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-287",
+  "cve": null
+}

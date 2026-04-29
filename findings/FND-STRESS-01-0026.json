@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0026",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "rate-limiting-missing",
+  "severity": "medium",
+  "title": "rate-limiting-missing on https://p1.example.com/api/orders?id=825",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/api/orders?id=825",
+    "method": "DELETE",
+    "endpoint": "/api/orders",
+    "parameter": "redirect",
+    "auth_required": false
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=rate-limiting-missing.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

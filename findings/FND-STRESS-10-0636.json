@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0636",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "xxe",
+  "severity": "info",
+  "title": "xxe on https://p10.example.com/api/users/profile?id=5139",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/api/users/profile?id=5139",
+    "method": "GET",
+    "endpoint": "/api/users/profile",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=xxe.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

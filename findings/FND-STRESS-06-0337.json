@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0337",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "high",
+  "title": "ftp-anonymous on PLC-IO-388",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-388",
+    "ip": "192.168.9.128",
+    "port": 502,
+    "service": "ssh",
+    "firmware_version": "fw-5.12"
+  },
+  "ai_confidence": 0.72,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-94",
+  "cve": null
+}

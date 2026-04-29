@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0314",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "info",
+  "title": "jtag-uart-exposed on PLC-IO-683",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-683",
+    "ip": "192.168.4.21",
+    "port": 502,
+    "service": "snmp",
+    "firmware_version": "fw-2.11"
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-20",
+  "cve": null
+}

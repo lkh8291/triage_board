@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0502",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "idor",
+  "severity": "low",
+  "title": "idor on https://p5.example.com/api/users/profile?id=1354",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/users/profile?id=1354",
+    "method": "GET",
+    "endpoint": "/api/users/profile",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=idor.",
+  "cwe": "CWE-352",
+  "cve": null
+}

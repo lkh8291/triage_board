@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-04-0217",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "android",
+  "category": "intent-uri-smuggle",
+  "severity": "info",
+  "title": "intent-uri-smuggle on com.example.media.ui.AddActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "3.14.5",
+    "component_type": "receiver",
+    "component_class": "com.example.media.ui.AddActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.77,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=android, category=intent-uri-smuggle.",
+  "cwe": "CWE-639",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0548",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on SmartCam-471",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-471",
+    "ip": "192.168.8.254",
+    "port": 23,
+    "service": "telnet",
+    "firmware_version": "fw-3.1"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-862",
+  "cve": null
+}

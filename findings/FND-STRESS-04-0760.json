@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0760",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "header-x-frame-options-missing",
+  "severity": "info",
+  "title": "header-x-frame-options-missing on https://p4.example.com/api/admin/config?id=5248",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/admin/config?id=5248",
+    "method": "GET",
+    "endpoint": "/api/admin/config",
+    "parameter": "page",
+    "auth_required": false
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=header-x-frame-options-missing.",
+  "cwe": "CWE-22",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0762",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "auth-bypass",
+  "severity": "medium",
+  "title": "auth-bypass on https://p8.example.com/search?id=6381",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/search?id=6381",
+    "method": "POST",
+    "endpoint": "/search",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=auth-bypass.",
+  "cwe": "CWE-918",
+  "cve": null
+}

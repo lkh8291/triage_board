@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0796",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "critical",
+  "title": "upnp-exposed on NVR-X-422",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-422",
+    "ip": "192.168.28.68",
+    "port": 23,
+    "service": "http",
+    "firmware_version": "fw-1.20"
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-200",
+  "cve": null
+}

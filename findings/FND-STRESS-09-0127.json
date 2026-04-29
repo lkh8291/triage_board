@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0127",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on PLC-IO-279",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-279",
+    "ip": "192.168.3.220",
+    "port": 1883,
+    "service": "ssh",
+    "firmware_version": "fw-5.8"
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=default-credentials.",
+  "cwe": "CWE-798",
+  "cve": null
+}

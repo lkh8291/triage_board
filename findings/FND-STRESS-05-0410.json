@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0410",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on Thermo-693",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-693",
+    "ip": "192.168.32.243",
+    "port": 502,
+    "service": "modbus",
+    "firmware_version": "fw-4.12"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-78",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0289",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "low",
+  "title": "firmware-unsigned on PLC-IO-798",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-798",
+    "ip": "192.168.39.208",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-2.1"
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-22",
+  "cve": null
+}

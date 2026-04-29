@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0275",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "medium",
+  "title": "jtag-uart-exposed on NVR-X-151",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-151",
+    "ip": "192.168.9.68",
+    "port": 443,
+    "service": "ssh",
+    "firmware_version": "fw-2.16"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-287",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0501",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "graphql-introspection-exposed",
+  "severity": "high",
+  "title": "graphql-introspection-exposed on https://p9.example.com/account?id=49",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/account?id=49",
+    "method": "POST",
+    "endpoint": "/account",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.98,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=graphql-introspection-exposed.",
+  "cwe": "CWE-862",
+  "cve": null
+}

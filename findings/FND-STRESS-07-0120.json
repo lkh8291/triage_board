@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0120",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "intent-redirection",
+  "severity": "low",
+  "title": "intent-redirection on com.example.bank.core.CoverActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "6.3.5",
+    "component_type": "receiver",
+    "component_class": "com.example.bank.core.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=intent-redirection.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

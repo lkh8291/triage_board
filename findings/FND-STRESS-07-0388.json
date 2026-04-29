@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0388",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "critical",
+  "title": "default-credentials on GW-Router-589",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-589",
+    "ip": "192.168.10.74",
+    "port": 23,
+    "service": "snmp",
+    "firmware_version": "fw-2.19"
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=default-credentials.",
+  "cwe": "CWE-287",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0214",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "sqli-error",
+  "severity": "low",
+  "title": "sqli-error on https://p5.example.com/api/auth/token?id=1598",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/auth/token?id=1598",
+    "method": "DELETE",
+    "endpoint": "/api/auth/token",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=sqli-error.",
+  "cwe": "CWE-78",
+  "cve": null
+}

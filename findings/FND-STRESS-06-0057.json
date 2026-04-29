@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0057",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on Thermo-773",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-773",
+    "ip": "192.168.48.103",
+    "port": 1883,
+    "service": "snmp",
+    "firmware_version": "fw-4.2"
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-89",
+  "cve": "CVE-2022-15783"
+}

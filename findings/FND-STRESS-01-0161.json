@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0161",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on Thermo-157",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-157",
+    "ip": "192.168.14.52",
+    "port": 80,
+    "service": "modbus",
+    "firmware_version": "fw-5.17"
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=default-credentials.",
+  "cwe": "CWE-89",
+  "cve": null
+}

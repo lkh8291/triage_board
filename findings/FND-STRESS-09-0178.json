@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0178",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "sqli-error",
+  "severity": "low",
+  "title": "sqli-error on https://p9.example.com/api/files/upload?id=8717",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/api/files/upload?id=8717",
+    "method": "GET",
+    "endpoint": "/api/files/upload",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=sqli-error.",
+  "cwe": "CWE-22",
+  "cve": null
+}

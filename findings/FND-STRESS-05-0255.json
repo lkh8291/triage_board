@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0255",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on NVR-X-555",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-555",
+    "ip": "192.168.23.187",
+    "port": 23,
+    "service": "mqtt",
+    "firmware_version": "fw-2.11"
+  },
+  "ai_confidence": 0.99,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-639",
+  "cve": "CVE-2025-30812"
+}

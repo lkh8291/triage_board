@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-06-0207",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "medium",
+  "title": "webview-js-injection on com.example.shop.ui.CoverActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "3.4.6",
+    "component_type": "provider",
+    "component_class": "com.example.shop.ui.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-441",
+  "cve": null
+}

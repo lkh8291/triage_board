@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0733",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "info",
+  "title": "ssh-weak-cipher on NVR-X-923",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-923",
+    "ip": "192.168.28.155",
+    "port": 502,
+    "service": "snmp",
+    "firmware_version": "fw-1.15"
+  },
+  "ai_confidence": 0.58,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-639",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0356",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "deeplink-permission-bypass",
+  "severity": "medium",
+  "title": "deeplink-permission-bypass on com.example.health.sync.LoginActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "4.11.44",
+    "component_type": "activity",
+    "component_class": "com.example.health.sync.LoginActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.45,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=deeplink-permission-bypass.",
+  "cwe": "CWE-798",
+  "cve": null
+}

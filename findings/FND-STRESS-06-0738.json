@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-06-0738",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "android",
+  "category": "tapjacking",
+  "severity": "low",
+  "title": "tapjacking on com.example.social.core.DetailActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "9.17.50",
+    "component_type": "activity",
+    "component_class": "com.example.social.core.DetailActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=android, category=tapjacking.",
+  "cwe": "CWE-287",
+  "cve": null
+}

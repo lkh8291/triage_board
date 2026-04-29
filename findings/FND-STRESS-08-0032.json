@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0032",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "tapjacking",
+  "severity": "high",
+  "title": "tapjacking on com.example.health.sync.CoverActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "6.16.41",
+    "component_type": "provider",
+    "component_class": "com.example.health.sync.CoverActivity",
+    "exported": true,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.68,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=tapjacking.",
+  "cwe": "CWE-732",
+  "cve": null
+}

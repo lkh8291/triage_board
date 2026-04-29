@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0483",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on PLC-IO-747",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-747",
+    "ip": "192.168.21.117",
+    "port": 22,
+    "service": "telnet",
+    "firmware_version": "fw-5.19"
+  },
+  "ai_confidence": 0.92,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-89",
+  "cve": null
+}

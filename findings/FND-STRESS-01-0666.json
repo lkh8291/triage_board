@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0666",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "cors-misconfig",
+  "severity": "info",
+  "title": "cors-misconfig on https://p1.example.com/login?id=1606",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/login?id=1606",
+    "method": "PUT",
+    "endpoint": "/login",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=cors-misconfig.",
+  "cwe": "CWE-441",
+  "cve": null
+}

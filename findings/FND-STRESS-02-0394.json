@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0394",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "intent-redirection",
+  "severity": "info",
+  "title": "intent-redirection on com.example.health.core.DetailActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "5.3.47",
+    "component_type": "service",
+    "component_class": "com.example.health.core.DetailActivity",
+    "exported": true,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=intent-redirection.",
+  "cwe": "CWE-78",
+  "cve": null
+}

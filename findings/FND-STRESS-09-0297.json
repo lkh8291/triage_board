@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0297",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "race-condition-toctou",
+  "severity": "medium",
+  "title": "race-condition-toctou on https://p9.example.com/login?id=454",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/login?id=454",
+    "method": "POST",
+    "endpoint": "/login",
+    "parameter": "id",
+    "auth_required": true
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=race-condition-toctou.",
+  "cwe": "CWE-200",
+  "cve": null
+}

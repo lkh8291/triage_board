@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-06-0210",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "android",
+  "category": "exported-broadcast-receiver",
+  "severity": "medium",
+  "title": "exported-broadcast-receiver on com.example.media.sync.AddActivity",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "1.7.45",
+    "component_type": "service",
+    "component_class": "com.example.media.sync.AddActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=android, category=exported-broadcast-receiver.",
+  "cwe": "CWE-639",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0238",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "low",
+  "title": "ftp-anonymous on PLC-IO-249",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-249",
+    "ip": "192.168.36.221",
+    "port": 8080,
+    "service": "http",
+    "firmware_version": "fw-4.5"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-94",
+  "cve": null
+}

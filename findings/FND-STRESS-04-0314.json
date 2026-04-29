@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0314",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "medium",
+  "title": "upnp-exposed on PLC-IO-147",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-147",
+    "ip": "192.168.4.103",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-4.8"
+  },
+  "ai_confidence": 0.53,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0096",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "info",
+  "title": "modbus-exposed on PLC-IO-641",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-641",
+    "ip": "192.168.39.109",
+    "port": 161,
+    "service": "modbus",
+    "firmware_version": "fw-4.15"
+  },
+  "ai_confidence": 0.98,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-200",
+  "cve": null
+}

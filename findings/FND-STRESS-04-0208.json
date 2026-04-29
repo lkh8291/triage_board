@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0208",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "low",
+  "title": "firmware-unsigned on Thermo-298",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-298",
+    "ip": "192.168.20.188",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-4.6"
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-22",
+  "cve": null
+}

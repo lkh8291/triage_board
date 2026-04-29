@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0394",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "critical",
+  "title": "default-credentials on Thermo-740",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-740",
+    "ip": "192.168.38.139",
+    "port": 161,
+    "service": "snmp",
+    "firmware_version": "fw-3.5"
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=default-credentials.",
+  "cwe": "CWE-918",
+  "cve": null
+}

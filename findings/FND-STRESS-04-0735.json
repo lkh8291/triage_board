@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0735",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "sqli-error",
+  "severity": "info",
+  "title": "sqli-error on https://p4.example.com/api/orders?id=9100",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/orders?id=9100",
+    "method": "GET",
+    "endpoint": "/api/orders",
+    "parameter": "id",
+    "auth_required": true
+  },
+  "ai_confidence": 0.91,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=sqli-error.",
+  "cwe": "CWE-732",
+  "cve": null
+}

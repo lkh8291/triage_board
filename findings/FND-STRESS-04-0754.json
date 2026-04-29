@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0754",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "low",
+  "title": "firmware-unsigned on SmartCam-118",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-118",
+    "ip": "192.168.23.16",
+    "port": 554,
+    "service": "mqtt",
+    "firmware_version": "fw-2.2"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-863",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0019",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "critical",
+  "title": "rtsp-no-auth on SmartCam-593",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-593",
+    "ip": "192.168.6.79",
+    "port": 502,
+    "service": "http",
+    "firmware_version": "fw-3.3"
+  },
+  "ai_confidence": 0.85,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-926",
+  "cve": null
+}

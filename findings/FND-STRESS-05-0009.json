@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-05-0009",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "android",
+  "category": "janus-signature-bypass",
+  "severity": "low",
+  "title": "janus-signature-bypass on com.example.shop.sync.AddActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "2.15.2",
+    "component_type": "provider",
+    "component_class": "com.example.shop.sync.AddActivity",
+    "exported": false,
+    "permission_required": "com.example.shop.permission.ACCESS"
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=android, category=janus-signature-bypass.",
+  "cwe": "CWE-601",
+  "cve": null
+}

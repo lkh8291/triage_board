@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0439",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "medium",
+  "title": "jtag-uart-exposed on SmartCam-326",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-326",
+    "ip": "192.168.11.119",
+    "port": 80,
+    "service": "snmp",
+    "firmware_version": "fw-4.2"
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-918",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0300",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "high",
+  "title": "telnet-enabled on Thermo-412",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-412",
+    "ip": "192.168.45.176",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-2.14"
+  },
+  "ai_confidence": 0.83,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-502",
+  "cve": null
+}

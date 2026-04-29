@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0154",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "low",
+  "title": "firmware-unsigned on GW-Router-693",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-693",
+    "ip": "192.168.11.142",
+    "port": 80,
+    "service": "mqtt",
+    "firmware_version": "fw-2.11"
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-94",
+  "cve": null
+}

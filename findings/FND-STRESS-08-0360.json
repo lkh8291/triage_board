@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0360",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "low",
+  "title": "default-credentials on GW-Router-917",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-917",
+    "ip": "192.168.5.55",
+    "port": 8080,
+    "service": "telnet",
+    "firmware_version": "fw-4.11"
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=default-credentials.",
+  "cwe": "CWE-1188",
+  "cve": "CVE-2023-66668"
+}

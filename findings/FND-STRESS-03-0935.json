@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0935",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "low",
+  "title": "http-admin-exposed on SmartCam-708",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-708",
+    "ip": "192.168.49.66",
+    "port": 8080,
+    "service": "rtsp",
+    "firmware_version": "fw-2.0"
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-20",
+  "cve": null
+}

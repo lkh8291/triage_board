@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0099",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on SmartCam-770",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-770",
+    "ip": "192.168.14.145",
+    "port": 1883,
+    "service": "telnet",
+    "firmware_version": "fw-1.0"
+  },
+  "ai_confidence": 0.5,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-269",
+  "cve": null
+}

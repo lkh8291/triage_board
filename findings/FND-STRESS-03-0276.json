@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-03-0276",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "info",
+  "title": "webview-js-injection on com.example.shop.sync.MainActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "2.20.12",
+    "component_type": "activity",
+    "component_class": "com.example.shop.sync.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-352",
+  "cve": null
+}

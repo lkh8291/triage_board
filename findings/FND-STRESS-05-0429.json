@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0429",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on SmartCam-981",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-981",
+    "ip": "192.168.5.128",
+    "port": 161,
+    "service": "telnet",
+    "firmware_version": "fw-4.5"
+  },
+  "ai_confidence": 1,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-20",
+  "cve": null
+}

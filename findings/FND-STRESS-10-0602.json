@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0602",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "info",
+  "title": "rtsp-no-auth on GW-Router-772",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-772",
+    "ip": "192.168.38.11",
+    "port": 554,
+    "service": "modbus",
+    "firmware_version": "fw-1.17"
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-639",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0770",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "parcelable-deserialization",
+  "severity": "info",
+  "title": "parcelable-deserialization on com.example.health.sync.LoginActivity",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "4.0.27",
+    "component_type": "service",
+    "component_class": "com.example.health.sync.LoginActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.74,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=parcelable-deserialization.",
+  "cwe": "CWE-22",
+  "cve": null
+}

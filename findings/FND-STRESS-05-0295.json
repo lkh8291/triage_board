@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0295",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "xxe",
+  "severity": "low",
+  "title": "xxe on https://p5.example.com/api/files/upload?id=149",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/files/upload?id=149",
+    "method": "DELETE",
+    "endpoint": "/api/files/upload",
+    "parameter": "callback",
+    "auth_required": false
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=xxe.",
+  "cwe": "CWE-20",
+  "cve": null
+}

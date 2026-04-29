@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0191",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "low",
+  "title": "snmp-public on SmartCam-244",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-244",
+    "ip": "192.168.24.81",
+    "port": 554,
+    "service": "mqtt",
+    "firmware_version": "fw-4.10"
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=snmp-public.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

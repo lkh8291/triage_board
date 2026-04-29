@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0050",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on Thermo-445",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-445",
+    "ip": "192.168.4.176",
+    "port": 554,
+    "service": "modbus",
+    "firmware_version": "fw-1.19"
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-94",
+  "cve": null
+}

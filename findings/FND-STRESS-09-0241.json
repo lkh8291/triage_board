@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0241",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "critical",
+  "title": "rtsp-no-auth on PLC-IO-885",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-885",
+    "ip": "192.168.50.119",
+    "port": 1883,
+    "service": "modbus",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-639",
+  "cve": null
+}

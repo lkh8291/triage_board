@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0059",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "info",
+  "title": "firmware-unsigned on SmartCam-807",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-807",
+    "ip": "192.168.14.47",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-1.18"
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0369",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on NVR-X-492",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-492",
+    "ip": "192.168.11.88",
+    "port": 554,
+    "service": "ssh",
+    "firmware_version": "fw-3.14"
+  },
+  "ai_confidence": 0.85,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-863",
+  "cve": null
+}

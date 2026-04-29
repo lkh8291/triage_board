@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0029",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "high",
+  "title": "jtag-uart-exposed on Thermo-917",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-917",
+    "ip": "192.168.49.19",
+    "port": 8080,
+    "service": "telnet",
+    "firmware_version": "fw-5.15"
+  },
+  "ai_confidence": 0.57,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-918",
+  "cve": null
+}

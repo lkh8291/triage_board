@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0060",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "banner-server-disclosure",
+  "severity": "medium",
+  "title": "banner-server-disclosure on https://p2.example.com/account?id=2919",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/account?id=2919",
+    "method": "DELETE",
+    "endpoint": "/account",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=banner-server-disclosure.",
+  "cwe": "CWE-441",
+  "cve": null
+}

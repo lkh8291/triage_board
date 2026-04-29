@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0193",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "high",
+  "title": "snmp-public on GW-Router-530",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-530",
+    "ip": "192.168.25.244",
+    "port": 22,
+    "service": "ssh",
+    "firmware_version": "fw-5.7"
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=snmp-public.",
+  "cwe": "CWE-352",
+  "cve": null
+}

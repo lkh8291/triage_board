@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0153",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "info",
+  "title": "upnp-exposed on GW-Router-272",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-272",
+    "ip": "192.168.1.229",
+    "port": 443,
+    "service": "modbus",
+    "firmware_version": "fw-3.3"
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-798",
+  "cve": null
+}

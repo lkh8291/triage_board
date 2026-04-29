@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0470",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "path-traversal",
+  "severity": "critical",
+  "title": "path-traversal on https://p1.example.com/api/users/profile?id=6822",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/api/users/profile?id=6822",
+    "method": "DELETE",
+    "endpoint": "/api/users/profile",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=path-traversal.",
+  "cwe": "CWE-94",
+  "cve": null
+}

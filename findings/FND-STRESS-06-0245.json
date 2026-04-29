@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0245",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on SmartCam-165",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-165",
+    "ip": "192.168.17.49",
+    "port": 502,
+    "service": "modbus",
+    "firmware_version": "fw-3.6"
+  },
+  "ai_confidence": 0.85,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-441",
+  "cve": null
+}

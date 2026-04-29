@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0288",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on SmartCam-724",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-724",
+    "ip": "192.168.27.23",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-4.17"
+  },
+  "ai_confidence": 0.45,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-79",
+  "cve": null
+}

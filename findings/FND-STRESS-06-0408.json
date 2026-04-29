@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0408",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "low",
+  "title": "default-credentials on Thermo-712",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-712",
+    "ip": "192.168.20.131",
+    "port": 8888,
+    "service": "mqtt",
+    "firmware_version": "fw-5.13"
+  },
+  "ai_confidence": 0.63,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=default-credentials.",
+  "cwe": "CWE-601",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0389",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "high",
+  "title": "firmware-unsigned on PLC-IO-320",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-320",
+    "ip": "192.168.8.144",
+    "port": 443,
+    "service": "mqtt",
+    "firmware_version": "fw-3.16"
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-918",
+  "cve": null
+}

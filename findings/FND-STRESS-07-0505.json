@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0505",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on NVR-X-634",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-634",
+    "ip": "192.168.34.241",
+    "port": 8888,
+    "service": "rtsp",
+    "firmware_version": "fw-1.9"
+  },
+  "ai_confidence": 0.69,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=default-credentials.",
+  "cwe": "CWE-502",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-09-0345",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "high",
+  "title": "webview-js-injection on com.example.social.core.CoverActivity",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "3.8.16",
+    "component_type": "receiver",
+    "component_class": "com.example.social.core.CoverActivity",
+    "exported": true,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-441",
+  "cve": null
+}

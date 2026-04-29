@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0705",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "high",
+  "title": "jtag-uart-exposed on Thermo-567",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-567",
+    "ip": "192.168.35.185",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-1.0"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

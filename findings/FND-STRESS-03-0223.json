@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-03-0223",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "android",
+  "category": "cleartext-traffic",
+  "severity": "info",
+  "title": "cleartext-traffic on com.example.health.core.MainActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "4.3.5",
+    "component_type": "service",
+    "component_class": "com.example.health.core.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.57,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=android, category=cleartext-traffic.",
+  "cwe": "CWE-20",
+  "cve": null
+}

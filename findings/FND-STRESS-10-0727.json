@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0727",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "pendingintent-mutable",
+  "severity": "medium",
+  "title": "pendingintent-mutable on com.example.media.ui.LoginActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "2.10.12",
+    "component_type": "service",
+    "component_class": "com.example.media.ui.LoginActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 1,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=pendingintent-mutable.",
+  "cwe": "CWE-798",
+  "cve": null
+}

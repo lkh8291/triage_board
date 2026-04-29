@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0136",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "info",
+  "title": "rtsp-no-auth on Thermo-822",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-822",
+    "ip": "192.168.50.14",
+    "port": 8080,
+    "service": "ssh",
+    "firmware_version": "fw-3.2"
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-352",
+  "cve": null
+}

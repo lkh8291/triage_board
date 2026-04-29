@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0030",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "high",
+  "title": "firmware-unsigned on GW-Router-909",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-909",
+    "ip": "192.168.41.20",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-352",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0420",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on SmartCam-353",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-353",
+    "ip": "192.168.1.107",
+    "port": 80,
+    "service": "rtsp",
+    "firmware_version": "fw-3.20"
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=default-credentials.",
+  "cwe": "CWE-918",
+  "cve": null
+}

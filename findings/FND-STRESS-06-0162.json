@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0162",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "low",
+  "title": "http-admin-exposed on SmartCam-284",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-284",
+    "ip": "192.168.12.212",
+    "port": 502,
+    "service": "http",
+    "firmware_version": "fw-4.16"
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

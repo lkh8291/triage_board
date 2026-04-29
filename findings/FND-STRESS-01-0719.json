@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0719",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on SmartCam-461",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-461",
+    "ip": "192.168.6.133",
+    "port": 502,
+    "service": "rtsp",
+    "firmware_version": "fw-2.19"
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-798",
+  "cve": null
+}

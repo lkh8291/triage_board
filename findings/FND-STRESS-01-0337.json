@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0337",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "banner-server-disclosure",
+  "severity": "medium",
+  "title": "banner-server-disclosure on https://p1.example.com/api/users/profile?id=6603",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/api/users/profile?id=6603",
+    "method": "PUT",
+    "endpoint": "/api/users/profile",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=banner-server-disclosure.",
+  "cwe": "CWE-20",
+  "cve": null
+}

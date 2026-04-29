@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0466",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "critical",
+  "title": "snmp-public on PLC-IO-233",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-233",
+    "ip": "192.168.42.168",
+    "port": 502,
+    "service": "snmp",
+    "firmware_version": "fw-3.4"
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=snmp-public.",
+  "cwe": "CWE-732",
+  "cve": null
+}

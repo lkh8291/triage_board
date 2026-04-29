@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0585",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on GW-Router-672",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-672",
+    "ip": "192.168.32.11",
+    "port": 554,
+    "service": "modbus",
+    "firmware_version": "fw-2.17"
+  },
+  "ai_confidence": 0.69,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-601",
+  "cve": null
+}

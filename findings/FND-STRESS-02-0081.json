@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0081",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "high",
+  "title": "snmp-public on NVR-X-404",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-404",
+    "ip": "192.168.18.103",
+    "port": 80,
+    "service": "snmp",
+    "firmware_version": "fw-1.5"
+  },
+  "ai_confidence": 0.44,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=snmp-public.",
+  "cwe": "CWE-732",
+  "cve": null
+}

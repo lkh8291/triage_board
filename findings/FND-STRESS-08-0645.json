@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0645",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on NVR-X-733",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-733",
+    "ip": "192.168.4.202",
+    "port": 1883,
+    "service": "modbus",
+    "firmware_version": "fw-3.3"
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=default-credentials.",
+  "cwe": "CWE-862",
+  "cve": null
+}

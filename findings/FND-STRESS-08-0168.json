@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0168",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on NVR-X-877",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-877",
+    "ip": "192.168.30.114",
+    "port": 161,
+    "service": "modbus",
+    "firmware_version": "fw-3.16"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-89",
+  "cve": null
+}

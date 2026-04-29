@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0243",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "high",
+  "title": "rtsp-no-auth on PLC-IO-681",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-681",
+    "ip": "192.168.29.212",
+    "port": 554,
+    "service": "telnet",
+    "firmware_version": "fw-4.6"
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-732",
+  "cve": null
+}

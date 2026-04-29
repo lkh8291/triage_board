@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0683",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "exposed-component-payment-bypass",
+  "severity": "low",
+  "title": "exposed-component-payment-bypass on com.example.health.core.DetailActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "2.4.14",
+    "component_type": "receiver",
+    "component_class": "com.example.health.core.DetailActivity",
+    "exported": true,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.45,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=exposed-component-payment-bypass.",
+  "cwe": "CWE-89",
+  "cve": null
+}

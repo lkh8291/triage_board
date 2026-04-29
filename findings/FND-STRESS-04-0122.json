@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0122",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "info",
+  "title": "snmp-public on PLC-IO-872",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-872",
+    "ip": "192.168.39.194",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-3.13"
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=snmp-public.",
+  "cwe": "CWE-89",
+  "cve": null
+}

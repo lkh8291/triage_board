@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0183",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "info",
+  "title": "modbus-exposed on SmartCam-816",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-816",
+    "ip": "192.168.35.80",
+    "port": 1883,
+    "service": "ssh",
+    "firmware_version": "fw-3.7"
+  },
+  "ai_confidence": 0.53,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-918",
+  "cve": null
+}

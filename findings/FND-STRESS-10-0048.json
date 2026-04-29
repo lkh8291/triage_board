@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0048",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "header-x-frame-options-missing",
+  "severity": "medium",
+  "title": "header-x-frame-options-missing on https://p10.example.com/api/v2/checkout?id=2898",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/api/v2/checkout?id=2898",
+    "method": "POST",
+    "endpoint": "/api/v2/checkout",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=header-x-frame-options-missing.",
+  "cwe": "CWE-200",
+  "cve": null
+}

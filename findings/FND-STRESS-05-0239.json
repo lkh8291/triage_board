@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0239",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "info",
+  "title": "http-admin-exposed on NVR-X-697",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-697",
+    "ip": "192.168.26.192",
+    "port": 554,
+    "service": "http",
+    "firmware_version": "fw-1.3"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-352",
+  "cve": null
+}

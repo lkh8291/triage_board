@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0229",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "low",
+  "title": "snmp-public on SmartCam-828",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-828",
+    "ip": "192.168.18.166",
+    "port": 554,
+    "service": "snmp",
+    "firmware_version": "fw-1.8"
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=snmp-public.",
+  "cwe": "CWE-89",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0534",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "cmd-injection",
+  "severity": "info",
+  "title": "cmd-injection on https://p5.example.com/api/auth/token?id=8748",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/auth/token?id=8748",
+    "method": "POST",
+    "endpoint": "/api/auth/token",
+    "parameter": "id",
+    "auth_required": false
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=cmd-injection.",
+  "cwe": "CWE-89",
+  "cve": null
+}

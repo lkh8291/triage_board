@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0568",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on PLC-IO-682",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-682",
+    "ip": "192.168.28.68",
+    "port": 22,
+    "service": "mqtt",
+    "firmware_version": "fw-4.7"
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-352",
+  "cve": "CVE-2020-25830"
+}

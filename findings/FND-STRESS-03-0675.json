@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0675",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "auth-bypass",
+  "severity": "high",
+  "title": "auth-bypass on https://p3.example.com/api/files/upload?id=7478",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/api/files/upload?id=7478",
+    "method": "PUT",
+    "endpoint": "/api/files/upload",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=auth-bypass.",
+  "cwe": "CWE-732",
+  "cve": null
+}

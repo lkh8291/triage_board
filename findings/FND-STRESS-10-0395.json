@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0395",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on NVR-X-227",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-227",
+    "ip": "192.168.39.206",
+    "port": 1883,
+    "service": "modbus",
+    "firmware_version": "fw-5.6"
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-20",
+  "cve": null
+}

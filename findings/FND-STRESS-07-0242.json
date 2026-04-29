@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0242",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "cors-misconfig",
+  "severity": "medium",
+  "title": "cors-misconfig on https://p7.example.com/search?id=721",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/search?id=721",
+    "method": "POST",
+    "endpoint": "/search",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=cors-misconfig.",
+  "cwe": "CWE-22",
+  "cve": "CVE-2026-81041"
+}

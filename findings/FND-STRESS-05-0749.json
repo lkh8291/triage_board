@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0749",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "critical",
+  "title": "http-admin-exposed on GW-Router-526",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-526",
+    "ip": "192.168.35.62",
+    "port": 161,
+    "service": "rtsp",
+    "firmware_version": "fw-4.10"
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-926",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0271",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on SmartCam-563",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-563",
+    "ip": "192.168.21.25",
+    "port": 443,
+    "service": "snmp",
+    "firmware_version": "fw-4.17"
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=snmp-public.",
+  "cwe": "CWE-20",
+  "cve": null
+}

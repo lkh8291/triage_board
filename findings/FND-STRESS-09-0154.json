@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0154",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "sqli-blind",
+  "severity": "medium",
+  "title": "sqli-blind on https://p9.example.com/api/v2/checkout?id=5236",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/api/v2/checkout?id=5236",
+    "method": "POST",
+    "endpoint": "/api/v2/checkout",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.65,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=sqli-blind.",
+  "cwe": "CWE-798",
+  "cve": null
+}

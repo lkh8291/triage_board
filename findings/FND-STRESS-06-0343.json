@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0343",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "medium",
+  "title": "upnp-exposed on GW-Router-929",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-929",
+    "ip": "192.168.3.4",
+    "port": 8080,
+    "service": "snmp",
+    "firmware_version": "fw-1.19"
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-862",
+  "cve": "CVE-2025-40275"
+}

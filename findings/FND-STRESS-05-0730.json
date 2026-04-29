@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0730",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "header-x-frame-options-missing",
+  "severity": "info",
+  "title": "header-x-frame-options-missing on https://p5.example.com/api/users/profile?id=2093",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/users/profile?id=2093",
+    "method": "POST",
+    "endpoint": "/api/users/profile",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=header-x-frame-options-missing.",
+  "cwe": "CWE-639",
+  "cve": "CVE-2023-43039"
+}

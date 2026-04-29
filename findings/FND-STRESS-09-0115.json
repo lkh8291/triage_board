@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0115",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "info",
+  "title": "jtag-uart-exposed on SmartCam-707",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-707",
+    "ip": "192.168.21.92",
+    "port": 502,
+    "service": "telnet",
+    "firmware_version": "fw-3.3"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-89",
+  "cve": null
+}

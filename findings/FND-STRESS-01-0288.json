@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0288",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "cmd-injection",
+  "severity": "medium",
+  "title": "cmd-injection on https://p1.example.com/api/files/upload?id=6030",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/api/files/upload?id=6030",
+    "method": "PUT",
+    "endpoint": "/api/files/upload",
+    "parameter": "page",
+    "auth_required": false
+  },
+  "ai_confidence": 0.52,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=cmd-injection.",
+  "cwe": "CWE-918",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0453",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "sqli-error",
+  "severity": "medium",
+  "title": "sqli-error on https://p5.example.com/api/orders?id=4176",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/orders?id=4176",
+    "method": "GET",
+    "endpoint": "/api/orders",
+    "parameter": "callback",
+    "auth_required": false
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=sqli-error.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

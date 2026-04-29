@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0010",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on GW-Router-780",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-780",
+    "ip": "192.168.12.184",
+    "port": 23,
+    "service": "rtsp",
+    "firmware_version": "fw-2.10"
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-20",
+  "cve": null
+}

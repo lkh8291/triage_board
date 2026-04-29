@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0709",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "low",
+  "title": "upnp-exposed on SmartCam-537",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-537",
+    "ip": "192.168.21.122",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-2.9"
+  },
+  "ai_confidence": 0.92,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-639",
+  "cve": null
+}

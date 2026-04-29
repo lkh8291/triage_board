@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0037",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on SmartCam-442",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-442",
+    "ip": "192.168.1.82",
+    "port": 8080,
+    "service": "snmp",
+    "firmware_version": "fw-1.8"
+  },
+  "ai_confidence": 0.5,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-862",
+  "cve": null
+}

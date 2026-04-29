@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0799",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "high",
+  "title": "firmware-unsigned on NVR-X-999",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-999",
+    "ip": "192.168.47.45",
+    "port": 443,
+    "service": "rtsp",
+    "firmware_version": "fw-1.0"
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-20",
+  "cve": null
+}

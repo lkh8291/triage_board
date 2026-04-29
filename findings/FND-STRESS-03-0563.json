@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0563",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on GW-Router-335",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-335",
+    "ip": "192.168.1.46",
+    "port": 22,
+    "service": "modbus",
+    "firmware_version": "fw-5.16"
+  },
+  "ai_confidence": 0.58,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-502",
+  "cve": null
+}

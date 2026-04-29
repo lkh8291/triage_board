@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0424",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "info",
+  "title": "rtsp-no-auth on SmartCam-243",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-243",
+    "ip": "192.168.29.173",
+    "port": 443,
+    "service": "telnet",
+    "firmware_version": "fw-1.6"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0343",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "content-provider-leak",
+  "severity": "medium",
+  "title": "content-provider-leak on com.example.media.core.CoverActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "3.17.23",
+    "component_type": "service",
+    "component_class": "com.example.media.core.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=content-provider-leak.",
+  "cwe": "CWE-601",
+  "cve": null
+}

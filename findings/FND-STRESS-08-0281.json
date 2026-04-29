@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0281",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on NVR-X-538",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-538",
+    "ip": "192.168.45.10",
+    "port": 161,
+    "service": "telnet",
+    "firmware_version": "fw-4.1"
+  },
+  "ai_confidence": 0.57,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-79",
+  "cve": null
+}

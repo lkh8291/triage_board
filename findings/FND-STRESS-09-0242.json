@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0242",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on SmartCam-937",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-937",
+    "ip": "192.168.47.12",
+    "port": 502,
+    "service": "telnet",
+    "firmware_version": "fw-3.16"
+  },
+  "ai_confidence": 0.92,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=default-credentials.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

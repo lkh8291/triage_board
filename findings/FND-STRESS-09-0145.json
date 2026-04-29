@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-09-0145",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "android",
+  "category": "content-provider-leak",
+  "severity": "medium",
+  "title": "content-provider-leak on com.example.health.sync.LoginActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "6.18.7",
+    "component_type": "receiver",
+    "component_class": "com.example.health.sync.LoginActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=android, category=content-provider-leak.",
+  "cwe": "CWE-20",
+  "cve": null
+}

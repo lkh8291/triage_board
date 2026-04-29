@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0707",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "webview-js-injection",
+  "severity": "medium",
+  "title": "webview-js-injection on com.example.social.sync.CoverActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "9.17.46",
+    "component_type": "receiver",
+    "component_class": "com.example.social.sync.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=webview-js-injection.",
+  "cwe": "CWE-798",
+  "cve": null
+}

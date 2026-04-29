@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0272",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "low",
+  "title": "ftp-anonymous on PLC-IO-348",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-348",
+    "ip": "192.168.26.100",
+    "port": 8080,
+    "service": "ssh",
+    "firmware_version": "fw-2.5"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-287",
+  "cve": null
+}

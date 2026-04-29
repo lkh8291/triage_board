@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0583",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "exported-broadcast-receiver",
+  "severity": "medium",
+  "title": "exported-broadcast-receiver on com.example.social.ui.AddActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "8.18.10",
+    "component_type": "provider",
+    "component_class": "com.example.social.ui.AddActivity",
+    "exported": false,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=exported-broadcast-receiver.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

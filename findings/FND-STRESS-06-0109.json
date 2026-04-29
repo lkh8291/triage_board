@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0109",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "info",
+  "title": "modbus-exposed on SmartCam-580",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-580",
+    "ip": "192.168.50.182",
+    "port": 8080,
+    "service": "rtsp",
+    "firmware_version": "fw-1.8"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-601",
+  "cve": null
+}

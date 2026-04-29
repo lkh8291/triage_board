@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0058",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "low",
+  "title": "telnet-enabled on NVR-X-651",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-651",
+    "ip": "192.168.37.121",
+    "port": 8888,
+    "service": "telnet",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 0.68,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-79",
+  "cve": null
+}

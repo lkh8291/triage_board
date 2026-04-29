@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0021",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "info",
+  "title": "snmp-public on GW-Router-658",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-658",
+    "ip": "192.168.26.148",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-5.16"
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=snmp-public.",
+  "cwe": "CWE-269",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0718",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "graphql-introspection-exposed",
+  "severity": "medium",
+  "title": "graphql-introspection-exposed on https://p4.example.com/api/users/profile?id=6023",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/users/profile?id=6023",
+    "method": "PUT",
+    "endpoint": "/api/users/profile",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.52,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=graphql-introspection-exposed.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

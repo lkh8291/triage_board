@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0542",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on Thermo-588",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-588",
+    "ip": "192.168.49.171",
+    "port": 1883,
+    "service": "modbus",
+    "firmware_version": "fw-4.3"
+  },
+  "ai_confidence": 0.72,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-94",
+  "cve": null
+}

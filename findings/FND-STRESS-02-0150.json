@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0150",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "sqli-blind",
+  "severity": "medium",
+  "title": "sqli-blind on https://p2.example.com/api/auth/token?id=4706",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/api/auth/token?id=4706",
+    "method": "PUT",
+    "endpoint": "/api/auth/token",
+    "parameter": "id",
+    "auth_required": true
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=sqli-blind.",
+  "cwe": "CWE-918",
+  "cve": null
+}

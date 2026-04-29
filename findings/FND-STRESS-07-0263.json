@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0263",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "medium",
+  "title": "modbus-exposed on GW-Router-164",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-164",
+    "ip": "192.168.37.135",
+    "port": 161,
+    "service": "ssh",
+    "firmware_version": "fw-5.8"
+  },
+  "ai_confidence": 0.41,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-863",
+  "cve": null
+}

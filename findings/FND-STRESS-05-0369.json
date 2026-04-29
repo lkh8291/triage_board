@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0369",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "graphql-introspection-exposed",
+  "severity": "info",
+  "title": "graphql-introspection-exposed on https://p5.example.com/api/orders?id=2215",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/orders?id=2215",
+    "method": "POST",
+    "endpoint": "/api/orders",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.77,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=graphql-introspection-exposed.",
+  "cwe": "CWE-78",
+  "cve": null
+}

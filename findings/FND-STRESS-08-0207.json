@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0207",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "low",
+  "title": "snmp-public on SmartCam-129",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-129",
+    "ip": "192.168.2.93",
+    "port": 80,
+    "service": "snmp",
+    "firmware_version": "fw-5.6"
+  },
+  "ai_confidence": 0.44,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=snmp-public.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0508",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "medium",
+  "title": "mqtt-anonymous on NVR-X-460",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-460",
+    "ip": "192.168.44.142",
+    "port": 80,
+    "service": "rtsp",
+    "firmware_version": "fw-4.15"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-441",
+  "cve": null
+}

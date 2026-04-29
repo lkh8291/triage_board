@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0734",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "low",
+  "title": "ftp-anonymous on Thermo-346",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-346",
+    "ip": "192.168.41.246",
+    "port": 554,
+    "service": "http",
+    "firmware_version": "fw-5.7"
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-862",
+  "cve": null
+}

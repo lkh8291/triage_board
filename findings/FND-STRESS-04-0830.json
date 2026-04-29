@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0830",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "info",
+  "title": "modbus-exposed on SmartCam-399",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-399",
+    "ip": "192.168.14.217",
+    "port": 1883,
+    "service": "telnet",
+    "firmware_version": "fw-2.3"
+  },
+  "ai_confidence": 0.49,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-732",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0706",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on Thermo-497",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-497",
+    "ip": "192.168.34.199",
+    "port": 502,
+    "service": "modbus",
+    "firmware_version": "fw-3.4"
+  },
+  "ai_confidence": 0.68,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

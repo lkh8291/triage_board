@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0674",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "low",
+  "title": "ftp-anonymous on Thermo-301",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-301",
+    "ip": "192.168.38.51",
+    "port": 443,
+    "service": "mqtt",
+    "firmware_version": "fw-1.1"
+  },
+  "ai_confidence": 0.73,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-926",
+  "cve": null
+}

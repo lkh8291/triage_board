@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0323",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on NVR-X-684",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-684",
+    "ip": "192.168.27.85",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-2.13"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=default-credentials.",
+  "cwe": "CWE-22",
+  "cve": null
+}

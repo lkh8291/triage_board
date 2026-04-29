@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0527",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "xss-stored",
+  "severity": "medium",
+  "title": "xss-stored on https://p1.example.com/api/admin/config?id=1132",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/api/admin/config?id=1132",
+    "method": "DELETE",
+    "endpoint": "/api/admin/config",
+    "parameter": "id",
+    "auth_required": true
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=xss-stored.",
+  "cwe": "CWE-79",
+  "cve": null
+}

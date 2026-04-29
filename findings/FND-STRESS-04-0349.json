@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-04-0349",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "android",
+  "category": "tapjacking",
+  "severity": "info",
+  "title": "tapjacking on com.example.shop.core.CoverActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "2.17.22",
+    "component_type": "activity",
+    "component_class": "com.example.shop.core.CoverActivity",
+    "exported": true,
+    "permission_required": "com.example.shop.permission.ACCESS"
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=android, category=tapjacking.",
+  "cwe": "CWE-502",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0086",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "low",
+  "title": "default-credentials on PLC-IO-220",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-220",
+    "ip": "192.168.35.59",
+    "port": 8080,
+    "service": "telnet",
+    "firmware_version": "fw-3.0"
+  },
+  "ai_confidence": 0.85,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=default-credentials.",
+  "cwe": "CWE-601",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0566",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "info",
+  "title": "jtag-uart-exposed on Thermo-520",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-520",
+    "ip": "192.168.42.143",
+    "port": 554,
+    "service": "ssh",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-78",
+  "cve": null
+}

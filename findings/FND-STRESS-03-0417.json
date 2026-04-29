@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0417",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on Thermo-603",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-603",
+    "ip": "192.168.43.121",
+    "port": 22,
+    "service": "ssh",
+    "firmware_version": "fw-5.5"
+  },
+  "ai_confidence": 0.92,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-918",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-06-0375",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "android",
+  "category": "deeplink-permission-bypass",
+  "severity": "critical",
+  "title": "deeplink-permission-bypass on com.example.health.sync.LoginActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "4.5.50",
+    "component_type": "receiver",
+    "component_class": "com.example.health.sync.LoginActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=android, category=deeplink-permission-bypass.",
+  "cwe": "CWE-94",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0315",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "medium",
+  "title": "modbus-exposed on Thermo-853",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-853",
+    "ip": "192.168.39.5",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-3.2"
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-441",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0093",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "tapjacking",
+  "severity": "high",
+  "title": "tapjacking on com.example.media.sync.DetailActivity",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "5.17.45",
+    "component_type": "provider",
+    "component_class": "com.example.media.sync.DetailActivity",
+    "exported": true,
+    "permission_required": "com.example.media.permission.ACCESS"
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=tapjacking.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

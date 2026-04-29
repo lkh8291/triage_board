@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0327",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on Thermo-337",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-337",
+    "ip": "192.168.20.172",
+    "port": 554,
+    "service": "telnet",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-863",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0393",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on PLC-IO-238",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-238",
+    "ip": "192.168.28.219",
+    "port": 443,
+    "service": "telnet",
+    "firmware_version": "fw-2.14"
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-20",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0171",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "high",
+  "title": "telnet-enabled on GW-Router-214",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-214",
+    "ip": "192.168.17.38",
+    "port": 8080,
+    "service": "modbus",
+    "firmware_version": "fw-5.4"
+  },
+  "ai_confidence": 0.52,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-287",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0325",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "low",
+  "title": "firmware-unsigned on Thermo-439",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-439",
+    "ip": "192.168.33.55",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-4.18"
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-798",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0334",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "open-redirect",
+  "severity": "info",
+  "title": "open-redirect on https://p8.example.com/api/orders?id=4226",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/api/orders?id=4226",
+    "method": "POST",
+    "endpoint": "/api/orders",
+    "parameter": "redirect",
+    "auth_required": false
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=open-redirect.",
+  "cwe": "CWE-352",
+  "cve": null
+}

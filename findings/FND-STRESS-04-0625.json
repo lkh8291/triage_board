@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0625",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "xss-stored",
+  "severity": "medium",
+  "title": "xss-stored on https://p4.example.com/api/auth/token?id=4422",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/auth/token?id=4422",
+    "method": "POST",
+    "endpoint": "/api/auth/token",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=xss-stored.",
+  "cwe": "CWE-441",
+  "cve": null
+}

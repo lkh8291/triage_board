@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0348",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "header-x-frame-options-missing",
+  "severity": "low",
+  "title": "header-x-frame-options-missing on https://p8.example.com/api/files/upload?id=3916",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/api/files/upload?id=3916",
+    "method": "DELETE",
+    "endpoint": "/api/files/upload",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=header-x-frame-options-missing.",
+  "cwe": "CWE-79",
+  "cve": null
+}

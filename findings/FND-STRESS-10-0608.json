@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0608",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "open-redirect",
+  "severity": "low",
+  "title": "open-redirect on https://p10.example.com/api/files/upload?id=2182",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/api/files/upload?id=2182",
+    "method": "GET",
+    "endpoint": "/api/files/upload",
+    "parameter": "name",
+    "auth_required": false
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=open-redirect.",
+  "cwe": "CWE-732",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0705",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "low",
+  "title": "modbus-exposed on Thermo-532",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-532",
+    "ip": "192.168.44.52",
+    "port": 23,
+    "service": "snmp",
+    "firmware_version": "fw-2.11"
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-863",
+  "cve": null
+}

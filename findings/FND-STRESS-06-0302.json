@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0302",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "path-traversal",
+  "severity": "critical",
+  "title": "path-traversal on https://p6.example.com/api/auth/token?id=1637",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/api/auth/token?id=1637",
+    "method": "PUT",
+    "endpoint": "/api/auth/token",
+    "parameter": "redirect",
+    "auth_required": false
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=path-traversal.",
+  "cwe": "CWE-639",
+  "cve": null
+}

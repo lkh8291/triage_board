@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0438",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on GW-Router-636",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-636",
+    "ip": "192.168.26.51",
+    "port": 161,
+    "service": "rtsp",
+    "firmware_version": "fw-1.20"
+  },
+  "ai_confidence": 0.68,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-601",
+  "cve": null
+}

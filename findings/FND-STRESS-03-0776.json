@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0776",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "cmd-injection",
+  "severity": "medium",
+  "title": "cmd-injection on https://p3.example.com/api/users/profile?id=1948",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/api/users/profile?id=1948",
+    "method": "PUT",
+    "endpoint": "/api/users/profile",
+    "parameter": "name",
+    "auth_required": false
+  },
+  "ai_confidence": 0.8,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=cmd-injection.",
+  "cwe": "CWE-20",
+  "cve": null
+}

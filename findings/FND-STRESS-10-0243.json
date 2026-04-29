@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0243",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on GW-Router-438",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-438",
+    "ip": "192.168.46.25",
+    "port": 80,
+    "service": "modbus",
+    "firmware_version": "fw-3.15"
+  },
+  "ai_confidence": 0.5,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-601",
+  "cve": null
+}

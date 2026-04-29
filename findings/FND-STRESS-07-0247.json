@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0247",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "deeplink-permission-bypass",
+  "severity": "info",
+  "title": "deeplink-permission-bypass on com.example.health.core.DetailActivity",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "3.0.29",
+    "component_type": "receiver",
+    "component_class": "com.example.health.core.DetailActivity",
+    "exported": false,
+    "permission_required": "com.example.health.permission.ACCESS"
+  },
+  "ai_confidence": 0.92,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=deeplink-permission-bypass.",
+  "cwe": "CWE-601",
+  "cve": null
+}

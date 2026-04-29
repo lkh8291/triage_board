@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0390",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on NVR-X-308",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-308",
+    "ip": "192.168.3.212",
+    "port": 1883,
+    "service": "rtsp",
+    "firmware_version": "fw-5.1"
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-22",
+  "cve": null
+}

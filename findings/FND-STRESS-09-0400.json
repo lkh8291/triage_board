@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0400",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "prototype-pollution",
+  "severity": "low",
+  "title": "prototype-pollution on https://p9.example.com/api/internal/sync?id=2446",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/api/internal/sync?id=2446",
+    "method": "PUT",
+    "endpoint": "/api/internal/sync",
+    "parameter": "redirect",
+    "auth_required": false
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=prototype-pollution.",
+  "cwe": "CWE-269",
+  "cve": null
+}

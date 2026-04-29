@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-03-0357",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "android",
+  "category": "weak-cryptography",
+  "severity": "high",
+  "title": "weak-cryptography on com.example.media.sync.MainActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "4.11.9",
+    "component_type": "activity",
+    "component_class": "com.example.media.sync.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.83,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=android, category=weak-cryptography.",
+  "cwe": "CWE-78",
+  "cve": null
+}

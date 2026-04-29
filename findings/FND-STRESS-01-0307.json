@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0307",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "medium",
+  "title": "upnp-exposed on Thermo-617",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-617",
+    "ip": "192.168.16.60",
+    "port": 443,
+    "service": "rtsp",
+    "firmware_version": "fw-1.7"
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-639",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0488",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on Thermo-793",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-793",
+    "ip": "192.168.48.243",
+    "port": 8888,
+    "service": "modbus",
+    "firmware_version": "fw-3.3"
+  },
+  "ai_confidence": 0.72,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-269",
+  "cve": null
+}

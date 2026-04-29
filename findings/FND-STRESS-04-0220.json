@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0220",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on NVR-X-185",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-185",
+    "ip": "192.168.6.252",
+    "port": 161,
+    "service": "mqtt",
+    "firmware_version": "fw-3.14"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-732",
+  "cve": null
+}

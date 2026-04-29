@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0500",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "high",
+  "title": "default-credentials on PLC-IO-195",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-195",
+    "ip": "192.168.26.211",
+    "port": 1883,
+    "service": "mqtt",
+    "firmware_version": "fw-3.14"
+  },
+  "ai_confidence": 0.72,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=default-credentials.",
+  "cwe": "CWE-639",
+  "cve": "CVE-2020-35291"
+}

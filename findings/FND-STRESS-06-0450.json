@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0450",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "low",
+  "title": "telnet-enabled on PLC-IO-584",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-584",
+    "ip": "192.168.40.11",
+    "port": 502,
+    "service": "ssh",
+    "firmware_version": "fw-1.4"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-269",
+  "cve": null
+}

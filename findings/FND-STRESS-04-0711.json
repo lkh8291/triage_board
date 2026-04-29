@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0711",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on PLC-IO-481",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-481",
+    "ip": "192.168.14.57",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-5.5"
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-918",
+  "cve": null
+}

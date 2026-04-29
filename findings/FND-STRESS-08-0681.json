@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0681",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on SmartCam-151",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-151",
+    "ip": "192.168.37.166",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-2.18"
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-287",
+  "cve": null
+}

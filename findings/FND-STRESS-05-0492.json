@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0492",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on NVR-X-817",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-817",
+    "ip": "192.168.25.78",
+    "port": 8080,
+    "service": "http",
+    "firmware_version": "fw-5.13"
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

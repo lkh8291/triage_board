@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0452",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on SmartCam-386",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-386",
+    "ip": "192.168.31.31",
+    "port": 161,
+    "service": "ssh",
+    "firmware_version": "fw-3.13"
+  },
+  "ai_confidence": 0.84,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=default-credentials.",
+  "cwe": "CWE-502",
+  "cve": null
+}

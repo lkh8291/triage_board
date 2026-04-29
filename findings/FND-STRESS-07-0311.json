@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0311",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "open-redirect",
+  "severity": "medium",
+  "title": "open-redirect on https://p7.example.com/api/users/profile?id=6111",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/api/users/profile?id=6111",
+    "method": "POST",
+    "endpoint": "/api/users/profile",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=open-redirect.",
+  "cwe": "CWE-441",
+  "cve": "CVE-2021-22769"
+}

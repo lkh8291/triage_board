@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-06-0659",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "android",
+  "category": "content-provider-leak",
+  "severity": "info",
+  "title": "content-provider-leak on com.example.media.core.CoverActivity",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "8.1.28",
+    "component_type": "service",
+    "component_class": "com.example.media.core.CoverActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=android, category=content-provider-leak.",
+  "cwe": "CWE-89",
+  "cve": null
+}

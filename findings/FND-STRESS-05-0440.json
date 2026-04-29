@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0440",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "high",
+  "title": "telnet-enabled on Thermo-105",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-105",
+    "ip": "192.168.43.8",
+    "port": 80,
+    "service": "modbus",
+    "firmware_version": "fw-1.5"
+  },
+  "ai_confidence": 0.98,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-798",
+  "cve": null
+}

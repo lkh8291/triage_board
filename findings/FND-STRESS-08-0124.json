@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0124",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on PLC-IO-914",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-914",
+    "ip": "192.168.16.179",
+    "port": 161,
+    "service": "modbus",
+    "firmware_version": "fw-4.17"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-79",
+  "cve": null
+}

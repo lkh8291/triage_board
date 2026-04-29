@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0048",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "low",
+  "title": "jtag-uart-exposed on Thermo-115",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-115",
+    "ip": "192.168.15.22",
+    "port": 554,
+    "service": "mqtt",
+    "firmware_version": "fw-1.11"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-639",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0753",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "insecure-storage",
+  "severity": "medium",
+  "title": "insecure-storage on com.example.bank.sync.MainActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "5.15.11",
+    "component_type": "provider",
+    "component_class": "com.example.bank.sync.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=insecure-storage.",
+  "cwe": "CWE-287",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0627",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "sqli-blind",
+  "severity": "medium",
+  "title": "sqli-blind on https://p4.example.com/api/files/upload?id=4555",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/files/upload?id=4555",
+    "method": "POST",
+    "endpoint": "/api/files/upload",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.44,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=sqli-blind.",
+  "cwe": "CWE-862",
+  "cve": null
+}

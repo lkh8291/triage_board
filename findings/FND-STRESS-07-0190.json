@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0190",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "high",
+  "title": "ssh-weak-cipher on NVR-X-339",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-339",
+    "ip": "192.168.17.138",
+    "port": 23,
+    "service": "mqtt",
+    "firmware_version": "fw-4.12"
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-352",
+  "cve": "CVE-2023-12129"
+}

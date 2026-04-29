@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0212",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "cleartext-traffic",
+  "severity": "high",
+  "title": "cleartext-traffic on com.example.media.sync.LoginActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "8.7.49",
+    "component_type": "provider",
+    "component_class": "com.example.media.sync.LoginActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.69,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=cleartext-traffic.",
+  "cwe": "CWE-918",
+  "cve": null
+}

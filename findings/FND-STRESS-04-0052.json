@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0052",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "info",
+  "title": "modbus-exposed on SmartCam-131",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-131",
+    "ip": "192.168.1.148",
+    "port": 161,
+    "service": "modbus",
+    "firmware_version": "fw-5.2"
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-287",
+  "cve": null
+}

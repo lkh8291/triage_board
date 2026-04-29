@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0601",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "cors-misconfig",
+  "severity": "high",
+  "title": "cors-misconfig on https://p10.example.com/api/admin/config?id=4168",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/api/admin/config?id=4168",
+    "method": "PUT",
+    "endpoint": "/api/admin/config",
+    "parameter": "q",
+    "auth_required": false
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=cors-misconfig.",
+  "cwe": "CWE-926",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0039",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on NVR-X-149",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-149",
+    "ip": "192.168.46.167",
+    "port": 443,
+    "service": "modbus",
+    "firmware_version": "fw-3.19"
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-78",
+  "cve": null
+}

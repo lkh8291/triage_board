@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0140",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "web",
+  "category": "header-x-frame-options-missing",
+  "severity": "low",
+  "title": "header-x-frame-options-missing on https://p1.example.com/dashboard?id=9718",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "url": "https://p1.example.com/dashboard?id=9718",
+    "method": "DELETE",
+    "endpoint": "/dashboard",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=web, category=header-x-frame-options-missing.",
+  "cwe": "CWE-94",
+  "cve": null
+}

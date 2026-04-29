@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0127",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on GW-Router-724",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-724",
+    "ip": "192.168.36.181",
+    "port": 8888,
+    "service": "modbus",
+    "firmware_version": "fw-4.6"
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-601",
+  "cve": null
+}

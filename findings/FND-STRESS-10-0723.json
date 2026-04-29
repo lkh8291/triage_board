@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0723",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "idor",
+  "severity": "medium",
+  "title": "idor on https://p10.example.com/api/orders?id=152",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/api/orders?id=152",
+    "method": "GET",
+    "endpoint": "/api/orders",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=idor.",
+  "cwe": "CWE-732",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0969",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "low",
+  "title": "upnp-exposed on Thermo-717",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-717",
+    "ip": "192.168.40.66",
+    "port": 1883,
+    "service": "mqtt",
+    "firmware_version": "fw-2.16"
+  },
+  "ai_confidence": 0.93,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-502",
+  "cve": "CVE-2024-75840"
+}

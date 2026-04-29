@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0281",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on Thermo-558",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-558",
+    "ip": "192.168.48.101",
+    "port": 161,
+    "service": "modbus",
+    "firmware_version": "fw-5.4"
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=snmp-public.",
+  "cwe": "CWE-89",
+  "cve": null
+}

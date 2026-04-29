@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-03-0287",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "android",
+  "category": "tapjacking",
+  "severity": "medium",
+  "title": "tapjacking on com.example.health.ui.CoverActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "8.13.34",
+    "component_type": "receiver",
+    "component_class": "com.example.health.ui.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=android, category=tapjacking.",
+  "cwe": "CWE-20",
+  "cve": null
+}

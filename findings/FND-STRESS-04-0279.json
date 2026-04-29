@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0279",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "info",
+  "title": "jtag-uart-exposed on Thermo-430",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-430",
+    "ip": "192.168.43.161",
+    "port": 80,
+    "service": "ssh",
+    "firmware_version": "fw-3.2"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-639",
+  "cve": null
+}

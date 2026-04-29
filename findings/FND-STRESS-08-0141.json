@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0141",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "medium",
+  "title": "jtag-uart-exposed on PLC-IO-345",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-345",
+    "ip": "192.168.29.233",
+    "port": 161,
+    "service": "ssh",
+    "firmware_version": "fw-5.17"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

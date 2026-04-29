@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0167",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "header-x-frame-options-missing",
+  "severity": "low",
+  "title": "header-x-frame-options-missing on https://p2.example.com/api/orders?id=797",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/api/orders?id=797",
+    "method": "PUT",
+    "endpoint": "/api/orders",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.75,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=header-x-frame-options-missing.",
+  "cwe": "CWE-78",
+  "cve": null
+}

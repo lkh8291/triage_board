@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0429",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on PLC-IO-759",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-759",
+    "ip": "192.168.8.248",
+    "port": 1883,
+    "service": "snmp",
+    "firmware_version": "fw-3.17"
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0257",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "low",
+  "title": "upnp-exposed on PLC-IO-449",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-449",
+    "ip": "192.168.36.228",
+    "port": 8080,
+    "service": "ssh",
+    "firmware_version": "fw-5.10"
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-200",
+  "cve": null
+}

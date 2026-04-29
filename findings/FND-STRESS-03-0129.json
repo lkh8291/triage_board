@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-03-0129",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "android",
+  "category": "exposed-component-payment-bypass",
+  "severity": "low",
+  "title": "exposed-component-payment-bypass on com.example.social.sync.CoverActivity",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "5.17.40",
+    "component_type": "service",
+    "component_class": "com.example.social.sync.CoverActivity",
+    "exported": false,
+    "permission_required": "com.example.social.permission.ACCESS"
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=android, category=exposed-component-payment-bypass.",
+  "cwe": "CWE-287",
+  "cve": null
+}

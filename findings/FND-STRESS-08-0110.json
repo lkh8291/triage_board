@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0110",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "rate-limiting-missing",
+  "severity": "high",
+  "title": "rate-limiting-missing on https://p8.example.com/api/users/profile?id=2063",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/api/users/profile?id=2063",
+    "method": "DELETE",
+    "endpoint": "/api/users/profile",
+    "parameter": "redirect",
+    "auth_required": false
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=rate-limiting-missing.",
+  "cwe": "CWE-22",
+  "cve": null
+}

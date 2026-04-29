@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0171",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "medium",
+  "title": "http-admin-exposed on Thermo-314",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-314",
+    "ip": "192.168.43.62",
+    "port": 23,
+    "service": "snmp",
+    "firmware_version": "fw-5.2"
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-918",
+  "cve": null
+}

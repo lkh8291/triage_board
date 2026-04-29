@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0087",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on GW-Router-426",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-426",
+    "ip": "192.168.26.248",
+    "port": 1883,
+    "service": "snmp",
+    "firmware_version": "fw-1.3"
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=snmp-public.",
+  "cwe": "CWE-441",
+  "cve": "CVE-2025-74933"
+}

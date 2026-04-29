@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0702",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on PLC-IO-846",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-846",
+    "ip": "192.168.32.104",
+    "port": 554,
+    "service": "modbus",
+    "firmware_version": "fw-3.17"
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=snmp-public.",
+  "cwe": "CWE-94",
+  "cve": null
+}

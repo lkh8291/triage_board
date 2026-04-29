@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0615",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "high",
+  "title": "telnet-enabled on GW-Router-891",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-891",
+    "ip": "192.168.50.71",
+    "port": 80,
+    "service": "rtsp",
+    "firmware_version": "fw-5.14"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-287",
+  "cve": "CVE-2025-74529"
+}

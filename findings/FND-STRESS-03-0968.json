@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0968",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "medium",
+  "title": "rtsp-no-auth on NVR-X-440",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-440",
+    "ip": "192.168.8.81",
+    "port": 443,
+    "service": "snmp",
+    "firmware_version": "fw-1.18"
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-441",
+  "cve": null
+}

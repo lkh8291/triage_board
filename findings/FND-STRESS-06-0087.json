@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0087",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "high",
+  "title": "snmp-public on SmartCam-909",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-909",
+    "ip": "192.168.45.129",
+    "port": 8080,
+    "service": "snmp",
+    "firmware_version": "fw-3.19"
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=snmp-public.",
+  "cwe": "CWE-22",
+  "cve": null
+}

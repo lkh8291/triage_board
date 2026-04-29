@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0714",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "info",
+  "title": "firmware-unsigned on NVR-X-351",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-351",
+    "ip": "192.168.6.90",
+    "port": 22,
+    "service": "mqtt",
+    "firmware_version": "fw-2.10"
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-79",
+  "cve": null
+}

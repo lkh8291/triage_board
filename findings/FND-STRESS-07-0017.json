@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0017",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "csrf",
+  "severity": "medium",
+  "title": "csrf on https://p7.example.com/search?id=5998",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/search?id=5998",
+    "method": "DELETE",
+    "endpoint": "/search",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=csrf.",
+  "cwe": "CWE-639",
+  "cve": null
+}

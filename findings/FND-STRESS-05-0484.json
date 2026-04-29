@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0484",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "critical",
+  "title": "firmware-unsigned on GW-Router-211",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-211",
+    "ip": "192.168.24.209",
+    "port": 23,
+    "service": "snmp",
+    "firmware_version": "fw-5.14"
+  },
+  "ai_confidence": 0.68,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-732",
+  "cve": null
+}

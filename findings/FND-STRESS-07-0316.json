@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0316",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "web",
+  "category": "jwt-weak",
+  "severity": "low",
+  "title": "jwt-weak on https://p7.example.com/login?id=7090",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "url": "https://p7.example.com/login?id=7090",
+    "method": "DELETE",
+    "endpoint": "/login",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.99,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=web, category=jwt-weak.",
+  "cwe": "CWE-269",
+  "cve": null
+}

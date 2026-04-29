@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0123",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on Thermo-406",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-406",
+    "ip": "192.168.39.202",
+    "port": 554,
+    "service": "telnet",
+    "firmware_version": "fw-1.10"
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-441",
+  "cve": null
+}

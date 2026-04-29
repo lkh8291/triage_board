@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0309",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "info",
+  "title": "jtag-uart-exposed on NVR-X-776",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-776",
+    "ip": "192.168.9.41",
+    "port": 8080,
+    "service": "http",
+    "firmware_version": "fw-3.2"
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-862",
+  "cve": null
+}

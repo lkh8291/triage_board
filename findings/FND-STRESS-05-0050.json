@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0050",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on PLC-IO-985",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-985",
+    "ip": "192.168.17.172",
+    "port": 22,
+    "service": "snmp",
+    "firmware_version": "fw-1.18"
+  },
+  "ai_confidence": 0.91,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-20",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-04-0601",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "android",
+  "category": "intent-redirection",
+  "severity": "high",
+  "title": "intent-redirection on com.example.health.ui.AddActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "4.4.35",
+    "component_type": "service",
+    "component_class": "com.example.health.ui.AddActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.99,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=android, category=intent-redirection.",
+  "cwe": "CWE-269",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0043",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "info",
+  "title": "default-credentials on Thermo-535",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-535",
+    "ip": "192.168.32.19",
+    "port": 8888,
+    "service": "modbus",
+    "firmware_version": "fw-3.5"
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=default-credentials.",
+  "cwe": "CWE-863",
+  "cve": null
+}

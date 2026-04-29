@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0381",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "high",
+  "title": "http-admin-exposed on Thermo-520",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-520",
+    "ip": "192.168.27.207",
+    "port": 23,
+    "service": "http",
+    "firmware_version": "fw-5.16"
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-79",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0356",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "cors-misconfig",
+  "severity": "medium",
+  "title": "cors-misconfig on https://p2.example.com/api/v2/checkout?id=6151",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/api/v2/checkout?id=6151",
+    "method": "POST",
+    "endpoint": "/api/v2/checkout",
+    "parameter": "q",
+    "auth_required": false
+  },
+  "ai_confidence": 0.6,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=cors-misconfig.",
+  "cwe": "CWE-287",
+  "cve": null
+}

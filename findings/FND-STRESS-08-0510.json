@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0510",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "exposed-component-payment-bypass",
+  "severity": "medium",
+  "title": "exposed-component-payment-bypass on com.example.social.ui.MainActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "6.14.3",
+    "component_type": "receiver",
+    "component_class": "com.example.social.ui.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.67,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=exposed-component-payment-bypass.",
+  "cwe": "CWE-863",
+  "cve": null
+}

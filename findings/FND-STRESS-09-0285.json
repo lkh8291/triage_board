@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0285",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on Thermo-610",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-610",
+    "ip": "192.168.46.159",
+    "port": 8080,
+    "service": "rtsp",
+    "firmware_version": "fw-3.7"
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-863",
+  "cve": "CVE-2023-67856"
+}

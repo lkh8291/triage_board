@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0017",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "info",
+  "title": "default-credentials on NVR-X-396",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-396",
+    "ip": "192.168.37.100",
+    "port": 554,
+    "service": "mqtt",
+    "firmware_version": "fw-5.8"
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=default-credentials.",
+  "cwe": "CWE-862",
+  "cve": null
+}

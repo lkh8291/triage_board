@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0255",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "low",
+  "title": "modbus-exposed on PLC-IO-226",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-226",
+    "ip": "192.168.24.223",
+    "port": 8888,
+    "service": "mqtt",
+    "firmware_version": "fw-1.6"
+  },
+  "ai_confidence": 0.76,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-926",
+  "cve": null
+}

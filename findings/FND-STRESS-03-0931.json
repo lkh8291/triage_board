@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0931",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "graphql-introspection-exposed",
+  "severity": "medium",
+  "title": "graphql-introspection-exposed on https://p3.example.com/api/admin/config?id=8095",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/api/admin/config?id=8095",
+    "method": "PUT",
+    "endpoint": "/api/admin/config",
+    "parameter": "page",
+    "auth_required": false
+  },
+  "ai_confidence": 0.5,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=graphql-introspection-exposed.",
+  "cwe": "CWE-79",
+  "cve": null
+}

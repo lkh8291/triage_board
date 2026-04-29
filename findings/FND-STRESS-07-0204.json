@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0204",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "high",
+  "title": "ftp-anonymous on GW-Router-487",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-487",
+    "ip": "192.168.31.152",
+    "port": 8080,
+    "service": "modbus",
+    "firmware_version": "fw-3.17"
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

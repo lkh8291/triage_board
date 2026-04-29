@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0094",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "prototype-pollution",
+  "severity": "low",
+  "title": "prototype-pollution on https://p2.example.com/account?id=8209",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/account?id=8209",
+    "method": "DELETE",
+    "endpoint": "/account",
+    "parameter": "page",
+    "auth_required": true
+  },
+  "ai_confidence": 0.5,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=prototype-pollution.",
+  "cwe": "CWE-200",
+  "cve": null
+}

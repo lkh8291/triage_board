@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0491",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on GW-Router-538",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-538",
+    "ip": "192.168.44.82",
+    "port": 8888,
+    "service": "ssh",
+    "firmware_version": "fw-2.9"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=snmp-public.",
+  "cwe": "CWE-269",
+  "cve": null
+}

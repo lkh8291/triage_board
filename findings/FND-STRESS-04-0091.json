@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0091",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on PLC-IO-894",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-894",
+    "ip": "192.168.9.208",
+    "port": 8888,
+    "service": "mqtt",
+    "firmware_version": "fw-4.20"
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-94",
+  "cve": null
+}

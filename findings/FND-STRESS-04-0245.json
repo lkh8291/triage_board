@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0245",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "low",
+  "title": "telnet-enabled on Thermo-330",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-11T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-330",
+    "ip": "192.168.46.183",
+    "port": 8080,
+    "service": "ssh",
+    "firmware_version": "fw-5.17"
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-200",
+  "cve": null
+}

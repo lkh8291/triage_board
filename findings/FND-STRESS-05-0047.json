@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0047",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "low",
+  "title": "jtag-uart-exposed on GW-Router-805",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-805",
+    "ip": "192.168.3.163",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-5.9"
+  },
+  "ai_confidence": 0.43,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-441",
+  "cve": null
+}

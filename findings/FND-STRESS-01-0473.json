@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0473",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "critical",
+  "title": "snmp-public on PLC-IO-553",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-553",
+    "ip": "192.168.49.213",
+    "port": 80,
+    "service": "modbus",
+    "firmware_version": "fw-3.13"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=snmp-public.",
+  "cwe": "CWE-798",
+  "cve": null
+}

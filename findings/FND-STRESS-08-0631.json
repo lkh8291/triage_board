@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0631",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "intent-uri-smuggle",
+  "severity": "high",
+  "title": "intent-uri-smuggle on com.example.health.core.AddActivity",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-16T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "5.8.43",
+    "component_type": "activity",
+    "component_class": "com.example.health.core.AddActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.41,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=intent-uri-smuggle.",
+  "cwe": "CWE-863",
+  "cve": null
+}

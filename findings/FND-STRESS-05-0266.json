@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-05-0266",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "android",
+  "category": "intent-redirection",
+  "severity": "low",
+  "title": "intent-redirection on com.example.shop.sync.CoverActivity",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-14T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "2.11.44",
+    "component_type": "activity",
+    "component_class": "com.example.shop.sync.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=android, category=intent-redirection.",
+  "cwe": "CWE-639",
+  "cve": null
+}

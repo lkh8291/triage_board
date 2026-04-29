@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0483",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "csrf",
+  "severity": "info",
+  "title": "csrf on https://p4.example.com/api/internal/sync?id=5749",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/internal/sync?id=5749",
+    "method": "DELETE",
+    "endpoint": "/api/internal/sync",
+    "parameter": "q",
+    "auth_required": false
+  },
+  "ai_confidence": 0.98,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=csrf.",
+  "cwe": "CWE-863",
+  "cve": null
+}

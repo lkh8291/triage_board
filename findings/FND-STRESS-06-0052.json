@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0052",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "rate-limiting-missing",
+  "severity": "info",
+  "title": "rate-limiting-missing on https://p6.example.com/dashboard?id=2240",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/dashboard?id=2240",
+    "method": "POST",
+    "endpoint": "/dashboard",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=rate-limiting-missing.",
+  "cwe": "CWE-89",
+  "cve": null
+}

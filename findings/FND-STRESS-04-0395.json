@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0395",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on Thermo-767",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-767",
+    "ip": "192.168.27.63",
+    "port": 443,
+    "service": "http",
+    "firmware_version": "fw-4.14"
+  },
+  "ai_confidence": 0.56,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

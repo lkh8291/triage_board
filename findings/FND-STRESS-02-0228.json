@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0228",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "high",
+  "title": "telnet-enabled on NVR-X-846",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-846",
+    "ip": "192.168.0.187",
+    "port": 8080,
+    "service": "snmp",
+    "firmware_version": "fw-1.4"
+  },
+  "ai_confidence": 0.4,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

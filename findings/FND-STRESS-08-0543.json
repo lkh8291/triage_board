@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0543",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "info",
+  "title": "jtag-uart-exposed on NVR-X-107",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-107",
+    "ip": "192.168.4.15",
+    "port": 8080,
+    "service": "ssh",
+    "firmware_version": "fw-5.6"
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-79",
+  "cve": null
+}

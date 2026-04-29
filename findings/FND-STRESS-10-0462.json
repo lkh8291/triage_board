@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0462",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "medium",
+  "title": "telnet-enabled on PLC-IO-692",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-692",
+    "ip": "192.168.31.144",
+    "port": 80,
+    "service": "modbus",
+    "firmware_version": "fw-5.12"
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

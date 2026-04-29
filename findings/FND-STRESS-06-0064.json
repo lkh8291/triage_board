@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0064",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on GW-Router-305",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-305",
+    "ip": "192.168.41.171",
+    "port": 22,
+    "service": "ssh",
+    "firmware_version": "fw-3.9"
+  },
+  "ai_confidence": 0.48,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-352",
+  "cve": null
+}

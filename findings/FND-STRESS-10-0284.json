@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0284",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on PLC-IO-145",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-145",
+    "ip": "192.168.47.240",
+    "port": 161,
+    "service": "rtsp",
+    "firmware_version": "fw-2.3"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=default-credentials.",
+  "cwe": "CWE-862",
+  "cve": null
+}

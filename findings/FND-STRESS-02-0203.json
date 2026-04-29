@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0203",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on NVR-X-154",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-154",
+    "ip": "192.168.24.55",
+    "port": 22,
+    "service": "rtsp",
+    "firmware_version": "fw-1.8"
+  },
+  "ai_confidence": 0.85,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-502",
+  "cve": null
+}

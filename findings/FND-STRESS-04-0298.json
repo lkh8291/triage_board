@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0298",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "xxe",
+  "severity": "info",
+  "title": "xxe on https://p4.example.com/api/v2/checkout?id=6448",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/v2/checkout?id=6448",
+    "method": "DELETE",
+    "endpoint": "/api/v2/checkout",
+    "parameter": "q",
+    "auth_required": true
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=xxe.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

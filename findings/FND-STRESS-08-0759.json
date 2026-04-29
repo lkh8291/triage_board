@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0759",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "deeplink-permission-bypass",
+  "severity": "info",
+  "title": "deeplink-permission-bypass on com.example.shop.ui.CoverActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "8.11.21",
+    "component_type": "activity",
+    "component_class": "com.example.shop.ui.CoverActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=deeplink-permission-bypass.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

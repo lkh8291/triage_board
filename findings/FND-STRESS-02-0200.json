@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0200",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "critical",
+  "title": "snmp-public on NVR-X-259",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-13T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-259",
+    "ip": "192.168.37.208",
+    "port": 23,
+    "service": "telnet",
+    "firmware_version": "fw-2.14"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=snmp-public.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

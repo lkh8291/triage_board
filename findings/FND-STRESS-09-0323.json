@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0323",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "info",
+  "title": "default-credentials on SmartCam-662",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-662",
+    "ip": "192.168.13.23",
+    "port": 80,
+    "service": "mqtt",
+    "firmware_version": "fw-1.16"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=default-credentials.",
+  "cwe": "CWE-639",
+  "cve": null
+}

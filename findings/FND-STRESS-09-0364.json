@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0364",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "high",
+  "title": "firmware-unsigned on SmartCam-749",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-749",
+    "ip": "192.168.28.197",
+    "port": 22,
+    "service": "rtsp",
+    "firmware_version": "fw-2.12"
+  },
+  "ai_confidence": 0.97,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-78",
+  "cve": null
+}

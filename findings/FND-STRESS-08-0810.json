@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0810",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "weak-cryptography",
+  "severity": "high",
+  "title": "weak-cryptography on com.example.health.sync.MainActivity",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "2.15.39",
+    "component_type": "receiver",
+    "component_class": "com.example.health.sync.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.41,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=weak-cryptography.",
+  "cwe": "CWE-79",
+  "cve": null
+}

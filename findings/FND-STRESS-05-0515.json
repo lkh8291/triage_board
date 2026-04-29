@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0515",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on GW-Router-918",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-918",
+    "ip": "192.168.48.80",
+    "port": 554,
+    "service": "modbus",
+    "firmware_version": "fw-4.2"
+  },
+  "ai_confidence": 0.46,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=snmp-public.",
+  "cwe": "CWE-200",
+  "cve": "CVE-2022-28323"
+}

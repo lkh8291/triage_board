@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0925",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "low",
+  "title": "default-credentials on SmartCam-163",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-163",
+    "ip": "192.168.46.134",
+    "port": 161,
+    "service": "snmp",
+    "firmware_version": "fw-4.19"
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=default-credentials.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0053",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "high",
+  "title": "rtsp-no-auth on GW-Router-961",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-961",
+    "ip": "192.168.3.17",
+    "port": 1883,
+    "service": "modbus",
+    "firmware_version": "fw-3.16"
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-862",
+  "cve": null
+}

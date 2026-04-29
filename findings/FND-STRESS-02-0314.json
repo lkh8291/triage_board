@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-02-0314",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "android",
+  "category": "insecure-storage",
+  "severity": "high",
+  "title": "insecure-storage on com.example.social.ui.LoginActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "6.14.24",
+    "component_type": "receiver",
+    "component_class": "com.example.social.ui.LoginActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.49,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=android, category=insecure-storage.",
+  "cwe": "CWE-926",
+  "cve": null
+}

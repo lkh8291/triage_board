@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0357",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "high",
+  "title": "rtsp-no-auth on GW-Router-821",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-821",
+    "ip": "192.168.0.6",
+    "port": 554,
+    "service": "mqtt",
+    "firmware_version": "fw-1.8"
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-79",
+  "cve": null
+}

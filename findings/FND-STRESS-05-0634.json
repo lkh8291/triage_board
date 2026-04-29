@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-05-0634",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "android",
+  "category": "exported-broadcast-receiver",
+  "severity": "high",
+  "title": "exported-broadcast-receiver on com.example.shop.sync.MainActivity",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "4.17.2",
+    "component_type": "activity",
+    "component_class": "com.example.shop.sync.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=android, category=exported-broadcast-receiver.",
+  "cwe": "CWE-918",
+  "cve": "CVE-2025-86706"
+}

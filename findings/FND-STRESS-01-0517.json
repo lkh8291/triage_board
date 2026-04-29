@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-01-0517",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "android",
+  "category": "cleartext-traffic",
+  "severity": "high",
+  "title": "cleartext-traffic on com.example.health.core.MainActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-27T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "6.6.21",
+    "component_type": "provider",
+    "component_class": "com.example.health.core.MainActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=android, category=cleartext-traffic.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

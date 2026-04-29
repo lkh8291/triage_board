@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0353",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "low",
+  "title": "ftp-anonymous on SmartCam-157",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-157",
+    "ip": "192.168.22.213",
+    "port": 22,
+    "service": "telnet",
+    "firmware_version": "fw-3.15"
+  },
+  "ai_confidence": 0.45,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-89",
+  "cve": null
+}

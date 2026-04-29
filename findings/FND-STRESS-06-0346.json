@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0346",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on PLC-IO-270",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-270",
+    "ip": "192.168.29.95",
+    "port": 1883,
+    "service": "mqtt",
+    "firmware_version": "fw-2.8"
+  },
+  "ai_confidence": 0.69,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-862",
+  "cve": null
+}

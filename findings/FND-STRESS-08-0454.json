@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0454",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "info",
+  "title": "firmware-unsigned on Thermo-113",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-113",
+    "ip": "192.168.30.119",
+    "port": 22,
+    "service": "snmp",
+    "firmware_version": "fw-2.18"
+  },
+  "ai_confidence": 0.84,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-863",
+  "cve": null
+}

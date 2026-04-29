@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0194",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "medium",
+  "title": "modbus-exposed on PLC-IO-526",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-526",
+    "ip": "192.168.20.72",
+    "port": 8888,
+    "service": "modbus",
+    "firmware_version": "fw-1.17"
+  },
+  "ai_confidence": 0.77,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-287",
+  "cve": "CVE-2023-88963"
+}

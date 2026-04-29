@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0032",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "low",
+  "title": "mqtt-anonymous on SmartCam-672",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-672",
+    "ip": "192.168.37.170",
+    "port": 161,
+    "service": "mqtt",
+    "firmware_version": "fw-2.6"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-269",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-07-0249",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "android",
+  "category": "janus-signature-bypass",
+  "severity": "medium",
+  "title": "janus-signature-bypass on com.example.media.core.MainActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "6.14.15",
+    "component_type": "receiver",
+    "component_class": "com.example.media.core.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=android, category=janus-signature-bypass.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

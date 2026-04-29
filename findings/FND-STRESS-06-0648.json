@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0648",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "web",
+  "category": "banner-server-disclosure",
+  "severity": "medium",
+  "title": "banner-server-disclosure on https://p6.example.com/login?id=2072",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "url": "https://p6.example.com/login?id=2072",
+    "method": "PUT",
+    "endpoint": "/login",
+    "parameter": "page",
+    "auth_required": false
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=web, category=banner-server-disclosure.",
+  "cwe": "CWE-287",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0097",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "rtsp-no-auth",
+  "severity": "high",
+  "title": "rtsp-no-auth on NVR-X-106",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-106",
+    "ip": "192.168.15.42",
+    "port": 502,
+    "service": "rtsp",
+    "firmware_version": "fw-2.10"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=rtsp-no-auth.",
+  "cwe": "CWE-1188",
+  "cve": "CVE-2025-52370"
+}

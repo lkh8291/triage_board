@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0557",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "high",
+  "title": "modbus-exposed on GW-Router-663",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-663",
+    "ip": "192.168.26.50",
+    "port": 22,
+    "service": "modbus",
+    "firmware_version": "fw-2.11"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-269",
+  "cve": null
+}

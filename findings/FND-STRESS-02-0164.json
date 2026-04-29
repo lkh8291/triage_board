@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0164",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "web",
+  "category": "xss-stored",
+  "severity": "low",
+  "title": "xss-stored on https://p2.example.com/api/internal/sync?id=5717",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "url": "https://p2.example.com/api/internal/sync?id=5717",
+    "method": "POST",
+    "endpoint": "/api/internal/sync",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.56,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=web, category=xss-stored.",
+  "cwe": "CWE-639",
+  "cve": "CVE-2026-37956"
+}

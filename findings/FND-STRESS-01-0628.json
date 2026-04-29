@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0628",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "low",
+  "title": "http-admin-exposed on GW-Router-310",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-310",
+    "ip": "192.168.7.218",
+    "port": 161,
+    "service": "modbus",
+    "firmware_version": "fw-2.9"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-441",
+  "cve": null
+}

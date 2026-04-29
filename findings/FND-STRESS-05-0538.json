@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0538",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "high",
+  "title": "jtag-uart-exposed on Thermo-418",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-418",
+    "ip": "192.168.46.231",
+    "port": 8888,
+    "service": "rtsp",
+    "firmware_version": "fw-3.11"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-862",
+  "cve": null
+}

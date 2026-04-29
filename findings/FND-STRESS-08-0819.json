@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0819",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "low",
+  "title": "firmware-unsigned on NVR-X-125",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-125",
+    "ip": "192.168.37.90",
+    "port": 1883,
+    "service": "rtsp",
+    "firmware_version": "fw-5.0"
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-862",
+  "cve": null
+}

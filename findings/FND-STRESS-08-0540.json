@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0540",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "idor",
+  "severity": "low",
+  "title": "idor on https://p8.example.com/account?id=5956",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-09T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/account?id=5956",
+    "method": "PUT",
+    "endpoint": "/account",
+    "parameter": "name",
+    "auth_required": false
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=idor.",
+  "cwe": "CWE-79",
+  "cve": null
+}

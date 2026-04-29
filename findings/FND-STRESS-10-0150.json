@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0150",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "jwt-weak",
+  "severity": "high",
+  "title": "jwt-weak on https://p10.example.com/search?id=4937",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/search?id=4937",
+    "method": "DELETE",
+    "endpoint": "/search",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=jwt-weak.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

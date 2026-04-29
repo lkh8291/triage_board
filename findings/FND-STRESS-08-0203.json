@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0203",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "path-traversal",
+  "severity": "medium",
+  "title": "path-traversal on https://p8.example.com/search?id=2",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/search?id=2",
+    "method": "GET",
+    "endpoint": "/search",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=path-traversal.",
+  "cwe": "CWE-352",
+  "cve": null
+}

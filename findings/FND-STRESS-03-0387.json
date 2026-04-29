@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0387",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on GW-Router-937",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-937",
+    "ip": "192.168.2.197",
+    "port": 22,
+    "service": "modbus",
+    "firmware_version": "fw-2.11"
+  },
+  "ai_confidence": 0.64,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-78",
+  "cve": null
+}

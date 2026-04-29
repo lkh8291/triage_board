@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-03-0416",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "android",
+  "category": "intent-uri-smuggle",
+  "severity": "low",
+  "title": "intent-uri-smuggle on com.example.social.sync.CoverActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "package": "com.example.social",
+    "version_name": "3.19.10",
+    "component_type": "receiver",
+    "component_class": "com.example.social.sync.CoverActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.4,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=android, category=intent-uri-smuggle.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

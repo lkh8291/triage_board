@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0019",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "low",
+  "title": "snmp-public on PLC-IO-865",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-865",
+    "ip": "192.168.33.14",
+    "port": 1883,
+    "service": "snmp",
+    "firmware_version": "fw-2.13"
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=snmp-public.",
+  "cwe": "CWE-89",
+  "cve": null
+}

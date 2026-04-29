@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0535",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on NVR-X-353",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-353",
+    "ip": "192.168.22.214",
+    "port": 8888,
+    "service": "ssh",
+    "firmware_version": "fw-1.6"
+  },
+  "ai_confidence": 0.91,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0407",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "cors-misconfig",
+  "severity": "high",
+  "title": "cors-misconfig on https://p5.example.com/dashboard?id=950",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/dashboard?id=950",
+    "method": "GET",
+    "endpoint": "/dashboard",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.65,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=cors-misconfig.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

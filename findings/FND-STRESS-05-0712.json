@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0712",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "csrf",
+  "severity": "low",
+  "title": "csrf on https://p5.example.com/api/internal/sync?id=5679",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-06T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/api/internal/sync?id=5679",
+    "method": "GET",
+    "endpoint": "/api/internal/sync",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.79,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=csrf.",
+  "cwe": "CWE-639",
+  "cve": "CVE-2026-32376"
+}

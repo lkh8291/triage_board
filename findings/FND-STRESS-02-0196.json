@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0196",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "info",
+  "title": "jtag-uart-exposed on SmartCam-988",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-988",
+    "ip": "192.168.23.139",
+    "port": 502,
+    "service": "ssh",
+    "firmware_version": "fw-1.12"
+  },
+  "ai_confidence": 0.59,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-01-0195",
+  "report_id": "RPT-STRESS-01-2026-04-29",
+  "project": "e-commerce-frontend",
+  "domain": "device",
+  "category": "mqtt-anonymous",
+  "severity": "high",
+  "title": "mqtt-anonymous on PLC-IO-330",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-330",
+    "ip": "192.168.6.114",
+    "port": 554,
+    "service": "snmp",
+    "firmware_version": "fw-4.1"
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=e-commerce-frontend, domain=device, category=mqtt-anonymous.",
+  "cwe": "CWE-89",
+  "cve": null
+}

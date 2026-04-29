@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0655",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "medium",
+  "title": "ftp-anonymous on NVR-X-743",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-743",
+    "ip": "192.168.27.132",
+    "port": 80,
+    "service": "rtsp",
+    "firmware_version": "fw-5.17"
+  },
+  "ai_confidence": 0.7,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-269",
+  "cve": null
+}

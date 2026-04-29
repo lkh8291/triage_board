@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0345",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on NVR-X-467",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-467",
+    "ip": "192.168.11.42",
+    "port": 22,
+    "service": "rtsp",
+    "firmware_version": "fw-1.4"
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-862",
+  "cve": null
+}

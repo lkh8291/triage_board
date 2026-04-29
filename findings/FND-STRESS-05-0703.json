@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0703",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "web",
+  "category": "jwt-weak",
+  "severity": "medium",
+  "title": "jwt-weak on https://p5.example.com/search?id=6890",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "url": "https://p5.example.com/search?id=6890",
+    "method": "PUT",
+    "endpoint": "/search",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=web, category=jwt-weak.",
+  "cwe": "CWE-200",
+  "cve": null
+}

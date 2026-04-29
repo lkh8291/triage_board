@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0269",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "web",
+  "category": "sqli-error",
+  "severity": "medium",
+  "title": "sqli-error on https://p10.example.com/api/files/upload?id=992",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "url": "https://p10.example.com/api/files/upload?id=992",
+    "method": "DELETE",
+    "endpoint": "/api/files/upload",
+    "parameter": "redirect",
+    "auth_required": true
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=web, category=sqli-error.",
+  "cwe": "CWE-862",
+  "cve": null
+}

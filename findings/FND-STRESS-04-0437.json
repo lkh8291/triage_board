@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0437",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on GW-Router-464",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-25T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-464",
+    "ip": "192.168.2.161",
+    "port": 22,
+    "service": "telnet",
+    "firmware_version": "fw-3.19"
+  },
+  "ai_confidence": 0.47,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-94",
+  "cve": null
+}

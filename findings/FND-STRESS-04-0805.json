@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0805",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "medium",
+  "title": "snmp-public on SmartCam-672",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-672",
+    "ip": "192.168.15.159",
+    "port": 161,
+    "service": "rtsp",
+    "firmware_version": "fw-3.12"
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=snmp-public.",
+  "cwe": "CWE-352",
+  "cve": null
+}

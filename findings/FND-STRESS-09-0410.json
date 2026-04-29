@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0410",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "cmd-injection",
+  "severity": "info",
+  "title": "cmd-injection on https://p9.example.com/api/internal/sync?id=1619",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-10T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/api/internal/sync?id=1619",
+    "method": "DELETE",
+    "endpoint": "/api/internal/sync",
+    "parameter": "token",
+    "auth_required": true
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=cmd-injection.",
+  "cwe": "CWE-22",
+  "cve": null
+}

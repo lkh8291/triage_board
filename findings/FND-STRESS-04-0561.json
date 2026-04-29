@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0561",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "idor",
+  "severity": "high",
+  "title": "idor on https://p4.example.com/api/users/profile?id=6526",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/users/profile?id=6526",
+    "method": "DELETE",
+    "endpoint": "/api/users/profile",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.88,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=idor.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0141",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "low",
+  "title": "jtag-uart-exposed on GW-Router-224",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-224",
+    "ip": "192.168.33.79",
+    "port": 554,
+    "service": "snmp",
+    "firmware_version": "fw-1.7"
+  },
+  "ai_confidence": 0.92,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-601",
+  "cve": null
+}

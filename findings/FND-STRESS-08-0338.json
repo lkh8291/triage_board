@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0338",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "web",
+  "category": "jwt-weak",
+  "severity": "low",
+  "title": "jwt-weak on https://p8.example.com/api/files/upload?id=6549",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-28T12:00:00.000Z",
+  "target": {
+    "url": "https://p8.example.com/api/files/upload?id=6549",
+    "method": "GET",
+    "endpoint": "/api/files/upload",
+    "parameter": "name",
+    "auth_required": true
+  },
+  "ai_confidence": 0.42,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=web, category=jwt-weak.",
+  "cwe": "CWE-78",
+  "cve": null
+}

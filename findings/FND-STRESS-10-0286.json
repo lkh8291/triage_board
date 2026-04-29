@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0286",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "medium",
+  "title": "jtag-uart-exposed on Thermo-751",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-751",
+    "ip": "192.168.48.98",
+    "port": 22,
+    "service": "telnet",
+    "firmware_version": "fw-2.20"
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-601",
+  "cve": null
+}

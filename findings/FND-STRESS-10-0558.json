@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0558",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on NVR-X-285",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-285",
+    "ip": "192.168.41.227",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-4.9"
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-287",
+  "cve": null
+}

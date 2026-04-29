@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0297",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "medium",
+  "title": "firmware-unsigned on SmartCam-394",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-394",
+    "ip": "192.168.22.91",
+    "port": 1883,
+    "service": "snmp",
+    "firmware_version": "fw-4.2"
+  },
+  "ai_confidence": 0.66,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-918",
+  "cve": null
+}

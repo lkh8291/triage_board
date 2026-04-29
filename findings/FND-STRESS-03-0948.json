@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0948",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "http-admin-exposed",
+  "severity": "low",
+  "title": "http-admin-exposed on PLC-IO-735",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-26T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-735",
+    "ip": "192.168.7.121",
+    "port": 502,
+    "service": "mqtt",
+    "firmware_version": "fw-5.11"
+  },
+  "ai_confidence": 0.83,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=http-admin-exposed.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

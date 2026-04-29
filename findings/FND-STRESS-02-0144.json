@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0144",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "jtag-uart-exposed",
+  "severity": "medium",
+  "title": "jtag-uart-exposed on PLC-IO-973",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-15T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-973",
+    "ip": "192.168.1.168",
+    "port": 554,
+    "service": "ssh",
+    "firmware_version": "fw-4.11"
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=jtag-uart-exposed.",
+  "cwe": "CWE-732",
+  "cve": null
+}

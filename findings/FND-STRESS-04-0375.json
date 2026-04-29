@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0375",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on PLC-IO-530",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-03T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-530",
+    "ip": "192.168.15.195",
+    "port": 8080,
+    "service": "modbus",
+    "firmware_version": "fw-5.18"
+  },
+  "ai_confidence": 0.65,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-601",
+  "cve": null
+}

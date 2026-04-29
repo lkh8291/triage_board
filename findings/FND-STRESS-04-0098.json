@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-04-0098",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "android",
+  "category": "janus-signature-bypass",
+  "severity": "low",
+  "title": "janus-signature-bypass on com.example.health.core.CoverActivity",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-01T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "3.12.29",
+    "component_type": "service",
+    "component_class": "com.example.health.core.CoverActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=android, category=janus-signature-bypass.",
+  "cwe": "CWE-798",
+  "cve": null
+}

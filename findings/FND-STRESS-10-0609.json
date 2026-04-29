@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-10-0609",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "android",
+  "category": "content-provider-leak",
+  "severity": "low",
+  "title": "content-provider-leak on com.example.health.ui.MainActivity",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-05T12:00:00.000Z",
+  "target": {
+    "package": "com.example.health",
+    "version_name": "2.16.2",
+    "component_type": "activity",
+    "component_class": "com.example.health.ui.MainActivity",
+    "exported": true,
+    "permission_required": null
+  },
+  "ai_confidence": 0.55,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=android, category=content-provider-leak.",
+  "cwe": "CWE-918",
+  "cve": null
+}

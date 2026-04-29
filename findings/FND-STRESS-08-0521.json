@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-08-0521",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "low",
+  "title": "firmware-unsigned on NVR-X-788",
+  "agent": "stress-scanner-v0.1",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-788",
+    "ip": "192.168.45.20",
+    "port": 443,
+    "service": "mqtt",
+    "firmware_version": "fw-1.3"
+  },
+  "ai_confidence": 0.5,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-1021",
+  "cve": null
+}

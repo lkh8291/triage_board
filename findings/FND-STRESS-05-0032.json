@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-05-0032",
+  "report_id": "RPT-STRESS-05-2026-04-25",
+  "project": "payment-gateway",
+  "domain": "device",
+  "category": "firmware-unsigned",
+  "severity": "high",
+  "title": "firmware-unsigned on SmartCam-520",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-23T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-520",
+    "ip": "192.168.39.36",
+    "port": 23,
+    "service": "ssh",
+    "firmware_version": "fw-4.1"
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=payment-gateway, domain=device, category=firmware-unsigned.",
+  "cwe": "CWE-502",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-02-0348",
+  "report_id": "RPT-STRESS-02-2026-04-28",
+  "project": "mobile-banking-app",
+  "domain": "device",
+  "category": "upnp-exposed",
+  "severity": "critical",
+  "title": "upnp-exposed on NVR-X-307",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-19T12:00:00.000Z",
+  "target": {
+    "device_model": "NVR-X-307",
+    "ip": "192.168.2.200",
+    "port": 1883,
+    "service": "mqtt",
+    "firmware_version": "fw-2.9"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=mobile-banking-app, domain=device, category=upnp-exposed.",
+  "cwe": "CWE-20",
+  "cve": null
+}

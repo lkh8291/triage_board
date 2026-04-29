@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0446",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "modbus-exposed",
+  "severity": "info",
+  "title": "modbus-exposed on PLC-IO-555",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "device_model": "PLC-IO-555",
+    "ip": "192.168.30.61",
+    "port": 161,
+    "service": "rtsp",
+    "firmware_version": "fw-4.8"
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=modbus-exposed.",
+  "cwe": "CWE-863",
+  "cve": null
+}

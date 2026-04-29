@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-09-0437",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "android",
+  "category": "cleartext-traffic",
+  "severity": "low",
+  "title": "cleartext-traffic on com.example.shop.core.LoginActivity",
+  "agent": "stress-scanner-v0.4",
+  "discovered_at": "2026-04-29T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "8.14.26",
+    "component_type": "receiver",
+    "component_class": "com.example.shop.core.LoginActivity",
+    "exported": false,
+    "permission_required": "com.example.shop.permission.ACCESS"
+  },
+  "ai_confidence": 0.94,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=android, category=cleartext-traffic.",
+  "cwe": "CWE-502",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0289",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "web",
+  "category": "open-redirect",
+  "severity": "medium",
+  "title": "open-redirect on https://p4.example.com/api/admin/config?id=9534",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-12T12:00:00.000Z",
+  "target": {
+    "url": "https://p4.example.com/api/admin/config?id=9534",
+    "method": "PUT",
+    "endpoint": "/api/admin/config",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.52,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=web, category=open-redirect.",
+  "cwe": "CWE-502",
+  "cve": null
+}

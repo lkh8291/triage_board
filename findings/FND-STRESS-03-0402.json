@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-03-0402",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "android",
+  "category": "insecure-storage",
+  "severity": "info",
+  "title": "insecure-storage on com.example.bank.ui.LoginActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-20T12:00:00.000Z",
+  "target": {
+    "package": "com.example.bank",
+    "version_name": "1.17.22",
+    "component_type": "receiver",
+    "component_class": "com.example.bank.ui.LoginActivity",
+    "exported": true,
+    "permission_required": "com.example.bank.permission.ACCESS"
+  },
+  "ai_confidence": 0.95,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=android, category=insecure-storage.",
+  "cwe": "CWE-200",
+  "cve": null
+}

@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-06-0366",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "android",
+  "category": "insecure-storage",
+  "severity": "low",
+  "title": "insecure-storage on com.example.media.sync.CoverActivity",
+  "agent": "stress-scanner-v0.3",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "package": "com.example.media",
+    "version_name": "6.13.28",
+    "component_type": "provider",
+    "component_class": "com.example.media.sync.CoverActivity",
+    "exported": true,
+    "permission_required": "com.example.media.permission.ACCESS"
+  },
+  "ai_confidence": 0.86,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=android, category=insecure-storage.",
+  "cwe": "CWE-94",
+  "cve": null
+}

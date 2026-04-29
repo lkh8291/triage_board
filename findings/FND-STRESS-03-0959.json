@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0959",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "ftp-anonymous",
+  "severity": "high",
+  "title": "ftp-anonymous on Thermo-504",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-07T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-504",
+    "ip": "192.168.42.106",
+    "port": 502,
+    "service": "ssh",
+    "firmware_version": "fw-3.9"
+  },
+  "ai_confidence": 0.44,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=ftp-anonymous.",
+  "cwe": "CWE-863",
+  "cve": null
+}

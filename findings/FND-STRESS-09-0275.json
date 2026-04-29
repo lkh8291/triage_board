@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0275",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "web",
+  "category": "cors-misconfig",
+  "severity": "low",
+  "title": "cors-misconfig on https://p9.example.com/account?id=6073",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-21T12:00:00.000Z",
+  "target": {
+    "url": "https://p9.example.com/account?id=6073",
+    "method": "GET",
+    "endpoint": "/account",
+    "parameter": "callback",
+    "auth_required": true
+  },
+  "ai_confidence": 0.82,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=web, category=cors-misconfig.",
+  "cwe": "CWE-732",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0497",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "low",
+  "title": "ssh-weak-cipher on Thermo-497",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-17T12:00:00.000Z",
+  "target": {
+    "device_model": "Thermo-497",
+    "ip": "192.168.22.225",
+    "port": 161,
+    "service": "http",
+    "firmware_version": "fw-3.3"
+  },
+  "ai_confidence": 0.56,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-862",
+  "cve": null
+}

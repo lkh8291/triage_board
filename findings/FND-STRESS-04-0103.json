@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0103",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "info",
+  "title": "default-credentials on GW-Router-360",
+  "agent": "stress-scanner-v0.8",
+  "discovered_at": "2026-04-22T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-360",
+    "ip": "192.168.20.46",
+    "port": 22,
+    "service": "modbus",
+    "firmware_version": "fw-3.18"
+  },
+  "ai_confidence": 0.71,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=default-credentials.",
+  "cwe": "CWE-79",
+  "cve": null
+}

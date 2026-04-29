@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-10-0505",
+  "report_id": "RPT-STRESS-10-2026-04-20",
+  "project": "logistics-tracker",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "high",
+  "title": "default-credentials on GW-Router-582",
+  "agent": "stress-scanner-v0.7",
+  "discovered_at": "2026-04-08T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-582",
+    "ip": "192.168.29.238",
+    "port": 22,
+    "service": "modbus",
+    "firmware_version": "fw-4.13"
+  },
+  "ai_confidence": 0.51,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=logistics-tracker, domain=device, category=default-credentials.",
+  "cwe": "CWE-798",
+  "cve": null
+}

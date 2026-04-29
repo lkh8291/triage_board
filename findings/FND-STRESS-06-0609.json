@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-06-0609",
+  "report_id": "RPT-STRESS-06-2026-04-24",
+  "project": "inventory-management",
+  "domain": "device",
+  "category": "default-credentials",
+  "severity": "medium",
+  "title": "default-credentials on SmartCam-310",
+  "agent": "stress-scanner-v0.6",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-310",
+    "ip": "192.168.34.96",
+    "port": 1883,
+    "service": "mqtt",
+    "firmware_version": "fw-1.9"
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=inventory-management, domain=device, category=default-credentials.",
+  "cwe": "CWE-601",
+  "cve": null
+}

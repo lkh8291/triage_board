@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-09-0045",
+  "report_id": "RPT-STRESS-09-2026-04-21",
+  "project": "healthcare-records",
+  "domain": "device",
+  "category": "snmp-public",
+  "severity": "info",
+  "title": "snmp-public on SmartCam-233",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-04T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-233",
+    "ip": "192.168.42.196",
+    "port": 8080,
+    "service": "mqtt",
+    "firmware_version": "fw-5.10"
+  },
+  "ai_confidence": 0.61,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=healthcare-records, domain=device, category=snmp-public.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

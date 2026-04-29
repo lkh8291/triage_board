@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-03-0608",
+  "report_id": "RPT-STRESS-03-2026-04-27",
+  "project": "iot-smart-home",
+  "domain": "web",
+  "category": "ssrf",
+  "severity": "high",
+  "title": "ssrf on https://p3.example.com/api/files/upload?id=5957",
+  "agent": "stress-scanner-v0.2",
+  "discovered_at": "2026-04-24T12:00:00.000Z",
+  "target": {
+    "url": "https://p3.example.com/api/files/upload?id=5957",
+    "method": "GET",
+    "endpoint": "/api/files/upload",
+    "parameter": "token",
+    "auth_required": false
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=iot-smart-home, domain=web, category=ssrf.",
+  "cwe": "CWE-200",
+  "cve": null
+}

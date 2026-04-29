@@ -1,0 +1,23 @@
+{
+  "id": "FND-STRESS-08-0714",
+  "report_id": "RPT-STRESS-08-2026-04-22",
+  "project": "video-streaming",
+  "domain": "android",
+  "category": "janus-signature-bypass",
+  "severity": "medium",
+  "title": "janus-signature-bypass on com.example.shop.sync.MainActivity",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-03-31T12:00:00.000Z",
+  "target": {
+    "package": "com.example.shop",
+    "version_name": "9.10.20",
+    "component_type": "activity",
+    "component_class": "com.example.shop.sync.MainActivity",
+    "exported": false,
+    "permission_required": null
+  },
+  "ai_confidence": 0.89,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=video-streaming, domain=android, category=janus-signature-bypass.",
+  "cwe": "CWE-862",
+  "cve": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-04-0264",
+  "report_id": "RPT-STRESS-04-2026-04-26",
+  "project": "corporate-portal",
+  "domain": "device",
+  "category": "ssh-weak-cipher",
+  "severity": "medium",
+  "title": "ssh-weak-cipher on GW-Router-169",
+  "agent": "stress-scanner-v0.5",
+  "discovered_at": "2026-04-02T12:00:00.000Z",
+  "target": {
+    "device_model": "GW-Router-169",
+    "ip": "192.168.32.202",
+    "port": 161,
+    "service": "ssh",
+    "firmware_version": "fw-5.18"
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=corporate-portal, domain=device, category=ssh-weak-cipher.",
+  "cwe": "CWE-1188",
+  "cve": null
+}

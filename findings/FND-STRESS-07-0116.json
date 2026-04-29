@@ -1,0 +1,22 @@
+{
+  "id": "FND-STRESS-07-0116",
+  "report_id": "RPT-STRESS-07-2026-04-23",
+  "project": "crm-saas",
+  "domain": "device",
+  "category": "telnet-enabled",
+  "severity": "info",
+  "title": "telnet-enabled on SmartCam-181",
+  "agent": "stress-scanner-v0.9",
+  "discovered_at": "2026-04-18T12:00:00.000Z",
+  "target": {
+    "device_model": "SmartCam-181",
+    "ip": "192.168.15.195",
+    "port": 22,
+    "service": "telnet",
+    "firmware_version": "fw-4.0"
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "Synthetic finding for SPA load testing. project=crm-saas, domain=device, category=telnet-enabled.",
+  "cwe": "CWE-862",
+  "cve": null
+}
