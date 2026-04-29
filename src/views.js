@@ -606,7 +606,7 @@ function progressRow(state, scopeFindings) {
       el('div', { class: 'pct-line' + (resolved ? ' resolved' : '') },
         el('span', { class: 'pct' }, `${pct}%`)
       ),
-      el('div', { class: 'sub' }, resolved ? 'resolved' : 'triaged')
+      el('div', { class: 'sub' }, resolved ? 'Triage Completed' : 'triaged')
     ),
     el('div', { class: 'progress-bar-wrap' },
       el('div', { class: 'progress-bar' }, el('i', { style: `width:${pct}%` }))

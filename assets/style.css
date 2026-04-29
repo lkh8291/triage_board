@@ -221,7 +221,7 @@ header.top {
 /* Triage-progress row (Reports/Projects card body) */
 .progress-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 
-.progress-label { display: flex; flex-direction: column; min-width: 130px; flex-shrink: 0; }
+.progress-label { display: flex; flex-direction: column; min-width: 150px; flex-shrink: 0; }
 .progress-label .pct-line {
   display: flex; align-items: baseline; gap: 6px;
   font-family: 'JetBrains Mono', monospace; line-height: 1.1;
