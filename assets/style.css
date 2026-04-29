@@ -234,22 +234,23 @@ header.top {
   letter-spacing: 0.06em; margin-top: 2px;
 }
 
-.progress-bar-wrap { flex: 1; min-width: 200px; max-width: 360px;
-  display: flex; flex-direction: column; gap: 6px; }
+.progress-bar-wrap { flex: 1; min-width: 160px; max-width: 280px; }
 .progress-bar { height: 6px; background: var(--bg); border: 1px solid var(--border);
   border-radius: 3px; overflow: hidden; }
 .progress-bar i { display: block; height: 100%;
   background: linear-gradient(90deg, var(--green), #16a34a); transition: width 0.2s; }
-.progress-secondary {
-  display: flex; gap: 10px; font-size: 11.5px; color: var(--text-2); flex-wrap: wrap;
-  font-variant-numeric: tabular-nums;
-}
-.progress-secondary .p-tp      { color: var(--green); }
-.progress-secondary .p-fp      { color: #b91c1c; }
-.progress-secondary .p-split   { color: #d97706; }
-.progress-secondary .p-pending { color: var(--text-3); }
 
-.progress-reviewers { display: flex; align-items: center; margin-left: auto; flex-shrink: 0; }
+/* right cluster: avatar pile + 2-line summary (V8) */
+.progress-right { display: flex; align-items: center; gap: 10px;
+  margin-left: auto; flex-shrink: 0; }
+.progress-pile { display: flex; align-items: center; flex-shrink: 0; }
+.progress-summary { display: flex; flex-direction: column; gap: 1px;
+  font-variant-numeric: tabular-nums; line-height: 1.35; }
+.progress-summary .sum-row1 {
+  font-size: 12.5px; color: var(--text); font-weight: 600;
+}
+.progress-summary .sum-row1.resolved { color: var(--green); }
+.progress-summary .sum-row2 { font-size: 11.5px; color: var(--text-2); }
 
 /* ===== Finding detail page ===== */
 .detail-wrap { max-width: 1100px; margin: 24px auto; padding: 0 24px;

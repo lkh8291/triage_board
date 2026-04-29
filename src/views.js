@@ -522,10 +522,8 @@ export function renderReportDetail(state, root, reportId, onPick, onRefresh) {
 }
 
 // Triage-progress chart for Reports/Projects card body. Severity is intentionally
-// not represented here (low confidence in scanner severity). Layout is V6 from
-// design-alternatives/chart-variants.html with two refinements:
-//   - "(n of m)" small text next to the % triaged
-//   - reviewer avatar pile pinned to the right
+// omitted (low confidence in scanner severity). Layout = V6 (left % + bar) +
+// V8 (right avatar pile + 2-line summary), per the chart-variants page.
 function progressRow(state, scopeFindings) {
   const total = scopeFindings.length;
   let tp = 0, fp = 0, split = 0;
@@ -543,13 +541,31 @@ function progressRow(state, scopeFindings) {
   const resolved = total > 0 && pending === 0;
   const reviewersList = [...reviewers];
 
-  const secondary = el('div', { class: 'progress-secondary' });
-  if (tp)      secondary.appendChild(el('span', { class: 'p-tp' },      `● ${tp} TP`));
-  if (fp)      secondary.appendChild(el('span', { class: 'p-fp' },      `● ${fp} FP`));
-  if (split)   secondary.appendChild(el('span', { class: 'p-split' },   `● ${split} split`));
-  if (pending) secondary.appendChild(el('span', { class: 'p-pending' }, `● ${pending} pending`));
+  // ---- right-side text (V8): two compact lines summarising state ----
+  const reviewerLabel = reviewersList.length === 0
+    ? 'no reviewer'
+    : (reviewersList.length === 1 ? '1 reviewer' : `${reviewersList.length} reviewers`);
+  const progressLabel = resolved && total > 0 ? `all ${total} triaged` : `${triaged} of ${total} triaged`;
+  const row1 = `${reviewerLabel} · ${progressLabel}`;
 
-  const pile = el('div', { class: 'progress-reviewers' });
+  let row2 = '';
+  if (total === 0) {
+    row2 = '';
+  } else if (resolved) {
+    const parts = [];
+    if (tp) parts.push(`${tp} TP`);
+    if (fp) parts.push(`${fp} FP`);
+    parts.push(split ? `${split} split` : 'no disagreements');
+    row2 = parts.join(' · ');
+  } else {
+    const parts = [];
+    if (split)   parts.push(split === 1 ? '1 split disagreement' : `${split} split disagreements`);
+    if (pending) parts.push(`${pending} pending`);
+    row2 = parts.join(' · ');
+  }
+
+  // ---- avatar pile ----
+  const pile = el('div', { class: 'progress-pile' });
   for (const r of reviewersList.slice(0, 4)) pile.appendChild(avatarFor(r));
   if (reviewersList.length > 4)
     pile.appendChild(el('span', { class: 'av-sm av-overflow', title: `+${reviewersList.length - 4} more` }, `+${reviewersList.length - 4}`));
@@ -559,16 +575,20 @@ function progressRow(state, scopeFindings) {
   return el('div', { class: 'progress-row' },
     el('div', { class: 'progress-label' },
       el('div', { class: 'pct-line' + (resolved ? ' resolved' : '') },
-        el('span', { class: 'pct' }, `${pct}%`),
-        el('span', { class: 'of' }, `(${triaged} of ${total})`)
+        el('span', { class: 'pct' }, `${pct}%`)
       ),
       el('div', { class: 'sub' }, resolved ? 'resolved' : 'triaged')
     ),
     el('div', { class: 'progress-bar-wrap' },
-      el('div', { class: 'progress-bar' }, el('i', { style: `width:${pct}%` })),
-      secondary
+      el('div', { class: 'progress-bar' }, el('i', { style: `width:${pct}%` }))
     ),
-    pile
+    el('div', { class: 'progress-right' },
+      pile,
+      el('div', { class: 'progress-summary' },
+        el('div', { class: 'sum-row1' + (resolved ? ' resolved' : '') }, row1),
+        row2 ? el('div', { class: 'sum-row2' }, row2) : null
+      )
+    )
   );
 }
 
