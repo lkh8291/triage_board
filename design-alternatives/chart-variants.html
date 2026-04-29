@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chart variants — Reports / Projects card body</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f8fa; --surface: #fff; --border: #e2e3e6; --border-strong: #c8cad0;
+    --text: #0a0a0d; --text-2: #4b5563; --text-3: #6b7280;
+    --indigo: #5e6ad2; --indigo-soft: #eef0fb;
+    --green: #15803d; --green-soft: #dcfce7;
+    --red: #b91c1c;   --red-soft: #fee2e2;
+    --amber: #d97706; --amber-soft: #fef3c7;
+    --gray: #94979e;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif; font-size: 14.5px; line-height: 1.55;
+    font-weight: 450; -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  code { font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+    padding: 1px 5px; }
+
+  .page-head { padding: 32px 32px 16px; max-width: 980px; }
+  .page-head h1 { margin: 0 0 8px; font-size: 24px; font-weight: 700; letter-spacing: -0.01em; }
+  .page-head p { margin: 0; color: var(--text-2); font-size: 14px; line-height: 1.6; }
+  .page-head .legend { margin-top: 12px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--text-2); }
+  .page-head .legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+
+  .variants { padding: 0 32px 64px; max-width: 980px; }
+  .variant { margin-bottom: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .variant:first-child { border-top: 0; padding-top: 0; }
+  .variant-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+  .variant-head h2 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+  .variant-head .num { font-family: 'JetBrains Mono', monospace; color: var(--indigo);
+    font-weight: 600; font-size: 13px; }
+  .variant-head .desc { color: var(--text-2); font-size: 13px; }
+
+  /* Common card chrome — same skeleton across variants */
+  .card {
+    border: 1px solid var(--border); border-radius: 10px; background: var(--surface);
+    padding: 14px 16px; margin-bottom: 8px;
+  }
+  .card .head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
+  }
+  .card .head .title { font-weight: 600; color: var(--text); font-size: 14px; }
+  .card .head .id { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-2); font-weight: 400; }
+  .card .head .id-strong { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--text); font-weight: 500; }
+  .card .head .domain {
+    background: rgba(94, 106, 210, 0.12); color: var(--indigo);
+    padding: 2px 7px; border-radius: 999px; font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .card .head .meta { margin-left: auto; color: var(--text-2); font-size: 12px; }
+
+  /* ===================== shared chart bits ===================== */
+  .stat-row {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    color: var(--text-2); font-size: 12.5px;
+  }
+  .num { font-variant-numeric: tabular-nums; }
+  .pill-tp, .pill-fp, .pill-split, .pill-pending {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600;
+    line-height: 1; white-space: nowrap;
+  }
+  .pill-tp      { background: var(--green-soft); color: var(--green); }
+  .pill-fp      { background: var(--red-soft);   color: var(--red); }
+  .pill-split   { background: var(--amber-soft); color: var(--amber); border: 1px dashed #f59e0b; }
+  .pill-pending { background: var(--bg); color: var(--text-2); border: 1px solid var(--border); }
+  .dot-tp,.dot-fp,.dot-split,.dot-pending,.dot-sev { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-tp { background: var(--green); }
+  .dot-fp { background: var(--red); }
+  .dot-split { background: var(--amber); }
+  .dot-pending { background: var(--gray); }
+  .severity-flag {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--text-3); font-size: 11px;
+  }
+  .severity-flag .max { font-weight: 600; }
+  .severity-flag.crit .max { color: #d92d33; }
+  .severity-flag.high .max { color: #ed5e02; }
+
+  /* ===================== Variant 1: stacked progress bar with %  ===================== */
+  .v1-bar {
+    height: 8px; border-radius: 4px; overflow: hidden; background: var(--bg);
+    border: 1px solid var(--border); display: flex;
+  }
+  .v1-bar .seg-tp { background: var(--green); }
+  .v1-bar .seg-fp { background: var(--red); }
+  .v1-bar .seg-split { background: var(--amber); }
+  .v1-row { display: flex; align-items: center; gap: 14px; }
+  .v1-row .bar-wrap { flex: 1; max-width: 320px; }
+  .v1-pct { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--text); font-size: 14px; min-width: 48px; }
+  .v1-pct .of { color: var(--text-3); font-size: 11.5px; font-weight: 400; margin-left: 2px; }
+
+  /* ===================== Variant 2: pill row ===================== */
+  .v2-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+  /* ===================== Variant 3: donut ===================== */
+  .v3-row { display: flex; align-items: center; gap: 16px; }
+  .v3-donut { position: relative; width: 64px; height: 64px; flex-shrink: 0; }
+  .v3-donut svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+  .v3-donut .center {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; line-height: 1.1;
+  }
+  .v3-donut .center .big { font-size: 16px; font-weight: 700; color: var(--text); }
+  .v3-donut .center .label { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; }
+  .v3-legend { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--text-2); }
+  .v3-legend .row-l { display: flex; align-items: center; gap: 6px; }
+  .v3-legend .num { color: var(--text); font-weight: 600; min-width: 14px; }
+
+  /* ===================== Variant 4: minimal one-liner ===================== */
+  .v4 { color: var(--text-2); font-size: 13px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .v4 .pct { color: var(--text); font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .v4 .sep { color: var(--text-3); }
+  .v4 .accent { color: var(--text); font-weight: 600; }
+
+  /* ===================== Variant 5: dot strip (1 dot per finding) ===================== */
+  .v5-strip { display: flex; gap: 3px; flex-wrap: wrap; align-items: center; }
+  .v5-strip .pip { width: 12px; height: 12px; border-radius: 3px; }
+  .v5-strip .pip.tp { background: var(--green); }
+  .v5-strip .pip.fp { background: var(--red); }
+  .v5-strip .pip.split { background: var(--amber); }
+  .v5-strip .pip.pending { background: var(--bg); border: 1px solid var(--border-strong); }
+  .v5-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+  /* ===================== Variant 6: progress as primary ===================== */
+  .v6 { display: flex; align-items: center; gap: 16px; }
+  .v6 .label-block { display: flex; flex-direction: column; min-width: 110px; }
+  .v6 .label-block .big {
+    font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--text); line-height: 1.1;
+  }
+  .v6 .label-block .sub { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; }
+  .v6 .bar-wrap { flex: 1; max-width: 280px; }
+  .v6 .bar { height: 6px; background: var(--bg); border-radius: 3px; overflow: hidden; border: 1px solid var(--border); }
+  .v6 .bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--green), #16a34a); }
+  .v6 .secondary { display: flex; gap: 10px; font-size: 11.5px; color: var(--text-2); margin-top: 6px; }
+
+  /* ===================== Variant 7: dual-segment bar ===================== */
+  .v7 { display: flex; flex-direction: column; gap: 6px; max-width: 360px; }
+  .v7 .top { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--text-2); }
+  .v7 .top .triaged { color: var(--text); font-weight: 600; }
+  .v7 .bar { height: 10px; border-radius: 4px; overflow: hidden;
+    background: var(--bg); border: 1px solid var(--border); display: flex; }
+  .v7 .bar .seg-tp { background: var(--green); }
+  .v7 .bar .seg-fp { background: var(--red); }
+  .v7 .bar .seg-split { background: var(--amber); }
+  .v7 .bar .seg-pending { background: transparent; }
+  .v7 .legend { display: flex; gap: 10px; font-size: 11px; color: var(--text-2); }
+
+  /* ===================== Variant 8: avatar reviewers + count ===================== */
+  .v8 { display: flex; align-items: center; gap: 14px; }
+  .v8 .av-stack { display: flex; }
+  .v8 .av {
+    width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--surface);
+    margin-left: -6px; font-size: 10px; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 600; text-transform: uppercase;
+  }
+  .v8 .av:first-child { margin-left: 0; }
+  .v8 .av.alice { background: #ec4899; }
+  .v8 .av.bob { background: #06b6d4; }
+  .v8 .av.charlie { background: #84cc16; }
+  .v8 .av.lkh { background: var(--indigo); }
+  .v8 .av.empty { background: var(--bg); color: var(--text-3); border-style: dashed; border-color: var(--border-strong); }
+  .v8 .progress-text { display: flex; flex-direction: column; }
+  .v8 .progress-text .row1 { font-size: 13px; font-weight: 600; color: var(--text); }
+  .v8 .progress-text .row2 { font-size: 11.5px; color: var(--text-2); }
+
+  /* ===================== Variant 9: backlog-first ===================== */
+  .v9 { display: flex; align-items: center; gap: 16px; }
+  .v9 .backlog {
+    display: flex; flex-direction: column; align-items: center; padding: 8px 14px;
+    background: var(--bg); border-radius: 8px; border: 1px solid var(--border);
+    min-width: 64px;
+  }
+  .v9 .backlog.zero { background: var(--green-soft); border-color: var(--green); }
+  .v9 .backlog .num { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: var(--text); line-height: 1; }
+  .v9 .backlog.zero .num { color: var(--green); }
+  .v9 .backlog .label { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+  .v9 .breakdown { display: flex; gap: 12px; font-size: 12px; color: var(--text-2); }
+  .v9 .breakdown .k { color: var(--text); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+
+  /* ===================== Variant 10: vertical histogram + progress ===================== */
+  .v10 { display: flex; align-items: flex-end; gap: 14px; }
+  .v10 .bars { display: flex; gap: 4px; align-items: flex-end; height: 36px; }
+  .v10 .bars .col {
+    width: 22px; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  }
+  .v10 .bars .col .b {
+    width: 100%; min-height: 2px; border-radius: 2px 2px 0 0;
+  }
+  .v10 .bars .col.tp .b { background: var(--green); }
+  .v10 .bars .col.fp .b { background: var(--red); }
+  .v10 .bars .col.split .b { background: var(--amber); }
+  .v10 .bars .col.pending .b { background: var(--gray); }
+  .v10 .bars .col .n { font-size: 10px; color: var(--text-2); font-family: 'JetBrains Mono', monospace; }
+  .v10 .bars .col .l { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.04em; }
+  .v10 .right { display: flex; flex-direction: column; gap: 4px; padding-bottom: 14px; }
+  .v10 .right .pct { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: var(--text); }
+  .v10 .right .sub { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>Reports / Projects 카드 — chart variant 시안</h1>
+  <p>
+    severity는 신뢰도가 낮으므로 보조 정보로만 노출(필요 시 작은 ⚠ 플래그). chart의 주된 시각화는 <strong>triage 진행 상태(TP / FP / split / pending)</strong>를 담당. 같은 mock 데이터 3개 카드(부분 진행 / 완료 / 신규)에 10가지 변형을 동일하게 적용.
+  </p>
+  <div class="legend">
+    <span><span class="sw" style="background:var(--green)"></span> TP (true positive)</span>
+    <span><span class="sw" style="background:var(--red)"></span> FP (false positive)</span>
+    <span><span class="sw" style="background:var(--amber)"></span> Split (의견 분기)</span>
+    <span><span class="sw" style="background:var(--gray)"></span> Pending (미처리)</span>
+  </div>
+</div>
+
+<div class="variants">
+
+  <!-- ============================================================ V1 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V1.</span><h2>Stacked progress bar + percentage</h2>
+      <span class="desc">하나의 bar로 verdict 비율, 우측에 % triaged 큰 숫자. 가장 익숙한 패턴.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+        <span class="meta">12 findings · ai-scanner-v0.3</span>
+      </div>
+      <div class="v1-row">
+        <div class="bar-wrap">
+          <div class="v1-bar">
+            <i class="seg-tp" style="width: 33.3%"></i>
+            <i class="seg-fp" style="width: 16.7%"></i>
+            <i class="seg-split" style="width: 8.3%"></i>
+          </div>
+        </div>
+        <span class="v1-pct">58%<span class="of">/12</span></span>
+        <span class="severity-flag crit">⚠ <span class="max">2 critical</span></span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+        <span class="meta">8 findings · android-scanner-v0.2</span>
+      </div>
+      <div class="v1-row">
+        <div class="bar-wrap">
+          <div class="v1-bar">
+            <i class="seg-tp" style="width: 62.5%"></i>
+            <i class="seg-fp" style="width: 37.5%"></i>
+          </div>
+        </div>
+        <span class="v1-pct">100%<span class="of">/8</span></span>
+        <span style="color: var(--green); font-size: 12px; font-weight: 600">✓ resolved</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+        <span class="meta">5 findings · device-scanner-v0.1</span>
+      </div>
+      <div class="v1-row">
+        <div class="bar-wrap">
+          <div class="v1-bar"></div>
+        </div>
+        <span class="v1-pct">0%<span class="of">/5</span></span>
+        <span class="severity-flag crit">⚠ <span class="max">3 critical</span></span>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ V2 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V2.</span><h2>Pill row (verdict count chips)</h2>
+      <span class="desc">각 verdict를 고체 chip으로. 숫자 위주, bar 없음. 가장 데이터 dense.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+        <span class="meta">12 findings</span>
+      </div>
+      <div class="v2-row">
+        <span class="pill-tp"><span class="dot-tp"></span>4 TP</span>
+        <span class="pill-fp"><span class="dot-fp"></span>2 FP</span>
+        <span class="pill-split"><span class="dot-split"></span>1 split</span>
+        <span class="pill-pending"><span class="dot-pending"></span>5 pending</span>
+        <span style="margin-left:auto" class="severity-flag crit">⚠ <span class="max">2 critical</span></span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+        <span class="meta">8 findings</span>
+      </div>
+      <div class="v2-row">
+        <span class="pill-tp"><span class="dot-tp"></span>5 TP</span>
+        <span class="pill-fp"><span class="dot-fp"></span>3 FP</span>
+        <span style="margin-left:auto; color:var(--green); font-size:12px; font-weight:600">✓ all resolved</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+        <span class="meta">5 findings</span>
+      </div>
+      <div class="v2-row">
+        <span class="pill-pending"><span class="dot-pending"></span>5 pending</span>
+        <span style="margin-left:auto" class="severity-flag crit">⚠ <span class="max">3 critical</span></span>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ V3 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V3.</span><h2>Mini donut + center total + legend</h2>
+      <span class="desc">SVG donut으로 비율, 가운데 total. 왼쪽 시각, 오른쪽 텍스트 분리.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+        <span class="meta">ai-scanner-v0.3</span>
+      </div>
+      <div class="v3-row">
+        <div class="v3-donut">
+          <svg viewBox="0 0 36 36">
+            <circle r="15.9" cx="18" cy="18" fill="none" stroke="var(--bg)" stroke-width="3.6"/>
+            <circle r="15.9" cx="18" cy="18" fill="none" stroke="var(--green)" stroke-width="3.6"
+                    stroke-dasharray="33.33 100" stroke-dashoffset="0"/>
+            <circle r="15.9" cx="18" cy="18" fill="none" stroke="var(--red)" stroke-width="3.6"
+                    stroke-dasharray="16.67 100" stroke-dashoffset="-33.33"/>
+            <circle r="15.9" cx="18" cy="18" fill="none" stroke="var(--amber)" stroke-width="3.6"
+                    stroke-dasharray="8.33 100" stroke-dashoffset="-50"/>
+          </svg>
+          <div class="center"><div class="big">12</div><div class="label">total</div></div>
+        </div>
+        <div class="v3-legend">
+          <div class="row-l"><span class="dot-tp"></span><span class="num">4</span> TP</div>
+          <div class="row-l"><span class="dot-fp"></span><span class="num">2</span> FP</div>
+          <div class="row-l"><span class="dot-split"></span><span class="num">1</span> split</div>
+          <div class="row-l"><span class="dot-pending"></span><span class="num">5</span> pending</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+      </div>
+      <div class="v3-row">
+        <div class="v3-donut">
+          <svg viewBox="0 0 36 36">
+            <circle r="15.9" cx="18" cy="18" fill="none" stroke="var(--green)" stroke-width="3.6"
+                    stroke-dasharray="62.5 100" stroke-dashoffset="0"/>
+            <circle r="15.9" cx="18" cy="18" fill="none" stroke="var(--red)" stroke-width="3.6"
+                    stroke-dasharray="37.5 100" stroke-dashoffset="-62.5"/>
+          </svg>
+          <div class="center"><div class="big">8</div><div class="label">total</div></div>
+        </div>
+        <div class="v3-legend">
+          <div class="row-l"><span class="dot-tp"></span><span class="num">5</span> TP</div>
+          <div class="row-l"><span class="dot-fp"></span><span class="num">3</span> FP</div>
+          <div class="row-l" style="color:var(--green); font-weight:600">✓ resolved</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+      </div>
+      <div class="v3-row">
+        <div class="v3-donut">
+          <svg viewBox="0 0 36 36">
+            <circle r="15.9" cx="18" cy="18" fill="none" stroke="var(--bg)" stroke-width="3.6"/>
+            <circle r="15.9" cx="18" cy="18" fill="none" stroke="var(--gray)" stroke-width="3.6"
+                    stroke-dasharray="100 100" stroke-dashoffset="0"/>
+          </svg>
+          <div class="center"><div class="big">5</div><div class="label">total</div></div>
+        </div>
+        <div class="v3-legend">
+          <div class="row-l"><span class="dot-pending"></span><span class="num">5</span> pending</div>
+          <div class="row-l severity-flag crit">⚠ <span class="max">3 critical</span></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ V4 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V4.</span><h2>Minimal one-liner</h2>
+      <span class="desc">차트 0개. 한 줄 텍스트로 핵심만. 노이즈 최소.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+        <span class="meta">12 findings</span>
+      </div>
+      <div class="v4">
+        <span><span class="pct">7</span>/12 triaged</span>
+        <span class="sep">·</span>
+        <span><span class="accent">4</span> TP</span>
+        <span><span class="accent">2</span> FP</span>
+        <span style="color: var(--amber); font-weight: 600">1 split needs review</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+        <span class="meta">8 findings</span>
+      </div>
+      <div class="v4">
+        <span style="color: var(--green); font-weight: 600">✓ all 8 triaged</span>
+        <span class="sep">·</span>
+        <span><span class="accent">5</span> TP</span>
+        <span><span class="accent">3</span> FP</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+        <span class="meta">5 findings</span>
+      </div>
+      <div class="v4">
+        <span style="color: var(--text-2)">all 5 pending — uploaded 2h ago</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ V5 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V5.</span><h2>Dot strip — one square per finding</h2>
+      <span class="desc">finding 한 건당 작은 사각 한 개. 직관적, 작은 N에 강함. ~50개 넘으면 깨짐.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+      </div>
+      <div class="v5-row">
+        <div class="v5-strip">
+          <span class="pip tp"></span><span class="pip tp"></span><span class="pip tp"></span><span class="pip tp"></span>
+          <span class="pip fp"></span><span class="pip fp"></span>
+          <span class="pip split"></span>
+          <span class="pip pending"></span><span class="pip pending"></span><span class="pip pending"></span><span class="pip pending"></span><span class="pip pending"></span>
+        </div>
+        <span style="color: var(--text-2); font-size: 12px;">7 / 12 triaged</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+      </div>
+      <div class="v5-row">
+        <div class="v5-strip">
+          <span class="pip tp"></span><span class="pip tp"></span><span class="pip tp"></span><span class="pip tp"></span><span class="pip tp"></span>
+          <span class="pip fp"></span><span class="pip fp"></span><span class="pip fp"></span>
+        </div>
+        <span style="color: var(--green); font-size: 12px; font-weight: 600">✓ resolved</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+      </div>
+      <div class="v5-row">
+        <div class="v5-strip">
+          <span class="pip pending"></span><span class="pip pending"></span><span class="pip pending"></span><span class="pip pending"></span><span class="pip pending"></span>
+        </div>
+        <span style="color: var(--text-2); font-size: 12px;">0 / 5 triaged</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ V6 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V6.</span><h2>Progress-first (큰 % + 보조 텍스트)</h2>
+      <span class="desc">큰 숫자 한 개로 진행도 dominant 표현. 세부는 작게.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+      </div>
+      <div class="v6">
+        <div class="label-block">
+          <div class="big">58%</div>
+          <div class="sub">triaged</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar"><i style="width:58%"></i></div>
+          <div class="secondary">
+            <span style="color:var(--green)">●</span> 4 TP
+            <span style="color:var(--red)">●</span> 2 FP
+            <span style="color:var(--amber)">●</span> 1 split
+            <span style="color:var(--gray)">●</span> 5 pending
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+      </div>
+      <div class="v6">
+        <div class="label-block">
+          <div class="big" style="color: var(--green)">100%</div>
+          <div class="sub">resolved</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar"><i style="width:100%"></i></div>
+          <div class="secondary">
+            <span style="color:var(--green)">●</span> 5 TP
+            <span style="color:var(--red)">●</span> 3 FP
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+      </div>
+      <div class="v6">
+        <div class="label-block">
+          <div class="big" style="color: var(--text-3)">0%</div>
+          <div class="sub">pending</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar"><i style="width:0%"></i></div>
+          <div class="secondary">
+            <span style="color:var(--gray)">●</span> 5 pending
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ V7 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V7.</span><h2>Two-level bar with above-/below-bar labels</h2>
+      <span class="desc">위에는 progress text, bar는 굵직하게, 아래엔 verdict 분포 chip 작게.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+      </div>
+      <div class="v7">
+        <div class="top">
+          <span><span class="triaged">7</span> of 12 triaged</span>
+          <span style="color: var(--amber); font-weight: 600">1 split needs review</span>
+        </div>
+        <div class="bar">
+          <i class="seg-tp" style="width: 33.3%"></i>
+          <i class="seg-fp" style="width: 16.7%"></i>
+          <i class="seg-split" style="width: 8.3%"></i>
+        </div>
+        <div class="legend">
+          <span><span class="dot-tp" style="display:inline-block;vertical-align:middle;margin-right:3px"></span>4 TP</span>
+          <span><span class="dot-fp" style="display:inline-block;vertical-align:middle;margin-right:3px"></span>2 FP</span>
+          <span><span class="dot-pending" style="display:inline-block;vertical-align:middle;margin-right:3px"></span>5 pending</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+      </div>
+      <div class="v7">
+        <div class="top">
+          <span style="color: var(--green); font-weight: 600">✓ all 8 triaged</span>
+          <span style="color: var(--text-3)">resolved</span>
+        </div>
+        <div class="bar">
+          <i class="seg-tp" style="width: 62.5%"></i>
+          <i class="seg-fp" style="width: 37.5%"></i>
+        </div>
+        <div class="legend">
+          <span><span class="dot-tp" style="display:inline-block;vertical-align:middle;margin-right:3px"></span>5 TP</span>
+          <span><span class="dot-fp" style="display:inline-block;vertical-align:middle;margin-right:3px"></span>3 FP</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+      </div>
+      <div class="v7">
+        <div class="top">
+          <span><span class="triaged">0</span> of 5 triaged</span>
+          <span style="color: var(--text-3)">fresh</span>
+        </div>
+        <div class="bar"></div>
+        <div class="legend">
+          <span><span class="dot-pending" style="display:inline-block;vertical-align:middle;margin-right:3px"></span>5 pending</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ V8 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V8.</span><h2>Reviewer presence + progress text</h2>
+      <span class="desc">"누가 이미 봤는가"를 시각화. 협업 신호 강조. verdict는 부차.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+      </div>
+      <div class="v8">
+        <div class="av-stack">
+          <span class="av alice">a</span>
+          <span class="av bob">b</span>
+          <span class="av lkh">l</span>
+        </div>
+        <div class="progress-text">
+          <span class="row1">3 reviewers · 7 of 12 triaged</span>
+          <span class="row2">1 split disagreement · 5 pending</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+      </div>
+      <div class="v8">
+        <div class="av-stack">
+          <span class="av alice">a</span>
+          <span class="av charlie">c</span>
+        </div>
+        <div class="progress-text">
+          <span class="row1" style="color:var(--green)">✓ 2 reviewers · all 8 triaged</span>
+          <span class="row2">5 TP · 3 FP · no disagreements</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+      </div>
+      <div class="v8">
+        <div class="av-stack">
+          <span class="av empty">?</span>
+        </div>
+        <div class="progress-text">
+          <span class="row1" style="color: var(--text-2)">no reviewer yet · 5 pending</span>
+          <span class="row2">uploaded 2h ago</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ V9 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V9.</span><h2>Backlog-first ("얼마나 남았나" 강조)</h2>
+      <span class="desc">남은 pending count가 가장 큰 숫자. "처리해야 할 양"에 집중.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+      </div>
+      <div class="v9">
+        <div class="backlog">
+          <div class="num">5</div>
+          <div class="label">pending</div>
+        </div>
+        <div class="breakdown">
+          <span><span class="k">4</span> TP</span>
+          <span><span class="k">2</span> FP</span>
+          <span style="color: var(--amber)"><span class="k" style="color:var(--amber)">1</span> split ⚠</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+      </div>
+      <div class="v9">
+        <div class="backlog zero">
+          <div class="num">0</div>
+          <div class="label">pending</div>
+        </div>
+        <div class="breakdown">
+          <span><span class="k">5</span> TP</span>
+          <span><span class="k">3</span> FP</span>
+          <span style="color: var(--green); font-weight: 600">✓ done</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+      </div>
+      <div class="v9">
+        <div class="backlog">
+          <div class="num">5</div>
+          <div class="label">pending</div>
+        </div>
+        <div class="breakdown">
+          <span style="color: var(--text-3); font-style: italic">no triage yet</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ V10 -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="num">V10.</span><h2>Vertical histogram + percentage</h2>
+      <span class="desc">수직 막대 4개로 분포, 우측에 % triaged. 분포 비교에 강함.</span>
+    </div>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">store.example.com</span>
+        <span class="id">RPT-2026-04-29-A</span>
+        <span class="domain">Web</span>
+      </div>
+      <div class="v10">
+        <div class="bars">
+          <div class="col tp"><span class="n">4</span><div class="b" style="height:24px"></div><span class="l">TP</span></div>
+          <div class="col fp"><span class="n">2</span><div class="b" style="height:12px"></div><span class="l">FP</span></div>
+          <div class="col split"><span class="n">1</span><div class="b" style="height:6px"></div><span class="l">split</span></div>
+          <div class="col pending"><span class="n">5</span><div class="b" style="height:30px"></div><span class="l">pend</span></div>
+        </div>
+        <div class="right">
+          <span class="pct">58%</span>
+          <span class="sub">triaged</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">com.example.shopping</span>
+        <span class="id">RPT-2026-04-29-B</span>
+        <span class="domain">Android</span>
+      </div>
+      <div class="v10">
+        <div class="bars">
+          <div class="col tp"><span class="n">5</span><div class="b" style="height:30px"></div><span class="l">TP</span></div>
+          <div class="col fp"><span class="n">3</span><div class="b" style="height:18px"></div><span class="l">FP</span></div>
+          <div class="col split"><span class="n">0</span><div class="b" style="height:0"></div><span class="l">split</span></div>
+          <div class="col pending"><span class="n">0</span><div class="b" style="height:0"></div><span class="l">pend</span></div>
+        </div>
+        <div class="right">
+          <span class="pct" style="color:var(--green)">100%</span>
+          <span class="sub">resolved</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <span class="title">iot-camera-fleet</span>
+        <span class="id">RPT-2026-04-29-C</span>
+        <span class="domain">Device</span>
+      </div>
+      <div class="v10">
+        <div class="bars">
+          <div class="col tp"><span class="n">0</span><div class="b" style="height:0"></div><span class="l">TP</span></div>
+          <div class="col fp"><span class="n">0</span><div class="b" style="height:0"></div><span class="l">FP</span></div>
+          <div class="col split"><span class="n">0</span><div class="b" style="height:0"></div><span class="l">split</span></div>
+          <div class="col pending"><span class="n">5</span><div class="b" style="height:30px"></div><span class="l">pend</span></div>
+        </div>
+        <div class="right">
+          <span class="pct" style="color:var(--text-3)">0%</span>
+          <span class="sub">fresh</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+</div>
+
+</body>
+</html>
