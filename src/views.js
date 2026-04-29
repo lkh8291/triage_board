@@ -570,28 +570,12 @@ function progressRow(state, scopeFindings) {
   const resolved = total > 0 && pending === 0;
   const reviewersList = [...reviewers];
 
-  // ---- right-side text (V8): two compact lines summarising state ----
+  // ---- right-side text: just the single summary line (no TP/FP breakdown there) ----
   const reviewerLabel = reviewersList.length === 0
     ? 'no reviewer'
     : (reviewersList.length === 1 ? '1 reviewer' : `${reviewersList.length} reviewers`);
   const progressLabel = resolved && total > 0 ? `all ${total} triaged` : `${triaged} of ${total} triaged`;
   const row1 = `${reviewerLabel} · ${progressLabel}`;
-
-  let row2 = '';
-  if (total === 0) {
-    row2 = '';
-  } else if (resolved) {
-    const parts = [];
-    if (tp) parts.push(`${tp} TP`);
-    if (fp) parts.push(`${fp} FP`);
-    parts.push(split ? `${split} split` : 'no disagreements');
-    row2 = parts.join(' · ');
-  } else {
-    const parts = [];
-    if (split)   parts.push(split === 1 ? '1 split disagreement' : `${split} split disagreements`);
-    if (pending) parts.push(`${pending} pending`);
-    row2 = parts.join(' · ');
-  }
 
   // ---- avatar pile ----
   const pile = el('div', { class: 'progress-pile' });
@@ -601,6 +585,21 @@ function progressRow(state, scopeFindings) {
   if (reviewersList.length === 0)
     pile.appendChild(emptyAvatar());
 
+  // ---- V7 segmented bar: filled portions show TP/FP/split ratio,
+  //      remaining space is implicit pending ----
+  const safe = Math.max(total, 1);
+  const bar = el('div', { class: 'progress-bar' });
+  if (tp)    bar.appendChild(el('i', { class: 'seg-tp',    style: `width:${(tp    / safe) * 100}%` }));
+  if (fp)    bar.appendChild(el('i', { class: 'seg-fp',    style: `width:${(fp    / safe) * 100}%` }));
+  if (split) bar.appendChild(el('i', { class: 'seg-split', style: `width:${(split / safe) * 100}%` }));
+
+  // ---- secondary dot row (V6) below the bar — only non-zero categories ----
+  const secondary = el('div', { class: 'progress-secondary' });
+  if (tp)      secondary.appendChild(el('span', { class: 'p-tp' },      `● ${tp} TP`));
+  if (fp)      secondary.appendChild(el('span', { class: 'p-fp' },      `● ${fp} FP`));
+  if (split)   secondary.appendChild(el('span', { class: 'p-split' },   `● ${split} split`));
+  if (pending) secondary.appendChild(el('span', { class: 'p-pending' }, `● ${pending} pending`));
+
   return el('div', { class: 'progress-row' },
     el('div', { class: 'progress-label' },
       el('div', { class: 'pct-line' + (resolved ? ' resolved' : '') },
@@ -609,14 +608,12 @@ function progressRow(state, scopeFindings) {
       el('div', { class: 'sub' }, resolved ? 'Triage Completed' : 'triaged')
     ),
     el('div', { class: 'progress-bar-wrap' },
-      el('div', { class: 'progress-bar' }, el('i', { style: `width:${pct}%` }))
+      bar,
+      secondary
     ),
     el('div', { class: 'progress-right' },
       pile,
-      el('div', { class: 'progress-summary' },
-        el('div', { class: 'sum-row1' + (resolved ? ' resolved' : '') }, row1),
-        row2 ? el('div', { class: 'sum-row2' }, row2) : null
-      )
+      el('div', { class: 'sum-row1' + (resolved ? ' resolved' : '') }, row1)
     )
   );
 }
