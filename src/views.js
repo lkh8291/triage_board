@@ -36,22 +36,36 @@ export function setSearchQuery(q) {
 
 // ============== shared bits ==============
 
-function avatarFor(login) {
-  // Just lowercase first letter; deterministic color from a small palette.
+// Render a reviewer avatar.
+// Layered: colored circle + first letter as fallback (always there), GitHub
+// profile image overlaid on top via <img> (auto-removed on 404 / network error).
+// "GitHub profile photo if available" is achieved by hitting github.com/<user>.png —
+// works for github.com users; for GHES we'd need a different host (handled later).
+function _renderAvatar(login, baseClass) {
   const l = (login || '?').toLowerCase();
   const palette = ['alice', 'bob', 'charlie', 'x'];
   let hash = 0;
   for (const c of l) hash = (hash * 31 + c.charCodeAt(0)) | 0;
   const cls = palette[Math.abs(hash) % palette.length];
-  return el('span', { class: `av-sm ${cls}` }, l[0] || '?');
+  const wrap = el('span', { class: `${baseClass} ${cls}`, title: login || '' });
+  // text fallback (visible until <img> covers it; stays if img errors)
+  wrap.appendChild(el('span', { class: 'av-initial' }, l[0] || '?'));
+  if (login && /^[a-zA-Z0-9-]+$/.test(login)) {
+    const img = document.createElement('img');
+    img.src = `https://github.com/${encodeURIComponent(login)}.png?size=44`;
+    img.alt = login;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('error', () => img.remove());
+    wrap.appendChild(img);
+  }
+  return wrap;
 }
-function opinionAvatar(login) {
-  const l = (login || '?').toLowerCase();
-  const palette = ['alice', 'bob', 'charlie', 'x'];
-  let hash = 0;
-  for (const c of l) hash = (hash * 31 + c.charCodeAt(0)) | 0;
-  const cls = palette[Math.abs(hash) % palette.length];
-  return el('span', { class: `opinion-av ${cls}` }, l[0] || '?');
+function avatarFor(login)     { return _renderAvatar(login, 'av-sm'); }
+function opinionAvatar(login) { return _renderAvatar(login, 'opinion-av'); }
+function emptyAvatar(label = 'no reviewer yet') {
+  // Dashed-circle placeholder per V8 — appears when nobody has triaged yet.
+  return el('span', { class: 'av-sm empty', title: label }, '?');
 }
 
 function severityPill(sev) {
@@ -538,9 +552,9 @@ function progressRow(state, scopeFindings) {
   const pile = el('div', { class: 'progress-reviewers' });
   for (const r of reviewersList.slice(0, 4)) pile.appendChild(avatarFor(r));
   if (reviewersList.length > 4)
-    pile.appendChild(el('span', { class: 'av-sm x', title: `+${reviewersList.length - 4} more` }, `+${reviewersList.length - 4}`));
+    pile.appendChild(el('span', { class: 'av-sm av-overflow', title: `+${reviewersList.length - 4} more` }, `+${reviewersList.length - 4}`));
   if (reviewersList.length === 0)
-    pile.appendChild(el('span', { class: 'no-reviewers' }, 'no reviewer'));
+    pile.appendChild(emptyAvatar());
 
   return el('div', { class: 'progress-row' },
     el('div', { class: 'progress-label' },
