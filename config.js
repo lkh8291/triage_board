@@ -3,5 +3,5 @@
 window.CONFIG = {
   apiBase: 'https://api.github.com',          // GHES: 'https://ghe.example.com/api/v3'
   repo:    'lkh8291/triage_board',             // owner/repo
-  branch:  'main',
+  branch:  'stress-test',           // this branch holds 7K+ synthetic findings; main has only real ones
 };
