@@ -28,7 +28,9 @@ function shallowTarget(t) {
   return Object.keys(out).length ? out : undefined;
 }
 
-function shallow(f, path) {
+// _path is intentionally omitted — derive it as `findings/${id}.json` at load time.
+// Saves ~50 bytes/entry (for 7K findings ≈ 350 KB on the wire).
+function shallow(f) {
   const out = {
     id: f.id,
     report_id: f.report_id,
@@ -42,11 +44,9 @@ function shallow(f, path) {
     ai_confidence: f.ai_confidence,
     cwe: f.cwe,
     cve: f.cve,
-    _path: path,
   };
   const t = shallowTarget(f.target);
   if (t) out.target = t;
-  // strip undefined for compactness
   for (const k of Object.keys(out)) if (out[k] === undefined) delete out[k];
   return out;
 }
@@ -61,7 +61,7 @@ function main() {
     const path = `findings/${name}`;
     try {
       const raw = JSON.parse(readFileSync(abs, 'utf8'));
-      findings.push(shallow(raw, path));
+      findings.push(shallow(raw));
     } catch (e) {
       console.warn(`  ! skip ${path}: ${e.message}`);
       skipped++;

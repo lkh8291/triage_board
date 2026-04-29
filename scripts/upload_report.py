@@ -461,14 +461,14 @@ SHALLOW_FINDING_KEYS = ("id", "report_id", "project", "domain", "severity",
                         "category", "title", "agent", "discovered_at",
                         "ai_confidence", "cwe", "cve")
 
-def shallow_finding(f: dict, path: str) -> dict:
+def shallow_finding(f: dict) -> dict:
+    # _path is derived as `findings/${id}.json` at SPA load time — omit here.
     out = {k: f[k] for k in SHALLOW_FINDING_KEYS if f.get(k) is not None}
     t = f.get("target") or {}
     if isinstance(t, dict):
         st = {k: t[k] for k in SHALLOW_TARGET_KEYS if t.get(k) is not None}
         if st:
             out["target"] = st
-    out["_path"] = path
     return out
 
 def build_index_update(api, files):
@@ -485,7 +485,7 @@ def build_index_update(api, files):
         except json.JSONDecodeError:
             continue
         if obj.get("id"):
-            new_entries[obj["id"]] = shallow_finding(obj, path)
+            new_entries[obj["id"]] = shallow_finding(obj)
     if not new_entries:
         return None  # nothing to merge
 

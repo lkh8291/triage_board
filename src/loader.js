@@ -30,8 +30,13 @@ export async function loadAll() {
   if (hasIndex) {
     // Single fetch — no rate-limit risk regardless of finding count.
     // _shallow flag tells the detail view to lazy-fetch the full JSON.
+    // _path is derived from id (file naming convention is `findings/${id}.json`).
     const { json } = await getJson(INDEX_PATH);
-    findings = (json.findings || []).map(f => ({ ...f, _shallow: true }));
+    findings = (json.findings || []).map(f => ({
+      ...f,
+      _shallow: true,
+      _path: `findings/${f.id}.json`,
+    }));
   } else {
     // Legacy fallback: parallel per-file fetch. Rate-limited above ~1k findings.
     findings = (await Promise.allSettled(findingPaths.map(p => getJson(p))))
