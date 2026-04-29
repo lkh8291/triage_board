@@ -59,13 +59,17 @@ export async function getJson(path) {
 // GET /repos/{repo}/contents/{path} with Accept: application/vnd.github.raw
 // Returns the file content directly (no base64 wrapping, cap = 100MB). Use this
 // for large files (e.g. findings/index.json once the repo grows past ~3K findings).
-// `cache: 'no-cache'` forces the browser to revalidate so a stale 304 with empty
-// body from the JSON-mode endpoint can't poison this fetch.
+//
+// `cache: 'reload'` forces a fresh request with no conditional headers — without
+// it, the browser sends If-None-Match, gets a 304, and serves whatever body it
+// has in cache (which can be from an unrelated earlier JSON-mode fetch where
+// content was the empty string). Revalidation cache is a footgun for an endpoint
+// whose body shape depends on Accept; reload sidesteps it entirely.
 export async function getJsonRaw(path) {
   const url = `${base()}/repos/${repo()}/contents/${encodeURIComponent(path).replace(/%2F/g, '/')}?ref=${branch()}`;
   const r = await fetch(url, {
     headers: { ...headers(), Accept: 'application/vnd.github.raw' },
-    cache: 'no-cache',
+    cache: 'reload',
   });
   await check(r);
   const text = await r.text();
