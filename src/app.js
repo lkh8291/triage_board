@@ -6,11 +6,11 @@
 //   #/reports           → reports list
 //   #/projects          → projects list
 
-import { ensureToken, auth, showAuthModal } from './auth.js';
-import { putJson, getJson } from './api.js';
-import { loadAll } from './loader.js';
-import * as views from './views.js';
-import { tsForPath } from './util.js';
+import { ensureToken, auth, showAuthModal } from './auth.js?v=202604291117';
+import { putJson, getJson } from './api.js?v=202604291117';
+import { loadAll } from './loader.js?v=202604291117';
+import * as views from './views.js?v=202604291117';
+import { tsForPath } from './util.js?v=202604291117';
 
 let state = { findings: [], triage: {}, reports: [], login: null };
 

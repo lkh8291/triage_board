@@ -5,7 +5,7 @@
 // Triage + reports: parallel per-file fetch (small enough for now).
 // 30s polling (HANDOFF Phase 5) plugs in here once we want auto-refresh.
 
-import { getTree, getJson, getJsonRaw } from './api.js';
+import { getTree, getJson, getJsonRaw } from './api.js?v=202604291117';
 
 const FINDING_RE  = /^findings\/(?!index\.json$)[^/]+\.json$/;
 const INDEX_PATH  = 'findings/index.json';

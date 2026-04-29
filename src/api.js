@@ -1,7 +1,7 @@
 // Thin GitHub Contents/Trees API client. Same code paths for github.com and GHES —
 // only window.CONFIG.apiBase differs. All calls authenticate with the PAT in sessionStorage.
 
-import { auth } from './auth.js';
+import { auth } from './auth.js?v=202604291117';
 
 function base() { return window.CONFIG.apiBase; }
 function repo() { return window.CONFIG.repo; }
