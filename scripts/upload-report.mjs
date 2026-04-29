@@ -43,7 +43,17 @@ const BUILDERS = {
 
 // Map raw → finding. Each builder is intentionally permissive — missing fields
 // just don't appear in the output. AI-curation upstream owns completeness.
+function absUrl(pathOrUrl, root) {
+  if (!pathOrUrl) return undefined;
+  if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
+  if (!root) return pathOrUrl;
+  // resolve "/foo" against root "https://host" → "https://host/foo".
+  // also handles root with trailing slash and path without leading slash.
+  try { return new URL(pathOrUrl, root).toString(); } catch { return pathOrUrl; }
+}
+
 function buildWebFinding(raw, ctx) {
+  const url = absUrl(raw.url, ctx.target_root);
   return {
     id: ctx.fid,
     report_id: ctx.report_id,
@@ -51,11 +61,11 @@ function buildWebFinding(raw, ctx) {
     domain: 'web',
     category: raw.type,
     severity: raw.severity_estimate,
-    title: raw.title || raw.url || raw.type,
+    title: raw.title || url || raw.url || raw.type,
     agent: ctx.agent,
     discovered_at: raw.discovered_at || ctx.completed_at,
     target: {
-      url: raw.url,
+      url,
       method: raw.method || 'GET',
       endpoint: raw.endpoint || raw.url,
       parameter: raw.parameter,
@@ -167,6 +177,7 @@ function main(argv) {
     project,
     agent: raw.scanner,
     completed_at: raw.completed_at,
+    target_root: raw.target_root,
   };
 
   console.log(`raw-report: ${path}`);

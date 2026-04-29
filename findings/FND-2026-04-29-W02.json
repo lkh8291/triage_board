@@ -5,11 +5,11 @@
   "domain": "web",
   "category": "idor",
   "severity": "high",
-  "title": "/api/users/3127/orders",
+  "title": "https://store.example.com/api/users/3127/orders",
   "agent": "ai-scanner-v0.3",
   "discovered_at": "2026-04-29T03:14:00Z",
   "target": {
-    "url": "/api/users/3127/orders",
+    "url": "https://store.example.com/api/users/3127/orders",
     "method": "GET",
     "endpoint": "/api/users/3127/orders"
   },

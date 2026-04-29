@@ -125,11 +125,16 @@ export function renderFindingsList(state, root, onPick) {
   }
 }
 
+function safeHost(url) {
+  if (!url || typeof url !== 'string') return '';
+  try { return new URL(url).host; } catch { return ''; }
+}
+
 function targetLabel(f) {
   // tolerant of partial schemas — if target.* is missing, fall back to title or id
   const t = f.target || {};
-  if (f.domain === 'web' && t.endpoint) {
-    return [el('strong', {}, t.method || 'GET'), ' ', f.site_label || (f.target?.url ? new URL(f.target.url).host : ''), ' ', t.endpoint];
+  if (f.domain === 'web' && (t.endpoint || t.url)) {
+    return [el('strong', {}, t.method || 'GET'), ' ', safeHost(t.url), ' ', t.endpoint || t.url || ''];
   }
   if (f.domain === 'android' && t.package) {
     return [el('strong', {}, t.package), t.component_class ? ' · ' + t.component_class.split('.').pop() : ''];

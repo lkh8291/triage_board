@@ -5,11 +5,11 @@
   "domain": "web",
   "category": "sqli-blind",
   "severity": "medium",
-  "title": "/api/orders/search?q=",
+  "title": "https://store.example.com/api/orders/search?q=",
   "agent": "ai-scanner-v0.3",
   "discovered_at": "2026-04-29T03:14:00Z",
   "target": {
-    "url": "/api/orders/search?q=",
+    "url": "https://store.example.com/api/orders/search?q=",
     "method": "GET",
     "endpoint": "/api/orders/search?q="
   },

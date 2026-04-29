@@ -5,11 +5,11 @@
   "domain": "web",
   "category": "xss-reflected",
   "severity": "high",
-  "title": "/api/users/profile?name=",
+  "title": "https://store.example.com/api/users/profile?name=",
   "agent": "ai-scanner-v0.3",
   "discovered_at": "2026-04-29T03:14:00Z",
   "target": {
-    "url": "/api/users/profile?name=",
+    "url": "https://store.example.com/api/users/profile?name=",
     "method": "GET",
     "endpoint": "/api/users/profile?name="
   },
