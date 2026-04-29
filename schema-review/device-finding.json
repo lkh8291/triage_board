@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "FND-2026-04-29-D03",
+  "report_id": "RPT-2026-04-29-C",
+  "domain": "device",
+  "category": "default-credential-telnet",
+  "severity": "critical",
+
+  "project": "iot-camera",
+
+  "agent": "device-scanner-v0.1",
+  "discovered_at": "2026-04-29T08:11:00Z",
+
+  "target": {
+    "device_model": "EX-CAM-2000",
+    "vendor": "ExampleCorp",
+    "firmware_version": "2.1.7",
+    "firmware_sha256": "4ab2c1...truncated...e9f3",
+    "hardware_revision": "rev-C",
+    "serial_number_pattern": "EXC2K-2024-*",
+
+    "interface_type": "ethernet",
+    "ip": "192.168.1.42",
+    "mac": "AA:BB:CC:DD:EE:42",
+    "port": 23,
+    "protocol": "tcp",
+    "service": "telnet",
+
+    "physical_location": "TestLab Rack 4",
+    "deployment_scope": "internal-fleet (총 ~340대 추정)"
+  },
+
+  "evidence": {
+    "scan_output": "Nmap 7.94 scan report for 192.168.1.42\nPORT     STATE  SERVICE\n22/tcp   closed ssh\n23/tcp   open   telnet\n80/tcp   open   http\n554/tcp  open   rtsp\n",
+
+    "banner": "EX-CAM-2000 firmware v2.1.7\\r\\nlogin: ",
+
+    "credential_test": {
+      "method": "default credential dictionary",
+      "tested_pairs": ["admin:admin", "root:root", "admin:1234", "root:exampletcam"],
+      "successful_pair": "admin:admin",
+      "auth_response_time_ms": 240
+    },
+
+    "session_excerpt": "$ id\\nuid=0(root) gid=0(root) groups=0(root)\\n$ uname -a\\nLinux EX-CAM-2000 4.9.198 #1 SMP arm GNU/Linux\\n$ cat /etc/passwd | head -3\\nroot:x:0:0:root:/root:/bin/sh\\nadmin:x:1000:1000:admin:/home/admin:/bin/sh\\n",
+
+    "reproducer_command": "telnet 192.168.1.42\n# login: admin\n# Password: admin\n# id   ← root shell 획득",
+
+    "firmware_artifact": "evidence/FND-2026-04-29-D03-fw-extract.bin",
+    "wireshark_pcap": "evidence/FND-2026-04-29-D03-handshake.pcap",
+    "photo_jtag": "evidence/FND-2026-04-29-D03-jtag-pinout.jpg"
+  },
+
+  "ai_confidence": 0.96,
+  "ai_rationale": "default credential admin:admin로 telnet root shell 획득 (인증 우회 없이 직접 로그인). firmware 2.1.7에서 동일 default credential 하드코딩 확인 (firmware extract /etc/shadow 분석). 동일 firmware 사용 fleet 약 340대 영향 추정. 펌웨어 업데이트 메커니즘은 별도 점검 필요.",
+
+  "cve": "CVE-2024-XXXXX (요청 예정)",
+  "cwe": "CWE-798",
+  "iot_category": "OWASP IoT Top 10 — I1:2018 Weak Passwords",
+
+  "remediation_hint": "1) firmware 2.1.8+ 출시 — 초기 부팅 시 default credential 강제 변경 흐름 (mandatory password setup wizard) 도입. 2) telnet 비활성화, SSH (key-based) 전환. 3) 기존 fleet 일괄 업데이트 + 비밀번호 강제 회전. 4) /etc/shadow에 default credential 하드코딩 제거. 영향: 동일 firmware 운영 모든 디바이스 (~340대)."
+}

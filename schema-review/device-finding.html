@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Schema Review · Device Finding · FND-2026-04-29-D03</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --surface: #fff; --border: #e6e6e9; --border-strong: #d4d4d8;
+    --text: #0d0d10; --text-2: #6b7280; --text-3: #9ca3af;
+    --indigo: #5e6ad2; --indigo-soft: #eef0fb;
+    --crit: #e5484d; --high: #f76808; --med: #f5a524; --low: #8b8d98;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: 'Inter',-apple-system,sans-serif; font-size: 14px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono','Fira Code',ui-monospace,monospace; }
+
+  header.top { background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 10px 24px; display: flex; align-items: center; gap: 16px; }
+  .crumbs { color: var(--text-2); font-size: 13px; }
+  .crumbs strong { color: var(--text); font-weight: 600; }
+  .crumbs .domain-pill {
+    background: rgba(229,72,77,0.12); color: var(--crit);
+    padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600;
+    margin-left: 8px; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+
+  main { max-width: 1100px; margin: 24px auto; padding: 0 24px; display: grid;
+    grid-template-columns: 1fr 320px; gap: 24px; align-items: start; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 24px; margin-bottom: 16px; }
+  .card h2 { margin: 0 0 14px; font-size: 13px; font-weight: 600; color: var(--text-3);
+    text-transform: uppercase; letter-spacing: 0.08em; }
+  .card h2 .schema-key {
+    margin-left: 8px; font-family: 'JetBrains Mono',monospace;
+    color: var(--text-2); text-transform: none; letter-spacing: 0; font-weight: 400;
+    font-size: 11px;
+  }
+
+  .meta-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .id-block { font-family: 'JetBrains Mono',monospace; font-size: 14px; color: var(--text); font-weight: 500; }
+  .sev-pill { padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase; }
+  .sev-pill.crit { background: rgba(229,72,77,0.15); color: var(--crit); }
+  .cat-chip { background: var(--bg); border: 1px solid var(--border); padding: 2px 10px;
+    border-radius: 999px; font-size: 12px; color: var(--text-2); }
+
+  h1.headline { font-size: 22px; line-height: 1.3; font-weight: 600;
+    margin: 4px 0 16px; letter-spacing: -0.01em; }
+
+  .kv-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .kv-table th { text-align: left; padding: 6px 12px 6px 0; color: var(--text-3);
+    font-weight: 500; vertical-align: top; width: 200px;
+    font-family: 'JetBrains Mono',monospace; font-size: 12px; }
+  .kv-table td { padding: 6px 0; vertical-align: top; word-break: break-word; }
+  .kv-table td.mono { font-family: 'JetBrains Mono',monospace; font-size: 12.5px; color: var(--text); }
+  .kv-table td .null { color: var(--text-3); font-style: italic; }
+  .kv-table td .bool-true { color: var(--crit); font-weight: 500; }
+
+  pre.code { background: #fafafa; border: 1px solid var(--border); border-radius: 6px;
+    padding: 12px 14px; font-family: 'JetBrains Mono',monospace; font-size: 12px;
+    line-height: 1.6; overflow-x: auto; color: #1f2937; margin: 0; }
+
+  pre.code.danger { background: #fef2f2; border-color: rgba(229,72,77,0.4); color: #7f1d1d; }
+
+  .ai-conf-bar { display: flex; align-items: center; gap: 10px; }
+  .ai-conf-bar .bar { flex: 1; max-width: 200px; height: 6px;
+    background: var(--border); border-radius: 3px; overflow: hidden; position: relative; }
+  .ai-conf-bar .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--indigo); }
+  .ai-conf-bar .num { font-family: 'JetBrains Mono',monospace; font-size: 16px;
+    font-weight: 600; color: var(--text); }
+
+  .triage-actions { display: flex; flex-direction: column; gap: 12px; padding: 16px 24px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 16px; }
+  .triage-row { display: flex; gap: 8px; align-items: center; }
+  .btn { padding: 7px 14px; border-radius: 6px; font-family: inherit; font-size: 13px;
+    font-weight: 500; cursor: pointer; border: 1px solid transparent; }
+  .btn.tp { background: #166534; color: #fff; border-color: #166534; }
+  .btn.fp { background: var(--surface); color: var(--text); border-color: var(--border); }
+  .btn.fp:hover { border-color: #b91c1c; color: #b91c1c; }
+  .btn.skip { background: transparent; color: var(--text-2); border-color: transparent; }
+  .triage-rationale { width: 100%; min-height: 56px; resize: vertical;
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px;
+    font-family: inherit; font-size: 13px; line-height: 1.55; color: var(--text);
+    background: var(--bg); }
+  .triage-rationale:focus { outline: none; border-color: var(--indigo);
+    background: var(--surface); }
+  .triage-count { margin-left: auto; color: var(--text-2); font-size: 12px; }
+  .triage-count a { color: var(--indigo); text-decoration: none; font-weight: 500; }
+  .triage-count a:hover { text-decoration: underline; }
+  .triage-count.empty { color: var(--text-3); }
+
+  .triage-opinion { padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px;
+    margin-bottom: 10px; }
+  .triage-opinion.tp { border-left: 3px solid #166534; }
+  .triage-opinion.fp { border-left: 3px solid #b91c1c; }
+  .opinion-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .opinion-av { width: 22px; height: 22px; border-radius: 50%; color: #fff;
+    font-size: 10px; font-weight: 600; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0; }
+  .opinion-av.alice { background: #ec4899; }
+  .opinion-av.bob { background: #06b6d4; }
+  .opinion-av.charlie { background: #84cc16; }
+  .opinion-name { font-weight: 600; color: var(--text); font-size: 13px; }
+  .verdict-badge { font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+  .verdict-badge.tp { background: #dcfce7; color: #166534; }
+  .verdict-badge.fp { background: #fee2e2; color: #991b1b; }
+  .opinion-ts { margin-left: auto; color: var(--text-3); font-size: 11px;
+    font-family: 'JetBrains Mono',monospace; }
+  .opinion-rationale { color: var(--text); font-size: 13px; line-height: 1.6;
+    margin: 0; }
+  .opinion-rationale.empty { color: var(--text-3); font-style: italic; }
+
+  aside .card { padding: 16px 18px; }
+  aside .card h2 { margin-bottom: 10px; }
+  aside .field { font-size: 13px; margin-bottom: 8px; }
+  aside .field .label { color: var(--text-3); display: block; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 2px; }
+  aside .field .value { color: var(--text); font-weight: 500; }
+  aside .field .value.mono { font-family: 'JetBrains Mono',monospace; font-weight: 400; font-size: 12px; }
+
+  .schema-note { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px;
+    padding: 10px 14px; font-size: 12px; color: #78350f; margin-bottom: 16px; }
+  .schema-note strong { color: #92400e; }
+
+  .summary-card p { margin: 0; line-height: 1.7; font-size: 14px; color: var(--text); }
+  .summary-card code { font-family: 'JetBrains Mono',monospace; font-size: 12.5px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+    padding: 1px 5px; color: var(--text); }
+
+  .scope-banner { background: rgba(229,72,77,0.08); border: 1px solid rgba(229,72,77,0.3);
+    border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #7f1d1d;
+    margin-bottom: 16px; display: flex; gap: 8px; align-items: center; }
+
+  .if-block { background: #f9fafb; border-left: 3px solid var(--indigo); padding: 8px 12px;
+    margin: 10px 0; font-size: 12px; color: var(--text-2); border-radius: 0 4px 4px 0; }
+  .if-block strong { color: var(--text); }
+
+  .footer-note { color: var(--text-3); font-size: 11px; padding: 24px; text-align: center; }
+
+  /* report context banner */
+  .report-context { display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+    background: #fafafa; border: 1px solid var(--border); border-radius: 8px;
+    font-size: 13px; margin-bottom: 12px; flex-wrap: wrap; }
+  .report-context .ctx-label { color: var(--text-3); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  .report-context .ctx-id { font-family: 'JetBrains Mono',monospace; color: var(--text); font-weight: 500; }
+  .report-context .ctx-meta { color: var(--text-2); font-size: 12px; }
+  .report-context .ctx-spacer { margin-left: auto; }
+  .report-context button { padding: 6px 12px; border: 1px solid var(--indigo);
+    background: var(--surface); color: var(--indigo); border-radius: 6px;
+    font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px; }
+  .report-context button:hover { background: var(--indigo-soft); }
+
+  /* drawer */
+  .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+    opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100; }
+  .drawer-panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(720px, 95vw);
+    background: var(--surface); box-shadow: -8px 0 32px rgba(0,0,0,0.18);
+    transform: translateX(100%); transition: transform 0.25s; z-index: 101;
+    display: flex; flex-direction: column; }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer-panel.open { transform: translateX(0); }
+  .drawer-head { padding: 16px 24px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .drawer-head h2 { margin: 0; font-size: 16px; font-weight: 600; }
+  .drawer-head .close { margin-left: auto; background: transparent; border: 0;
+    cursor: pointer; font-size: 20px; color: var(--text-2); padding: 4px 8px;
+    border-radius: 4px; }
+  .drawer-head .close:hover { background: var(--bg); color: var(--text); }
+  .drawer-body { flex: 1; overflow-y: auto; padding: 16px 24px; }
+  .drawer-section { margin-bottom: 24px; }
+  .drawer-section h3 { margin: 0 0 8px; font-size: 12px; font-weight: 600;
+    color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .drawer-section .meta-grid { display: grid; grid-template-columns: 140px 1fr; gap: 4px 12px;
+    font-size: 13px; }
+  .drawer-section .meta-grid .k { color: var(--text-3); font-family: 'JetBrains Mono',monospace; font-size: 12px; }
+  .drawer-section .meta-grid .v { color: var(--text); }
+  .drawer-section .meta-grid .v.mono { font-family: 'JetBrains Mono',monospace; font-size: 12.5px; }
+  .curation-note { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px;
+    padding: 10px 12px; font-size: 13px; line-height: 1.55; color: #78350f; }
+  .raw-item { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+    margin-bottom: 8px; font-size: 13px; }
+  .raw-item.accepted { border-left: 3px solid #16a34a; }
+  .raw-item.rejected { border-left: 3px solid var(--crit); background: #fff7f7; }
+  .raw-item.deferred { border-left: 3px solid var(--med); background: #fffaf0; }
+  .raw-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+  .raw-type { font-family: 'JetBrains Mono',monospace; font-weight: 600; color: var(--text); }
+  .raw-sev { font-size: 11px; padding: 1px 6px; border-radius: 4px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.04em; }
+  .raw-sev.critical { background: rgba(229,72,77,0.12); color: var(--crit); }
+  .raw-sev.high { background: rgba(247,104,8,0.12); color: var(--high); }
+  .raw-sev.medium { background: rgba(245,165,36,0.16); color: #92400e; }
+  .raw-sev.low, .raw-sev.info { background: var(--bg); color: var(--low); }
+  .raw-conf { color: var(--text-2); font-size: 12px; font-family: 'JetBrains Mono',monospace; margin-left: auto; }
+  .raw-notes { color: var(--text-2); margin-bottom: 6px; line-height: 1.55; }
+  .raw-decision { font-size: 12px; padding: 4px 8px; border-radius: 4px; display: inline-block;
+    font-family: 'JetBrains Mono',monospace; }
+  .raw-decision.accepted { background: rgba(22,163,74,0.1); color: #15803d; }
+  .raw-decision.rejected { background: rgba(229,72,77,0.1); color: #991b1b; }
+  .raw-decision.deferred { background: rgba(245,165,36,0.18); color: #92400e; }
+  .drawer-footer { padding: 12px 24px; border-top: 1px solid var(--border); flex-shrink: 0;
+    display: flex; gap: 12px; align-items: center; }
+  .drawer-footer a { color: var(--indigo); text-decoration: none; font-size: 13px; font-family: 'JetBrains Mono',monospace; }
+  .drawer-footer a:hover { text-decoration: underline; }
+  .drawer-error { background: #fef2f2; border: 1px solid var(--crit); color: #7f1d1d;
+    padding: 12px; border-radius: 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="crumbs">org / <strong>triage-board</strong> / Findings / <strong>FND-2026-04-29-D03</strong>
+    <span class="domain-pill">DEVICE</span></div>
+</header>
+
+<main>
+
+  <div>
+
+    <div class="schema-note">
+      <strong>Schema review note</strong>: Device 도메인은 web/android와 다르게 <code>target.*</code>가 디바이스 모델·펌웨어·네트워크 인터페이스·물리 위치를 포함하고, <code>evidence.*</code>는 nmap 스캔·banner·credential test·firmware artifact 등 디지털+물리 증거 혼합입니다. 점검 환경이 IoT/임베디드 중심이라면 어느 필드가 빠져있는지 의견 부탁드립니다.
+    </div>
+
+    <div class="scope-banner">
+      ⚠ <strong>fleet-wide critical</strong>: 동일 firmware ~340대 디바이스 영향 추정 (deployment_scope 참조).
+    </div>
+
+    <div class="card">
+      <div class="meta-row">
+        <span class="id-block">FND-2026-04-29-D03</span>
+        <span class="sev-pill crit">CRITICAL</span>
+        <span class="cat-chip">default-credential-telnet</span>
+        <span class="cat-chip" style="color:#9ca3af">CWE-798</span>
+        <span class="cat-chip" style="color:#9ca3af">OWASP IoT I1:2018</span>
+      </div>
+      <h1 class="headline">Default credentials grant root telnet access on EX-CAM-2000 fleet</h1>
+      <div class="meta-row" style="color: var(--text-2); font-size: 12.5px;">
+        <span>found by <strong style="color:var(--text)">device-scanner-v0.1</strong></span>
+        <span>·</span>
+        <span>2026-04-29 08:11 UTC</span>
+        <span>·</span>
+        <span>report <span class="mono">RPT-2026-04-29-C</span></span>
+      </div>
+    </div>
+
+    <!-- SUMMARY CARD -->
+    <div class="card summary-card">
+      <h2>Summary</h2>
+      <p>본 취약점은 <code>EX-CAM-2000</code> firmware <code>2.1.7</code>의 <code>telnetd</code> 로그인 서비스에서 기본 자격증명 <code>admin:admin</code>이 <code>/etc/passwd</code>·<code>/etc/shadow</code>에 하드코딩된 이유로 root shell 획득이 가능한 취약점입니다. 이로 인해 공격자는 TCP/23 네트워크 도달성만 확보하면, 별도 사용자 상호작용 없이 디바이스 완전 장악 및 동일 펌웨어를 운영하는 fleet ~340대로의 lateral movement를 수행할 수 있습니다.</p>
+    </div>
+
+    <div class="report-context">
+      <span class="ctx-label">report:</span>
+      <span class="ctx-id">RPT-2026-04-29-C</span>
+      <span class="ctx-meta">2 other findings in this report · uploaded by bob · 4h ago · device-scanner-v0.1</span>
+      <span class="ctx-spacer"></span>
+      <button onclick="openReportDrawer('RPT-2026-04-29-C')">📄 View original report</button>
+    </div>
+
+    <div class="triage-actions">
+      <div class="triage-row">
+        <button class="btn tp">Mark True Positive</button>
+        <button class="btn fp">Mark False Positive</button>
+        <button class="btn skip">Need more info →</button>
+        <span class="triage-count empty">아직 트리아지 0건</span>
+      </div>
+      <textarea class="triage-rationale" placeholder="판정 근거 (선택) — 다른 점검자도 볼 수 있는 메모. TP/FP를 누르면 함께 기록됩니다."></textarea>
+    </div>
+
+    <div class="card">
+      <h2>Target — Device & network <span class="schema-key">target.*</span></h2>
+
+      <table class="kv-table">
+        <tr><th colspan="2" style="padding-bottom: 4px; color: var(--text-2); font-weight: 600;">Hardware / Firmware</th></tr>
+        <tr><th>device_model</th><td class="mono">EX-CAM-2000</td></tr>
+        <tr><th>vendor</th><td>ExampleCorp</td></tr>
+        <tr><th>firmware_version</th><td class="mono">2.1.7</td></tr>
+        <tr><th>firmware_sha256</th><td class="mono" style="word-break: break-all;">4ab2c1...truncated...e9f3</td></tr>
+        <tr><th>hardware_revision</th><td class="mono">rev-C</td></tr>
+        <tr><th>serial_number_pattern</th><td class="mono">EXC2K-2024-*</td></tr>
+
+        <tr><th colspan="2" style="padding-top: 14px; padding-bottom: 4px; color: var(--text-2); font-weight: 600;">Network interface</th></tr>
+        <tr><th>interface_type</th><td class="mono">ethernet</td></tr>
+        <tr><th>ip</th><td class="mono">192.168.1.42</td></tr>
+        <tr><th>mac</th><td class="mono">AA:BB:CC:DD:EE:42</td></tr>
+        <tr><th>port</th><td class="mono">23</td></tr>
+        <tr><th>protocol</th><td class="mono">tcp</td></tr>
+        <tr><th>service</th><td class="mono">telnet ⚠</td></tr>
+
+        <tr><th colspan="2" style="padding-top: 14px; padding-bottom: 4px; color: var(--text-2); font-weight: 600;">Physical / scope</th></tr>
+        <tr><th>physical_location</th><td>TestLab Rack 4</td></tr>
+        <tr><th>deployment_scope</th><td><span class="bool-true">internal-fleet (총 ~340대 추정)</span></td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Evidence <span class="schema-key">evidence.*</span></h2>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">scan_output (nmap)</div>
+        <pre class="code">Nmap 7.94 scan report for 192.168.1.42
+PORT     STATE  SERVICE
+22/tcp   closed ssh
+23/tcp   open   telnet
+80/tcp   open   http
+554/tcp  open   rtsp</pre>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">banner</div>
+        <pre class="code">EX-CAM-2000 firmware v2.1.7
+login: </pre>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">credential_test</div>
+        <table class="kv-table">
+          <tr><th>method</th><td>default credential dictionary</td></tr>
+          <tr><th>tested_pairs</th><td class="mono">[ admin:admin, root:root, admin:1234, root:exampletcam ]</td></tr>
+          <tr><th>successful_pair</th><td class="mono"><span class="bool-true">admin:admin ⚠</span></td></tr>
+          <tr><th>auth_response_time_ms</th><td class="mono">240</td></tr>
+        </table>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">session_excerpt</div>
+        <pre class="code danger">$ id
+uid=0(root) gid=0(root) groups=0(root)
+$ uname -a
+Linux EX-CAM-2000 4.9.198 #1 SMP arm GNU/Linux
+$ cat /etc/passwd | head -3
+root:x:0:0:root:/root:/bin/sh
+admin:x:1000:1000:admin:/home/admin:/bin/sh</pre>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">reproducer_command</div>
+        <pre class="code">telnet 192.168.1.42
+# login: admin
+# Password: admin
+# id   ← root shell 획득</pre>
+      </div>
+
+      <div class="if-block">
+        <strong>첨부 binary 증거</strong> · firmware_artifact: evidence/FND-2026-04-29-D03-fw-extract.bin · wireshark_pcap: evidence/FND-2026-04-29-D03-handshake.pcap · photo_jtag: evidence/FND-2026-04-29-D03-jtag-pinout.jpg
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>AI analysis <span class="schema-key">ai_*</span></h2>
+      <div style="margin-bottom: 12px;">
+        <div style="font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">ai_confidence</div>
+        <div class="ai-conf-bar">
+          <div class="bar"><i style="width:96%"></i></div>
+          <div class="num">0.96</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">ai_rationale</div>
+        <p style="margin: 0; line-height: 1.65;">default credential <code class="mono">admin:admin</code>로 telnet root shell 획득 (인증 우회 없이 직접 로그인). firmware 2.1.7에서 동일 default credential 하드코딩 확인 (firmware extract <code class="mono">/etc/shadow</code> 분석). <strong>동일 firmware 사용 fleet 약 340대 영향 추정</strong>. 펌웨어 업데이트 메커니즘은 별도 점검 필요.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Remediation hint <span class="schema-key">remediation_hint</span></h2>
+      <ol style="margin: 0; padding-left: 20px; line-height: 1.65;">
+        <li>firmware 2.1.8+ 출시 — 초기 부팅 시 default credential 강제 변경 흐름 (mandatory password setup wizard) 도입.</li>
+        <li>telnet 비활성화, SSH (key-based) 전환.</li>
+        <li>기존 fleet 일괄 업데이트 + 비밀번호 강제 회전.</li>
+        <li><code class="mono">/etc/shadow</code>에 default credential 하드코딩 제거.</li>
+      </ol>
+      <p style="margin: 12px 0 0; color: var(--text-2); font-size: 13px;"><strong>영향</strong>: 동일 firmware 운영 모든 디바이스 (~340대).</p>
+    </div>
+
+  </div>
+
+  <aside>
+
+    <div class="card">
+      <h2>Classification</h2>
+      <div class="field"><span class="label">domain</span><span class="value">device</span></div>
+      <div class="field"><span class="label">category</span><span class="value mono">default-credential-telnet</span></div>
+      <div class="field"><span class="label">severity</span><span class="value" style="color: var(--crit);">CRITICAL</span></div>
+      <div class="field"><span class="label">cwe</span><span class="value mono">CWE-798</span></div>
+      <div class="field"><span class="label">iot_category</span><span class="value">OWASP IoT I1:2018</span></div>
+      <div class="field"><span class="label">cve</span><span class="value mono">CVE-2024-XXXXX (요청 예정)</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Asset</h2>
+      <div class="field"><span class="label">project</span><span class="value mono">iot-camera</span></div>
+      <div class="field"><span class="label">scan target (fleet/group)</span><span class="value mono">iot-camera-fleet</span></div>
+      <div class="field"><span class="label">report_id</span><span class="value mono">RPT-2026-04-29-C</span></div>
+      <div class="field"><span class="label">deployment scope</span><span class="value" style="color: var(--crit);">~340 devices</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Schema fields used</h2>
+      <ul style="margin: 0; padding-left: 16px; font-size: 12px; line-height: 1.7; color: var(--text-2); font-family: 'JetBrains Mono',monospace;">
+        <li>schema_version</li>
+        <li>id, report_id</li>
+        <li>domain, category, severity</li>
+        <li>project</li>
+        <li>agent, discovered_at</li>
+        <li>target.{device_model, vendor, firmware_version, firmware_sha256, hardware_revision, serial_number_pattern}</li>
+        <li>target.{interface_type, ip, mac, port, protocol, service}</li>
+        <li>target.{physical_location, deployment_scope}</li>
+        <li>evidence.{scan_output, banner}</li>
+        <li>evidence.credential_test.{method, tested_pairs, successful_pair, auth_response_time_ms}</li>
+        <li>evidence.{session_excerpt, reproducer_command}</li>
+        <li>evidence.{firmware_artifact, wireshark_pcap, photo_jtag}</li>
+        <li>ai_confidence, ai_rationale</li>
+        <li>cve, cwe, iot_category</li>
+        <li>remediation_hint</li>
+      </ul>
+    </div>
+
+  </aside>
+
+</main>
+
+<div class="footer-note">schema-review/device-finding.json + device-finding.html · 2026-04-29</div>
+
+<!-- ORIGINAL REPORT DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeReportDrawer()"></div>
+<aside class="drawer-panel" id="drawerPanel" role="dialog" aria-labelledby="drawerTitle" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="drawerTitle">Original report</h2>
+    <button class="close" onclick="closeReportDrawer()" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <div style="color: var(--text-3); font-size: 13px;">로딩 중…</div>
+  </div>
+  <div class="drawer-footer" id="drawerFooter"></div>
+</aside>
+
+<script>
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g,
+      c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function decisionClass(d) {
+    if (!d) return 'deferred';
+    if (d.startsWith('accepted')) return 'accepted';
+    if (d.startsWith('rejected')) return 'rejected';
+    return 'deferred';
+  }
+
+  function openReportDrawer(reportId) {
+    const overlay = document.getElementById('drawerOverlay');
+    const panel = document.getElementById('drawerPanel');
+    const body = document.getElementById('drawerBody');
+    const footer = document.getElementById('drawerFooter');
+    const title = document.getElementById('drawerTitle');
+
+    title.textContent = 'Original report — ' + reportId;
+    body.innerHTML = '<div style="color: var(--text-3); font-size: 13px;">로딩 중…</div>';
+    footer.innerHTML = '';
+    overlay.classList.add('open');
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden', 'false');
+
+    fetch('raw-reports/' + reportId + '.json')
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(data => renderReport(data, reportId))
+      .catch(e => {
+        body.innerHTML = '<div class="drawer-error">⚠ raw-reports/' + esc(reportId) +
+          '.json 로드 실패: ' + esc(e.message) + '<br><br>로컬 서버(http://127.0.0.1:8770/) 환경에서 열어주세요.</div>';
+      });
+  }
+
+  function renderReport(d, reportId) {
+    const body = document.getElementById('drawerBody');
+    const footer = document.getElementById('drawerFooter');
+
+    const meta = `
+      <div class="drawer-section">
+        <h3>Report metadata</h3>
+        <div class="meta-grid">
+          <span class="k">report_id</span><span class="v mono">${esc(d.report_id)}</span>
+          <span class="k">scanner</span><span class="v mono">${esc(d.scanner)} · ${esc(d.scanner_version_sha || '')}</span>
+          <span class="k">scan_id</span><span class="v mono">${esc(d.scan_id)}</span>
+          <span class="k">target_root</span><span class="v mono">${esc(d.target_root || d.target_apk_path || d.target_subnet || '')}</span>
+          <span class="k">scan_profile</span><span class="v">${esc(d.scan_profile || '')}</span>
+          <span class="k">duration</span><span class="v">${esc(d.duration_seconds)} s (${esc(d.started_at)} → ${esc(d.completed_at)})</span>
+          <span class="k">uploader</span><span class="v"><strong>${esc(d.uploader && d.uploader.github)}</strong> at ${esc(d.uploader && d.uploader.uploaded_at)}</span>
+          <span class="k">curation passes</span><span class="v">${esc(d.uploader && d.uploader.curation_pass_count)}</span>
+        </div>
+      </div>`;
+
+    const curation = d.human_curation_notes ? `
+      <div class="drawer-section">
+        <h3>Human curation notes</h3>
+        <div class="curation-note">${esc(d.human_curation_notes)}</div>
+      </div>` : '';
+
+    const accepted = d.raw_findings.filter(f => decisionClass(f.curation_decision) === 'accepted').length;
+    const rejected = d.raw_findings.filter(f => decisionClass(f.curation_decision) === 'rejected').length;
+    const deferred = d.raw_findings.filter(f => decisionClass(f.curation_decision) === 'deferred').length;
+
+    const findingsHtml = d.raw_findings.map(f => {
+      const cls = decisionClass(f.curation_decision);
+      const sev = String(f.severity_estimate || '').toLowerCase();
+      return `
+        <div class="raw-item ${cls}">
+          <div class="raw-head">
+            <span class="raw-type">${esc(f.type)}</span>
+            <span class="raw-sev ${sev}">${esc(f.severity_estimate)}</span>
+            <span class="raw-conf">conf ${esc(f.ai_confidence)}</span>
+          </div>
+          <div class="raw-notes">${esc(f.ai_notes)}</div>
+          <div class="raw-decision ${cls}">${esc(f.curation_decision)}</div>
+        </div>`;
+    }).join('');
+
+    body.innerHTML = meta + curation + `
+      <div class="drawer-section">
+        <h3>Raw findings (${d.raw_findings.length}) — accepted ${accepted} · rejected ${rejected} · deferred ${deferred}</h3>
+        ${findingsHtml}
+      </div>`;
+
+    footer.innerHTML = `
+      <a href="raw-reports/${esc(reportId)}.json" target="_blank">📁 raw-reports/${esc(reportId)}.json</a>
+      <span style="color: var(--text-3); font-size: 12px; margin-left: auto;">esc / 바깥 클릭으로 닫기</span>`;
+  }
+
+  function closeReportDrawer() {
+    document.getElementById('drawerOverlay').classList.remove('open');
+    const p = document.getElementById('drawerPanel');
+    p.classList.remove('open');
+    p.setAttribute('aria-hidden', 'true');
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeReportDrawer();
+  });
+</script>
+</body>
+</html>

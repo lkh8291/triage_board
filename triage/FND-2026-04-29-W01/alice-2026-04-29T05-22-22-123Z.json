@@ -1,0 +1,7 @@
+{
+  "finding_id": "FND-2026-04-29-W01",
+  "verdict": "tp",
+  "reviewer": "alice",
+  "rationale": "name 파라미터 unescape 확인. 인증 세션에서 1-shot 재현 성공. .username div가 innerHTML 사용. CSP 미설정으로 inline script 실행 가능 — 운영 환경 그대로 영향.",
+  "ts": "2026-04-29T05:22:22.123Z"
+}

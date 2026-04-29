@@ -1,0 +1,18 @@
+{
+  "id": "FND-2026-04-29-W03",
+  "report_id": "RPT-2026-04-29-A",
+  "project": "ecom",
+  "domain": "web",
+  "category": "sqli-blind",
+  "severity": "medium",
+  "title": "/api/orders/search?q=",
+  "agent": "ai-scanner-v0.3",
+  "discovered_at": "2026-04-29T03:14:00Z",
+  "target": {
+    "url": "/api/orders/search?q=",
+    "method": "GET",
+    "endpoint": "/api/orders/search?q="
+  },
+  "ai_confidence": 0.62,
+  "ai_rationale": "boolean-based blind SQLi 의심. q=' OR '1'='1 응답 변화 관찰. WAF 적용 여부 미확인."
+}

@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Schema Review · SPA Main · AI Triage Board</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --surface: #fff; --border: #e6e6e9; --border-strong: #d4d4d8;
+    --text: #0d0d10; --text-2: #6b7280; --text-3: #9ca3af;
+    --indigo: #5e6ad2; --indigo-soft: #eef0fb;
+    --crit: #e5484d; --high: #f76808; --med: #f5a524; --low: #8b8d98;
+    --green: #16a34a;
+    --d-web: #5e6ad2;
+    --d-android: #15803d;
+    --d-device: #c4007a;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: 'Inter',-apple-system,sans-serif; font-size: 14px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+  aside {
+    background: var(--bg); border-right: 1px solid var(--border); padding: 16px 12px;
+  }
+  .ws { display: flex; align-items: center; gap: 8px; padding: 6px 8px; margin-bottom: 16px; font-weight: 600; }
+  .ws .logo { width: 20px; height: 20px; background: var(--indigo); border-radius: 4px; }
+  .nav-section { margin-bottom: 20px; }
+  .nav-section h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-3); margin: 0 0 4px 8px; font-weight: 600; }
+  .nav-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 5px 8px; border-radius: 4px; cursor: pointer;
+    color: var(--text-2); font-size: 13px;
+  }
+  .nav-item:hover { background: rgba(0,0,0,0.04); color: var(--text); }
+  .nav-item.active { background: var(--indigo-soft); color: var(--indigo); font-weight: 500; }
+  .nav-item .count { color: var(--text-3); font-size: 12px; }
+  .nav-item.active .count { color: var(--indigo); }
+
+  main { background: var(--surface); }
+  header.top {
+    border-bottom: 1px solid var(--border); padding: 10px 24px;
+    display: flex; align-items: center; gap: 16px;
+    background: var(--surface); position: sticky; top: 0; z-index: 10;
+  }
+  .crumbs { color: var(--text-2); font-size: 13px; }
+  .crumbs strong { color: var(--text); font-weight: 600; }
+  .search { margin-left: auto; padding: 6px 10px; border: 1px solid var(--border);
+    border-radius: 6px; width: 280px; background: var(--bg); color: var(--text-2); font-size: 13px; }
+  .avatar { width: 28px; height: 28px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--indigo), #8b5cf6); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
+
+  .schema-banner { background: #fef3c7; border-bottom: 1px solid #f59e0b;
+    padding: 10px 24px; font-size: 12px; color: #78350f; display: flex; align-items: center; gap: 8px; }
+  .schema-banner strong { color: #92400e; }
+
+  .sub-header {
+    padding: 16px 24px 0; border-bottom: 1px solid var(--border);
+  }
+  .sub-row-1 { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .h1 { font-size: 22px; font-weight: 600; margin: 0 12px 0 0; letter-spacing: -0.01em; }
+
+  .view-tabs { display: inline-flex; background: var(--bg);
+    border: 1px solid var(--border); border-radius: 8px; padding: 2px; }
+  .view-tab { padding: 5px 12px; border-radius: 6px;
+    font-size: 13px; color: var(--text-2); cursor: pointer;
+    background: transparent; border: 0; font-family: inherit;
+    display: flex; align-items: center; gap: 6px; }
+  .view-tab:hover { color: var(--text); }
+  .view-tab.active { background: var(--surface); color: var(--text); font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 0 0 1px var(--border); }
+  .view-tab .icon { width: 14px; height: 14px; display: inline-block; opacity: 0.8; }
+
+  .right-controls { margin-left: auto; display: flex; gap: 8px; color: var(--text-2); font-size: 13px; }
+
+  .sub-row-2 { display: flex; align-items: center; gap: 8px; padding-bottom: 12px; flex-wrap: wrap; }
+  .filter-pills { display: flex; gap: 4px; }
+  .pill { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--text-2); cursor: pointer; background: var(--surface); }
+  .pill.active { background: var(--indigo-soft); color: var(--indigo);
+    border-color: var(--indigo-soft); font-weight: 500; }
+  .domain-pills { display: flex; gap: 4px; margin-left: 8px; padding-left: 8px;
+    border-left: 1px solid var(--border); }
+  .pill.dom { font-weight: 500; }
+  .pill.dom.web.active { background: rgba(94,106,210,0.15); color: var(--d-web); border-color: rgba(94,106,210,0.3); }
+  .pill.dom.android.active { background: rgba(21,128,61,0.12); color: var(--d-android); border-color: rgba(21,128,61,0.3); }
+  .pill.dom.device.active { background: rgba(196,0,122,0.10); color: var(--d-device); border-color: rgba(196,0,122,0.3); }
+
+  /* FINDINGS VIEW */
+  .table-head, .row {
+    display: grid;
+    grid-template-columns: 36px 80px 90px 90px 1fr 80px 130px 80px;
+    gap: 12px; padding: 10px 24px; align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .table-head { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-3); font-weight: 600; }
+  .row { cursor: pointer; font-size: 13px; text-decoration: none; color: inherit; }
+  .row:hover { background: var(--bg); }
+  .row.selected { background: var(--indigo-soft); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; margin-left: 8px; }
+  .dot.crit { background: var(--crit); box-shadow: 0 0 0 3px rgba(229,72,77,0.15); }
+  .dot.high { background: var(--high); }
+  .dot.med { background: var(--med); }
+  .dot.low { background: var(--low); }
+  .sev-text { font-weight: 500; }
+  .sev-text.crit { color: var(--crit); }
+  .sev-text.high { color: var(--high); }
+  .sev-text.med { color: var(--med); }
+  .sev-text.low { color: var(--low); }
+  .domain-tag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px;
+    border-radius: 999px; font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.04em; }
+  .domain-tag.web { background: rgba(94,106,210,0.12); color: var(--d-web); }
+  .domain-tag.android { background: rgba(21,128,61,0.12); color: var(--d-android); }
+  .domain-tag.device { background: rgba(196,0,122,0.10); color: var(--d-device); }
+  .cat-chip { display: inline-block; padding: 2px 8px; background: var(--bg);
+    border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--text-2); }
+  .target {
+    font-family: 'JetBrains Mono',ui-monospace,monospace; font-size: 12px;
+    color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .target strong { color: var(--text); font-weight: 500; }
+  .conf { font-variant-numeric: tabular-nums; color: var(--text-2); font-size: 12px; }
+  .conf-bar { display: inline-block; width: 36px; height: 4px; background: var(--border);
+    border-radius: 2px; vertical-align: middle; margin-right: 6px; position: relative; overflow: hidden; }
+  .conf-bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--indigo); }
+  .reviewers { display: flex; gap: -4px; }
+  .av-sm { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--surface);
+    margin-left: -6px; font-size: 10px; display: flex; align-items: center;
+    justify-content: center; color: #fff; font-weight: 600; }
+  .av-sm:first-child { margin-left: 0; }
+  .av-sm.alice { background: #ec4899; }
+  .av-sm.bob { background: #06b6d4; }
+  .av-sm.charlie { background: #84cc16; }
+  .status-tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; text-align: center;
+    display: inline-block; line-height: 1.4; white-space: nowrap; }
+  .status-tag.pending { background: #fef3c7; color: #92400e; }
+  .status-tag.tp { background: #dcfce7; color: #166534; }
+  .status-tag.fp { background: #fee2e2; color: #991b1b; }
+  .status-tag.split { background: #fef3c7; color: #92400e; border: 1px dashed #f59e0b; }
+
+  /* GROUP CARD VIEWS (Reports / Sites / Products) */
+  .group-list { padding: 16px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .group-card { border: 1px solid var(--border); border-radius: 10px;
+    background: var(--surface); padding: 14px 16px;
+    cursor: pointer; transition: border-color 0.1s; }
+  .group-card:hover { border-color: var(--border-strong); }
+  .gc-head { display: flex; align-items: center; gap: 12px; }
+  .gc-title { font-weight: 600; color: var(--text); font-size: 14px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .gc-title .id-mono { font-family: 'JetBrains Mono',monospace; font-size: 12px; color: var(--text-2); font-weight: 400; }
+  .gc-meta { margin-left: auto; display: flex; gap: 16px; align-items: center;
+    color: var(--text-2); font-size: 12px; }
+  .gc-stat { font-variant-numeric: tabular-nums; text-align: right; }
+  .gc-stat .num { color: var(--text); font-weight: 600; font-size: 16px; line-height: 1; }
+  .gc-stat .label { color: var(--text-3); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-top: 2px; }
+
+  .gc-body { margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+  .gc-row-2 { display: flex; gap: 16px; align-items: center;
+    color: var(--text-2); font-size: 12px; flex-wrap: wrap; }
+  .sev-bar { flex: 1; display: flex; height: 6px; border-radius: 3px; overflow: hidden;
+    background: var(--border); min-width: 200px; }
+  .sev-bar i { display: block; height: 100%; }
+  .sev-bar i.crit { background: var(--crit); }
+  .sev-bar i.high { background: var(--high); }
+  .sev-bar i.med  { background: var(--med);  }
+  .sev-bar i.low  { background: var(--low);  }
+  .sev-counts { display: flex; gap: 12px; }
+  .sev-count { display: inline-flex; align-items: center; gap: 4px;
+    font-size: 12px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+  .sev-count .d { width: 6px; height: 6px; border-radius: 50%; }
+  .sev-count.crit .d { background: var(--crit); }
+  .sev-count.high .d { background: var(--high); }
+  .sev-count.med  .d { background: var(--med);  }
+  .sev-count.low  .d { background: var(--low);  }
+
+  .progress { flex: 1; height: 4px; background: var(--border); border-radius: 2px;
+    overflow: hidden; position: relative; max-width: 200px; }
+  .progress i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--green); }
+  .triage-text { font-variant-numeric: tabular-nums; min-width: 70px; }
+
+  .icon-box { width: 28px; height: 28px; border-radius: 6px;
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 11px; flex-shrink: 0;
+    font-family: 'JetBrains Mono',monospace; }
+  .icon-box.web { background: linear-gradient(135deg, #8b5cf6, var(--d-web)); }
+  .icon-box.android { background: linear-gradient(135deg, #4ade80, var(--d-android)); }
+  .icon-box.device { background: linear-gradient(135deg, #fb7185, var(--d-device)); }
+  .product-icon { min-width: 44px; height: 32px; padding: 0 10px;
+    border-radius: 8px; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 12px; flex-shrink: 0;
+    letter-spacing: 0.04em;
+    font-family: 'Inter',sans-serif; white-space: nowrap; }
+  .product-icon.p-ec { background: linear-gradient(135deg, #06b6d4, var(--d-web)); }
+  .product-icon.p-mob { background: linear-gradient(135deg, #4ade80, var(--d-android)); }
+  .product-icon.p-iot { background: linear-gradient(135deg, #fb7185, var(--d-device)); }
+
+  .site-chip { display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 8px; background: var(--bg); border: 1px solid var(--border);
+    border-radius: 999px; font-size: 11px; color: var(--text-2);
+    font-family: 'JetBrains Mono',monospace; }
+  .site-chip .d { width: 4px; height: 4px; border-radius: 50%; }
+  .product-sites { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .view-pane { display: none; }
+  .view-pane.active { display: block; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="ws"><div class="logo"></div> AI Triage</div>
+    <div class="nav-section">
+      <h4>Inbox</h4>
+      <div class="nav-item active">All findings <span class="count">8</span></div>
+      <div class="nav-item">Pending <span class="count">5</span></div>
+      <div class="nav-item">True positive <span class="count">2</span></div>
+      <div class="nav-item">False positive <span class="count">1</span></div>
+      <div class="nav-item">Disagreement <span class="count">1</span></div>
+    </div>
+    <div class="nav-section">
+      <h4>Projects</h4>
+      <div class="nav-item"><span class="mono" style="font-family:'JetBrains Mono',monospace;font-size:12px">ecom</span><span class="count">3</span></div>
+      <div class="nav-item"><span class="mono" style="font-family:'JetBrains Mono',monospace;font-size:12px">mobile-app</span><span class="count">2</span></div>
+      <div class="nav-item"><span class="mono" style="font-family:'JetBrains Mono',monospace;font-size:12px">iot-camera</span><span class="count">3</span></div>
+    </div>
+    <div class="nav-section">
+      <h4>Categories (mixed)</h4>
+      <div class="nav-item">xss-reflected <span class="count">1</span></div>
+      <div class="nav-item">sqli-blind <span class="count">1</span></div>
+      <div class="nav-item">idor <span class="count">1</span></div>
+      <div class="nav-item">exposed-component <span class="count">2</span></div>
+      <div class="nav-item">default-credential <span class="count">1</span></div>
+      <div class="nav-item">exposed-service <span class="count">2</span></div>
+    </div>
+    <div class="nav-section">
+      <h4>Reviewers</h4>
+      <div class="nav-item">alice <span class="count">3</span></div>
+      <div class="nav-item">bob <span class="count">2</span></div>
+      <div class="nav-item">charlie <span class="count">1</span></div>
+    </div>
+  </aside>
+
+  <main>
+    <header class="top">
+      <div class="crumbs">Workspace · <strong>AI Triage</strong> · multi-domain</div>
+      <input class="search" placeholder="Search by project, target, category…">
+      <div class="avatar">LK</div>
+    </header>
+
+    <div class="schema-banner">
+      <strong>Schema review mode</strong> · 이 페이지는 web/android/device 3 도메인이 섞인 mock입니다. 행을 클릭하면 해당 finding 상세 페이지로 이동.
+    </div>
+
+    <div class="sub-header">
+      <div class="sub-row-1">
+        <h1 class="h1" id="pageTitle">All findings</h1>
+        <div class="view-tabs" role="tablist">
+          <button class="view-tab active" data-view="findings"><span class="icon">▤</span>Findings <span style="color:var(--text-3);margin-left:2px">8</span></button>
+          <button class="view-tab" data-view="reports"><span class="icon">⎙</span>Reports <span style="color:var(--text-3);margin-left:2px">3</span></button>
+          <button class="view-tab" data-view="projects"><span class="icon">▢</span>Projects <span style="color:var(--text-3);margin-left:2px">3</span></button>
+        </div>
+        <div class="right-controls"><span>Sort: severity ↓</span></div>
+      </div>
+      <div class="sub-row-2">
+        <div class="filter-pills">
+          <span class="pill active">Pending 5</span>
+          <span class="pill">TP 2</span>
+          <span class="pill">FP 1</span>
+          <span class="pill">Split 1</span>
+        </div>
+        <div class="domain-pills">
+          <span class="pill dom web active">Web 3</span>
+          <span class="pill dom android active">Android 2</span>
+          <span class="pill dom device active">Device 3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ FINDINGS VIEW ============ -->
+    <section class="view-pane active" id="view-findings">
+      <div class="table-head">
+        <span></span><span>Sev</span><span>Domain</span><span>Category</span><span>Target</span><span>AI conf</span><span>Reviewers</span><span>Status</span>
+      </div>
+
+      <a class="row" href="device-finding.html" data-project="iot-camera">
+        <span class="dot crit"></span>
+        <span class="sev-text crit">Critical</span>
+        <span><span class="domain-tag device">Device</span></span>
+        <span><span class="cat-chip">default-cred</span></span>
+        <span class="target"><strong>EX-CAM-2000 v2.1.7</strong> · 192.168.1.42:23/telnet</span>
+        <span class="conf"><span class="conf-bar"><i style="width:96%"></i></span>0.96</span>
+        <span class="reviewers"></span>
+        <span class="status-tag pending">pending</span>
+      </a>
+
+      <a class="row" href="device-finding.html" data-project="iot-camera">
+        <span class="dot crit"></span>
+        <span class="sev-text crit">Critical</span>
+        <span><span class="domain-tag device">Device</span></span>
+        <span><span class="cat-chip">exposed-service</span></span>
+        <span class="target"><strong>EX-IOT-LITE</strong> · 192.168.1.55:5683/coap</span>
+        <span class="conf"><span class="conf-bar"><i style="width:78%"></i></span>0.78</span>
+        <span class="reviewers"></span>
+        <span class="status-tag pending">pending</span>
+      </a>
+
+      <a class="row selected" href="web-finding.html" data-project="ecom">
+        <span class="dot high"></span>
+        <span class="sev-text high">High</span>
+        <span><span class="domain-tag web">Web</span></span>
+        <span><span class="cat-chip">xss-reflected</span></span>
+        <span class="target"><strong>GET</strong> store.example.com /api/users/profile?name=</span>
+        <span class="conf"><span class="conf-bar"><i style="width:87%"></i></span>0.87</span>
+        <span class="reviewers"><span class="av-sm alice">a</span><span class="av-sm bob">b</span></span>
+        <span class="status-tag split">split</span>
+      </a>
+
+      <a class="row" href="android-finding.html" data-project="mobile-app">
+        <span class="dot high"></span>
+        <span class="sev-text high">High</span>
+        <span><span class="domain-tag android">Android</span></span>
+        <span><span class="cat-chip">exposed-comp</span></span>
+        <span class="target"><strong>com.example.shopping</strong> · PaymentActivity (deeplink)</span>
+        <span class="conf"><span class="conf-bar"><i style="width:74%"></i></span>0.74</span>
+        <span class="reviewers"></span>
+        <span class="status-tag pending">pending</span>
+      </a>
+
+      <a class="row" href="web-finding.html" data-project="ecom">
+        <span class="dot high"></span>
+        <span class="sev-text high">High</span>
+        <span><span class="domain-tag web">Web</span></span>
+        <span><span class="cat-chip">idor</span></span>
+        <span class="target"><strong>GET</strong> store.example.com /api/users/3127/orders</span>
+        <span class="conf"><span class="conf-bar"><i style="width:81%"></i></span>0.81</span>
+        <span class="reviewers"></span>
+        <span class="status-tag pending">pending</span>
+      </a>
+
+      <a class="row" href="web-finding.html" data-project="ecom">
+        <span class="dot med"></span>
+        <span class="sev-text med">Medium</span>
+        <span><span class="domain-tag web">Web</span></span>
+        <span><span class="cat-chip">sqli-blind</span></span>
+        <span class="target"><strong>GET</strong> store.example.com /api/orders/search?q=</span>
+        <span class="conf"><span class="conf-bar"><i style="width:62%"></i></span>0.62</span>
+        <span class="reviewers"><span class="av-sm alice">a</span></span>
+        <span class="status-tag tp">TP</span>
+      </a>
+
+      <a class="row" href="android-finding.html" data-project="mobile-app">
+        <span class="dot med"></span>
+        <span class="sev-text med">Medium</span>
+        <span><span class="domain-tag android">Android</span></span>
+        <span><span class="cat-chip">insecure-storage</span></span>
+        <span class="target"><strong>com.example.shopping</strong> · SharedPrefs (auth_token plaintext)</span>
+        <span class="conf"><span class="conf-bar"><i style="width:88%"></i></span>0.88</span>
+        <span class="reviewers"><span class="av-sm alice">a</span></span>
+        <span class="status-tag tp">TP</span>
+      </a>
+
+      <a class="row" href="device-finding.html" data-project="iot-camera">
+        <span class="dot low"></span>
+        <span class="sev-text low">Low</span>
+        <span><span class="domain-tag device">Device</span></span>
+        <span><span class="cat-chip">verbose-banner</span></span>
+        <span class="target"><strong>EX-CAM-2000</strong> · banner discloses fw version</span>
+        <span class="conf"><span class="conf-bar"><i style="width:54%"></i></span>0.54</span>
+        <span class="reviewers"><span class="av-sm bob">b</span></span>
+        <span class="status-tag fp">FP</span>
+      </a>
+    </section>
+
+    <!-- ============ REPORTS VIEW ============ -->
+    <section class="view-pane" id="view-reports">
+      <div class="group-list">
+
+        <article class="group-card" data-project="ecom">
+          <div class="gc-head">
+            <div class="icon-box web">RPT</div>
+            <div class="gc-title">
+              store.example.com (web 점검 회차)
+              <span class="id-mono">RPT-2026-04-29-A</span>
+              <span class="domain-tag web">Web</span>
+              <span class="status-tag pending">in triage</span>
+            </div>
+            <div class="gc-meta">
+              <span>uploaded by <strong style="color:var(--text)">alice</strong></span>
+              <span>2h ago</span>
+              <span>ai-scanner-v0.3</span>
+            </div>
+          </div>
+          <div class="gc-body">
+            <div class="gc-row-2">
+              <div class="sev-bar">
+                <i class="high" style="width:33%"></i>
+                <i class="med" style="width:33%"></i>
+                <i class="low" style="width:34%"></i>
+              </div>
+              <div class="sev-counts">
+                <span class="sev-count high"><span class="d"></span>2</span>
+                <span class="sev-count med"><span class="d"></span>1</span>
+                <span class="sev-count low"><span class="d"></span>0</span>
+              </div>
+              <div class="progress"><i style="width:33%"></i></div>
+              <div class="triage-text">1 / 3 triaged</div>
+              <div class="gc-stat"><div class="num">3</div><div class="label">findings</div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="group-card" data-project="mobile-app">
+          <div class="gc-head">
+            <div class="icon-box android">RPT</div>
+            <div class="gc-title">
+              com.example.shopping (Android 빌드 3.4.1 점검)
+              <span class="id-mono">RPT-2026-04-29-B</span>
+              <span class="domain-tag android">Android</span>
+              <span class="status-tag pending">in triage</span>
+            </div>
+            <div class="gc-meta">
+              <span>uploaded by <strong style="color:var(--text)">alice</strong></span>
+              <span>3h ago</span>
+              <span>android-scanner-v0.2</span>
+            </div>
+          </div>
+          <div class="gc-body">
+            <div class="gc-row-2">
+              <div class="sev-bar">
+                <i class="high" style="width:50%"></i>
+                <i class="med" style="width:50%"></i>
+              </div>
+              <div class="sev-counts">
+                <span class="sev-count high"><span class="d"></span>1</span>
+                <span class="sev-count med"><span class="d"></span>1</span>
+              </div>
+              <div class="progress"><i style="width:50%"></i></div>
+              <div class="triage-text">1 / 2 triaged</div>
+              <div class="gc-stat"><div class="num">2</div><div class="label">findings</div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="group-card" data-project="iot-camera">
+          <div class="gc-head">
+            <div class="icon-box device">RPT</div>
+            <div class="gc-title">
+              EX-CAM-2000 fleet firmware 2.1.7 점검
+              <span class="id-mono">RPT-2026-04-29-C</span>
+              <span class="domain-tag device">Device</span>
+              <span class="status-tag pending">in triage</span>
+            </div>
+            <div class="gc-meta">
+              <span>uploaded by <strong style="color:var(--text)">bob</strong></span>
+              <span>4h ago</span>
+              <span>device-scanner-v0.1</span>
+            </div>
+          </div>
+          <div class="gc-body">
+            <div class="gc-row-2">
+              <div class="sev-bar">
+                <i class="crit" style="width:67%"></i>
+                <i class="low" style="width:33%"></i>
+              </div>
+              <div class="sev-counts">
+                <span class="sev-count crit"><span class="d"></span>2</span>
+                <span class="sev-count low"><span class="d"></span>1</span>
+              </div>
+              <div class="progress"><i style="width:33%"></i></div>
+              <div class="triage-text">1 / 3 triaged</div>
+              <div class="gc-stat"><div class="num">3</div><div class="label">findings</div></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS VIEW ============ -->
+    <section class="view-pane" id="view-projects">
+      <div class="group-list">
+
+        <article class="group-card" data-project="ecom">
+          <div class="gc-head">
+            <div class="product-icon p-ec">EC</div>
+            <div class="gc-title">
+              E-commerce Storefront
+              <span class="id-mono" style="color:var(--text-3)">ecom · 1 report · owner: Web Team</span>
+              <span class="domain-tag web">Web</span>
+            </div>
+            <div class="gc-meta">
+              <span>last report <strong style="color:var(--text)">2h ago</strong></span>
+              <span class="status-tag pending">2 pending</span>
+            </div>
+          </div>
+          <div class="gc-body">
+            <div class="gc-row-2">
+              <div class="sev-bar">
+                <i class="high" style="width:67%"></i>
+                <i class="med" style="width:33%"></i>
+              </div>
+              <div class="sev-counts">
+                <span class="sev-count high"><span class="d"></span>2</span>
+                <span class="sev-count med"><span class="d"></span>1</span>
+              </div>
+              <div class="progress"><i style="width:33%"></i></div>
+              <div class="triage-text">1 / 3 triaged</div>
+              <div class="gc-stat"><div class="num">3</div><div class="label">findings</div></div>
+            </div>
+            <div class="product-sites">
+              <span class="site-chip"><span class="d" style="background:var(--high)"></span>store.example.com · 3 (web)</span>
+              <span class="site-chip" style="opacity:0.6"><span class="d" style="background:var(--text-3)"></span>checkout.example.com · 0</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="group-card" data-project="mobile-app">
+          <div class="gc-head">
+            <div class="product-icon p-mob">APP</div>
+            <div class="gc-title">
+              Mobile App
+              <span class="id-mono" style="color:var(--text-3)">mobile-app · 1 report · owner: Mobile Team</span>
+              <span class="domain-tag android">Android</span>
+            </div>
+            <div class="gc-meta">
+              <span>last report <strong style="color:var(--text)">3h ago</strong></span>
+              <span class="status-tag pending">1 pending</span>
+            </div>
+          </div>
+          <div class="gc-body">
+            <div class="gc-row-2">
+              <div class="sev-bar">
+                <i class="high" style="width:50%"></i>
+                <i class="med" style="width:50%"></i>
+              </div>
+              <div class="sev-counts">
+                <span class="sev-count high"><span class="d"></span>1</span>
+                <span class="sev-count med"><span class="d"></span>1</span>
+              </div>
+              <div class="progress"><i style="width:50%"></i></div>
+              <div class="triage-text">1 / 2 triaged</div>
+              <div class="gc-stat"><div class="num">2</div><div class="label">findings</div></div>
+            </div>
+            <div class="product-sites">
+              <span class="site-chip"><span class="d" style="background:var(--high)"></span>com.example.shopping v3.4.1 · 2 (android)</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="group-card" data-project="iot-camera">
+          <div class="gc-head">
+            <div class="product-icon p-iot">IoT</div>
+            <div class="gc-title">
+              IoT Camera Fleet
+              <span class="id-mono" style="color:var(--text-3)">iot-camera · 1 report · owner: IoT Team</span>
+              <span class="domain-tag device">Device</span>
+            </div>
+            <div class="gc-meta">
+              <span>last report <strong style="color:var(--text)">4h ago</strong></span>
+              <span class="status-tag fp" style="background:#fee2e2;color:#991b1b">3 critical open</span>
+            </div>
+          </div>
+          <div class="gc-body">
+            <div class="gc-row-2">
+              <div class="sev-bar">
+                <i class="crit" style="width:75%"></i>
+                <i class="low" style="width:25%"></i>
+              </div>
+              <div class="sev-counts">
+                <span class="sev-count crit"><span class="d"></span>3</span>
+                <span class="sev-count low"><span class="d"></span>1</span>
+              </div>
+              <div class="progress"><i style="width:25%"></i></div>
+              <div class="triage-text">1 / 4 triaged</div>
+              <div class="gc-stat"><div class="num">4</div><div class="label">findings</div></div>
+            </div>
+            <div class="product-sites">
+              <span class="site-chip"><span class="d" style="background:var(--crit)"></span>iot-camera-fleet (EX-CAM-2000 fw 2.1.7) · 3 (~340 devices)</span>
+              <span class="site-chip"><span class="d" style="background:var(--crit)"></span>iot-lite-fleet (EX-IOT-LITE fw 1.4.2) · 1 (~80 devices)</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.view-tab');
+  const panes = document.querySelectorAll('.view-pane');
+  const searchInput = document.querySelector('.search');
+  const titleMap = {
+    findings: 'All findings',
+    reports:  'Reports',
+    projects: 'Projects'
+  };
+  const filterPillsVisible = { findings: true, reports: false, projects: false };
+
+  function applySearchFilter() {
+    const q = searchInput.value.trim().toLowerCase();
+    const activePane = document.querySelector('.view-pane.active');
+    if (!activePane) return;
+    const items = activePane.querySelectorAll('.row, .group-card');
+    items.forEach(item => {
+      if (!q) { item.style.display = ''; return; }
+      const project = (item.getAttribute('data-project') || '').toLowerCase();
+      const text = item.textContent.toLowerCase();
+      item.style.display = (project.includes(q) || text.includes(q)) ? '' : 'none';
+    });
+  }
+  searchInput.addEventListener('input', applySearchFilter);
+
+  tabs.forEach(t => t.addEventListener('click', () => {
+    const v = t.dataset.view;
+    tabs.forEach(x => x.classList.toggle('active', x === t));
+    panes.forEach(p => p.classList.toggle('active', p.id === `view-${v}`));
+    document.getElementById('pageTitle').textContent = titleMap[v];
+    document.querySelector('.sub-row-2').style.display = filterPillsVisible[v] ? 'flex' : 'none';
+    applySearchFilter();
+  }));
+</script>
+</body>
+</html>

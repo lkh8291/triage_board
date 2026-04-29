@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "FND-2026-04-29-W01",
+  "report_id": "RPT-2026-04-29-A",
+  "domain": "web",
+  "category": "xss-reflected",
+  "severity": "high",
+
+  "project": "ecom",
+
+  "agent": "ai-scanner-v0.3",
+  "discovered_at": "2026-04-29T03:14:00Z",
+
+  "target": {
+    "url": "https://store.example.com/api/users/profile",
+    "method": "GET",
+    "endpoint": "/api/users/profile",
+    "parameter": "name",
+    "parameter_location": "query",
+    "auth_required": true,
+    "user_role_when_found": "authenticated_user"
+  },
+
+  "evidence": {
+    "request_raw": "GET /api/users/profile?name=%3Cscript%3Ealert(1)%3C%2Fscript%3E HTTP/1.1\nHost: store.example.com\nCookie: session=REDACTED\nUser-Agent: Mozilla/5.0\n",
+    "response_status": 200,
+    "response_headers": {
+      "content-type": "text/html; charset=utf-8",
+      "content-security-policy": null,
+      "x-frame-options": null,
+      "x-xss-protection": null
+    },
+    "response_excerpt": "<!doctype html>...<div class=\"username\"><script>alert(1)</script></div>...",
+    "payload": "<script>alert(1)</script>",
+    "injection_point": "name parameter -> HTML body context (.username div innerHTML)",
+    "reproducer_curl": "curl -i 'https://store.example.com/api/users/profile?name=%3Cscript%3Ealert(1)%3C%2Fscript%3E' -b 'session=REDACTED'",
+    "screenshot": "evidence/FND-2026-04-29-W01.png"
+  },
+
+  "ai_confidence": 0.87,
+  "ai_rationale": "name 파라미터가 HTML 응답 본문에 unescaped로 반영됨 (.username div). Content-Security-Policy 헤더 미설정. 인증된 세션에서 1-shot 재현. WAF 우회 여부는 운영 환경에서 확인 필요.",
+
+  "cve": null,
+  "cwe": "CWE-79",
+  "owasp_category": "A03:2021 — Injection",
+
+  "remediation_hint": "name 파라미터를 HTML 출력 시 HTML escape 적용 (예: lodash.escape, DOMPurify, 또는 템플릿 엔진의 auto-escape). 추가로 Content-Security-Policy 헤더 (script-src 'self') 도입 권장. 영향 화면: user 프로필, 사용자 목록(stored 가능성 검증 필요)."
+}

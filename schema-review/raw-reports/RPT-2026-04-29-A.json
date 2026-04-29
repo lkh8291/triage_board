@@ -1,0 +1,82 @@
+{
+  "_comment": "이 파일은 AI 스캐너가 뱉은 raw 원본입니다. scripts/upload-report.mjs가 이 입력을 정규화해서 findings/FND-*.json 으로 분리·등록합니다. raw도 함께 commit되어 트리아지 담당자가 컨텍스트 확인용으로 조회 가능.",
+
+  "report_id": "RPT-2026-04-29-A",
+  "project": "ecom",
+  "scanner": "ai-scanner-v0.3",
+  "scanner_version_sha": "9f8a3b2",
+  "scan_id": "scan-2026-04-29-1714",
+  "started_at": "2026-04-29T03:10:00Z",
+  "completed_at": "2026-04-29T03:14:00Z",
+  "duration_seconds": 240,
+  "target_root": "https://store.example.com",
+  "scan_profile": "active-auth-medium",
+  "auth_session": "REDACTED-session-token",
+
+  "uploader": {
+    "github": "alice",
+    "uploaded_at": "2026-04-29T03:18:00Z",
+    "curation_pass_count": 1
+  },
+
+  "human_curation_notes": "AI가 뱉은 5건 중 4건만 정식 finding으로 등록. 1건(banner-server-disclosure)은 의도된 dev banner라 제외. 자세한 사유는 raw_findings[4].curation_decision 참조.",
+
+  "raw_findings": [
+    {
+      "raw_idx": 0,
+      "type": "xss-reflected",
+      "severity_estimate": "high",
+      "url": "/api/users/profile?name=",
+      "method": "GET",
+      "ai_confidence": 0.87,
+      "ai_notes": "name 파라미터가 HTML에 unescaped로 반영. 인증 세션에서 1-shot 재현. CSP 미설정.",
+      "curation_decision": "accepted → FND-2026-04-29-W01"
+    },
+    {
+      "raw_idx": 1,
+      "type": "idor",
+      "severity_estimate": "high",
+      "url": "/api/users/3127/orders",
+      "method": "GET",
+      "ai_confidence": 0.81,
+      "ai_notes": "다른 user_id의 주문 목록 ownership check 없이 조회 가능. 테스트 user_id=2로 user_id=3127 조회 성공.",
+      "curation_decision": "accepted → FND-2026-04-29-W02"
+    },
+    {
+      "raw_idx": 2,
+      "type": "sqli-blind",
+      "severity_estimate": "medium",
+      "url": "/api/orders/search?q=",
+      "method": "GET",
+      "ai_confidence": 0.62,
+      "ai_notes": "boolean-based blind SQLi 의심. q=' OR '1'='1 응답 변화 관찰. WAF 적용 여부 미확인.",
+      "curation_decision": "accepted → FND-2026-04-29-W03"
+    },
+    {
+      "raw_idx": 3,
+      "type": "header-x-frame-options-missing",
+      "severity_estimate": "low",
+      "url": "/",
+      "method": "GET",
+      "ai_confidence": 0.99,
+      "ai_notes": "X-Frame-Options 헤더 미설정. clickjacking 가능성.",
+      "curation_decision": "deferred → 별도 batch에서 일괄 처리 (이번 report에는 포함 안 함)"
+    },
+    {
+      "raw_idx": 4,
+      "type": "banner-server-disclosure",
+      "severity_estimate": "info",
+      "url": "/",
+      "method": "GET",
+      "ai_confidence": 0.95,
+      "ai_notes": "Server: nginx/1.24.0 헤더에서 버전 노출.",
+      "curation_decision": "rejected — 의도된 dev environment banner. prod에서는 별도 처리 중. AI training set에서도 제외 권장."
+    }
+  ],
+
+  "sibling_finding_ids": [
+    "FND-2026-04-29-W01",
+    "FND-2026-04-29-W02",
+    "FND-2026-04-29-W03"
+  ]
+}

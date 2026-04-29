@@ -1,0 +1,16 @@
+{
+  "id": "FND-2026-04-29-D01",
+  "report_id": "RPT-2026-04-29-C",
+  "project": "iot-camera",
+  "domain": "device",
+  "category": "default-credential-telnet",
+  "severity": "critical",
+  "title": "default-credential-telnet",
+  "agent": "device-scanner-v0.1",
+  "discovered_at": "2026-04-29T08:11:00Z",
+  "target": {
+    "port": 23
+  },
+  "ai_confidence": 0.96,
+  "ai_rationale": "admin:admin → root shell. firmware 2.1.7 동일 모델 ~340대 영향 추정. /etc/shadow에서 default credential 하드코딩 확인."
+}

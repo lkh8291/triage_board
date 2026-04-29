@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "FND-2026-04-29-A02",
+  "report_id": "RPT-2026-04-29-B",
+  "domain": "android",
+  "category": "exposed-component-payment-bypass",
+  "severity": "high",
+
+  "project": "mobile-app",
+
+  "agent": "android-scanner-v0.2",
+  "discovered_at": "2026-04-29T05:22:00Z",
+
+  "target": {
+    "package": "com.example.shopping",
+    "version_name": "3.4.1",
+    "version_code": 341,
+    "build_type": "release",
+    "min_sdk": 24,
+    "target_sdk": 34,
+
+    "component_type": "activity",
+    "component_class": "com.example.shopping.checkout.PaymentActivity",
+    "exported": true,
+    "permission_required": null,
+    "intent_filter": {
+      "actions": ["android.intent.action.VIEW"],
+      "categories": ["android.intent.category.DEFAULT", "android.intent.category.BROWSABLE"],
+      "data_scheme": "shopping",
+      "data_host": "pay"
+    },
+    "deeplink_example": "shopping://pay?amount=0&item=xxx",
+
+    "apk_sha256": "9c1f5e...truncated...a3b7"
+  },
+
+  "evidence": {
+    "manifest_excerpt": "<activity\n    android:name=\".checkout.PaymentActivity\"\n    android:exported=\"true\"\n    android:launchMode=\"singleTop\">\n  <intent-filter android:autoVerify=\"false\">\n    <action android:name=\"android.intent.action.VIEW\"/>\n    <category android:name=\"android.intent.category.DEFAULT\"/>\n    <category android:name=\"android.intent.category.BROWSABLE\"/>\n    <data android:scheme=\"shopping\" android:host=\"pay\"/>\n  </intent-filter>\n</activity>",
+
+    "code_excerpt": "// PaymentActivity.kt (decompiled)\noverride fun onCreate(savedInstanceState: Bundle?) {\n    super.onCreate(savedInstanceState)\n    val amount = intent.getStringExtra(\"amount\")?.toLongOrNull() ?: 0L\n    val itemId = intent.getStringExtra(\"item\")\n    // ⚠ amount 검증 없이 결제 흐름으로 진행\n    processPayment(amount, itemId)\n}",
+
+    "logcat_excerpt": "I/PaymentActivity: onCreate amount=0 item=xxx\nI/PaymentActivity: processPayment start\nI/PaymentService: charge_request amount=0 ok\nI/PaymentActivity: payment success",
+
+    "intent_reproducer": "adb shell am start -W -a android.intent.action.VIEW -d 'shopping://pay?amount=0&item=xxx' com.example.shopping",
+
+    "screenshot": "evidence/FND-2026-04-29-A02-screen.png",
+    "video": "evidence/FND-2026-04-29-A02-flow.mp4"
+  },
+
+  "ai_confidence": 0.74,
+  "ai_rationale": "PaymentActivity가 exported=true이고 deeplink (shopping://pay)로 외부 앱·브라우저가 호출 가능. amount 파라미터가 long 변환만 거치고 0 또는 음수에 대한 검증·서버 사이드 재검증 미확인. 0원 결제 트리거 후 logcat에서 'payment success' 확인. 서버에서 final amount 재검증 여부는 별도 점검 필요.",
+
+  "cve": null,
+  "cwe": "CWE-926",
+  "mstg_reference": "MSTG-PLATFORM-3 (Activity exported without proper permission check)",
+
+  "remediation_hint": "1) PaymentActivity exported=false로 변경 또는 서명 권한(<permission android:protectionLevel=\"signature\">)으로 보호. 2) deeplink 진입 시 사용자 명시적 확인 단계 추가 (결제 금액 + 'OK' 버튼). 3) 서버 사이드에서 cart 기준 최종 amount 재검증 (클라이언트 입력값 신뢰 ❌). 영향: 결제 모듈 전반."
+}

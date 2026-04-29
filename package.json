@@ -1,0 +1,10 @@
+{
+  "name": "triage-board",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "upload": "node scripts/upload-report.mjs",
+    "serve": "python3 -m http.server 8080"
+  }
+}

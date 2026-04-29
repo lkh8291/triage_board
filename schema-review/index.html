@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Schema Review · AI Triage Board</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%;
+    font-family: 'Inter',-apple-system,sans-serif; background: #0a0a0a; color: #e6e6e6;
+    overflow: hidden; }
+  body { display: flex; flex-direction: column; }
+  .content { flex: 1; min-height: 0; position: relative; }
+  header {
+    flex: 0 0 auto;
+    padding: 12px 20px; border-bottom: 1px solid #1a1a1a; background: #000;
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  }
+  header .title { font-weight: 600; margin-right: 16px; }
+  header .label { font-size: 12px; color: #6b6b6b; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 4px; }
+  .tab { padding: 6px 12px; border: 1px solid #1a1a1a; background: #111; color: #ccc;
+    cursor: pointer; font-size: 13px; border-radius: 4px; font-family: inherit; line-height: 1.3;
+    display: inline-flex; align-items: center; gap: 6px; }
+  .tab:hover { border-color: #444; color: #fff; }
+  .tab.active { background: #5e6ad2; color: #fff; border-color: #5e6ad2; font-weight: 500; }
+  .tab .id { font-family: 'JetBrains Mono',monospace; font-weight: 700; opacity: 0.8; }
+  .tab.kind-json { background: #0c1f17; color: #3ddc84; border-color: #1a3329; }
+  .tab.kind-json:hover { border-color: #3ddc84; }
+  .tab.kind-json.active { background: #3ddc84; color: #000; }
+  .tab.kind-html { background: #1a1730; color: #a78bfa; border-color: #2d2452; }
+  .tab.kind-html:hover { border-color: #a78bfa; }
+  .tab.kind-html.active { background: #a78bfa; color: #000; }
+  .tab.kind-spa { background: #1f2937; color: #fbbf24; border-color: #3a4554; font-weight: 600; }
+  .tab.kind-spa:hover { border-color: #fbbf24; }
+  .tab.kind-spa.active { background: #fbbf24; color: #000; }
+
+  .open-link { margin-left: auto; color: #6b6b6b; text-decoration: none;
+    font-size: 12px; padding: 6px 12px; border: 1px solid #1a1a1a; border-radius: 4px; }
+  .open-link:hover { color: #5e6ad2; border-color: #5e6ad2; }
+  .readme-btn { color: #6b6b6b; cursor: pointer; font-size: 12px; padding: 6px 12px;
+    border: 1px solid #1a1a1a; border-radius: 4px; background: #111; }
+  .readme-btn.active { color: #f59e0b; border-color: #f59e0b; }
+
+  iframe { width: 100%; height: 100%; border: 0; background: #fff; display: block; }
+  pre.json-view { width: 100%; height: 100%; margin: 0; padding: 24px;
+    background: #0a0a0a; color: #e6e6e6; overflow: auto; font-family: 'JetBrains Mono',monospace;
+    font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-all;
+    box-sizing: border-box; }
+  pre.json-view.error { color: #f87171; }
+</style>
+</head>
+<body>
+<header>
+  <span class="title">Schema Review</span>
+  <button class="tab kind-spa active" data-src="spa-main.html">🏠 SPA 메인 (multi-domain)</button>
+  <span class="label" style="margin-left: 12px;">web</span>
+  <button class="tab kind-html" data-src="web-finding.html"><span class="id">W</span> HTML</button>
+  <button class="tab kind-json" data-src="web-finding.json"><span class="id">W</span> JSON</button>
+  <span class="label" style="margin-left: 12px;">android</span>
+  <button class="tab kind-html" data-src="android-finding.html"><span class="id">A</span> HTML</button>
+  <button class="tab kind-json" data-src="android-finding.json"><span class="id">A</span> JSON</button>
+  <span class="label" style="margin-left: 12px;">device</span>
+  <button class="tab kind-html" data-src="device-finding.html"><span class="id">D</span> HTML</button>
+  <button class="tab kind-json" data-src="device-finding.json"><span class="id">D</span> JSON</button>
+  <button class="readme-btn" id="readmeBtn" data-src="README.md">📖 README</button>
+  <a class="open-link" id="openLink" href="spa-main.html" target="_blank">↗ 새 탭</a>
+</header>
+
+<div class="content">
+  <iframe id="frame" src="spa-main.html"></iframe>
+  <pre class="json-view" id="jsonView" style="display:none;"></pre>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const frame = document.getElementById('frame');
+  const jsonView = document.getElementById('jsonView');
+  const openLink = document.getElementById('openLink');
+  const readmeBtn = document.getElementById('readmeBtn');
+
+  function show(src) {
+    openLink.href = src;
+    if (src.endsWith('.json') || src.endsWith('.md')) {
+      frame.style.display = 'none';
+      jsonView.style.display = 'block';
+      jsonView.classList.remove('error');
+      jsonView.textContent = '로딩 중… ' + src;
+      fetch(src)
+        .then(r => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then(t => { jsonView.textContent = t; })
+        .catch(e => {
+          jsonView.classList.add('error');
+          jsonView.textContent = '⚠ 로드 실패: ' + src + '\n\n' + e.message + '\n\nfile:// 로 직접 열려있다면 fetch가 차단됩니다. 로컬 서버(http://127.0.0.1:8770/)로 접속해주세요.';
+        });
+    } else {
+      jsonView.style.display = 'none';
+      frame.style.display = 'block';
+      frame.src = src;
+    }
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    readmeBtn.classList.remove('active');
+    t.classList.add('active');
+    show(t.dataset.src);
+  }));
+
+  readmeBtn.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    readmeBtn.classList.add('active');
+    show(readmeBtn.dataset.src);
+  });
+</script>
+</body>
+</html>

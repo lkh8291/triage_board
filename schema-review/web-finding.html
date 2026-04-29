@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Schema Review · Web Finding · FND-2026-04-29-W01</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --surface: #fff; --border: #e6e6e9; --border-strong: #d4d4d8;
+    --text: #0d0d10; --text-2: #6b7280; --text-3: #9ca3af;
+    --indigo: #5e6ad2; --indigo-soft: #eef0fb;
+    --crit: #e5484d; --high: #f76808; --med: #f5a524; --low: #8b8d98;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: 'Inter',-apple-system,sans-serif; font-size: 14px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono','Fira Code',ui-monospace,monospace; }
+
+  header.top { background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 10px 24px; display: flex; align-items: center; gap: 16px; }
+  .crumbs { color: var(--text-2); font-size: 13px; }
+  .crumbs strong { color: var(--text); font-weight: 600; }
+  .crumbs .domain-pill {
+    background: var(--indigo-soft); color: var(--indigo);
+    padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600;
+    margin-left: 8px; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+
+  main { max-width: 1100px; margin: 24px auto; padding: 0 24px; display: grid;
+    grid-template-columns: 1fr 320px; gap: 24px; align-items: start; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 24px; margin-bottom: 16px; }
+  .card h2 { margin: 0 0 14px; font-size: 13px; font-weight: 600; color: var(--text-3);
+    text-transform: uppercase; letter-spacing: 0.08em; }
+  .card h2 .schema-key {
+    margin-left: 8px; font-family: 'JetBrains Mono',monospace;
+    color: var(--text-2); text-transform: none; letter-spacing: 0; font-weight: 400;
+    font-size: 11px;
+  }
+
+  .meta-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .id-block { font-family: 'JetBrains Mono',monospace; font-size: 14px; color: var(--text); font-weight: 500; }
+  .sev-pill { padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase; }
+  .sev-pill.high { background: rgba(247,104,8,0.12); color: var(--high); }
+  .cat-chip { background: var(--bg); border: 1px solid var(--border); padding: 2px 10px;
+    border-radius: 999px; font-size: 12px; color: var(--text-2); }
+
+  h1.headline { font-size: 22px; line-height: 1.3; font-weight: 600;
+    margin: 4px 0 16px; letter-spacing: -0.01em; }
+
+  .kv-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .kv-table th { text-align: left; padding: 6px 12px 6px 0; color: var(--text-3);
+    font-weight: 500; vertical-align: top; width: 180px;
+    font-family: 'JetBrains Mono',monospace; font-size: 12px; }
+  .kv-table td { padding: 6px 0; vertical-align: top; word-break: break-word; }
+  .kv-table td.mono { font-family: 'JetBrains Mono',monospace; font-size: 12.5px; color: var(--text); }
+  .kv-table td .null { color: var(--text-3); font-style: italic; }
+  .kv-table td .bool-true { color: #166534; font-weight: 500; }
+  .kv-table td .bool-false { color: var(--text-2); }
+
+  pre.code { background: #fafafa; border: 1px solid var(--border); border-radius: 6px;
+    padding: 12px 14px; font-family: 'JetBrains Mono',monospace; font-size: 12px;
+    line-height: 1.6; overflow-x: auto; color: #1f2937; margin: 0; }
+
+  .ai-conf-bar { display: flex; align-items: center; gap: 10px; }
+  .ai-conf-bar .bar { flex: 1; max-width: 200px; height: 6px;
+    background: var(--border); border-radius: 3px; overflow: hidden; position: relative; }
+  .ai-conf-bar .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--indigo); }
+  .ai-conf-bar .num { font-family: 'JetBrains Mono',monospace; font-size: 16px;
+    font-weight: 600; color: var(--text); }
+
+  .triage-actions { display: flex; flex-direction: column; gap: 12px; padding: 16px 24px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 16px; }
+  .triage-row { display: flex; gap: 8px; align-items: center; }
+  .btn { padding: 7px 14px; border-radius: 6px; font-family: inherit; font-size: 13px;
+    font-weight: 500; cursor: pointer; border: 1px solid transparent; }
+  .btn.tp { background: #166534; color: #fff; border-color: #166534; }
+  .btn.fp { background: var(--surface); color: var(--text); border-color: var(--border); }
+  .btn.fp:hover { border-color: #b91c1c; color: #b91c1c; }
+  .btn.skip { background: transparent; color: var(--text-2); border-color: transparent; }
+  .triage-rationale { width: 100%; min-height: 56px; resize: vertical;
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px;
+    font-family: inherit; font-size: 13px; line-height: 1.55; color: var(--text);
+    background: var(--bg); }
+  .triage-rationale:focus { outline: none; border-color: var(--indigo);
+    background: var(--surface); }
+  .triage-count { margin-left: auto; color: var(--text-2); font-size: 12px; }
+  .triage-count a { color: var(--indigo); text-decoration: none; font-weight: 500; }
+  .triage-count a:hover { text-decoration: underline; }
+  .triage-count.empty { color: var(--text-3); }
+
+  .triage-opinion { padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px;
+    margin-bottom: 10px; }
+  .triage-opinion.tp { border-left: 3px solid #166534; }
+  .triage-opinion.fp { border-left: 3px solid #b91c1c; }
+  .opinion-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .opinion-av { width: 22px; height: 22px; border-radius: 50%; color: #fff;
+    font-size: 10px; font-weight: 600; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0; }
+  .opinion-av.alice { background: #ec4899; }
+  .opinion-av.bob { background: #06b6d4; }
+  .opinion-av.charlie { background: #84cc16; }
+  .opinion-name { font-weight: 600; color: var(--text); font-size: 13px; }
+  .verdict-badge { font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+  .verdict-badge.tp { background: #dcfce7; color: #166534; }
+  .verdict-badge.fp { background: #fee2e2; color: #991b1b; }
+  .opinion-ts { margin-left: auto; color: var(--text-3); font-size: 11px;
+    font-family: 'JetBrains Mono',monospace; }
+  .opinion-rationale { color: var(--text); font-size: 13px; line-height: 1.6;
+    margin: 0; }
+  .opinion-rationale.empty { color: var(--text-3); font-style: italic; }
+
+  /* sidebar */
+  aside .card { padding: 16px 18px; }
+  aside .card h2 { margin-bottom: 10px; }
+  aside .field { font-size: 13px; margin-bottom: 8px; }
+  aside .field .label { color: var(--text-3); display: block; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 2px; }
+  aside .field .value { color: var(--text); font-weight: 500; }
+  aside .field .value.mono { font-family: 'JetBrains Mono',monospace; font-weight: 400; font-size: 12px; }
+
+  .schema-note { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px;
+    padding: 10px 14px; font-size: 12px; color: #78350f; margin-bottom: 16px; }
+  .schema-note strong { color: #92400e; }
+
+  .summary-card p { margin: 0; line-height: 1.7; font-size: 14px; color: var(--text); }
+  .summary-card code { font-family: 'JetBrains Mono',monospace; font-size: 12.5px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+    padding: 1px 5px; color: var(--text); }
+
+  .footer-note { color: var(--text-3); font-size: 11px; padding: 24px; text-align: center; }
+
+  /* report context banner */
+  .report-context { display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+    background: #fafafa; border: 1px solid var(--border); border-radius: 8px;
+    font-size: 13px; margin-bottom: 12px; flex-wrap: wrap; }
+  .report-context .ctx-label { color: var(--text-3); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  .report-context .ctx-id { font-family: 'JetBrains Mono',monospace; color: var(--text); font-weight: 500; }
+  .report-context .ctx-meta { color: var(--text-2); font-size: 12px; }
+  .report-context .ctx-spacer { margin-left: auto; }
+  .report-context button { padding: 6px 12px; border: 1px solid var(--indigo);
+    background: var(--surface); color: var(--indigo); border-radius: 6px;
+    font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px; }
+  .report-context button:hover { background: var(--indigo-soft); }
+
+  /* drawer */
+  .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+    opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100; }
+  .drawer-panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(720px, 95vw);
+    background: var(--surface); box-shadow: -8px 0 32px rgba(0,0,0,0.18);
+    transform: translateX(100%); transition: transform 0.25s; z-index: 101;
+    display: flex; flex-direction: column; }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer-panel.open { transform: translateX(0); }
+  .drawer-head { padding: 16px 24px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .drawer-head h2 { margin: 0; font-size: 16px; font-weight: 600; }
+  .drawer-head .close { margin-left: auto; background: transparent; border: 0;
+    cursor: pointer; font-size: 20px; color: var(--text-2); padding: 4px 8px;
+    border-radius: 4px; }
+  .drawer-head .close:hover { background: var(--bg); color: var(--text); }
+  .drawer-body { flex: 1; overflow-y: auto; padding: 16px 24px; }
+  .drawer-section { margin-bottom: 24px; }
+  .drawer-section h3 { margin: 0 0 8px; font-size: 12px; font-weight: 600;
+    color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .drawer-section .meta-grid { display: grid; grid-template-columns: 140px 1fr; gap: 4px 12px;
+    font-size: 13px; }
+  .drawer-section .meta-grid .k { color: var(--text-3); font-family: 'JetBrains Mono',monospace; font-size: 12px; }
+  .drawer-section .meta-grid .v { color: var(--text); }
+  .drawer-section .meta-grid .v.mono { font-family: 'JetBrains Mono',monospace; font-size: 12.5px; }
+  .curation-note { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px;
+    padding: 10px 12px; font-size: 13px; line-height: 1.55; color: #78350f; }
+  .raw-item { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+    margin-bottom: 8px; font-size: 13px; }
+  .raw-item.accepted { border-left: 3px solid #16a34a; }
+  .raw-item.rejected { border-left: 3px solid var(--crit); background: #fff7f7; }
+  .raw-item.deferred { border-left: 3px solid var(--med); background: #fffaf0; }
+  .raw-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+  .raw-type { font-family: 'JetBrains Mono',monospace; font-weight: 600; color: var(--text); }
+  .raw-sev { font-size: 11px; padding: 1px 6px; border-radius: 4px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.04em; }
+  .raw-sev.critical { background: rgba(229,72,77,0.12); color: var(--crit); }
+  .raw-sev.high { background: rgba(247,104,8,0.12); color: var(--high); }
+  .raw-sev.medium { background: rgba(245,165,36,0.16); color: #92400e; }
+  .raw-sev.low, .raw-sev.info { background: var(--bg); color: var(--low); }
+  .raw-conf { color: var(--text-2); font-size: 12px; font-family: 'JetBrains Mono',monospace; margin-left: auto; }
+  .raw-notes { color: var(--text-2); margin-bottom: 6px; line-height: 1.55; }
+  .raw-decision { font-size: 12px; padding: 4px 8px; border-radius: 4px; display: inline-block;
+    font-family: 'JetBrains Mono',monospace; }
+  .raw-decision.accepted { background: rgba(22,163,74,0.1); color: #15803d; }
+  .raw-decision.rejected { background: rgba(229,72,77,0.1); color: #991b1b; }
+  .raw-decision.deferred { background: rgba(245,165,36,0.18); color: #92400e; }
+  .drawer-footer { padding: 12px 24px; border-top: 1px solid var(--border); flex-shrink: 0;
+    display: flex; gap: 12px; align-items: center; }
+  .drawer-footer a { color: var(--indigo); text-decoration: none; font-size: 13px; font-family: 'JetBrains Mono',monospace; }
+  .drawer-footer a:hover { text-decoration: underline; }
+  .drawer-error { background: #fef2f2; border: 1px solid var(--crit); color: #7f1d1d;
+    padding: 12px; border-radius: 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="crumbs">org / <strong>triage-board</strong> / Findings / <strong>FND-2026-04-29-W01</strong>
+    <span class="domain-pill">WEB</span></div>
+</header>
+
+<main>
+
+  <!-- LEFT MAIN COLUMN -->
+  <div>
+
+    <div class="schema-note">
+      <strong>Schema review note</strong>: 이 페이지는 <code>web-finding.json</code>의 모든 필드가 트리아지 화면에서 어떻게 보이는지 시연하는 mock입니다. 점검자는 어떤 필드가 빠져있어야 하는지·있으면 좋은지·이름이 적절한지 의견 부탁드립니다.
+    </div>
+
+    <!-- HEADER CARD -->
+    <div class="card">
+      <div class="meta-row">
+        <span class="id-block">FND-2026-04-29-W01</span>
+        <span class="sev-pill high">HIGH</span>
+        <span class="cat-chip">xss-reflected</span>
+        <span class="cat-chip" style="color:#9ca3af">CWE-79</span>
+        <span class="cat-chip" style="color:#9ca3af">OWASP A03:2021</span>
+      </div>
+      <h1 class="headline">Reflected XSS in user profile <code class="mono">name</code> parameter</h1>
+      <div class="meta-row" style="color: var(--text-2); font-size: 12.5px;">
+        <span>found by <strong style="color:var(--text)">ai-scanner-v0.3</strong></span>
+        <span>·</span>
+        <span>2026-04-29 03:14 UTC</span>
+        <span>·</span>
+        <span>report <span class="mono">RPT-2026-04-29-A</span></span>
+      </div>
+    </div>
+
+    <!-- SUMMARY CARD -->
+    <div class="card summary-card">
+      <h2>Summary</h2>
+      <p>본 취약점은 <code>GET /api/users/profile</code>의 user profile 렌더러에서 <code>name</code> 쿼리 파라미터가 HTML 응답 본문에 unescaped로 반영되는 이유로 reflected XSS가 가능한 취약점입니다. 이로 인해 공격자는 인증된 세션을 가진 피해자가 조작된 URL을 클릭할 경우 피해자의 브라우저에서 임의 JavaScript를 실행해 세션 쿠키 탈취 등을 할 수 있습니다.</p>
+    </div>
+
+    <!-- REPORT CONTEXT -->
+    <div class="report-context">
+      <span class="ctx-label">report:</span>
+      <span class="ctx-id">RPT-2026-04-29-A</span>
+      <span class="ctx-meta">2 other findings in this report · uploaded by alice · 2h ago · ai-scanner-v0.3</span>
+      <span class="ctx-spacer"></span>
+      <button onclick="openReportDrawer('RPT-2026-04-29-A')">📄 View original report</button>
+    </div>
+
+    <!-- TRIAGE ACTIONS -->
+    <div class="triage-actions">
+      <div class="triage-row">
+        <button class="btn tp">Mark True Positive</button>
+        <button class="btn fp">Mark False Positive</button>
+        <button class="btn skip">Need more info →</button>
+        <span class="triage-count">2명 트리아지함 (split) · <a href="#" onclick="openTriageDrawer(); return false;">의견 보기 →</a></span>
+      </div>
+      <textarea class="triage-rationale" placeholder="판정 근거 (선택) — 다른 점검자도 볼 수 있는 메모. TP/FP를 누르면 함께 기록됩니다."></textarea>
+    </div>
+
+    <!-- TARGET CARD -->
+    <div class="card">
+      <h2>Target <span class="schema-key">target.*</span></h2>
+      <table class="kv-table">
+        <tr><th>url</th><td class="mono">https://store.example.com/api/users/profile</td></tr>
+        <tr><th>method</th><td class="mono">GET</td></tr>
+        <tr><th>endpoint</th><td class="mono">/api/users/profile</td></tr>
+        <tr><th>parameter</th><td class="mono">name</td></tr>
+        <tr><th>parameter_location</th><td class="mono">query</td></tr>
+        <tr><th>auth_required</th><td><span class="bool-true">✓ true</span></td></tr>
+        <tr><th>user_role_when_found</th><td class="mono">authenticated_user</td></tr>
+      </table>
+    </div>
+
+    <!-- EVIDENCE CARD -->
+    <div class="card">
+      <h2>Evidence <span class="schema-key">evidence.*</span></h2>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">request_raw</div>
+        <pre class="code">GET /api/users/profile?name=%3Cscript%3Ealert(1)%3C%2Fscript%3E HTTP/1.1
+Host: store.example.com
+Cookie: session=REDACTED
+User-Agent: Mozilla/5.0</pre>
+      </div>
+
+      <table class="kv-table" style="margin-bottom: 14px;">
+        <tr><th>response_status</th><td class="mono">200</td></tr>
+        <tr><th>content-type</th><td class="mono">text/html; charset=utf-8</td></tr>
+        <tr><th>content-security-policy</th><td><span class="null">null (missing) ⚠</span></td></tr>
+        <tr><th>x-frame-options</th><td><span class="null">null (missing)</span></td></tr>
+        <tr><th>x-xss-protection</th><td><span class="null">null (missing)</span></td></tr>
+        <tr><th>injection_point</th><td>name parameter → HTML body context (<code class="mono">.username</code> div innerHTML)</td></tr>
+      </table>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">response_excerpt</div>
+        <pre class="code">&lt;!doctype html&gt;...&lt;div class="username"&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;/div&gt;...</pre>
+        <div style="font-size: 11px; color: var(--text-3); margin-top: 4px;">⚠ 보드 렌더 시 textContent로 escape됨 — 이 영역은 절대 innerHTML로 넣지 않음</div>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">payload</div>
+        <pre class="code">&lt;script&gt;alert(1)&lt;/script&gt;</pre>
+      </div>
+
+      <div>
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">reproducer_curl</div>
+        <pre class="code">curl -i 'https://store.example.com/api/users/profile?name=%3Cscript%3Ealert(1)%3C%2Fscript%3E' \
+  -b 'session=REDACTED'</pre>
+      </div>
+    </div>
+
+    <!-- AI ANALYSIS CARD -->
+    <div class="card">
+      <h2>AI analysis <span class="schema-key">ai_*</span></h2>
+      <div style="margin-bottom: 12px;">
+        <div style="font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">ai_confidence</div>
+        <div class="ai-conf-bar">
+          <div class="bar"><i style="width:87%"></i></div>
+          <div class="num">0.87</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">ai_rationale</div>
+        <p style="margin: 0; line-height: 1.65;">name 파라미터가 HTML 응답 본문에 unescaped로 반영됨 (<code class="mono">.username</code> div). Content-Security-Policy 헤더 미설정. 인증된 세션에서 1-shot 재현. WAF 우회 여부는 운영 환경에서 확인 필요.</p>
+      </div>
+    </div>
+
+    <!-- REMEDIATION CARD -->
+    <div class="card">
+      <h2>Remediation hint <span class="schema-key">remediation_hint</span></h2>
+      <p style="margin: 0; line-height: 1.65;">name 파라미터를 HTML 출력 시 HTML escape 적용 (예: lodash.escape, DOMPurify, 또는 템플릿 엔진의 auto-escape). 추가로 Content-Security-Policy 헤더 (<code class="mono">script-src 'self'</code>) 도입 권장. <strong>영향 화면</strong>: user 프로필, 사용자 목록(stored 가능성 검증 필요).</p>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside>
+
+    <div class="card">
+      <h2>Classification</h2>
+      <div class="field"><span class="label">domain</span><span class="value">web</span></div>
+      <div class="field"><span class="label">category</span><span class="value mono">xss-reflected</span></div>
+      <div class="field"><span class="label">severity</span><span class="value" style="color: var(--high);">HIGH</span></div>
+      <div class="field"><span class="label">cwe</span><span class="value mono">CWE-79</span></div>
+      <div class="field"><span class="label">owasp_category</span><span class="value">A03:2021 — Injection</span></div>
+      <div class="field"><span class="label">cve</span><span class="value" style="color:var(--text-3); font-style:italic;">null</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Asset</h2>
+      <div class="field"><span class="label">project</span><span class="value mono">ecom</span></div>
+      <div class="field"><span class="label">scan target</span><span class="value mono">store.example.com</span></div>
+      <div class="field"><span class="label">report_id</span><span class="value mono">RPT-2026-04-29-A</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Schema fields used</h2>
+      <ul style="margin: 0; padding-left: 16px; font-size: 12px; line-height: 1.7; color: var(--text-2); font-family: 'JetBrains Mono',monospace;">
+        <li>schema_version</li>
+        <li>id, report_id</li>
+        <li>domain, category, severity</li>
+        <li>project</li>
+        <li>agent, discovered_at</li>
+        <li>target.{url, method, endpoint, parameter, parameter_location, auth_required, user_role_when_found}</li>
+        <li>evidence.{request_raw, response_status, response_headers, response_excerpt, payload, injection_point, reproducer_curl, screenshot}</li>
+        <li>ai_confidence, ai_rationale</li>
+        <li>cve, cwe, owasp_category</li>
+        <li>remediation_hint</li>
+      </ul>
+    </div>
+
+  </aside>
+
+</main>
+
+<div class="footer-note">schema-review/web-finding.json + web-finding.html · 2026-04-29</div>
+
+<!-- ORIGINAL REPORT DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeReportDrawer()"></div>
+<aside class="drawer-panel" id="drawerPanel" role="dialog" aria-labelledby="drawerTitle" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="drawerTitle">Original report</h2>
+    <button class="close" onclick="closeReportDrawer()" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <div style="color: var(--text-3); font-size: 13px;">로딩 중…</div>
+  </div>
+  <div class="drawer-footer" id="drawerFooter"></div>
+</aside>
+
+<!-- TRIAGE OPINIONS DRAWER -->
+<div class="drawer-overlay" id="triageOverlay" onclick="closeTriageDrawer()"></div>
+<aside class="drawer-panel" id="triagePanel" role="dialog" aria-labelledby="triageTitle" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="triageTitle">Triage opinions — 2건 (split)</h2>
+    <button class="close" onclick="closeTriageDrawer()" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body">
+    <p style="color: var(--text-2); font-size: 12px; margin: 0 0 14px;">같은 finding을 본 점검자들의 판정과 근거. 의견이 갈리면 (split) 추가 검토가 필요합니다.</p>
+
+    <div class="triage-opinion tp">
+      <div class="opinion-head">
+        <span class="opinion-av alice">a</span>
+        <span class="opinion-name">alice</span>
+        <span class="verdict-badge tp">TP</span>
+        <span class="opinion-ts">2026-04-29 05:22 UTC</span>
+      </div>
+      <p class="opinion-rationale">name 파라미터 unescape 확인. 인증 세션에서 1-shot 재현 성공. <code class="mono">.username</code> div가 innerHTML 사용. CSP 미설정으로 inline script 실행 가능 — 운영 환경 그대로 영향.</p>
+    </div>
+
+    <div class="triage-opinion fp">
+      <div class="opinion-head">
+        <span class="opinion-av bob">b</span>
+        <span class="opinion-name">bob</span>
+        <span class="verdict-badge fp">FP</span>
+        <span class="opinion-ts">2026-04-29 06:01 UTC</span>
+      </div>
+      <p class="opinion-rationale">staging 환경 한정. 운영(<code class="mono">store.example.com</code>) 직접 시도 시 CloudFront WAF가 차단함 (response 403). 실제 노출 없음으로 FP 처리. 단 CDN 우회 시 재현될 수 있어 재검 필요.</p>
+    </div>
+  </div>
+  <div class="drawer-footer">
+    <span style="color: var(--text-3); font-size: 12px;">의견이 갈렸음 — alice / bob 의견 동시에 보는 중. 추가 점검자 판정 시 latest-wins 룰로 split 갱신.</span>
+  </div>
+</aside>
+
+<script>
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g,
+      c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function decisionClass(d) {
+    if (!d) return 'deferred';
+    if (d.startsWith('accepted')) return 'accepted';
+    if (d.startsWith('rejected')) return 'rejected';
+    return 'deferred';
+  }
+
+  function openReportDrawer(reportId) {
+    const overlay = document.getElementById('drawerOverlay');
+    const panel = document.getElementById('drawerPanel');
+    const body = document.getElementById('drawerBody');
+    const footer = document.getElementById('drawerFooter');
+    const title = document.getElementById('drawerTitle');
+
+    title.textContent = 'Original report — ' + reportId;
+    body.innerHTML = '<div style="color: var(--text-3); font-size: 13px;">로딩 중…</div>';
+    footer.innerHTML = '';
+    overlay.classList.add('open');
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden', 'false');
+
+    fetch('raw-reports/' + reportId + '.json')
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(data => renderReport(data, reportId))
+      .catch(e => {
+        body.innerHTML = '<div class="drawer-error">⚠ raw-reports/' + esc(reportId) +
+          '.json 로드 실패: ' + esc(e.message) + '<br><br>로컬 서버(http://127.0.0.1:8770/) 환경에서 열어주세요.</div>';
+      });
+  }
+
+  function renderReport(d, reportId) {
+    const body = document.getElementById('drawerBody');
+    const footer = document.getElementById('drawerFooter');
+
+    const meta = `
+      <div class="drawer-section">
+        <h3>Report metadata</h3>
+        <div class="meta-grid">
+          <span class="k">report_id</span><span class="v mono">${esc(d.report_id)}</span>
+          <span class="k">scanner</span><span class="v mono">${esc(d.scanner)} · ${esc(d.scanner_version_sha || '')}</span>
+          <span class="k">scan_id</span><span class="v mono">${esc(d.scan_id)}</span>
+          <span class="k">target_root</span><span class="v mono">${esc(d.target_root || d.target_apk_path || d.target_subnet || '')}</span>
+          <span class="k">scan_profile</span><span class="v">${esc(d.scan_profile || '')}</span>
+          <span class="k">duration</span><span class="v">${esc(d.duration_seconds)} s (${esc(d.started_at)} → ${esc(d.completed_at)})</span>
+          <span class="k">uploader</span><span class="v"><strong>${esc(d.uploader && d.uploader.github)}</strong> at ${esc(d.uploader && d.uploader.uploaded_at)}</span>
+          <span class="k">curation passes</span><span class="v">${esc(d.uploader && d.uploader.curation_pass_count)}</span>
+        </div>
+      </div>`;
+
+    const curation = d.human_curation_notes ? `
+      <div class="drawer-section">
+        <h3>Human curation notes</h3>
+        <div class="curation-note">${esc(d.human_curation_notes)}</div>
+      </div>` : '';
+
+    const accepted = d.raw_findings.filter(f => decisionClass(f.curation_decision) === 'accepted').length;
+    const rejected = d.raw_findings.filter(f => decisionClass(f.curation_decision) === 'rejected').length;
+    const deferred = d.raw_findings.filter(f => decisionClass(f.curation_decision) === 'deferred').length;
+
+    const findingsHtml = d.raw_findings.map(f => {
+      const cls = decisionClass(f.curation_decision);
+      const sev = String(f.severity_estimate || '').toLowerCase();
+      return `
+        <div class="raw-item ${cls}">
+          <div class="raw-head">
+            <span class="raw-type">${esc(f.type)}</span>
+            <span class="raw-sev ${sev}">${esc(f.severity_estimate)}</span>
+            <span class="raw-conf">conf ${esc(f.ai_confidence)}</span>
+          </div>
+          <div class="raw-notes">${esc(f.ai_notes)}</div>
+          <div class="raw-decision ${cls}">${esc(f.curation_decision)}</div>
+        </div>`;
+    }).join('');
+
+    body.innerHTML = meta + curation + `
+      <div class="drawer-section">
+        <h3>Raw findings (${d.raw_findings.length}) — accepted ${accepted} · rejected ${rejected} · deferred ${deferred}</h3>
+        ${findingsHtml}
+      </div>`;
+
+    footer.innerHTML = `
+      <a href="raw-reports/${esc(reportId)}.json" target="_blank">📁 raw-reports/${esc(reportId)}.json</a>
+      <span style="color: var(--text-3); font-size: 12px; margin-left: auto;">esc / 바깥 클릭으로 닫기</span>`;
+  }
+
+  function closeReportDrawer() {
+    document.getElementById('drawerOverlay').classList.remove('open');
+    const p = document.getElementById('drawerPanel');
+    p.classList.remove('open');
+    p.setAttribute('aria-hidden', 'true');
+  }
+
+  function openTriageDrawer() {
+    document.getElementById('triageOverlay').classList.add('open');
+    const p = document.getElementById('triagePanel');
+    p.classList.add('open');
+    p.setAttribute('aria-hidden', 'false');
+  }
+  function closeTriageDrawer() {
+    document.getElementById('triageOverlay').classList.remove('open');
+    const p = document.getElementById('triagePanel');
+    p.classList.remove('open');
+    p.setAttribute('aria-hidden', 'true');
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeReportDrawer(); closeTriageDrawer(); }
+  });
+</script>
+</body>
+</html>

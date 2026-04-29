@@ -1,0 +1,14 @@
+{
+  "id": "FND-2026-04-29-A01",
+  "report_id": "RPT-2026-04-29-B",
+  "project": "mobile-app",
+  "domain": "android",
+  "category": "exposed-component-payment-bypass",
+  "severity": "high",
+  "title": "exposed-component-payment-bypass",
+  "agent": "android-scanner-v0.2",
+  "discovered_at": "2026-04-29T05:22:00Z",
+  "target": {},
+  "ai_confidence": 0.74,
+  "ai_rationale": "PaymentActivity exported=true + deeplink shopping://pay. amount 검증 없이 결제 호출. 0원 결제 트리거 PoC 성공."
+}

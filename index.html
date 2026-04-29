@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Triage Board</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="./config.js"></script>
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <aside class="sidebar">
+    <div class="ws"><div class="logo"></div> AI Triage</div>
+    <nav id="sidebarNav"></nav>
+    <div class="sidebar-foot">
+      <button id="refreshBtn" class="ghost-btn">↻ Refresh</button>
+      <button id="logoutBtn" class="ghost-btn">Forget token</button>
+    </div>
+  </aside>
+
+  <main>
+    <header class="top">
+      <div class="crumbs" id="crumbs">Workspace · <strong>AI Triage</strong></div>
+      <input class="search" id="searchInput" placeholder="Search by project, target, category…">
+      <span class="user-pill" id="userPill"></span>
+    </header>
+
+    <div class="banner" id="banner" hidden></div>
+
+    <section class="sub-header" id="subHeader">
+      <div class="sub-row-1">
+        <h1 class="h1" id="pageTitle">All findings</h1>
+        <div class="view-tabs" role="tablist" id="viewTabs">
+          <button class="view-tab active" data-view="findings"><span class="icon">▤</span>Findings <span class="tab-count" id="cnt-findings">0</span></button>
+          <button class="view-tab" data-view="reports"><span class="icon">⎙</span>Reports <span class="tab-count" id="cnt-reports">0</span></button>
+          <button class="view-tab" data-view="projects"><span class="icon">▢</span>Projects <span class="tab-count" id="cnt-projects">0</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="viewRoot"></section>
+  </main>
+
+</div>
+
+<!-- PAT auth modal -->
+<div class="modal-backdrop" id="authModal" hidden>
+  <div class="modal">
+    <h2>GitHub access token</h2>
+    <p class="muted">
+      이 보드는 브라우저에서 직접 GitHub Contents API를 호출합니다.
+      <strong>Fine-grained personal access token</strong> (repo <code>contents</code> read + write 권한)을 붙여넣어 주세요.
+      탭을 닫으면 자동으로 폐기됩니다 (sessionStorage).
+    </p>
+    <input type="password" id="patInput" placeholder="github_pat_… or ghp_…" autocomplete="off">
+    <div id="patError" class="error" hidden></div>
+    <div class="modal-foot">
+      <button id="patSubmit" class="primary-btn">Continue</button>
+    </div>
+    <p class="muted small">
+      현재 repo: <code id="cfgRepo"></code> · API: <code id="cfgApi"></code>
+    </p>
+  </div>
+</div>
+
+<!-- Triage opinions drawer -->
+<div class="drawer-overlay" id="triageOverlay"></div>
+<aside class="drawer-panel" id="triagePanel" role="dialog" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="triageTitle">Triage opinions</h2>
+    <button class="close" id="triageClose" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="triageBody"></div>
+  <div class="drawer-foot" id="triageFoot"></div>
+</aside>
+
+<script type="module" src="./src/app.js"></script>
+</body>
+</html>

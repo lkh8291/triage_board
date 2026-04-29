@@ -1,0 +1,14 @@
+{
+  "id": "FND-2026-04-29-A02",
+  "report_id": "RPT-2026-04-29-B",
+  "project": "mobile-app",
+  "domain": "android",
+  "category": "insecure-storage-plaintext-token",
+  "severity": "medium",
+  "title": "insecure-storage-plaintext-token",
+  "agent": "android-scanner-v0.2",
+  "discovered_at": "2026-04-29T05:22:00Z",
+  "target": {},
+  "ai_confidence": 0.88,
+  "ai_rationale": "auth_token이 SharedPreferences에 평문 저장. /data/data/com.example.shopping/shared_prefs/auth_prefs.xml에서 확인."
+}

@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Schema Review · Android Finding · FND-2026-04-29-A02</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --surface: #fff; --border: #e6e6e9; --border-strong: #d4d4d8;
+    --text: #0d0d10; --text-2: #6b7280; --text-3: #9ca3af;
+    --indigo: #5e6ad2; --indigo-soft: #eef0fb;
+    --crit: #e5484d; --high: #f76808; --med: #f5a524; --low: #8b8d98;
+    --android-green: #3ddc84;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: 'Inter',-apple-system,sans-serif; font-size: 14px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono','Fira Code',ui-monospace,monospace; }
+
+  header.top { background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 10px 24px; display: flex; align-items: center; gap: 16px; }
+  .crumbs { color: var(--text-2); font-size: 13px; }
+  .crumbs strong { color: var(--text); font-weight: 600; }
+  .crumbs .domain-pill {
+    background: rgba(61,220,132,0.15); color: #15803d;
+    padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600;
+    margin-left: 8px; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+
+  main { max-width: 1100px; margin: 24px auto; padding: 0 24px; display: grid;
+    grid-template-columns: 1fr 320px; gap: 24px; align-items: start; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 24px; margin-bottom: 16px; }
+  .card h2 { margin: 0 0 14px; font-size: 13px; font-weight: 600; color: var(--text-3);
+    text-transform: uppercase; letter-spacing: 0.08em; }
+  .card h2 .schema-key {
+    margin-left: 8px; font-family: 'JetBrains Mono',monospace;
+    color: var(--text-2); text-transform: none; letter-spacing: 0; font-weight: 400;
+    font-size: 11px;
+  }
+
+  .meta-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .id-block { font-family: 'JetBrains Mono',monospace; font-size: 14px; color: var(--text); font-weight: 500; }
+  .sev-pill { padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase; }
+  .sev-pill.high { background: rgba(247,104,8,0.12); color: var(--high); }
+  .cat-chip { background: var(--bg); border: 1px solid var(--border); padding: 2px 10px;
+    border-radius: 999px; font-size: 12px; color: var(--text-2); }
+
+  h1.headline { font-size: 22px; line-height: 1.3; font-weight: 600;
+    margin: 4px 0 16px; letter-spacing: -0.01em; }
+
+  .kv-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .kv-table th { text-align: left; padding: 6px 12px 6px 0; color: var(--text-3);
+    font-weight: 500; vertical-align: top; width: 200px;
+    font-family: 'JetBrains Mono',monospace; font-size: 12px; }
+  .kv-table td { padding: 6px 0; vertical-align: top; word-break: break-word; }
+  .kv-table td.mono { font-family: 'JetBrains Mono',monospace; font-size: 12.5px; color: var(--text); }
+  .kv-table td .null { color: var(--text-3); font-style: italic; }
+  .kv-table td .bool-true { color: var(--crit); font-weight: 500; }
+
+  pre.code { background: #fafafa; border: 1px solid var(--border); border-radius: 6px;
+    padding: 12px 14px; font-family: 'JetBrains Mono',monospace; font-size: 12px;
+    line-height: 1.6; overflow-x: auto; color: #1f2937; margin: 0; }
+
+  .ai-conf-bar { display: flex; align-items: center; gap: 10px; }
+  .ai-conf-bar .bar { flex: 1; max-width: 200px; height: 6px;
+    background: var(--border); border-radius: 3px; overflow: hidden; position: relative; }
+  .ai-conf-bar .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--indigo); }
+  .ai-conf-bar .num { font-family: 'JetBrains Mono',monospace; font-size: 16px;
+    font-weight: 600; color: var(--text); }
+
+  .triage-actions { display: flex; flex-direction: column; gap: 12px; padding: 16px 24px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 16px; }
+  .triage-row { display: flex; gap: 8px; align-items: center; }
+  .btn { padding: 7px 14px; border-radius: 6px; font-family: inherit; font-size: 13px;
+    font-weight: 500; cursor: pointer; border: 1px solid transparent; }
+  .btn.tp { background: #166534; color: #fff; border-color: #166534; }
+  .btn.fp { background: var(--surface); color: var(--text); border-color: var(--border); }
+  .btn.fp:hover { border-color: #b91c1c; color: #b91c1c; }
+  .btn.skip { background: transparent; color: var(--text-2); border-color: transparent; }
+  .triage-rationale { width: 100%; min-height: 56px; resize: vertical;
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px;
+    font-family: inherit; font-size: 13px; line-height: 1.55; color: var(--text);
+    background: var(--bg); }
+  .triage-rationale:focus { outline: none; border-color: var(--indigo);
+    background: var(--surface); }
+  .triage-count { margin-left: auto; color: var(--text-2); font-size: 12px; }
+  .triage-count a { color: var(--indigo); text-decoration: none; font-weight: 500; }
+  .triage-count a:hover { text-decoration: underline; }
+  .triage-count.empty { color: var(--text-3); }
+
+  .triage-opinion { padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px;
+    margin-bottom: 10px; }
+  .triage-opinion.tp { border-left: 3px solid #166534; }
+  .triage-opinion.fp { border-left: 3px solid #b91c1c; }
+  .opinion-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .opinion-av { width: 22px; height: 22px; border-radius: 50%; color: #fff;
+    font-size: 10px; font-weight: 600; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0; }
+  .opinion-av.alice { background: #ec4899; }
+  .opinion-av.bob { background: #06b6d4; }
+  .opinion-av.charlie { background: #84cc16; }
+  .opinion-name { font-weight: 600; color: var(--text); font-size: 13px; }
+  .verdict-badge { font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+  .verdict-badge.tp { background: #dcfce7; color: #166534; }
+  .verdict-badge.fp { background: #fee2e2; color: #991b1b; }
+  .opinion-ts { margin-left: auto; color: var(--text-3); font-size: 11px;
+    font-family: 'JetBrains Mono',monospace; }
+  .opinion-rationale { color: var(--text); font-size: 13px; line-height: 1.6;
+    margin: 0; }
+  .opinion-rationale.empty { color: var(--text-3); font-style: italic; }
+
+  aside .card { padding: 16px 18px; }
+  aside .card h2 { margin-bottom: 10px; }
+  aside .field { font-size: 13px; margin-bottom: 8px; }
+  aside .field .label { color: var(--text-3); display: block; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 2px; }
+  aside .field .value { color: var(--text); font-weight: 500; }
+  aside .field .value.mono { font-family: 'JetBrains Mono',monospace; font-weight: 400; font-size: 12px; }
+
+  .schema-note { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px;
+    padding: 10px 14px; font-size: 12px; color: #78350f; margin-bottom: 16px; }
+  .schema-note strong { color: #92400e; }
+
+  .summary-card p { margin: 0; line-height: 1.7; font-size: 14px; color: var(--text); }
+  .summary-card code { font-family: 'JetBrains Mono',monospace; font-size: 12.5px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+    padding: 1px 5px; color: var(--text); }
+
+  .if-block { background: #f9fafb; border-left: 3px solid var(--indigo); padding: 8px 12px;
+    margin: 10px 0; font-size: 12px; color: var(--text-2); border-radius: 0 4px 4px 0; }
+  .if-block strong { color: var(--text); }
+
+  .footer-note { color: var(--text-3); font-size: 11px; padding: 24px; text-align: center; }
+
+  /* report context banner */
+  .report-context { display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+    background: #fafafa; border: 1px solid var(--border); border-radius: 8px;
+    font-size: 13px; margin-bottom: 12px; flex-wrap: wrap; }
+  .report-context .ctx-label { color: var(--text-3); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  .report-context .ctx-id { font-family: 'JetBrains Mono',monospace; color: var(--text); font-weight: 500; }
+  .report-context .ctx-meta { color: var(--text-2); font-size: 12px; }
+  .report-context .ctx-spacer { margin-left: auto; }
+  .report-context button { padding: 6px 12px; border: 1px solid var(--indigo);
+    background: var(--surface); color: var(--indigo); border-radius: 6px;
+    font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px; }
+  .report-context button:hover { background: var(--indigo-soft); }
+
+  /* drawer */
+  .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+    opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100; }
+  .drawer-panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(720px, 95vw);
+    background: var(--surface); box-shadow: -8px 0 32px rgba(0,0,0,0.18);
+    transform: translateX(100%); transition: transform 0.25s; z-index: 101;
+    display: flex; flex-direction: column; }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer-panel.open { transform: translateX(0); }
+  .drawer-head { padding: 16px 24px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .drawer-head h2 { margin: 0; font-size: 16px; font-weight: 600; }
+  .drawer-head .close { margin-left: auto; background: transparent; border: 0;
+    cursor: pointer; font-size: 20px; color: var(--text-2); padding: 4px 8px;
+    border-radius: 4px; }
+  .drawer-head .close:hover { background: var(--bg); color: var(--text); }
+  .drawer-body { flex: 1; overflow-y: auto; padding: 16px 24px; }
+  .drawer-section { margin-bottom: 24px; }
+  .drawer-section h3 { margin: 0 0 8px; font-size: 12px; font-weight: 600;
+    color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .drawer-section .meta-grid { display: grid; grid-template-columns: 140px 1fr; gap: 4px 12px;
+    font-size: 13px; }
+  .drawer-section .meta-grid .k { color: var(--text-3); font-family: 'JetBrains Mono',monospace; font-size: 12px; }
+  .drawer-section .meta-grid .v { color: var(--text); }
+  .drawer-section .meta-grid .v.mono { font-family: 'JetBrains Mono',monospace; font-size: 12.5px; }
+  .curation-note { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px;
+    padding: 10px 12px; font-size: 13px; line-height: 1.55; color: #78350f; }
+  .raw-item { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+    margin-bottom: 8px; font-size: 13px; }
+  .raw-item.accepted { border-left: 3px solid #16a34a; }
+  .raw-item.rejected { border-left: 3px solid var(--crit); background: #fff7f7; }
+  .raw-item.deferred { border-left: 3px solid var(--med); background: #fffaf0; }
+  .raw-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+  .raw-type { font-family: 'JetBrains Mono',monospace; font-weight: 600; color: var(--text); }
+  .raw-sev { font-size: 11px; padding: 1px 6px; border-radius: 4px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.04em; }
+  .raw-sev.critical { background: rgba(229,72,77,0.12); color: var(--crit); }
+  .raw-sev.high { background: rgba(247,104,8,0.12); color: var(--high); }
+  .raw-sev.medium { background: rgba(245,165,36,0.16); color: #92400e; }
+  .raw-sev.low, .raw-sev.info { background: var(--bg); color: var(--low); }
+  .raw-conf { color: var(--text-2); font-size: 12px; font-family: 'JetBrains Mono',monospace; margin-left: auto; }
+  .raw-notes { color: var(--text-2); margin-bottom: 6px; line-height: 1.55; }
+  .raw-decision { font-size: 12px; padding: 4px 8px; border-radius: 4px; display: inline-block;
+    font-family: 'JetBrains Mono',monospace; }
+  .raw-decision.accepted { background: rgba(22,163,74,0.1); color: #15803d; }
+  .raw-decision.rejected { background: rgba(229,72,77,0.1); color: #991b1b; }
+  .raw-decision.deferred { background: rgba(245,165,36,0.18); color: #92400e; }
+  .drawer-footer { padding: 12px 24px; border-top: 1px solid var(--border); flex-shrink: 0;
+    display: flex; gap: 12px; align-items: center; }
+  .drawer-footer a { color: var(--indigo); text-decoration: none; font-size: 13px; font-family: 'JetBrains Mono',monospace; }
+  .drawer-footer a:hover { text-decoration: underline; }
+  .drawer-error { background: #fef2f2; border: 1px solid var(--crit); color: #7f1d1d;
+    padding: 12px; border-radius: 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="crumbs">org / <strong>triage-board</strong> / Findings / <strong>FND-2026-04-29-A02</strong>
+    <span class="domain-pill">ANDROID</span></div>
+</header>
+
+<main>
+
+  <div>
+
+    <div class="schema-note">
+      <strong>Schema review note</strong>: Android 도메인은 web과 다르게 <code>target.*</code>가 패키지·컴포넌트·intent-filter 구조이고, <code>evidence.*</code>가 manifest_excerpt + decompiled code + logcat + intent reproducer로 구성됩니다. 빠진 필드/추가 필드 의견 부탁드립니다.
+    </div>
+
+    <div class="card">
+      <div class="meta-row">
+        <span class="id-block">FND-2026-04-29-A02</span>
+        <span class="sev-pill high">HIGH</span>
+        <span class="cat-chip">exposed-component-payment-bypass</span>
+        <span class="cat-chip" style="color:#9ca3af">CWE-926</span>
+        <span class="cat-chip" style="color:#9ca3af">MSTG-PLATFORM-3</span>
+      </div>
+      <h1 class="headline">Exported PaymentActivity allows 0-amount payment bypass via deeplink</h1>
+      <div class="meta-row" style="color: var(--text-2); font-size: 12.5px;">
+        <span>found by <strong style="color:var(--text)">android-scanner-v0.2</strong></span>
+        <span>·</span>
+        <span>2026-04-29 05:22 UTC</span>
+        <span>·</span>
+        <span>report <span class="mono">RPT-2026-04-29-B</span></span>
+      </div>
+    </div>
+
+    <!-- SUMMARY CARD -->
+    <div class="card summary-card">
+      <h2>Summary</h2>
+      <p>본 취약점은 <code>PaymentActivity.kt</code>의 <code>onCreate()</code>에서 <code>amount</code> intent extra가 검증 없이 <code>processPayment()</code>로 전달되며 액티비티가 BROWSABLE 필터로 exported된 이유로 0원 결제 우회가 가능한 취약점입니다. 이로 인해 공격자는 별도 권한 없이, 피해자가 악성 <code>shopping://pay</code> 딥링크를 클릭할 경우 무결제 상품 수령 등의 금전 피해를 발생시킬 수 있습니다.</p>
+    </div>
+
+    <div class="report-context">
+      <span class="ctx-label">report:</span>
+      <span class="ctx-id">RPT-2026-04-29-B</span>
+      <span class="ctx-meta">1 other finding in this report · uploaded by alice · 3h ago · android-scanner-v0.2</span>
+      <span class="ctx-spacer"></span>
+      <button onclick="openReportDrawer('RPT-2026-04-29-B')">📄 View original report</button>
+    </div>
+
+    <div class="triage-actions">
+      <div class="triage-row">
+        <button class="btn tp">Mark True Positive</button>
+        <button class="btn fp">Mark False Positive</button>
+        <button class="btn skip">Need more info →</button>
+        <span class="triage-count empty">아직 트리아지 0건</span>
+      </div>
+      <textarea class="triage-rationale" placeholder="판정 근거 (선택) — 다른 점검자도 볼 수 있는 메모. TP/FP를 누르면 함께 기록됩니다."></textarea>
+    </div>
+
+    <div class="card">
+      <h2>Target — Android app context <span class="schema-key">target.*</span></h2>
+      <table class="kv-table">
+        <tr><th>package</th><td class="mono">com.example.shopping</td></tr>
+        <tr><th>version_name / version_code</th><td class="mono">3.4.1 (341)</td></tr>
+        <tr><th>build_type</th><td class="mono">release</td></tr>
+        <tr><th>min_sdk / target_sdk</th><td class="mono">24 / 34</td></tr>
+        <tr><th>component_type</th><td class="mono">activity</td></tr>
+        <tr><th>component_class</th><td class="mono">com.example.shopping.checkout.PaymentActivity</td></tr>
+        <tr><th>exported</th><td><span class="bool-true">⚠ true</span></td></tr>
+        <tr><th>permission_required</th><td><span class="null">null (보호 없음) ⚠</span></td></tr>
+        <tr><th>intent_filter.actions</th><td class="mono">[ android.intent.action.VIEW ]</td></tr>
+        <tr><th>intent_filter.categories</th><td class="mono">[ DEFAULT, BROWSABLE ]</td></tr>
+        <tr><th>intent_filter.data_scheme</th><td class="mono">shopping</td></tr>
+        <tr><th>intent_filter.data_host</th><td class="mono">pay</td></tr>
+        <tr><th>deeplink_example</th><td class="mono">shopping://pay?amount=0&item=xxx</td></tr>
+        <tr><th>apk_sha256</th><td class="mono" style="word-break: break-all;">9c1f5e...truncated...a3b7</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Evidence <span class="schema-key">evidence.*</span></h2>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">manifest_excerpt</div>
+        <pre class="code">&lt;activity
+    android:name=".checkout.PaymentActivity"
+    android:exported="true"
+    android:launchMode="singleTop"&gt;
+  &lt;intent-filter android:autoVerify="false"&gt;
+    &lt;action android:name="android.intent.action.VIEW"/&gt;
+    &lt;category android:name="android.intent.category.DEFAULT"/&gt;
+    &lt;category android:name="android.intent.category.BROWSABLE"/&gt;
+    &lt;data android:scheme="shopping" android:host="pay"/&gt;
+  &lt;/intent-filter&gt;
+&lt;/activity&gt;</pre>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">code_excerpt (decompiled)</div>
+        <pre class="code">// PaymentActivity.kt (decompiled)
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    val amount = intent.getStringExtra("amount")?.toLongOrNull() ?: 0L
+    val itemId = intent.getStringExtra("item")
+    // ⚠ amount 검증 없이 결제 흐름으로 진행
+    processPayment(amount, itemId)
+}</pre>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">logcat_excerpt</div>
+        <pre class="code">I/PaymentActivity: onCreate amount=0 item=xxx
+I/PaymentActivity: processPayment start
+I/PaymentService: charge_request amount=0 ok
+I/PaymentActivity: payment success</pre>
+      </div>
+
+      <div>
+        <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'JetBrains Mono',monospace;">intent_reproducer</div>
+        <pre class="code">adb shell am start -W \
+  -a android.intent.action.VIEW \
+  -d 'shopping://pay?amount=0&amp;item=xxx' \
+  com.example.shopping</pre>
+      </div>
+
+      <div class="if-block">
+        <strong>첨부</strong> · screenshot: evidence/FND-2026-04-29-A02-screen.png · video: evidence/FND-2026-04-29-A02-flow.mp4 (실제 보드는 인라인 미리보기 + 클릭 시 확대)
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>AI analysis <span class="schema-key">ai_*</span></h2>
+      <div style="margin-bottom: 12px;">
+        <div style="font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">ai_confidence</div>
+        <div class="ai-conf-bar">
+          <div class="bar"><i style="width:74%"></i></div>
+          <div class="num">0.74</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">ai_rationale</div>
+        <p style="margin: 0; line-height: 1.65;">PaymentActivity가 <code class="mono">exported=true</code>이고 deeplink (<code class="mono">shopping://pay</code>)로 외부 앱·브라우저가 호출 가능. amount 파라미터가 long 변환만 거치고 0 또는 음수에 대한 검증·서버 사이드 재검증 미확인. 0원 결제 트리거 후 logcat에서 'payment success' 확인. <strong>서버에서 final amount 재검증 여부는 별도 점검 필요</strong>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Remediation hint <span class="schema-key">remediation_hint</span></h2>
+      <ol style="margin: 0; padding-left: 20px; line-height: 1.65;">
+        <li>PaymentActivity <code class="mono">exported=false</code>로 변경, 또는 서명 권한(<code class="mono">protectionLevel="signature"</code>)으로 보호.</li>
+        <li>deeplink 진입 시 사용자 명시적 확인 단계 추가 (결제 금액 + "OK" 버튼).</li>
+        <li>서버 사이드에서 cart 기준 최종 amount 재검증 (클라이언트 입력값 신뢰 ❌).</li>
+      </ol>
+      <p style="margin: 12px 0 0; color: var(--text-2); font-size: 13px;"><strong>영향</strong>: 결제 모듈 전반.</p>
+    </div>
+
+  </div>
+
+  <aside>
+
+    <div class="card">
+      <h2>Classification</h2>
+      <div class="field"><span class="label">domain</span><span class="value">android</span></div>
+      <div class="field"><span class="label">category</span><span class="value mono">exposed-component-payment-bypass</span></div>
+      <div class="field"><span class="label">severity</span><span class="value" style="color: var(--high);">HIGH</span></div>
+      <div class="field"><span class="label">cwe</span><span class="value mono">CWE-926</span></div>
+      <div class="field"><span class="label">mstg_reference</span><span class="value">MSTG-PLATFORM-3</span></div>
+      <div class="field"><span class="label">cve</span><span class="value" style="color:var(--text-3); font-style:italic;">null</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Asset</h2>
+      <div class="field"><span class="label">project</span><span class="value mono">mobile-app</span></div>
+      <div class="field"><span class="label">scan target (package)</span><span class="value mono">com.example.shopping</span></div>
+      <div class="field"><span class="label">report_id</span><span class="value mono">RPT-2026-04-29-B</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Schema fields used</h2>
+      <ul style="margin: 0; padding-left: 16px; font-size: 12px; line-height: 1.7; color: var(--text-2); font-family: 'JetBrains Mono',monospace;">
+        <li>schema_version</li>
+        <li>id, report_id</li>
+        <li>domain, category, severity</li>
+        <li>project</li>
+        <li>agent, discovered_at</li>
+        <li>target.{package, version_name, version_code, build_type, min_sdk, target_sdk}</li>
+        <li>target.{component_type, component_class, exported, permission_required}</li>
+        <li>target.intent_filter.{actions, categories, data_scheme, data_host}</li>
+        <li>target.{deeplink_example, apk_sha256}</li>
+        <li>evidence.{manifest_excerpt, code_excerpt, logcat_excerpt, intent_reproducer, screenshot, video}</li>
+        <li>ai_confidence, ai_rationale</li>
+        <li>cwe, mstg_reference</li>
+        <li>remediation_hint</li>
+      </ul>
+    </div>
+
+  </aside>
+
+</main>
+
+<div class="footer-note">schema-review/android-finding.json + android-finding.html · 2026-04-29</div>
+
+<!-- ORIGINAL REPORT DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeReportDrawer()"></div>
+<aside class="drawer-panel" id="drawerPanel" role="dialog" aria-labelledby="drawerTitle" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="drawerTitle">Original report</h2>
+    <button class="close" onclick="closeReportDrawer()" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <div style="color: var(--text-3); font-size: 13px;">로딩 중…</div>
+  </div>
+  <div class="drawer-footer" id="drawerFooter"></div>
+</aside>
+
+<script>
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g,
+      c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function decisionClass(d) {
+    if (!d) return 'deferred';
+    if (d.startsWith('accepted')) return 'accepted';
+    if (d.startsWith('rejected')) return 'rejected';
+    return 'deferred';
+  }
+
+  function openReportDrawer(reportId) {
+    const overlay = document.getElementById('drawerOverlay');
+    const panel = document.getElementById('drawerPanel');
+    const body = document.getElementById('drawerBody');
+    const footer = document.getElementById('drawerFooter');
+    const title = document.getElementById('drawerTitle');
+
+    title.textContent = 'Original report — ' + reportId;
+    body.innerHTML = '<div style="color: var(--text-3); font-size: 13px;">로딩 중…</div>';
+    footer.innerHTML = '';
+    overlay.classList.add('open');
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden', 'false');
+
+    fetch('raw-reports/' + reportId + '.json')
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(data => renderReport(data, reportId))
+      .catch(e => {
+        body.innerHTML = '<div class="drawer-error">⚠ raw-reports/' + esc(reportId) +
+          '.json 로드 실패: ' + esc(e.message) + '<br><br>로컬 서버(http://127.0.0.1:8770/) 환경에서 열어주세요.</div>';
+      });
+  }
+
+  function renderReport(d, reportId) {
+    const body = document.getElementById('drawerBody');
+    const footer = document.getElementById('drawerFooter');
+
+    const meta = `
+      <div class="drawer-section">
+        <h3>Report metadata</h3>
+        <div class="meta-grid">
+          <span class="k">report_id</span><span class="v mono">${esc(d.report_id)}</span>
+          <span class="k">scanner</span><span class="v mono">${esc(d.scanner)} · ${esc(d.scanner_version_sha || '')}</span>
+          <span class="k">scan_id</span><span class="v mono">${esc(d.scan_id)}</span>
+          <span class="k">target_root</span><span class="v mono">${esc(d.target_root || d.target_apk_path || d.target_subnet || '')}</span>
+          <span class="k">scan_profile</span><span class="v">${esc(d.scan_profile || '')}</span>
+          <span class="k">duration</span><span class="v">${esc(d.duration_seconds)} s (${esc(d.started_at)} → ${esc(d.completed_at)})</span>
+          <span class="k">uploader</span><span class="v"><strong>${esc(d.uploader && d.uploader.github)}</strong> at ${esc(d.uploader && d.uploader.uploaded_at)}</span>
+          <span class="k">curation passes</span><span class="v">${esc(d.uploader && d.uploader.curation_pass_count)}</span>
+        </div>
+      </div>`;
+
+    const curation = d.human_curation_notes ? `
+      <div class="drawer-section">
+        <h3>Human curation notes</h3>
+        <div class="curation-note">${esc(d.human_curation_notes)}</div>
+      </div>` : '';
+
+    const accepted = d.raw_findings.filter(f => decisionClass(f.curation_decision) === 'accepted').length;
+    const rejected = d.raw_findings.filter(f => decisionClass(f.curation_decision) === 'rejected').length;
+    const deferred = d.raw_findings.filter(f => decisionClass(f.curation_decision) === 'deferred').length;
+
+    const findingsHtml = d.raw_findings.map(f => {
+      const cls = decisionClass(f.curation_decision);
+      const sev = String(f.severity_estimate || '').toLowerCase();
+      return `
+        <div class="raw-item ${cls}">
+          <div class="raw-head">
+            <span class="raw-type">${esc(f.type)}</span>
+            <span class="raw-sev ${sev}">${esc(f.severity_estimate)}</span>
+            <span class="raw-conf">conf ${esc(f.ai_confidence)}</span>
+          </div>
+          <div class="raw-notes">${esc(f.ai_notes)}</div>
+          <div class="raw-decision ${cls}">${esc(f.curation_decision)}</div>
+        </div>`;
+    }).join('');
+
+    body.innerHTML = meta + curation + `
+      <div class="drawer-section">
+        <h3>Raw findings (${d.raw_findings.length}) — accepted ${accepted} · rejected ${rejected} · deferred ${deferred}</h3>
+        ${findingsHtml}
+      </div>`;
+
+    footer.innerHTML = `
+      <a href="raw-reports/${esc(reportId)}.json" target="_blank">📁 raw-reports/${esc(reportId)}.json</a>
+      <span style="color: var(--text-3); font-size: 12px; margin-left: auto;">esc / 바깥 클릭으로 닫기</span>`;
+  }
+
+  function closeReportDrawer() {
+    document.getElementById('drawerOverlay').classList.remove('open');
+    const p = document.getElementById('drawerPanel');
+    p.classList.remove('open');
+    p.setAttribute('aria-hidden', 'true');
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeReportDrawer();
+  });
+</script>
+</body>
+</html>

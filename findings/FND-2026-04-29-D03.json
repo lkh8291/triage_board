@@ -1,0 +1,16 @@
+{
+  "id": "FND-2026-04-29-D03",
+  "report_id": "RPT-2026-04-29-C",
+  "project": "iot-camera",
+  "domain": "device",
+  "category": "exposed-coap",
+  "severity": "critical",
+  "title": "exposed-coap",
+  "agent": "device-scanner-v0.1",
+  "discovered_at": "2026-04-29T08:11:00Z",
+  "target": {
+    "port": 5683
+  },
+  "ai_confidence": 0.78,
+  "ai_rationale": "CoAP service 인증 없이 노출. EX-IOT-LITE 모델 firmware 1.4.2."
+}

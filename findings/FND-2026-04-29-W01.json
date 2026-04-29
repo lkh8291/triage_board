@@ -1,0 +1,18 @@
+{
+  "id": "FND-2026-04-29-W01",
+  "report_id": "RPT-2026-04-29-A",
+  "project": "ecom",
+  "domain": "web",
+  "category": "xss-reflected",
+  "severity": "high",
+  "title": "/api/users/profile?name=",
+  "agent": "ai-scanner-v0.3",
+  "discovered_at": "2026-04-29T03:14:00Z",
+  "target": {
+    "url": "/api/users/profile?name=",
+    "method": "GET",
+    "endpoint": "/api/users/profile?name="
+  },
+  "ai_confidence": 0.87,
+  "ai_rationale": "name 파라미터가 HTML에 unescaped로 반영. 인증 세션에서 1-shot 재현. CSP 미설정."
+}

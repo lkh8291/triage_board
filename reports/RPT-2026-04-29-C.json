@@ -1,0 +1,77 @@
+{
+  "_comment": "Device fleet 점검 raw 출력. nmap + credential test + firmware extract 결과 일괄.",
+  "report_id": "RPT-2026-04-29-C",
+  "project": "iot-camera",
+  "scanner": "device-scanner-v0.1",
+  "scanner_version_sha": "8e3d1f0",
+  "scan_id": "dev-scan-2026-04-29-0801",
+  "started_at": "2026-04-29T08:00:00Z",
+  "completed_at": "2026-04-29T08:11:00Z",
+  "duration_seconds": 660,
+  "target_subnet": "192.168.1.0/24",
+  "fleet_filter": "EX-CAM-2000 firmware 2.1.7",
+  "scan_profile": "active-network+credential-default-dictionary",
+  "uploader": {
+    "github": "bob",
+    "uploaded_at": "2026-04-29T08:25:00Z",
+    "curation_pass_count": 1
+  },
+  "human_curation_notes": "AI 5건 중 3건 등록. mdns-disclosure는 사내 정책상 internal-fleet에서 의도된 동작. ntp-amplification은 외부망 노출 가능성 있어 별도 critical batch로 빼서 처리.",
+  "raw_findings": [
+    {
+      "raw_idx": 0,
+      "type": "default-credential-telnet",
+      "severity_estimate": "critical",
+      "device_ip": "192.168.1.42",
+      "port": 23,
+      "ai_confidence": 0.96,
+      "ai_notes": "admin:admin → root shell. firmware 2.1.7 동일 모델 ~340대 영향 추정. /etc/shadow에서 default credential 하드코딩 확인.",
+      "curation_decision": "accepted → FND-2026-04-29-D03"
+    },
+    {
+      "raw_idx": 1,
+      "type": "verbose-banner",
+      "severity_estimate": "low",
+      "device_ip": "192.168.1.42",
+      "port": 23,
+      "ai_confidence": 0.54,
+      "ai_notes": "telnet banner에서 firmware 버전 노출. attacker가 vuln 조회 용이.",
+      "curation_decision": "accepted → FND-2026-04-29-D04 (low severity, 추가 컨텍스트로 등록)"
+    },
+    {
+      "raw_idx": 2,
+      "type": "exposed-coap",
+      "severity_estimate": "critical",
+      "device_ip": "192.168.1.55",
+      "port": 5683,
+      "ai_confidence": 0.78,
+      "ai_notes": "CoAP service 인증 없이 노출. EX-IOT-LITE 모델 firmware 1.4.2.",
+      "curation_decision": "accepted → FND-2026-04-29-D05"
+    },
+    {
+      "raw_idx": 3,
+      "type": "mdns-info-disclosure",
+      "severity_estimate": "low",
+      "device_ip": "192.168.1.42",
+      "port": 5353,
+      "ai_confidence": 0.42,
+      "ai_notes": "mDNS 응답에서 호스트네임·서비스 정보 노출.",
+      "curation_decision": "rejected — 사내 internal-fleet에서 의도된 service discovery."
+    },
+    {
+      "raw_idx": 4,
+      "type": "ntp-amplification-potential",
+      "severity_estimate": "high",
+      "device_ip": "192.168.1.42",
+      "port": 123,
+      "ai_confidence": 0.81,
+      "ai_notes": "NTP monlist 응답 가능성. amplification 공격 표적 위험.",
+      "curation_decision": "deferred → 외부망 노출 가능성 critical batch로 별도 처리"
+    }
+  ],
+  "sibling_finding_ids": [
+    "FND-2026-04-29-D03",
+    "FND-2026-04-29-D04",
+    "FND-2026-04-29-D05"
+  ]
+}

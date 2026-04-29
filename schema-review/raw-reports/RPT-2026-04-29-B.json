@@ -1,0 +1,86 @@
+{
+  "_comment": "Android 앱 정적+동적 분석 raw 출력. 점검자가 큐레이션 후 보드 등록.",
+
+  "report_id": "RPT-2026-04-29-B",
+  "project": "mobile-app",
+  "scanner": "android-scanner-v0.2",
+  "scanner_version_sha": "c2e1a78",
+  "scan_id": "and-scan-2026-04-29-0922",
+  "started_at": "2026-04-29T05:00:00Z",
+  "completed_at": "2026-04-29T05:22:00Z",
+  "duration_seconds": 1320,
+  "target_apk_path": "/builds/com.example.shopping-3.4.1-release.apk",
+  "target_apk_sha256": "9c1f5e...truncated...a3b7",
+  "scan_profile": "static+dynamic-emulator",
+  "emulator": "Pixel 6 API 34",
+
+  "uploader": {
+    "github": "alice",
+    "uploaded_at": "2026-04-29T05:35:00Z",
+    "curation_pass_count": 2
+  },
+
+  "human_curation_notes": "AI 6건 중 2건 정식 등록. nfc-permission-broad는 실제 NFC 카드 결제용으로 의도된 권한이라 FP 처리. obsolete-tls는 minSdk 24라 TLS 1.0 fallback이 시스템 차원에서 발생 안 함을 확인 후 제외. drawer-deeplink는 다른 점검 회차에서 이미 다뤘던 finding이라 중복 제외. cleartext-http는 검토 후 별도 batch로 미룸.",
+
+  "raw_findings": [
+    {
+      "raw_idx": 0,
+      "type": "exposed-component-payment-bypass",
+      "severity_estimate": "high",
+      "component": "com.example.shopping.checkout.PaymentActivity",
+      "ai_confidence": 0.74,
+      "ai_notes": "PaymentActivity exported=true + deeplink shopping://pay. amount 검증 없이 결제 호출. 0원 결제 트리거 PoC 성공.",
+      "curation_decision": "accepted → FND-2026-04-29-A02"
+    },
+    {
+      "raw_idx": 1,
+      "type": "insecure-storage-plaintext-token",
+      "severity_estimate": "medium",
+      "component": "SharedPreferences:auth_prefs",
+      "ai_confidence": 0.88,
+      "ai_notes": "auth_token이 SharedPreferences에 평문 저장. /data/data/com.example.shopping/shared_prefs/auth_prefs.xml에서 확인.",
+      "curation_decision": "accepted → FND-2026-04-29-A03"
+    },
+    {
+      "raw_idx": 2,
+      "type": "drawer-deeplink-takeover",
+      "severity_estimate": "medium",
+      "component": "MainActivity drawer://open",
+      "ai_confidence": 0.71,
+      "ai_notes": "drawer scheme이 다른 앱과 충돌 가능성. 이전 보고서에서 다뤄진 항목과 동일 패턴.",
+      "curation_decision": "rejected — 중복 (RPT-2026-03-15-X에서 이미 트리아지 완료, 결과 TP)"
+    },
+    {
+      "raw_idx": 3,
+      "type": "permission-nfc-broad",
+      "severity_estimate": "low",
+      "component": "AndroidManifest android.permission.NFC",
+      "ai_confidence": 0.55,
+      "ai_notes": "NFC 권한 over-grant 가능성.",
+      "curation_decision": "rejected — 의도된 권한 (NFC 카드 결제 기능). 점검자가 PM에게 확인."
+    },
+    {
+      "raw_idx": 4,
+      "type": "obsolete-tls",
+      "severity_estimate": "low",
+      "component": "OkHttpClient default config",
+      "ai_confidence": 0.60,
+      "ai_notes": "TLS 1.0 / 1.1 fallback 가능성.",
+      "curation_decision": "rejected — minSdk 24, Android 시스템 TLS는 1.2+ enforce. 실측 확인 완료."
+    },
+    {
+      "raw_idx": 5,
+      "type": "cleartext-http",
+      "severity_estimate": "medium",
+      "component": "AndroidManifest networkSecurityConfig",
+      "ai_confidence": 0.78,
+      "ai_notes": "networkSecurityConfig에서 일부 cleartext domain 허용.",
+      "curation_decision": "deferred → 별도 batch에서 통합 처리 예정"
+    }
+  ],
+
+  "sibling_finding_ids": [
+    "FND-2026-04-29-A02",
+    "FND-2026-04-29-A03"
+  ]
+}

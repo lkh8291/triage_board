@@ -1,0 +1,16 @@
+{
+  "id": "FND-2026-04-29-D02",
+  "report_id": "RPT-2026-04-29-C",
+  "project": "iot-camera",
+  "domain": "device",
+  "category": "verbose-banner",
+  "severity": "low",
+  "title": "verbose-banner",
+  "agent": "device-scanner-v0.1",
+  "discovered_at": "2026-04-29T08:11:00Z",
+  "target": {
+    "port": 23
+  },
+  "ai_confidence": 0.54,
+  "ai_rationale": "telnet banner에서 firmware 버전 노출. attacker가 vuln 조회 용이."
+}

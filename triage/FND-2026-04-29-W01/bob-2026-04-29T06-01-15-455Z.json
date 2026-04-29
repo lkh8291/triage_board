@@ -1,0 +1,7 @@
+{
+  "finding_id": "FND-2026-04-29-W01",
+  "verdict": "fp",
+  "reviewer": "bob",
+  "rationale": "staging 환경 한정. 운영(store.example.com) 직접 시도 시 CloudFront WAF가 차단함 (response 403). 실제 노출 없음으로 FP 처리. 단 CDN 우회 시 재현될 수 있어 재검 필요.",
+  "ts": "2026-04-29T06:01:15.455Z"
+}

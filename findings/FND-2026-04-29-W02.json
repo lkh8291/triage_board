@@ -1,0 +1,18 @@
+{
+  "id": "FND-2026-04-29-W02",
+  "report_id": "RPT-2026-04-29-A",
+  "project": "ecom",
+  "domain": "web",
+  "category": "idor",
+  "severity": "high",
+  "title": "/api/users/3127/orders",
+  "agent": "ai-scanner-v0.3",
+  "discovered_at": "2026-04-29T03:14:00Z",
+  "target": {
+    "url": "/api/users/3127/orders",
+    "method": "GET",
+    "endpoint": "/api/users/3127/orders"
+  },
+  "ai_confidence": 0.81,
+  "ai_rationale": "다른 user_id의 주문 목록 ownership check 없이 조회 가능. 테스트 user_id=2로 user_id=3127 조회 성공."
+}
