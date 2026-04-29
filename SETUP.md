@@ -76,16 +76,19 @@ GitHub 우측 상단 → Settings → Developer settings → Personal access tok
 ### 2e. 워크플로 시연
 
 ```bash
-# (1) raw-report 등록
-node scripts/upload-report.mjs schema-review/raw-reports/RPT-2026-04-29-A.json
-git add findings/ reports/
-git commit -m "report: RPT-2026-04-29-A (ecom)"
-git push
+# (1) 업로드 — 한 명령으로 GitHub repo에 single atomic commit
+#   (a) raw-report 파일 입력
+python3 scripts/upload_report.py schema-review/raw-reports/RPT-2026-04-29-A.json
+#   (b) 또는 finding 별 .json/.md 파일이 모인 디렉토리 입력
+python3 scripts/upload_report.py ./my-findings --project ecom
+# 토큰: GITHUB_TOKEN env var 또는 `gh auth token` 자동 사용
 
-# (2) 보드 새로고침 → finding 카드 보임
+# (2) 보드 새로고침 (수동 git commit/push 불필요) → finding 카드 보임
 # (3) finding 행 클릭 → 상세 진입 → rationale 적고 [Mark TP] / [Mark FP]
 # (4) 우측 사이드바 ↻ Refresh → 다른 점검자도 같은 결과를 봄
 ```
+
+> 디렉토리 모드 markdown 형식: 파일 상단 `---` 사이에 `severity: high`, `domain: web`, `category: …` 같은 flat YAML key:value 메타데이터, 그 아래는 자유 형식 본문 (자동으로 `summary` 필드에 들어감). frontmatter 없으면 첫 헤더가 title.
 
 git log로 audit log 확인:
 

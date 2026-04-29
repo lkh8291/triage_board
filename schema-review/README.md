@@ -21,14 +21,14 @@
 
 업로드 의미론:
 - raw-report JSON에 `project` 필드 명시 (예: `"project": "ecom"`)
-- `scripts/upload-report.mjs`가 입력값을 **`normalizeProject()`로 정규화**한 뒤 finding으로 상속 — `"Ecom"`, `" ECOM "`, `"e-com"` 같은 이형 입력을 같은 slug로 수렴
+- `scripts/upload_report.py`가 입력값을 **`normalizeProject()`로 정규화**한 뒤 finding으로 상속 — `"Ecom"`, `" ECOM "`, `"e-com"` 같은 이형 입력을 같은 slug로 수렴
 - 같은 정규화된 `project` slug가 이미 존재하면 → 기존 project에 finding append
 - 존재하지 않으면 → 신규 project로 자동 생성 (별도 manifest 등록 불필요, 첫 등장이 곧 생성)
 - 한 project는 여러 도메인·여러 스캔 대상(host/package/fleet)을 포함 가능 (예: `ecom`이 `store.example.com` + `checkout.example.com` 둘 다 커버)
 
 ### Project 이름 정규화 규칙
 
-`scripts/upload-report.mjs`의 `normalizeProject(name)`:
+`scripts/upload_report.py`의 `normalize_project(name)` (브라우저 SPA `src/util.js`의 `normalizeProject`와 byte-for-byte 동일):
 
 1. NFKC 유니코드 정규화 (전각/반각·합자 통합)
 2. lowercase + trim
@@ -119,7 +119,7 @@ AI scanner raw output (full)
        │
        ▼ 사람 선별 (curation_decision: accepted | rejected | deferred)
        │
-       ▼ scripts/upload-report.mjs
+       ▼ scripts/upload_report.py
        │
        ├─ findings/FND-*.json  ← accepted only
        └─ raw-reports/RPT-*.json ← 전체 raw (rejected/deferred 포함)

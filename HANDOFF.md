@@ -21,7 +21,7 @@
 - ✅ Project 모델 (site+product → 단일 project, normalize)
 - ✅ 다중 의견 drawer (rationale + verdict + ts)
 - ✅ Search by project / target / category
-- ✅ `scripts/upload-report.mjs` — raw-report 분해, project 정규화, FND 자동 ID
+- ✅ `scripts/upload_report.py` — 파일/디렉토리 입력 자동 감지, project 정규화, FND 자동 ID, single atomic commit으로 GitHub 직접 push (gh CLI / GITHUB_TOKEN 자동)
 
 **다음**: SETUP.md 따라 셋업 → 채택 게이트 4개 통과 확인.
 
@@ -58,7 +58,7 @@
 | 4 | 데이터 전달 | **100% client-side rendering** — `git/trees` + batch fetch + 30초 polling |
 | 5 | Scale | v1: ~2000 finding ceiling. 초과 시 v1.5 sharding |
 | 6 | Schema 검증 | strict at write (브라우저 + CLI), CI 안전망 |
-| 7 | Upload | v1: **사람 선별 + scripts/upload-report.mjs CLI** / v2: AI 자동 |
+| 7 | Upload | v1: **사람 선별 + scripts/upload_report.py CLI** / v2: AI 자동 |
 | 8 | Repo | **GHES private repo** (운영) + github.com personal (개발) |
 | 9 | SPA 스택 | **Preact + Vite + TSX** (~12KB 번들) |
 | 10 | DRY | `/schemas/` 단일 SoT, SPA + CLI 양쪽 ajv 검증 |

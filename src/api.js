@@ -59,7 +59,7 @@ export async function getJson(path) {
 
 // PUT /repos/{repo}/contents/{path} → create-or-update a single file (a single commit).
 // For triage writes (one file each), this is plenty atomic. For multi-file uploads,
-// scripts/upload-report.mjs should switch to git/blobs+trees+commits (see HANDOFF Decision #12).
+// scripts/upload_report.py uses git/blobs+trees+commits for atomic multi-file upload (HANDOFF Decision #12).
 export async function putJson(path, data, { sha, message } = {}) {
   const text = JSON.stringify(data, null, 2);
   // utf-8 → base64

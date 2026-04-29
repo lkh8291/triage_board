@@ -22,7 +22,7 @@ export function el(tag, attrs = {}, ...children) {
   return node;
 }
 
-// Project name normalization — must match scripts/normalize.mjs.
+// Project name normalization — must match scripts/upload_report.py:normalize_project.
 // "Ecom", " ECOM ", "e-com" → "ecom". Unicode letters are preserved.
 export function normalizeProject(name) {
   if (typeof name !== 'string') throw new TypeError('project must be a string');

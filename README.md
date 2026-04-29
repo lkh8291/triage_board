@@ -17,8 +17,7 @@ python3 -m http.server 8080
 |---|---|
 | `index.html`, `assets/`, `src/` | 정적 SPA (vanilla JS + ES modules, 빌드 단계 없음) |
 | `config.js` | apiBase / repo / branch 설정. PAT는 여기 두지 않음 |
-| `scripts/upload-report.mjs` | raw-report → findings + reports 분해, project 정규화 |
-| `scripts/normalize.mjs` | project 이름 정규화 함수 (브라우저 SPA와 byte-for-byte 동일) |
+| `scripts/upload_report.py` | 입력 = raw-report 파일 또는 finding-per-file 디렉토리 → findings + reports로 분해, project 정규화, single atomic commit으로 GitHub에 push |
 | `findings/FND-*.json` | 큐레이션 통과한 개별 finding (immutable) |
 | `triage/{fid}/{user}-{ts}.json` | TP/FP 판정 + rationale (append-only, 충돌 0) |
 | `reports/RPT-*.json` | 업로드된 raw scanner 리포트 (audit trail) |
