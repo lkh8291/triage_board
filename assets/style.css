@@ -100,14 +100,21 @@ header.top {
 /* ===== Findings table ===== */
 .table-head, .row {
   display: grid;
-  grid-template-columns: 24px 80px 80px 170px 1fr 90px 80px 80px;
-  gap: 12px; padding: 10px 24px; align-items: center;
+  /* dot · sev · domain · category · target (flex) · reviewers · status — AI conf removed */
+  grid-template-columns: 18px 56px 56px 120px 1fr 64px 56px;
+  gap: 10px; padding: 10px 20px; align-items: center;
   border-bottom: 1px solid var(--border);
 }
+/* fixed-width columns are center-aligned; the target stays left-aligned for readability */
+.table-head > *,
+.row > * { text-align: center; }
+.table-head > *:nth-child(5),
+.row > *:nth-child(5) { text-align: left; }
+.row .reviewers { justify-content: center; }
 .table-head { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); font-weight: 600; }
 .row { cursor: pointer; font-size: 13.5px; color: inherit; font-weight: 450; }
 .row:hover { background: var(--bg); }
-.dot { width: 8px; height: 8px; border-radius: 50%; margin-left: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; margin: 0 auto; }
 .dot.crit { background: var(--crit); box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.15); }
 .dot.high { background: var(--high); }
 .dot.med  { background: var(--med); }
@@ -136,10 +143,6 @@ header.top {
   color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .target strong { color: var(--text); font-weight: 600; }
-.conf { font-variant-numeric: tabular-nums; color: var(--text-2); font-size: 12px; }
-.conf-bar { display: inline-block; width: 36px; height: 4px; background: var(--border); border-radius: 2px;
-  vertical-align: middle; margin-right: 6px; position: relative; overflow: hidden; }
-.conf-bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--indigo); }
 .reviewers { display: flex; }
 .av-sm {
   width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--surface);

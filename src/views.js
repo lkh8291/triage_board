@@ -157,7 +157,7 @@ function appendFindingsTable(findings, state, root, onPick, onRefresh) {
   const head = el('div', { class: 'table-head' },
     el('span', {}), el('span', {}, 'Sev'), el('span', {}, 'Domain'),
     el('span', {}, 'Category'), el('span', {}, 'Target'),
-    el('span', {}, 'AI conf'), el('span', {}, 'Reviewers'), el('span', {}, 'Status')
+    el('span', {}, 'Reviewers'), el('span', {}, 'Status')
   );
   root.appendChild(head);
 
@@ -174,11 +174,7 @@ function appendFindingsTable(findings, state, root, onPick, onRefresh) {
       el('span', {}, el('span', { class: `domain-tag ${f.domain || ''}` }, (f.domain || '').toUpperCase())),
       el('span', {}, el('span', { class: 'cat-chip', title: f.category || '' }, f.category || '')),
       el('span', { class: 'target' }, targetLabel(f)),
-      el('span', { class: 'conf' },
-        el('span', { class: 'conf-bar' }, el('i', { style: `width:${Math.round((f.ai_confidence || 0) * 100)}%` })),
-        (f.ai_confidence != null ? f.ai_confidence.toFixed(2) : '—')
-      ),
-      el('span', { class: 'reviewers' }, ...cons.reviewers.map(opinionAvatar)),
+      el('span', { class: 'reviewers' }, ...cons.reviewers.map(avatarFor)),
       statusTag(cons.status),
     );
     root.appendChild(row);
