@@ -318,6 +318,8 @@ aside.detail-sidebar .field .value.mono { font-family: 'JetBrains Mono', monospa
 .btn.fp.active { background: #b91c1c; color: #fff; border-color: #b91c1c; }
 .btn.tp.active:hover { background: #15532b; color: #fff; }
 .btn.fp.active:hover { background: #991b1b; color: #fff; }
+.btn.note { background: transparent; color: var(--text-2); border-color: var(--border); font-weight: 500; }
+.btn.note:hover:not(:disabled) { color: var(--indigo); border-color: var(--indigo); }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .triage-rationale {
   width: 100%; min-height: 56px; resize: vertical;

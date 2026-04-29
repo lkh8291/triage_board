@@ -2,9 +2,9 @@
 // state and is rebuilt on every render — the page is small enough that we don't
 // need diff-based updates yet.
 
-import { el, esc, timeAgo, severityRank } from './util.js';
-import { consensusFor } from './aggregator.js';
-import { commitUrl } from './api.js';
+import { el, esc, timeAgo, severityRank } from './util.js?v=202604291117';
+import { consensusFor } from './aggregator.js?v=202604291117';
+import { commitUrl } from './api.js?v=202604291117';
 
 // ============== pagination + search state (module-local) ==============
 //
@@ -318,14 +318,18 @@ export function renderFindingDetail(state, root, fid, handlers) {
 
   // Triage actions — buttons start neutral; the user's own latest verdict
   // shows as the filled (active) button so they always see what they decided.
+  // The rationale textarea can be saved standalone via "Save note" (or Ctrl/Cmd+Enter)
+  // after a verdict has been recorded, so users can elaborate after-the-fact
+  // without re-clicking TP/FP.
   const myLatest = latestOpinionByUser(opinions, handlers.currentUser);
   const myVerdict = myLatest?.verdict;
+  const initialRationale = myLatest?.rationale || '';
 
   const rationale = el('textarea', {
     class: 'triage-rationale',
-    placeholder: '판정 근거 (선택) — 다른 점검자도 볼 수 있는 메모. TP/FP를 누르면 함께 기록됩니다.',
+    placeholder: '판정 근거 (선택) — TP/FP를 누르면 함께 기록됩니다. 나중에 메모만 추가/수정하려면 "Save note" 또는 Ctrl/⌘+Enter.',
   });
-  if (myLatest?.rationale) rationale.value = myLatest.rationale;
+  rationale.value = initialRationale;
 
   const tpBtn = el('button', {
     class: 'btn tp' + (myVerdict === 'tp' ? ' active' : ''),
@@ -337,6 +341,31 @@ export function renderFindingDetail(state, root, fid, handlers) {
     onclick: () => handlers.onTriage(f.id, 'fp', rationale.value),
   }, myVerdict === 'fp' ? '✓ False Positive' : 'Mark False Positive');
 
+  // Save-note button: writes a new triage entry under the current verdict with
+  // just the updated rationale. Disabled until a verdict exists AND the textarea
+  // differs from what's already saved.
+  const noteBtn = el('button', {
+    class: 'btn note',
+    title: myVerdict ? '메모만 갱신 (현재 판정 유지)' : 'TP / FP를 먼저 선택해주세요',
+    onclick: () => {
+      if (!myVerdict || rationale.value === initialRationale) return;
+      handlers.onTriage(f.id, myVerdict, rationale.value);
+    },
+  }, 'Save note');
+  noteBtn.disabled = !myVerdict || rationale.value === initialRationale;
+
+  rationale.addEventListener('input', () => {
+    noteBtn.disabled = !myVerdict || rationale.value === initialRationale;
+  });
+  rationale.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      if (myVerdict && rationale.value !== initialRationale) {
+        handlers.onTriage(f.id, myVerdict, rationale.value);
+      }
+    }
+  });
+
   const countEl = hasOpinions
     ? el('span', { class: 'triage-count' },
         `${cons.opinions.length}명 트리아지함 (${cons.status}) · `,
@@ -345,7 +374,7 @@ export function renderFindingDetail(state, root, fid, handlers) {
     : el('span', { class: 'triage-count empty' }, '아직 트리아지 0건');
 
   const triageCard = el('div', { class: 'triage-actions' },
-    el('div', { class: 'triage-row' }, tpBtn, fpBtn, countEl),
+    el('div', { class: 'triage-row' }, tpBtn, fpBtn, noteBtn, countEl),
     rationale
   );
   main.appendChild(triageCard);
