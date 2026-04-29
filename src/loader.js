@@ -1,10 +1,14 @@
-// One-shot loader. Calls git/trees once to learn every path in the repo,
-// then batch-fetches the JSON for findings/, triage/, reports/ in parallel.
+// One-shot loader. Calls git/trees once to learn every path in the repo.
+// Findings: prefer findings/index.json (one file, shallow metadata); the per-finding
+// detail JSON is fetched lazily when the user opens a card. Falls back to legacy
+// per-file fetch when the index is absent.
+// Triage + reports: parallel per-file fetch (small enough for now).
 // 30s polling (HANDOFF Phase 5) plugs in here once we want auto-refresh.
 
 import { getTree, getJson } from './api.js';
 
-const FINDING_RE  = /^findings\/[^/]+\.json$/;
+const FINDING_RE  = /^findings\/(?!index\.json$)[^/]+\.json$/;
+const INDEX_PATH  = 'findings/index.json';
 const TRIAGE_RE   = /^triage\/([^/]+)\/[^/]+\.json$/;
 const REPORT_RE   = /^reports\/[^/]+\.json$/;
 
@@ -13,18 +17,28 @@ export async function loadAll() {
   const findingPaths = [];
   const triagePaths  = [];
   const reportPaths  = [];
+  let hasIndex = false;
   for (const t of tree) {
     if (t.type !== 'blob') continue;
-    if (FINDING_RE.test(t.path)) findingPaths.push(t.path);
+    if (t.path === INDEX_PATH) hasIndex = true;
+    else if (FINDING_RE.test(t.path)) findingPaths.push(t.path);
     else if (TRIAGE_RE.test(t.path)) triagePaths.push(t.path);
     else if (REPORT_RE.test(t.path)) reportPaths.push(t.path);
   }
 
-  // settle even when some files fail — we'd rather show a partial board than nothing
-  const findings = (await Promise.allSettled(findingPaths.map(p => getJson(p))))
-    .map((r, i) => r.status === 'fulfilled' ? { ...r.value.json, _path: findingPaths[i] }
-                                              : { _error: r.reason?.message, _path: findingPaths[i] })
-    .filter(f => !f._error);
+  let findings;
+  if (hasIndex) {
+    // Single fetch — no rate-limit risk regardless of finding count.
+    // _shallow flag tells the detail view to lazy-fetch the full JSON.
+    const { json } = await getJson(INDEX_PATH);
+    findings = (json.findings || []).map(f => ({ ...f, _shallow: true }));
+  } else {
+    // Legacy fallback: parallel per-file fetch. Rate-limited above ~1k findings.
+    findings = (await Promise.allSettled(findingPaths.map(p => getJson(p))))
+      .map((r, i) => r.status === 'fulfilled' ? { ...r.value.json, _path: findingPaths[i] }
+                                                : { _error: r.reason?.message, _path: findingPaths[i] })
+      .filter(f => !f._error);
+  }
 
   const triageRaws = await Promise.allSettled(triagePaths.map(p => getJson(p)));
   const triage = {};                       // { findingId: [opinion, ...] }

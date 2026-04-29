@@ -8,6 +8,34 @@ import { commitUrl } from './api.js';
 
 const SEV_ORDER = ['critical', 'high', 'medium', 'low'];
 
+// ============== pagination + search state (module-local) ==============
+//
+// Listing tables (All findings / Project drill-down / Report drill-down) share
+// page state — fine because changing the source list clamps _page on render.
+// _query lives here so app.js doesn't need to thread it through every call.
+
+const PAGE_SIZE_OPTIONS = [25, 50, 100, 200];
+const DEFAULT_PAGE_SIZE = 50;
+const PAGE_SIZE_KEY = 'triage-board:page-size';
+
+function clampPageSize(n) { return PAGE_SIZE_OPTIONS.includes(+n) ? +n : DEFAULT_PAGE_SIZE; }
+
+let _pageSize = clampPageSize(+localStorage.getItem(PAGE_SIZE_KEY) || DEFAULT_PAGE_SIZE);
+let _page = 1;
+let _query = '';
+
+export function setPageSize(n) {
+  _pageSize = clampPageSize(n);
+  localStorage.setItem(PAGE_SIZE_KEY, String(_pageSize));
+  _page = 1;
+}
+export function setPage(n) { _page = Math.max(1, +n || 1); }
+export function setSearchQuery(q) {
+  const next = (q || '').trim().toLowerCase();
+  if (next !== _query) _page = 1;
+  _query = next;
+}
+
 // ============== shared bits ==============
 
 function avatarFor(login) {
@@ -89,14 +117,16 @@ export function renderTabCounts(state) {
 
 // ============== Findings list ==============
 
-export function renderFindingsList(state, root, onPick) {
+export function renderFindingsList(state, root, onPick, onRefresh) {
   root.innerHTML = '';
-  appendFindingsTable(state.findings, state, root, onPick);
+  appendFindingsTable(state.findings, state, root, onPick, onRefresh);
 }
 
 // Reusable rows builder. Used both by the top-level Findings view and by the
-// drill-down pages (report / project).
-function appendFindingsTable(findings, state, root, onPick) {
+// drill-down pages (report / project). Filters by the current search query and
+// renders only the active page; pagination controls under the table call
+// onRefresh() to re-render after page/size changes.
+function appendFindingsTable(findings, state, root, onPick, onRefresh) {
   if (!findings.length) {
     root.appendChild(el('div', { class: 'empty-state' },
       el('h3', {}, '아직 finding이 없습니다.'),
@@ -104,6 +134,26 @@ function appendFindingsTable(findings, state, root, onPick) {
     ));
     return;
   }
+
+  const sorted = [...findings].sort((a, b) =>
+    (severityRank(b.severity) - severityRank(a.severity)) ||
+    String(a.id).localeCompare(String(b.id))
+  );
+  const filtered = _query ? sorted.filter(f => findingMatchesQuery(f, _query)) : sorted;
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / _pageSize));
+  if (_page > totalPages) _page = totalPages;
+  const startIdx = (_page - 1) * _pageSize;
+  const pageRows = filtered.slice(startIdx, startIdx + _pageSize);
+
+  if (!filtered.length) {
+    root.appendChild(el('div', { class: 'empty-state' },
+      el('h3', {}, `검색 결과 없음`),
+      el('p', {}, `"${_query}" 와 일치하는 finding이 없습니다.`)
+    ));
+    return;
+  }
+
   const head = el('div', { class: 'table-head' },
     el('span', {}), el('span', {}, 'Sev'), el('span', {}, 'Domain'),
     el('span', {}, 'Category'), el('span', {}, 'Target'),
@@ -111,12 +161,7 @@ function appendFindingsTable(findings, state, root, onPick) {
   );
   root.appendChild(head);
 
-  const sorted = [...findings].sort((a, b) =>
-    (severityRank(b.severity) - severityRank(a.severity)) ||
-    String(a.id).localeCompare(String(b.id))
-  );
-
-  for (const f of sorted) {
+  for (const f of pageRows) {
     const cons = consensusFor(state.triage[f.id] || []);
     const row = el('a', {
       class: 'row',
@@ -138,6 +183,68 @@ function appendFindingsTable(findings, state, root, onPick) {
     );
     root.appendChild(row);
   }
+
+  root.appendChild(paginationBar({
+    page: _page,
+    totalPages,
+    pageSize: _pageSize,
+    totalItems: filtered.length,
+    sourceTotal: findings.length,
+    query: _query,
+    onRefresh: onRefresh || (() => {}),
+  }));
+}
+
+function findingMatchesQuery(f, q) {
+  if (!q) return true;
+  // Cheap field-by-field test; avoids JSON.stringify on hot path.
+  const t = f.target || {};
+  const haystack = [
+    f.id, f.project, f.domain, f.category, f.severity, f.title,
+    f.cwe, f.cve, f.report_id,
+    t.url, t.endpoint, t.method, t.package, t.component_class,
+    t.device_model, t.ip, t.service,
+  ];
+  for (const v of haystack) {
+    if (v != null && String(v).toLowerCase().includes(q)) return true;
+  }
+  return false;
+}
+
+function paginationBar({ page, totalPages, pageSize, totalItems, sourceTotal, query, onRefresh }) {
+  const select = el('select', { class: 'page-size-select',
+    onchange: (e) => { setPageSize(e.target.value); onRefresh(); }
+  });
+  for (const n of PAGE_SIZE_OPTIONS) {
+    const opt = el('option', { value: String(n) }, String(n));
+    if (n === pageSize) opt.selected = true;
+    select.appendChild(opt);
+  }
+
+  const prev = el('button', {
+    class: 'page-btn',
+    onclick: () => { if (page > 1) { setPage(page - 1); onRefresh(); } },
+  }, '← Prev');
+  if (page <= 1) prev.disabled = true;
+
+  const next = el('button', {
+    class: 'page-btn',
+    onclick: () => { if (page < totalPages) { setPage(page + 1); onRefresh(); } },
+  }, 'Next →');
+  if (page >= totalPages) next.disabled = true;
+
+  const filteredNote = query && totalItems !== sourceTotal
+    ? ` (filtered from ${sourceTotal.toLocaleString()})`
+    : '';
+
+  return el('div', { class: 'pagination' },
+    prev,
+    el('span', { class: 'page-info' }, 'Page ', el('strong', {}, String(page)), ` / ${totalPages}`),
+    next,
+    el('span', { class: 'page-spacer' }),
+    el('span', { class: 'page-meta' }, `${totalItems.toLocaleString()} results${filteredNote}`),
+    el('label', { class: 'page-size' }, 'Rows: ', select),
+  );
 }
 
 function safeHost(url) {
@@ -390,7 +497,7 @@ export function renderReports(state, root) {
 }
 
 // Drill-down: header strip with report meta, then the full triage table for findings in this report.
-export function renderReportDetail(state, root, reportId, onPick) {
+export function renderReportDetail(state, root, reportId, onPick, onRefresh) {
   const r = state.reports.find(x => x.report_id === reportId);
   root.innerHTML = '';
   if (!r) {
@@ -411,7 +518,7 @@ export function renderReportDetail(state, root, reportId, onPick) {
       r.completed_at && el('span', {}, timeAgo(r.completed_at))
     )
   ));
-  appendFindingsTable(findings, state, root, onPick);
+  appendFindingsTable(findings, state, root, onPick, onRefresh);
 }
 
 function sevRow(counts, total, triaged) {
@@ -478,7 +585,7 @@ export function renderProjects(state, root) {
   root.appendChild(list);
 }
 
-export function renderProjectDetail(state, root, projectId, onPick) {
+export function renderProjectDetail(state, root, projectId, onPick, onRefresh) {
   const findings = state.findings.filter(f => f.project === projectId);
   root.innerHTML = '';
   if (!findings.length) {
@@ -496,21 +603,18 @@ export function renderProjectDetail(state, root, projectId, onPick) {
       el('span', {}, `${triagedCount} triaged`)
     )
   ));
-  appendFindingsTable(findings, state, root, onPick);
+  appendFindingsTable(findings, state, root, onPick, onRefresh);
 }
 
 // ============== Search filter ==============
+//
+// Stores the query in module state and lets the caller re-run the current
+// route (so the filter applies pre-pagination across all matching rows,
+// not just the rows already in the DOM).
 
-export function applySearchFilter(query) {
-  const q = (query || '').trim().toLowerCase();
-  const active = document.querySelector('section#viewRoot');
-  if (!active) return;
-  for (const item of active.querySelectorAll('.row, .group-card')) {
-    if (!q) { item.style.display = ''; continue; }
-    const project = (item.dataset.project || '').toLowerCase();
-    const text = item.textContent.toLowerCase();
-    item.style.display = (project.includes(q) || text.includes(q)) ? '' : 'none';
-  }
+export function applySearchFilter(query, onRefresh) {
+  setSearchQuery(query);
+  if (onRefresh) onRefresh();
 }
 
 // ============== Banner (errors / status) ==============

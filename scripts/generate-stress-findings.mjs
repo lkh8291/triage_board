@@ -7,6 +7,7 @@
 import { writeFileSync, mkdirSync, readdirSync, unlinkSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -141,6 +142,15 @@ function purgeStress() {
     }
     console.log(`  purged ${n} stress files from ${dir}/`);
   }
+  rebuildIndex();
+}
+
+function rebuildIndex() {
+  const r = spawnSync('node', [resolve(REPO_ROOT, 'scripts', 'build-findings-index.mjs')],
+                     { stdio: 'inherit' });
+  if (r.status !== 0) {
+    console.warn('! index rebuild failed — run scripts/build-findings-index.mjs manually');
+  }
 }
 
 function main() {
@@ -199,6 +209,7 @@ function main() {
   }
 
   console.log(`\nTotal: ${totalFindings} findings across ${PROJECTS.length} projects.`);
+  rebuildIndex();
 }
 
 main();

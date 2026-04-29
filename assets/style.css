@@ -399,3 +399,28 @@ aside.detail-sidebar .field .value.mono { font-family: 'JetBrains Mono', monospa
 }
 .muted { color: var(--text-2); }
 .muted.small { font-size: 11px; }
+
+/* Pagination bar — sits under findings tables */
+.pagination {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 12px; padding: 10px 4px;
+  border-top: 1px solid var(--border);
+  font-size: 13px; color: var(--text-2);
+}
+.pagination .page-spacer { flex: 1; }
+.pagination .page-btn {
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 5px 12px; font-size: 13px; cursor: pointer;
+}
+.pagination .page-btn:hover:not(:disabled) { background: var(--bg); border-color: var(--border-strong); }
+.pagination .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pagination .page-info { color: var(--text-2); }
+.pagination .page-info strong { color: var(--text); font-weight: 600; }
+.pagination .page-meta { color: var(--text-3); font-size: 12px; }
+.pagination .page-size { display: inline-flex; align-items: center; gap: 6px; }
+.pagination .page-size-select {
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 4px 6px; font-size: 12px;
+}

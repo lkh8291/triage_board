@@ -150,6 +150,14 @@ class GitHubAPI:
                          {"message": message, "tree": tree_sha, "parents": [parent_sha]})
     def update_ref(self, sha):
         return self._req("PATCH", f"/git/refs/heads/{self.branch}", {"sha": sha})
+    def get_contents(self, path):
+        # Returns None on 404 (file doesn't exist yet) — caller falls back.
+        try:
+            return self._req("GET", f"/contents/{path}?ref={self.branch}")
+        except SystemExit as e:
+            if " 404" in str(e):
+                return None
+            raise
 
 
 # ============== domain inference + finding builders ==============
@@ -441,6 +449,67 @@ def parse_dir(path: Path, project_override):
     }
 
 
+# ============== findings index ==============
+# The SPA loads findings/index.json at boot to avoid N parallel /contents fetches.
+# Whenever we push new findings, we fold their shallow metadata into the index
+# in the same atomic commit so the SPA never sees a stale index.
+
+INDEX_PATH = "findings/index.json"
+SHALLOW_TARGET_KEYS = ("url", "method", "endpoint", "package", "component_class",
+                       "device_model", "ip", "port", "service")
+SHALLOW_FINDING_KEYS = ("id", "report_id", "project", "domain", "severity",
+                        "category", "title", "agent", "discovered_at",
+                        "ai_confidence", "cwe", "cve")
+
+def shallow_finding(f: dict, path: str) -> dict:
+    out = {k: f[k] for k in SHALLOW_FINDING_KEYS if f.get(k) is not None}
+    t = f.get("target") or {}
+    if isinstance(t, dict):
+        st = {k: t[k] for k in SHALLOW_TARGET_KEYS if t.get(k) is not None}
+        if st:
+            out["target"] = st
+    out["_path"] = path
+    return out
+
+def build_index_update(api, files):
+    """Returns updated index.json content (str) merging existing remote index
+    with the findings being uploaded. Falls back to None if no remote index
+    and we can't safely reconstruct it locally — caller should warn."""
+    # Pull existing remote index. Single API call; tiny vs per-finding fetch.
+    new_entries = {}
+    for path, content in files:
+        if not path.startswith("findings/") or path == INDEX_PATH:
+            continue
+        try:
+            obj = json.loads(content)
+        except json.JSONDecodeError:
+            continue
+        if obj.get("id"):
+            new_entries[obj["id"]] = shallow_finding(obj, path)
+    if not new_entries:
+        return None  # nothing to merge
+
+    existing = []
+    remote = api.get_contents(INDEX_PATH)
+    if remote and remote.get("content"):
+        try:
+            decoded = base64.b64decode(remote["content"]).decode("utf-8")
+            existing = (json.loads(decoded).get("findings") or [])
+        except Exception as e:
+            print(f"  ! existing index parse failed: {e} — rebuilding from local only")
+
+    merged = {f["id"]: f for f in existing if f.get("id")}
+    merged.update(new_entries)            # new wins on collision
+    findings_sorted = sorted(merged.values(), key=lambda f: str(f.get("id") or ""))
+    doc = {
+        "schema_version": 1,
+        "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "count": len(findings_sorted),
+        "findings": findings_sorted,
+    }
+    return json.dumps(doc, ensure_ascii=False) + "\n"
+
+
 # ============== output ==============
 
 def push_atomic(api: GitHubAPI, files, message):
@@ -528,6 +597,15 @@ def main():
         print(f"\n--local mode: writing to working tree")
         write_local(result["files"], args.dry_run)
         if not args.dry_run:
+            # Rebuild the local index by scanning findings/ on disk — same source
+            # of truth as scripts/build-findings-index.mjs uses.
+            try:
+                subprocess.run(
+                    ["node", str(REPO_ROOT / "scripts" / "build-findings-index.mjs")],
+                    check=True, cwd=REPO_ROOT,
+                )
+            except (subprocess.CalledProcessError, FileNotFoundError) as e:
+                print(f"  ! could not rebuild index ({e}) — run scripts/build-findings-index.mjs manually")
             print("\nNext: git add findings/ reports/ && git commit && git push")
         return
 
@@ -545,6 +623,16 @@ def main():
 
     print(f"\npushing to {repo}@{branch} via {api_base}")
     api = GitHubAPI(api_base, repo, branch, token)
+
+    # Fold the new findings into findings/index.json in the same commit so the SPA
+    # never reads a stale index. Best-effort — if remote index is missing, the
+    # generated entry only covers the new findings; user should run
+    # scripts/build-findings-index.mjs once locally to rebuild from full history.
+    index_content = build_index_update(api, result["files"])
+    if index_content:
+        result["files"].append((INDEX_PATH, index_content))
+        print(f"  + {INDEX_PATH} (merged with remote)")
+
     commit = push_atomic(api, result["files"], message)
     web_base = web_url_from_api_base(api_base, repo)
     print(f"\n✓ pushed: {web_base}/commit/{commit['sha']}")
