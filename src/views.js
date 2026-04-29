@@ -6,8 +6,6 @@ import { el, esc, timeAgo, severityRank } from './util.js';
 import { consensusFor } from './aggregator.js';
 import { commitUrl } from './api.js';
 
-const SEV_ORDER = ['critical', 'high', 'medium', 'low'];
-
 // ============== pagination + search state (module-local) ==============
 //
 // Listing tables (All findings / Project drill-down / Report drill-down) share
@@ -58,12 +56,6 @@ function opinionAvatar(login) {
 
 function severityPill(sev) {
   return el('span', { class: `sev-pill ${sev || 'low'}` }, sev || 'low');
-}
-
-function severityCounts(findings) {
-  const c = { critical: 0, high: 0, medium: 0, low: 0 };
-  for (const f of findings) c[f.severity] = (c[f.severity] || 0) + 1;
-  return c;
 }
 
 function statusTag(status) {
@@ -465,8 +457,6 @@ export function renderReports(state, root) {
   const sorted = [...state.reports].sort((a, b) => String(b.completed_at || '').localeCompare(String(a.completed_at || '')));
   for (const r of sorted) {
     const findings = state.findings.filter(f => f.report_id === r.report_id);
-    const counts = severityCounts(findings);
-    const triagedCount = findings.filter(f => consensusFor(state.triage[f.id] || []).status !== 'pending').length;
     list.appendChild(el('article', {
       class: 'group-card',
       data: { project: r.project || '' },
@@ -485,7 +475,7 @@ export function renderReports(state, root) {
         )
       ),
       el('div', { class: 'gc-body' },
-        sevRow(counts, findings.length, triagedCount)
+        progressRow(state, findings)
       )
     ));
   }
@@ -517,24 +507,54 @@ export function renderReportDetail(state, root, reportId, onPick, onRefresh) {
   appendFindingsTable(findings, state, root, onPick, onRefresh);
 }
 
-function sevRow(counts, total, triaged) {
-  const total_ = Math.max(total, 1);
-  const bar = el('div', { class: 'sev-bar' });
-  for (const k of SEV_ORDER) {
-    if (counts[k]) bar.appendChild(el('i', { class: k, style: `width:${(counts[k] / total_) * 100}%` }));
+// Triage-progress chart for Reports/Projects card body. Severity is intentionally
+// not represented here (low confidence in scanner severity). Layout is V6 from
+// design-alternatives/chart-variants.html with two refinements:
+//   - "(n of m)" small text next to the % triaged
+//   - reviewer avatar pile pinned to the right
+function progressRow(state, scopeFindings) {
+  const total = scopeFindings.length;
+  let tp = 0, fp = 0, split = 0;
+  const reviewers = new Set();
+  for (const f of scopeFindings) {
+    const cons = consensusFor(state.triage[f.id] || []);
+    if      (cons.status === 'tp')    tp++;
+    else if (cons.status === 'fp')    fp++;
+    else if (cons.status === 'split') split++;
+    for (const r of cons.reviewers) reviewers.add(r);
   }
-  const counts_ = el('div', { class: 'sev-counts' });
-  for (const k of SEV_ORDER) {
-    if (counts[k]) counts_.appendChild(el('span', { class: `sev-count ${k}` }, el('span', { class: 'd' }), String(counts[k])));
-  }
-  return el('div', { class: 'gc-row-2' },
-    bar,
-    counts_,
-    el('div', { class: 'progress' }, el('i', { style: `width:${(triaged / total_) * 100}%` })),
-    el('div', { class: 'triage-text' }, `${triaged} / ${total} triaged`),
-    el('div', { class: 'gc-stat' },
-      el('div', { class: 'num' }, String(total)),
-      el('div', { class: 'label' }, total === 1 ? 'finding' : 'findings'))
+  const triaged = tp + fp + split;
+  const pending = total - triaged;
+  const pct = total > 0 ? Math.round((triaged / total) * 100) : 0;
+  const resolved = total > 0 && pending === 0;
+  const reviewersList = [...reviewers];
+
+  const secondary = el('div', { class: 'progress-secondary' });
+  if (tp)      secondary.appendChild(el('span', { class: 'p-tp' },      `● ${tp} TP`));
+  if (fp)      secondary.appendChild(el('span', { class: 'p-fp' },      `● ${fp} FP`));
+  if (split)   secondary.appendChild(el('span', { class: 'p-split' },   `● ${split} split`));
+  if (pending) secondary.appendChild(el('span', { class: 'p-pending' }, `● ${pending} pending`));
+
+  const pile = el('div', { class: 'progress-reviewers' });
+  for (const r of reviewersList.slice(0, 4)) pile.appendChild(avatarFor(r));
+  if (reviewersList.length > 4)
+    pile.appendChild(el('span', { class: 'av-sm x', title: `+${reviewersList.length - 4} more` }, `+${reviewersList.length - 4}`));
+  if (reviewersList.length === 0)
+    pile.appendChild(el('span', { class: 'no-reviewers' }, 'no reviewer'));
+
+  return el('div', { class: 'progress-row' },
+    el('div', { class: 'progress-label' },
+      el('div', { class: 'pct-line' + (resolved ? ' resolved' : '') },
+        el('span', { class: 'pct' }, `${pct}%`),
+        el('span', { class: 'of' }, `(${triaged} of ${total})`)
+      ),
+      el('div', { class: 'sub' }, resolved ? 'resolved' : 'triaged')
+    ),
+    el('div', { class: 'progress-bar-wrap' },
+      el('div', { class: 'progress-bar' }, el('i', { style: `width:${pct}%` })),
+      secondary
+    ),
+    pile
   );
 }
 
@@ -560,8 +580,6 @@ export function renderProjects(state, root) {
   }
   const list = el('div', { class: 'group-list' });
   for (const p of projects) {
-    const counts = severityCounts(p.findings);
-    const triagedCount = p.findings.filter(f => consensusFor(state.triage[f.id] || []).status !== 'pending').length;
     list.appendChild(el('article', {
       class: 'group-card',
       data: { project: p.id },
@@ -574,7 +592,7 @@ export function renderProjects(state, root) {
         ),
       ),
       el('div', { class: 'gc-body' },
-        sevRow(counts, p.findings.length, triagedCount)
+        progressRow(state, p.findings)
       )
     ));
   }

@@ -203,26 +203,41 @@ header.top {
 
 .gc-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);
   display: flex; flex-direction: column; gap: 10px; }
-.gc-row-2 { display: flex; gap: 16px; align-items: center; color: var(--text-2); font-size: 12px; flex-wrap: wrap; }
-.sev-bar { flex: 1; display: flex; height: 6px; border-radius: 3px; overflow: hidden;
-  background: var(--border); min-width: 200px; }
-.sev-bar i { display: block; height: 100%; }
-.sev-bar i.crit { background: var(--crit); }
-.sev-bar i.high { background: var(--high); }
-.sev-bar i.med  { background: var(--med); }
-.sev-bar i.low  { background: var(--low); }
-.sev-counts { display: flex; gap: 12px; }
-.sev-count { display: inline-flex; align-items: center; gap: 4px; font-size: 12px;
-  color: var(--text-2); font-variant-numeric: tabular-nums; }
-.sev-count .d { width: 6px; height: 6px; border-radius: 50%; }
-.sev-count.crit .d { background: var(--crit); }
-.sev-count.high .d { background: var(--high); }
-.sev-count.med  .d { background: var(--med); }
-.sev-count.low  .d { background: var(--low); }
-.progress { flex: 1; height: 4px; background: var(--border); border-radius: 2px;
-  overflow: hidden; position: relative; max-width: 200px; }
-.progress i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--green); }
-.triage-text { font-variant-numeric: tabular-nums; min-width: 70px; }
+/* Triage-progress row (Reports/Projects card body) */
+.progress-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+.progress-label { display: flex; flex-direction: column; min-width: 130px; flex-shrink: 0; }
+.progress-label .pct-line {
+  display: flex; align-items: baseline; gap: 6px;
+  font-family: 'JetBrains Mono', monospace; line-height: 1.1;
+}
+.progress-label .pct-line .pct { font-size: 18px; font-weight: 700; color: var(--text); }
+.progress-label .pct-line.resolved .pct { color: var(--green); }
+.progress-label .pct-line .of { font-size: 11px; color: var(--text-3); font-weight: 400; }
+.progress-label .sub {
+  font-size: 11px; color: var(--text-3); text-transform: uppercase;
+  letter-spacing: 0.06em; margin-top: 2px;
+}
+
+.progress-bar-wrap { flex: 1; min-width: 200px; max-width: 360px;
+  display: flex; flex-direction: column; gap: 6px; }
+.progress-bar { height: 6px; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 3px; overflow: hidden; }
+.progress-bar i { display: block; height: 100%;
+  background: linear-gradient(90deg, var(--green), #16a34a); transition: width 0.2s; }
+.progress-secondary {
+  display: flex; gap: 10px; font-size: 11.5px; color: var(--text-2); flex-wrap: wrap;
+  font-variant-numeric: tabular-nums;
+}
+.progress-secondary .p-tp      { color: var(--green); }
+.progress-secondary .p-fp      { color: #b91c1c; }
+.progress-secondary .p-split   { color: #d97706; }
+.progress-secondary .p-pending { color: var(--text-3); }
+
+.progress-reviewers { display: flex; align-items: center; margin-left: auto; flex-shrink: 0; }
+.progress-reviewers .no-reviewers {
+  color: var(--text-3); font-size: 11.5px; font-style: italic;
+}
 
 /* ===== Finding detail page ===== */
 .detail-wrap { max-width: 1100px; margin: 24px auto; padding: 0 24px;
