@@ -5,6 +5,7 @@
 import { el, esc, timeAgo, severityRank } from './util.js?v=202604291117';
 import { consensusFor } from './aggregator.js?v=202604291117';
 import { commitUrl } from './api.js?v=202604291117';
+import { buildExport, triggerDownload, verdictCounts } from './export.js?v=202604291117';
 
 // ============== pagination + search state (module-local) ==============
 //
@@ -536,18 +537,132 @@ export function renderReportDetail(state, root, reportId, onPick, onRefresh) {
   const findings = state.findings.filter(f => f.report_id === reportId);
   const triagedCount = findings.filter(f => consensusFor(state.triage[f.id] || []).status !== 'pending').length;
 
-  root.appendChild(el('div', { class: 'detail-strip' },
+  const strip = el('div', { class: 'detail-strip' },
     el('span', { class: 'ds-title' }, r.target_root || r.target_apk_path || r.target_subnet || r.report_id),
     el('span', { class: 'ds-id' }, r.report_id),
     r.project && el('span', { class: 'proj-chip' }, r.project),
-    el('span', { class: 'ds-meta ds-spacer' },
+    el('span', { class: 'ds-meta' },
       el('span', {}, `${findings.length} findings`),
       el('span', {}, `${triagedCount} triaged`),
       r.scanner && el('span', {}, r.scanner),
       r.completed_at && el('span', {}, timeAgo(r.completed_at))
     )
-  ));
+  );
+  strip.appendChild(buildExportMenu({
+    scopeFindings: findings,
+    triage: state.triage,
+    scopeMeta: { type: 'report', id: r.report_id, project: r.project, scanner: r.scanner },
+    login: state.login,
+  }));
+  root.appendChild(strip);
   appendFindingsTable(findings, state, root, onPick, onRefresh);
+}
+
+// ============== Export menu (drill-down strip) ==============
+
+const EXPORT_FILTERS = [
+  { key: 'all',     label: 'All findings' },
+  { key: 'tp',      label: 'True Positive only' },
+  { key: 'fp',      label: 'False Positive only' },
+  { key: 'split',   label: 'Split disagreement' },
+  { key: 'pending', label: 'Pending only' },
+];
+
+let _exportTeardown = null;   // most recent close handler — used so a second
+                              // open() automatically closes the previous menu.
+
+function buildExportMenu({ scopeFindings, triage, scopeMeta, login }) {
+  const counts = verdictCounts(scopeFindings, triage);
+
+  // Wrap the trigger button + popover so the menu can position itself relative
+  // to the wrapper without disturbing the strip's flex layout.
+  const wrap = el('div', { class: 'detail-strip-actions' });
+  const btn = el('button', { class: 'export-btn', type: 'button' }, '⬇ Export ▾');
+  wrap.appendChild(btn);
+
+  let menu = null;     // lazily built on first open
+  let format = 'markdown';
+  let onDocClick = null;
+  let onKey = null;
+
+  function close() {
+    if (!menu) return;
+    menu.remove();
+    menu = null;
+    btn.classList.remove('open');
+    document.removeEventListener('mousedown', onDocClick, true);
+    document.removeEventListener('keydown', onKey);
+    onDocClick = null;
+    onKey = null;
+    _exportTeardown = null;
+  }
+
+  function buildMenuDom() {
+    const items = EXPORT_FILTERS.map(({ key, label }) => {
+      const n = counts[key] ?? 0;
+      const item = el('button', {
+        class: 'export-menu-item',
+        type: 'button',
+        'data-filter': key,
+        title: n === 0 ? '0 matching findings' : `${n} matching findings`,
+      },
+        el('span', { class: 'em-label' }, label),
+        el('span', { class: 'em-count' }, String(n)),
+      );
+      if (n === 0) item.disabled = true;
+      item.addEventListener('click', () => {
+        if (item.disabled) return;
+        const out = buildExport({
+          scopeFindings, triage, scopeMeta,
+          filter: key, format, login,
+        });
+        triggerDownload(out.content, out.filename, out.mime);
+        close();
+      });
+      return item;
+    });
+
+    const fmtRadios = ['markdown', 'json'].map(f => {
+      const id = `em-fmt-${f}-${Math.random().toString(36).slice(2, 8)}`;
+      const input = el('input', { type: 'radio', name: 'em-format', id, value: f });
+      if (f === format) input.checked = true;
+      input.addEventListener('change', () => { if (input.checked) format = f; });
+      return el('label', { class: 'em-fmt-opt', for: id },
+        input,
+        el('span', {}, f === 'markdown' ? 'Markdown' : 'JSON')
+      );
+    });
+
+    return el('div', { class: 'export-menu', role: 'menu' },
+      el('div', { class: 'em-section-label' }, 'Format'),
+      el('div', { class: 'em-fmt-row' }, ...fmtRadios),
+      el('div', { class: 'em-divider' }),
+      ...items,
+      el('div', { class: 'em-foot' }, 'Esc to close'),
+    );
+  }
+
+  function open() {
+    if (menu) return;
+    if (_exportTeardown) _exportTeardown();   // close any sibling menu first
+    menu = buildMenuDom();
+    wrap.appendChild(menu);
+    btn.classList.add('open');
+
+    onDocClick = (e) => { if (!wrap.contains(e.target)) close(); };
+    onKey = (e) => { if (e.key === 'Escape') close(); };
+    // mousedown(capture) so we close before the click resolves into another action.
+    document.addEventListener('mousedown', onDocClick, true);
+    document.addEventListener('keydown', onKey);
+    _exportTeardown = close;
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu ? close() : open();
+  });
+
+  return wrap;
 }
 
 // Triage-progress chart for Reports/Projects card body. Severity is intentionally
@@ -669,14 +784,21 @@ export function renderProjectDetail(state, root, projectId, onPick, onRefresh) {
   const reports = new Set(findings.map(f => f.report_id).filter(Boolean));
   const triagedCount = findings.filter(f => consensusFor(state.triage[f.id] || []).status !== 'pending').length;
 
-  root.appendChild(el('div', { class: 'detail-strip' },
+  const strip = el('div', { class: 'detail-strip' },
     el('span', { class: 'ds-title' }, `Project: ${projectId}`),
-    el('span', { class: 'ds-meta ds-spacer' },
+    el('span', { class: 'ds-meta' },
       el('span', {}, `${reports.size} ${reports.size === 1 ? 'report' : 'reports'}`),
       el('span', {}, `${findings.length} findings`),
       el('span', {}, `${triagedCount} triaged`)
     )
-  ));
+  );
+  strip.appendChild(buildExportMenu({
+    scopeFindings: findings,
+    triage: state.triage,
+    scopeMeta: { type: 'project', id: projectId },
+    login: state.login,
+  }));
+  root.appendChild(strip);
   appendFindingsTable(findings, state, root, onPick, onRefresh);
 }
 
